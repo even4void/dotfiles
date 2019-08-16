@@ -1,0 +1,6 @@
+[mypy]
+python_version = 3.7
+platform = darwin
+ignore_missing_imports = True
+show_column_numbers = True
+follow_imports_for_stubs = True

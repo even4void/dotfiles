@@ -1,0 +1,6 @@
+* TODO Install & configure [2/3]
+- [X] racket + geiser
+- [ ] check JS config
+- [X] check clj config
+* TODO Write custom documentation
+* TODO Revise personal keybindings (GUI/CLI)
