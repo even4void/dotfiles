@@ -1,5 +1,10 @@
 set -x EDITOR nvim
 
+# basedir defaults (at least, some of them)
+# http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+set -x XDG_DATA_HOME "/Users/chl/.local/share"
+set -x XDG_CONFIG_HOME "/Users/chl/.config"
+
 set -x HOMEBREW_GITHUB_API_TOKEN '90ca58618d8e91ee87329213679cf1d1a05efb3e'
 
 set -x PATH '/Users/chl/.config/bin' $PATH

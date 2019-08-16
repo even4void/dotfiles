@@ -1,4 +1,4 @@
-function stata_help
-    links https://www.stata.com/help.cgi\?"${1}"
+function stata_help -d "Print inline help for a Stata command"
+    links https://www.stata.com/help.cgi\?"$argv"
 end
 

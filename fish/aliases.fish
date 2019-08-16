@@ -7,11 +7,12 @@ alias e 'emacs -nw'
 alias ec="emacsclient"
 alias eq="emacs -nw -Q"
 
-alias j jobs
+alias j 'jobs -l'
 alias l ls
 alias ll 'ls -la'
 alias ls 'ls -FG'
 alias md 'mkdir -p'
+abbr -a -- - 'cd -'
 
 alias ccat 'pygmentize -g'
 
@@ -24,6 +25,8 @@ alias g git
 alias cx 'chmod +x'
 alias h heroku
 alias gg 'git show | tig'
+alias perms="stat -c '%A %a %n'"
+alias mkhttp "python3 -m http.server"
 
 alias inbox='mbsync -a && mu index -m "~/.mail"'
 alias bioawk='~/git/sandbox/bioawk/bioawk'
