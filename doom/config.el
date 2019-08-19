@@ -7,11 +7,11 @@
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org")
 
-(if (display-graphic-p)
-    ;; Use a patched font for GUI mode so that we get Iosevka ligatures that we have
-    ;; free when using iTerm.
-    (setq doom-font (font-spec :family "Iosevka" :size 14)
-          doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
+;; (if (display-graphic-p)
+;;     ;; Use a patched font for GUI mode so that we get Iosevka ligatures that we have
+;;     ;; free when using iTerm.
+;;     (setq doom-font (font-spec :family "Iosevka" :size 14)
+;;           doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
 
 (load! "+bindings")
 
