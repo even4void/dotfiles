@@ -7,11 +7,11 @@
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org")
 
-;; (if (display-graphic-p)
-;;     ;; Use a patched font for GUI mode so that we get Iosevka ligatures that we have
-;;     ;; free when using iTerm.
-;;     (setq doom-font (font-spec :family "Iosevka" :size 14)
-;;           doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
+(if (display-graphic-p)
+    ;; Use a patched font for GUI mode so that we get Iosevka ligatures that we have
+    ;; free when using iTerm.
+    (setq doom-font (font-spec :family "Iosevka" :size 14)
+          doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
 
 (load! "+bindings")
 
@@ -93,6 +93,10 @@
   :info-list-face 'flycheck-info-list-error)
 
 (setq flycheck-indication-mode 'right-fringe)
+
+;; (setq whitespace-style '(trailing lines space-before-tab
+;;                          indentation space-after-tab))
+;; (setq whitespace-line-column 80)
 
 ;; ---------------------------------------------------------------------------
 ;; packages
@@ -410,6 +414,7 @@
 ;; -- lisp -------------------------------------------------------------------
 (setq inferior-lisp-program "ccl64")
 (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
+(setq geiser-active-implementations '(chez chicken mit))
 
 (after! cider
   (setq cider-eldoc-display-context-dependent-info t))
