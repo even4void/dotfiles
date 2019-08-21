@@ -6,6 +6,7 @@ set -x XDG_DATA_HOME "/Users/chl/.local/share"
 set -x XDG_CONFIG_HOME "/Users/chl/.config"
 
 set -x PATH '/Users/chl/.config/bin' $PATH
+set -x PATH '/Users/chl/.local/bin' $PATH
 set -x PATH '/Users/chl/.emacs.d/bin' $PATH
 set -x PATH '/Users/chl/.cargo/bin' $PATH
 set -x PATH '/usr/local/opt/sqlite/bin' $PATH
