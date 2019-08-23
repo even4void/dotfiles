@@ -413,8 +413,12 @@
 
 ;; -- lisp -------------------------------------------------------------------
 (setq inferior-lisp-program "ccl64")
+
 (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
 (setq geiser-active-implementations '(chez chicken mit))
 
 (after! cider
   (setq cider-eldoc-display-context-dependent-info t))
+
+(after! haskell
+  (add-hook 'haskell-mode-hook #'hindent-mode))

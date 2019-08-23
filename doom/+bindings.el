@@ -23,6 +23,8 @@
  "s-v" #'yank
  "s-s" #'save-buffer
  "s-a" #'mark-whole-buffer
+ "s-i" #'markdown-insert-italic
+ "s-b" #'markdown-insert-bold
 
  (:after helpful
    (:map helpful-mode-map
