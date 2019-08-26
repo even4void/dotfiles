@@ -94,6 +94,9 @@
 
 (setq flycheck-indication-mode 'right-fringe)
 
+;; (setq undo-tree-visualizer-timestamps t)
+;; (setq undo-tree-visualizer-diff t)
+
 ;; (setq whitespace-style '(trailing lines space-before-tab
 ;;                          indentation space-after-tab))
 ;; (setq whitespace-line-column 80)

@@ -1,0 +1,45 @@
+[user]
+	name = chl
+	email = chl@aliquote.org
+	signingkey = 152E3E3F7C4CCE44
+[credential]
+	helper = osxkeychain
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[core]
+	excludesfile = /Users/chl/.config/git/ignore
+[include]
+	path = ~/.gitconfig.local
+[push]
+	default = simple
+	followTags = true
+[alias]
+    br = branch -av
+	fp = fetch -p
+	ff = merge --ff-only
+	pff = pull --ff-only
+	tree = log --graph --decorate --oneline --all
+	ci = commit -S
+	co = checkout
+    cob = checkout -b
+    details = log -n1 -p --format=fuller
+    export = archive -o latest.tar.gz -9 --prefix=latest/<Paste>
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    pr = pull-request
+    here = !git init && git add . && git commmit -m \"Init repo\"
+	wip = commit -m '⚡wip'
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[magithub]
+	online = false
+[magithub "status"]
+	includeStatusHeader = false
+	includePullRequestsSection = false
+    includeIssuesSection = false
+[url "https://github.com/"]
+    insteadOf = gh:

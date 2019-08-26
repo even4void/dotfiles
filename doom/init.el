@@ -185,10 +185,12 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("f99773b819cbfee5b3b12ec82ee7f9a82a32ebe3637ed60f5c4c062304cb9621" default))))
+    ("f99773b819cbfee5b3b12ec82ee7f9a82a32ebe3637ed60f5c4c062304cb9621" default)))
+ '(flycheck-popup-tip-error-prefix ""))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(markdown-code-face ((t (:family "Inziu Iosevka CL")))))
+ '(markdown-code-face ((t (:family "Inziu Iosevka CL"))))
+ '(popup-tip-face ((t (:background "slate grey" :foreground "ivory")))))
