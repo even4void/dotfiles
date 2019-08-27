@@ -1,11 +1,12 @@
-alias ea 'vim ~/.config/fish/aliases.fish'
-alias ef 'vim ~/.config/fish/config.fish'
-alias eg 'vim ~/.gitconfig'
-alias ev 'vim ~/.vimrc'
+alias ea 'nvim ~/.config/fish/aliases.fish'
+alias ef 'nvim ~/.config/fish/config.fish'
+alias eg 'nvim ~/.gitconfig'
+alias ev 'nvim ~/.vimrc'
 
 alias e 'emacs -nw'
 alias ec="emacsclient"
 alias eq="emacs -nw -Q"
+alias eg="emacs &"
 
 alias j 'jobs -l'
 alias l ls
@@ -28,6 +29,8 @@ alias gg 'git show | tig'
 alias perms="stat -c '%A %a %n'"
 alias mkhttp "python3 -m http.server"
 alias dud "du -sh ./* | sort -h"
+alias awk "gawk"
+alias sed "gsed"
 
 alias inbox='mbsync -a && mu index -m "~/.mail"'
 alias bioawk='~/git/sandbox/bioawk/bioawk'

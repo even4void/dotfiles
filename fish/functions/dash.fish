@@ -1,4 +1,4 @@
 function dash
-    open "dash://$*"
+    open "dash://$argv"
 end
 
