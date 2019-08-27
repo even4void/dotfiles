@@ -29,7 +29,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pr = pull-request
 	here = !git init && git add . && git commit -m \"Init repo\"
-	wip = commit -m '⚡wip'
+	wip = commit -S -m '⚡wip'
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
