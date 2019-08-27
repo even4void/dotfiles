@@ -313,7 +313,7 @@
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 
 ;; -- mu4e -------------------------------------------------------------------
-;; NOTE Gmail is in read-only mode (2019-05)
+;; NOTE Gmail is in read-only mode (2019-05); deactivated again (2019-08)
 (after! mu4e
   (setq mu4e-get-mail-command "mbsync -a"
         ; smtpmail-stream-type 'starttls

@@ -28,7 +28,7 @@
 	export = archive -o latest.tar.gz -9 --prefix=latest/<Paste>
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pr = pull-request
-	here = !git init && git add . && git commmit -m \"Init repo\"
+	here = !git init && git add . && git commit -m \"Init repo\"
 	wip = commit -m '⚡wip'
 [filter "lfs"]
 	clean = git-lfs clean -- %f
