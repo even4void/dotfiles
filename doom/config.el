@@ -328,6 +328,7 @@
         mu4e-confirm-quit nil
         ; mu4e-completing-read-function 'completing-read
         smtpmail-queue-dir "~/.mail/queue/cur"
+        smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
         mu4e-maildir "~/.mail"
         mu4e-attachment-dir "~/Downloads")
   (setq mu4e-headers-fields
