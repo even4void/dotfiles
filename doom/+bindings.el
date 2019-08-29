@@ -23,6 +23,7 @@
  "s-v" #'yank
  "s-s" #'save-buffer
  "s-a" #'mark-whole-buffer
+ "s-;" #'eval-expression
 
  (:map markdown-mode-map
    :i "s-i" #'markdown-insert-italic

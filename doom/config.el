@@ -5,11 +5,12 @@
 (add-to-list 'default-frame-alist '(width . 175))
 
 (setq user-full-name "chl"
-      user-mail-address "chl@aliquote.org")
+      user-mail-address "chl@aliquote.org"
+      epa-file-encrypt-to user-mail-address)
 
-(if (display-graphic-p)
-    ;; Use a patched font for GUI mode so that we get Iosevka ligatures that we have
-    ;; free when using iTerm.
+;; Use a patched font for GUI mode so that we get Iosevka ligatures
+;; that we have free when using iTerm.
+(if (memq window-system '(ns mac x))
     (setq doom-font (font-spec :family "Iosevka" :size 14)
           doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
 
@@ -163,6 +164,7 @@
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
+;; FIXME It looks like this doesn't work unless we use custom-set-variables
 (setq flycheck-popup-tip-error-prefix "☣")
 
 ;; -- text/markdown editing --------------------------------------------------

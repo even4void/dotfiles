@@ -1,7 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 (doom! :completion
-       company
+       (company +childframe)
        ivy
 
        :ui
@@ -14,10 +14,8 @@
        nav-flash
        neotree
        ophints
-       (popup
-        +all
-        +defaults)
-       pretty-code       ; FIXME +iosevka check if I can manage to make it work when -nw
+       (popup +all +defaults)
+       (pretty-code +iosevka)
        ;;treemacs
        vc-gutter
        window-select
@@ -42,11 +40,10 @@
        :tools
        debugger
        eval
-       flycheck
+       (flycheck +childframe)
        flyspell
        gist
-       (lookup
-        +docsets)
+       (lookup +docsets)
        lsp
        magit
        make
@@ -66,8 +63,7 @@
        (javascript +lsp)
        latex
        markdown
-       (ocaml
-         +opam-site-lisp)
+       (ocaml +opam-site-lisp)
        (org
         +dragndrop
         +gnuplot
