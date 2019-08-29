@@ -19,7 +19,7 @@ alias ccat 'pygmentize -g'
 
 alias c clear
 alias nv nvim
-alias notes 'rg "TODO|HACK|FIXME|OPTIMIZE"'
+alias notes 'rg "TODO|NOTE|FIXME"'
 alias m make
 alias tree 'tree -NC'
 alias g git
@@ -43,6 +43,7 @@ alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | x
 abbr -a gst git status
 abbr -a gaa git add --all
 abbr -a gco git checkout
+abbr -a gcb git checkout -b
 abbr -a gfu git fetch upstream
-abbr -a gci git commit -S
-
+abbr -a gmu git merge upstream/master
+abbr -a gci git commit -S -m
