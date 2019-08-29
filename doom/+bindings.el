@@ -23,8 +23,10 @@
  "s-v" #'yank
  "s-s" #'save-buffer
  "s-a" #'mark-whole-buffer
- "s-i" #'markdown-insert-italic
- "s-b" #'markdown-insert-bold
+
+ (:map markdown-mode-map
+   :i "s-i" #'markdown-insert-italic
+   :i "s-b" #'markdown-insert-bold)
 
  (:after helpful
    (:map helpful-mode-map
@@ -64,6 +66,7 @@
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Insert org citation" "c" #'org-ref-insert-cite-with-completion
    :desc "Unfill region"       "f" #'unfill-region
+   :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
    :desc "Insert URL"          "u" #'insert-url)
@@ -86,4 +89,5 @@
    :desc "Swap window H/V"     "w" #'doom/window-layout-toggle))
 
 ;; ex
-(evil-ex-define-cmd "tn" #'+workspace:new)
+(evil-ex-define-cmd "wn" #'+workspace:new)
+(evil-ex-define-cmd "wu" #'+workspace:rename)

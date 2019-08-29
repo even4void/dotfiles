@@ -33,6 +33,7 @@ alias awk "gawk"
 alias sed "gsed"
 
 alias inbox='mbsync -a && mu index -m "~/.mail"'
+alias podo='ssh podospora@172.27.34.115'
 alias bioawk='~/git/sandbox/bioawk/bioawk'
 alias statadocs="open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
 alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
