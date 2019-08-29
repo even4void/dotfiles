@@ -163,6 +163,7 @@
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
+(setq flycheck-popup-tip-error-prefix "☣")
 
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
