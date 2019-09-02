@@ -6,7 +6,8 @@
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
-      epa-file-encrypt-to user-mail-address)
+      epa-file-encrypt-to user-mail-address
+      auth-sources '("~/.authinfo.gpg"))
 
 ;; Use a patched font for GUI mode so that we get Iosevka ligatures
 ;; that we have free when using iTerm.
@@ -112,6 +113,14 @@
 ;; NOTE We can still hit `&' to open the page in an external browser
 ;; this is mainly to read the Hyperspec doc inline. Note, however, that dash-docs
 ;; already provides the Hyperspec, so we don't really need our local version.
+
+;; -- irc --------------------------------------------------------------------
+(set-irc-server! "chat.freenode.net"
+  '(:tls t
+    :port 6697
+    :nick "even4void"
+    :sasl-password my/nickserver-password
+    :channels (:after-auth "#lisp" "#haskell-beginners" "#racket")))
 
 ;; -- bibtex -----------------------------------------------------------------
 (after! bibtex
@@ -293,6 +302,7 @@
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
         org-src-fontify-natively t
+        org-highlight-latex-and-related '(latex)
         org-support-shift-select t
         org-src-tab-acts-natively nil
         ;; org-bullets-bullet-list '("#")
