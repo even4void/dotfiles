@@ -1,7 +1,4 @@
-alias ea 'nvim ~/.config/fish/aliases.fish'
-alias ef 'nvim ~/.config/fish/config.fish'
-alias eg 'nvim ~/.gitconfig'
-alias ev 'nvim ~/.vimrc'
+alias confd 'nvim ~/.config/'
 
 alias e 'emacs -nw'
 alias ec="emacsclient"
@@ -31,6 +28,7 @@ alias mkhttp "python3 -m http.server"
 alias dud "du -sh ./* | sort -h"
 alias awk "gawk"
 alias sed "gsed"
+alias ccl "ccl64"
 
 alias inbox='mbsync -a && mu index -m "~/.mail"'
 alias podo='ssh podospora@172.27.34.115'
