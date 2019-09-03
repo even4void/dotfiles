@@ -107,6 +107,13 @@
 ;; packages
 ;; ---------------------------------------------------------------------------
 
+;; Fish stuff
+(when (and (executable-find "fish")
+           (require 'fish-completion nil t))
+  (global-fish-completion-mode))
+
+(add-hook 'fish-mode-hook
+          (lambda () (add-hook 'before-save-hook 'fish_indent-before-save)))
 
 ;; -- web & doc --------------------------------------------------------------
 (setq browse-url-browser-function 'eww-browse-url)
@@ -126,11 +133,11 @@
         bibtex-autokey-titleword-length 5))
 
 (after! ivy-bibtex
-  (setq bibtex-completion-bibliography '("~/Documents/Drafts/references.bib")
-        bibtex-completion-library-path '("~/Documents/Papers"
-                                         "~/Documents/Papers/_iBooks")
+  (setq bibtex-completion-bibliography '("/Users/chl/Documents/Drafts/references.bib")
+        bibtex-completion-library-path '("/Users/chl/Documents/Papers"
+                                         "/Users/chl/Documents/Papers/_iBooks")
         bibtex-completion-pdf-extension '(".pdf" ".epub")
-        bibtex-completion-notes-path "~/org/papers.org"
+        bibtex-completion-notes-path "/Users/chl/org/papers.org"
         bibtex-completion-notes-symbol "≣"
         bibtex-completion-pdf-symbol "◉"
         bibtex-completion-additional-search-fields '(keywords)
@@ -139,7 +146,7 @@
                                                         "-a" "/Applications/Preview.app"
                                                         fpath))
         bibtex-completion-display-formats
-        '((t . "${author:30} ${title:*} ${year:4} ${=type=:8} ${=has-pdf=:1} ${=has-note=:1}"))
+        '((t . "${author:30} ${title:*} ${year:4} ${=has-pdf=:1} ${=has-note=:1} ${=type=:7}"))
         bibtex-completion-cite-prompt-for-optional-arguments nil
         bibtex-completion-format-citation-functions
         '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)

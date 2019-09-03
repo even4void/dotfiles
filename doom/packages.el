@@ -11,8 +11,8 @@
 (package! org-ref)
 (package! osx-dictionary)
 (package! realgud-trepan-ni)
-;; (package! imenu-anywhere)
-;; (package! imenu-list)
+(package! fish-mode)
+(package! fish-completion)
 
 ;; no thanks
 (package! helm :disable t)

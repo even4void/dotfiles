@@ -12,30 +12,30 @@ alias ls 'ls -FG'
 alias md 'mkdir -p'
 abbr -a -- - 'cd -'
 
-alias ccat 'pygmentize -g'
-
 alias c clear
-alias nv nvim
-alias notes 'rg "TODO|NOTE|FIXME"'
+alias vim nvim
 alias m make
-alias tree 'tree -NC'
 alias g git
-alias cx 'chmod +x'
+alias awk gawk
+alias sed gsed
+alias ccl ccl64
 alias h heroku
+alias cx 'chmod +x'
+alias ccat 'pygmentize -g'
+alias notes 'rg "TODO|NOTE|FIXME"'
+alias tree 'tree -NC'
 alias gg 'git show | tig'
-alias perms="stat -c '%A %a %n'"
+alias perms "stat -c '%A %a %n'"
 alias mkhttp "python3 -m http.server"
 alias dud "du -sh ./* | sort -h"
-alias awk "gawk"
-alias sed "gsed"
-alias ccl "ccl64"
 
-alias inbox='mbsync -a && mu index -m "~/.mail"'
-alias podo='ssh podospora@172.27.34.115'
-alias bioawk='~/git/sandbox/bioawk/bioawk'
-alias statadocs="open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
-alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
-alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
+alias artemis "/Users/chl/Applications/Artemis/Artemis.app/Contents/art"
+alias inbox 'mbsync -a && mu index -m "~/.mail"'
+alias podo 'ssh podospora@172.27.34.115'
+alias bioawk '/Users/chl/git/sandbox/bioawk/bioawk'
+alias statadocs "open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
+alias rhelp "Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
+alias pip-upgrade-all "pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
 
 # See plenty of other nice aliases at https://bit.ly/2OYA8qW
 abbr -a gst git status

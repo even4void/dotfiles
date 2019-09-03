@@ -22,5 +22,5 @@ status --is-interactive; and . (pyenv init -|psub)
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)'/jre'
 set -x NODE_PATH '/usr/local/lib/node_modules'
 set -x RUST_SRC_PATH (rustc --print sysroot)'/lib/rustlib/src/rust/src'
-
+set -x ARTEMIS_JAVA_JRE '/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home'
 set -x PSQLRC $HOME/.config/psql/psqlrc

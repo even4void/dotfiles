@@ -74,7 +74,7 @@
  (:prefix "o"
    :desc "Mu4e"                "M" #'mu4e
    :desc "IELM"                "i" #'ielm
-   :desc "IRC"                 "I" #'=irc
+   :desc "IRC"                 "I" #'erc
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
  (:prefix "t"
