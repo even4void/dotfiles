@@ -82,8 +82,7 @@
        mu4e
 
        :app
-       irc
-       
+
        :collab
 
        :config

@@ -114,14 +114,6 @@
 ;; this is mainly to read the Hyperspec doc inline. Note, however, that dash-docs
 ;; already provides the Hyperspec, so we don't really need our local version.
 
-;; -- irc --------------------------------------------------------------------
-(set-irc-server! "chat.freenode.net"
-  '(:tls t
-    :port 6697
-    :nick "even4void"
-    :sasl-password my/nickserver-password
-    :channels (:after-auth "#lisp" "#haskell-beginners" "#racket")))
-
 ;; -- bibtex -----------------------------------------------------------------
 (after! bibtex
   (setq bibtex-field-delimiters 'double-quotes

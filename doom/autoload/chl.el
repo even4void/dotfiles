@@ -1,22 +1,6 @@
 ;;; ~/.config/doom/autoload/chl.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
-(defun my/fetch-password (&rest params)
-  (require 'auth-source)
-  (let ((match (car (apply #'auth-source-search params))))
-    (if match
-        (let ((secret (plist-get match :secret)))
-          (if (functionp secret)
-              (funcall secret)
-            secret))
-      (error "Password not found for %S" params))))
-
-;;;###autoload
-(defun my/nickserv-password (server)
-  (my/fetch-password :user "even4void" :host "irc.freenode.net"))
-
-
-;;;###autoload
 (defun retrieve-url ()
     "Retrieve the URL of the current Safari page as a string."
     (org-trim (shell-command-to-string
