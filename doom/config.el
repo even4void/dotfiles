@@ -132,9 +132,9 @@
       bibtex-autokey-titleword-length 5)
 
 (after! ivy-bibtex
-  (setq bibtex-completion-bibliography '("/Users/chl/Documents/Drafts/references.bib")
-        bibtex-completion-library-path '("/Users/chl/Documents/Papers"
-                                         "/Users/chl/Documents/Papers/_iBooks")
+  (setq bibtex-completion-bibliography '("~/org/references.bib")
+        bibtex-completion-library-path '("~/Documents/Papers"
+                                         "~/Documents/Papers/_iBooks")
         bibtex-completion-pdf-extension '(".pdf" ".epub")
         bibtex-completion-notes-path "/Users/chl/org/papers.org"
         bibtex-completion-notes-symbol "≣"
@@ -157,13 +157,13 @@
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
 
-(setq org-ref-default-bibliography '("~/Documents/Drafts/references.bib")
+(setq org-ref-default-bibliography '("~/org/references.bib")
       org-ref-pdf-directory "~/Documents/Papers"
-      reftex-default-bibliography '("~/Documents/Drafts/references.bib"))
+      reftex-default-bibliography '("~/org/references.bib"))
 (after! org-ref
-  (setq reftex-default-bibliography '("~/Documents/Drafts/references.bib")
+  (setq reftex-default-bibliography '("~/org/references.bib")
         org-ref-bibliography-notes "~/org/papers.org"
-        org-ref-default-bibliography '("~/Documents/Drafts/references.bib")
+        org-ref-default-bibliography '("~/org/references.bib")
         org-ref-pdf-directory "~/Documents/Papers"
         org-ref-note-title-format "* [[/Users/chl/Documents/Papers/%k.pdf][%k]] - %t\n:PROPERTIES:\n :Custom_ID: %k\n :INTERLEAVE_PDF:/Users/chl/Documents/Papers/%k.pdf\n :END:\n"))
 
@@ -309,10 +309,10 @@
         org-log-done 'time
         org-default-notes-file "~/org/notes.org"
         org-default-todo-file "~/org/todos.org"
-        org-bibtex-file "~/Documents/Drafts/references.bib"
+        org-bibtex-file "~/org/references.bib"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options '((standalone . t)
-                             (bibliography . "~/Documents/Drafts/references.bib")))
+                             (bibliography . "~/org/references.bib")))
   (add-hook 'org-mode-hook #'turn-on-visual-line-mode))
 
 ;; --tex ---------------------------------------------------------------------

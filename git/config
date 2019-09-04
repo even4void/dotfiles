@@ -28,7 +28,7 @@
 	export = archive -o latest.tar.gz -9 --prefix=latest/<Paste>
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pr = pull-request
-	here = !git init && git add . && git commit -m \"Init repo\"
+	here = !git init && git add . && git commit -S -m \"Init repo\"
 	wip = commit -S -m '⚡wip'
 	discard-merge = reset --hard HEAD
 	ack = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S
