@@ -122,15 +122,14 @@
 ;; already provides the Hyperspec, so we don't really need our local version.
 
 ;; -- bibtex -----------------------------------------------------------------
-(after! bibtex
-  (setq bibtex-field-delimiters 'double-quotes
-        bibtex-autokey-year-length 4
-        bibtex-autokey-name-year-separator "-"
-        bibtex-autokey-year-title-separator "-"
-        bibtex-autokey-titleword-separator "-"
-        bibtex-autokey-titlewords 2
-        bibtex-autokey-titlewords-stretch 1
-        bibtex-autokey-titleword-length 5))
+(setq bibtex-field-delimiters 'double-quotes
+      bibtex-autokey-year-length 4
+      bibtex-autokey-name-year-separator "-"
+      bibtex-autokey-year-title-separator "-"
+      bibtex-autokey-titleword-separator "-"
+      bibtex-autokey-titlewords 2
+      bibtex-autokey-titlewords-stretch 1
+      bibtex-autokey-titleword-length 5)
 
 (after! ivy-bibtex
   (setq bibtex-completion-bibliography '("/Users/chl/Documents/Drafts/references.bib")
