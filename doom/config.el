@@ -283,7 +283,7 @@
          "* TODO %? %^g \n %i\n")
         ("t" "Todo" entry (file+headline org-default-todo-file "Tasks")
          "* TODO %? %^g \n %i\n")
-        ("w" "Web link" entry (file+headline org-default-notes-file "Inbox")
+        ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n")))
   (org-babel-do-load-languages
    'org-babel-load-languages
