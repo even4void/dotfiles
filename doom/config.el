@@ -157,15 +157,17 @@
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
 
-(setq org-ref-default-bibliography '("~/org/references.bib")
-      org-ref-pdf-directory "~/Documents/Papers"
-      reftex-default-bibliography '("~/org/references.bib"))
-(after! org-ref
-  (setq reftex-default-bibliography '("~/org/references.bib")
-        org-ref-bibliography-notes "~/org/papers.org"
-        org-ref-default-bibliography '("~/org/references.bib")
-        org-ref-pdf-directory "~/Documents/Papers"
-        org-ref-note-title-format "* [[/Users/chl/Documents/Papers/%k.pdf][%k]] - %t\n:PROPERTIES:\n :Custom_ID: %k\n :INTERLEAVE_PDF:/Users/chl/Documents/Papers/%k.pdf\n :END:\n"))
+(setq reftex-default-bibliography '("~/org/references.bib"))
+
+;; org-ref
+;; (setq org-ref-default-bibliography '("~/org/references.bib")
+;;       org-ref-pdf-directory "~/Documents/Papers")
+;; (after! org-ref
+;;   (setq reftex-default-bibliography '("~/org/references.bib")
+;;         org-ref-bibliography-notes "~/org/papers.org"
+;;         org-ref-default-bibliography '("~/org/references.bib")
+;;         org-ref-pdf-directory "~/Documents/Papers"
+;;         org-ref-note-title-format "* [[/Users/chl/Documents/Papers/%k.pdf][%k]] - %t\n:PROPERTIES:\n :Custom_ID: %k\n :INTERLEAVE_PDF:/Users/chl/Documents/Papers/%k.pdf\n :END:\n"))
 
 ;; -- flycheck ---------------------------------------------------------------
 (setq flycheck-python-pycompile-executable "python3"
