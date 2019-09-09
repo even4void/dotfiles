@@ -213,6 +213,9 @@
 ;; Best with custom Iosevka font, see https://github.com/ar1a/dotfiles/tree/master/emacs/.doom.d
 (setq +pretty-code-enabled-modes '(emacs-lisp-mode org-mode clojure-mode
                                    latex-mode scheme-mode racket-mode ess-r-mode))
+(setq highlight-indent-guides-responsive 'top
+      highlight-indent-guides-delay 0)
+
 
 ;; -- dash-docs --------------------------------------------------------------
 (setq dash-docs-enable-debugging nil)

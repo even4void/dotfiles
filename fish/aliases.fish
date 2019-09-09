@@ -19,7 +19,8 @@ alias g git
 alias awk gawk
 alias sed gsed
 alias ccl ccl64
-alias h heroku
+alias ipy ipython
+alias her heroku
 alias cx 'chmod +x'
 alias ccat 'pygmentize -g'
 alias notes 'rg "TODO|NOTE|FIXME"'

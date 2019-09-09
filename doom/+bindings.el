@@ -1,9 +1,8 @@
 ;;; ~/.config/doom/+bindings.el -*- lexical-binding: t; -*-
 
+;; Other bindings are defined in ~/.emacs.d/modules/config/default;
+;; See +evil-bindings.el for usual Vim-like bindings
 
-;; Existing and most used bindings:
-;; g c : toggle comment
-;; za : toggle fold
 (map!
 
  ;; Window movement

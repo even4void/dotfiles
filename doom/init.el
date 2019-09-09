@@ -2,14 +2,14 @@
 
 (doom! :completion
        (company +childframe +tng)
-       (ivy +prescient +childframe)
+       (ivy +prescient)
 
        :ui
        deft
        doom
        ;;fill-column
        hl-todo
-       ;;indent-guides
+       indent-guides
        modeline
        nav-flash
        neotree
