@@ -5,16 +5,15 @@
 
 (map!
 
- ;; Window movement
- :n "C-h" 'evil-window-left
- :n "C-j" 'evil-window-down
- :n "C-k" 'evil-window-up
- :n "C-l" 'evil-window-right
-
  :n "C-p" 'neotree-toggle
 
  ;; dictionnary
  :n "C-c d" 'osx-dictionary-search-word-at-point
+
+ ;; font (overrides +evil-bindings.el)
+ :n "C-="    #'doom/reset-font-size
+ :n "C-+"    #'doom/increase-font-size
+ :n "C--"    #'doom/decrease-font-size
 
  ;; osx shortcuts without cua-mode
  "s-z" #'undo
