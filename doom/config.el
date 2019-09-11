@@ -99,6 +99,7 @@
 ;; (setq undo-tree-visualizer-timestamps t)
 ;; (setq undo-tree-visualizer-diff t)
 
+(setq show-trailing-whitespace t)
 ;; (setq whitespace-style '(trailing lines space-before-tab
 ;;                          indentation space-after-tab))
 ;; (setq whitespace-line-column 80)
@@ -292,8 +293,8 @@
 
 ;; -- deft -------------------------------------------------------------------
 (setq deft-extensions '("org" "md" "txt")
-      deft-directory "~/Documents/Drafts"
-      deft-text-mode 'markdown-mode
+      deft-directory "~/org/drafts"
+      deft-text-mode 'org-mode
       deft-use-filename-as-title t
       deft-recursive t
       deft-file-naming-rules
@@ -343,7 +344,7 @@
         org-src-tab-acts-natively nil
         ;; org-bullets-bullet-list '("#")
         org-ellipsis " ▼ "
-        org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
+        org-todo-keywords '((sequence "TODO(t!)" "STAR" "|" "DONE(d!)" "CANC(c!)"))
         org-log-done 'time
         org-default-notes-file "~/org/notes.org"
         org-default-todo-file "~/org/todos.org"
@@ -431,6 +432,8 @@
 ;; -- company ----------------------------------------------------------------
 (after! company
   (setq company-idle-delay 0.1
+        company-minimum-prefix-length 3
+        company-require-match 'never
         company-show-numbers nil
         company-tooltip-offset-display nil
         company-tooltip-align-annotations t
@@ -450,14 +453,28 @@
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
-(after! lsp
-  ;; For whatever reason, I have to activate flake8 manually; otherwise we end up with
+
+;; -- lsp --------------------------------------------------------------------
+(after! lsp-ui
+  (setq lsp-ui-flycheck-enable t
+        ;; lsp-ui-flycheck-list-position 'right
+        lsp-ui-doc-enable t
+        lsp-ui-doc-use-childframe t
+        lsp-ui-doc-delay 0.2
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-max-width 80
+        lsp-ui-doc-max-height 30))
+
+(add-hook 'lsp-ui-doc-frame-hook
+          (lambda (frame _w)
+            (set-face-attribute 'default frame :font "Iosevka" :height 110)))
+
+;; For whatever reason, I have to activate flake8 manually; otherwise we end up with
   ;; pyflakes! And the following doesn't seem to work either.
   ;; (setq lsp-clients-python-settings '(:configurationSources ["flake8"]))
-  (setq-default lsp-pyls-configuration-sources ["flake8"])
-  (setq lsp-ui-flycheck-enable t
-        lsp-pyls-plugins-pylint-enabled nil
-        lsp-pyls-plugins-pyflakes-enabled nil))
+(setq-default lsp-pyls-configuration-sources ["flake8"])
+(setq lsp-pyls-plugins-pylint-enabled nil
+      lsp-pyls-plugins-pyflakes-enabled nil)
 
 ;; FIXME At this point, I'm not sure if we really need clangd since Doom relies on ccls
 ;; when +lsp.

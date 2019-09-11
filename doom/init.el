@@ -94,11 +94,24 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("f99773b819cbfee5b3b12ec82ee7f9a82a32ebe3637ed60f5c4c062304cb9621" default))))
+    ("f99773b819cbfee5b3b12ec82ee7f9a82a32ebe3637ed60f5c4c062304cb9621" default)))
+ '(lsp-ui-doc-delay 0.7)
+ '(lsp-ui-doc-max-height 8)
+ '(lsp-ui-doc-max-width 40)
+ '(lsp-ui-flycheck-enable t)
+ '(lsp-ui-imenu-colors (quote ("#798cad" "#a2b583")))
+ '(lsp-ui-sideline-ignore-duplicate t)
+ '(lsp-ui-sideline-show-hover nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(lsp-ui-doc-background ((t (:background "#2e3440"))))
+ '(lsp-ui-peek-header ((t (:background "slate grey" :foreground "black"))))
+ '(lsp-ui-peek-highlight ((t (:background "slate grey" :distant-foreground "white" :foreground "black" :box (:line-width -1 :color "white")))))
+ '(lsp-ui-peek-list ((t (:background "#2e3440"))))
+ '(lsp-ui-peek-peek ((t (:background "#2e3440"))))
+ '(lsp-ui-peek-selection ((t (:background "slate grey" :foreground "black"))))
  '(markdown-code-face ((t (:family "Inziu Iosevka CL"))))
  '(popup-tip-face ((t (:background "slate grey" :foreground "ivory")))))
