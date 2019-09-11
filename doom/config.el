@@ -344,7 +344,7 @@
         org-src-tab-acts-natively nil
         ;; org-bullets-bullet-list '("#")
         org-ellipsis " ▼ "
-        org-todo-keywords '((sequence "TODO(t!)" "STAR" "|" "DONE(d!)" "CANC(c!)"))
+        org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
         org-log-done 'time
         org-default-notes-file "~/org/notes.org"
         org-default-todo-file "~/org/todos.org"
