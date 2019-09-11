@@ -1,7 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
 (doom! :completion
-       (company +childframe +tng)
+       (company +childframe)
        (ivy +prescient)
 
        :ui

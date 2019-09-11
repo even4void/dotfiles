@@ -210,12 +210,34 @@
   (add-hook 'markdown-mode-hook #'turn-on-visual-line-mode))
 
 ;; -- pretty-code ------------------------------------------------------------
-;; Best with custom Iosevka font, see https://github.com/ar1a/dotfiles/tree/master/emacs/.doom.d
+;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
 (setq +pretty-code-enabled-modes '(emacs-lisp-mode org-mode clojure-mode
                                    latex-mode scheme-mode racket-mode ess-r-mode))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
 
+;; Org and R additional symbols
+;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402)
+(setq +pretty-code-iosevka-font-ligatures
+      (append +pretty-code-iosevka-font-ligatures
+              '(("[ ]" .  "☐")
+                ("[X]" . "☑" )
+                ("[-]" . "❍" )
+                ("%>%" . ?▷)
+                ("%$%" . ?◇)
+                ("%T>%" . ?▶)
+                ("function" . ?ƒ))))
+
+;; https://is.gd/3VuSXj
+(defface org-checkbox-done-text
+  '((t (:foreground "#5a637b")))
+  "Face for the text part of a checked org-mode checkbox.")
+
+(font-lock-add-keywords 'org-mode
+                        '(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
+                           1 'org-checkbox-done-text prepend))
+                        'append)
+;; (custom-set-faces '(org-checkbox ((t (:foreground nil :inherit org-todo)))))
 
 ;; -- dash-docs --------------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
