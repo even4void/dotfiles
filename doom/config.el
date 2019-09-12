@@ -109,9 +109,9 @@
 ;; ---------------------------------------------------------------------------
 
 ;; Fish stuff
-(when (and (executable-find "fish")
-           (require 'fish-completion nil t))
-  (global-fish-completion-mode))
+;; (when (and (executable-find "fish")
+;;            (require 'fish-completion nil t))
+;;   (global-fish-completion-mode))
 
 (add-hook 'fish-mode-hook
           (lambda () (add-hook 'before-save-hook 'fish_indent-before-save)))
@@ -310,7 +310,9 @@
 (after! org
   (setq org-capture-templates
       ;; (retrieve-url) is defined in autoload/
-      '(("b" "Blog" entry (file+headline "micro.org" "Micro")
+      '(("w" "Web link" entry (file+headline "urls.org" "Inbox")
+         "* %? \n%U\n%(retrieve-url)\n")
+        ("b" "Blog" entry (file+headline "micro.org" "Micro")
          "** TODO %?\n:PROPERTIES:\n:EXPORT_FILE_NAME:\n:END:\n%^g\n" :empty-lines 1)
         ("d" "Diary" entry (file+olp+datetree "diary.org" "Diary")
          "* %?\n%T\n  %i\nFrom: %a")
@@ -321,9 +323,7 @@
         ("p" "Projects todo" entry (file+headline org-default-todo-file "Projects")
          "* TODO %? %^g \n %i\n")
         ("t" "Todo" entry (file+headline org-default-todo-file "Tasks")
-         "* TODO %? %^g \n %i\n")
-        ("w" "Web link" entry (file+headline "urls.org" "Inbox")
-         "* %? \n%U\n%(retrieve-url)\n")))
+         "* TODO %? %^g \n %i\n")))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((clojure . t)
@@ -351,8 +351,8 @@
         org-bibtex-file "~/org/references.bib"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options '((standalone . t)
-                             (bibliography . "~/org/references.bib")))
-  (add-hook 'org-mode-hook #'turn-on-visual-line-mode))
+                             (bibliography . "~/org/references.bib"))))
+(add-hook 'org-mode-hook #'turn-on-visual-line-mode)
 
 ;; --tex ---------------------------------------------------------------------
 (setq TeX-auto-save nil
@@ -446,6 +446,7 @@
       ess-eldoc-show-on-symbol t
       ess-execute-in-process-buffer t
       ess-history-file nil)
+(add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
@@ -467,7 +468,7 @@
 
 (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
-            (set-face-attribute 'default frame :font "Iosevka" :height 110)))
+            (set-face-attribute 'default frame :font "Iosevka" :height 130)))
 
 ;; For whatever reason, I have to activate flake8 manually; otherwise we end up with
   ;; pyflakes! And the following doesn't seem to work either.

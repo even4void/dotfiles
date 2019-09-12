@@ -1,6 +1,11 @@
 ;;; ~/.config/doom/autoload/chl.el -*- lexical-binding: t; -*-
 
 ;;;###autoload
+(defun my/comint-mode-hook ()
+    (local-set-key '[up] 'comint-previous-input)
+    (local-set-key '[down] 'comint-next-input))
+
+;;;###autoload
 (defun retrieve-url ()
     "Retrieve the URL of the current Safari page as a string."
     (org-trim (shell-command-to-string

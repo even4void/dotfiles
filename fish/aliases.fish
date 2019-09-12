@@ -21,6 +21,7 @@ alias sed gsed
 alias ccl ccl64
 alias ipy ipython
 alias her heroku
+alias R 'R -q --no-save --no-restore'
 alias cx 'chmod +x'
 alias ccat 'pygmentize -g'
 alias notes 'rg "TODO|NOTE|FIXME"'
