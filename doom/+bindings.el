@@ -22,6 +22,9 @@
  "s-s" #'save-buffer
  "s-a" #'mark-whole-buffer
  "s-;" #'eval-expression
+ "s-r" #'query-replace
+ "s-<" #'+lookup/definition
+ "s->" #'+lookup/references
 
  (:map markdown-mode-map
    :i "s-i" #'markdown-insert-italic
