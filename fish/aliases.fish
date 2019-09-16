@@ -32,10 +32,10 @@ alias perms "stat -c '%A %a %n'"
 alias mkhttp "python3 -m http.server"
 alias dud "du -sh ./* | sort -h"
 
-alias artemis "/Users/chl/Applications/Artemis/Artemis.app/Contents/art"
+alias artemis "/Users/chl/local/bioinfo/Artemis/Artemis.app/Contents/art"
 alias inbox 'mbsync -a && mu index -m "~/.mail"'
 alias podo 'ssh podospora@172.27.34.115'
-alias bioawk '/Users/chl/git/sandbox/bioawk/bioawk'
+alias bioawk '/Users/chl/local/bioinfo/bioawk/bioawk'
 alias statadocs "open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
 alias rhelp "Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
 alias pip-upgrade-all "pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"

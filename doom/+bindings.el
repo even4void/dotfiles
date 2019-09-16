@@ -78,7 +78,7 @@
    :desc "IRC"                 "I" #'erc
    :desc "Deft"                "D" #'deft
    :desc "Markdown open"       "m" #'markdown-open
-   :desc "Org HTML open"       "o" #'org-html-export-to-html
+   :desc "Org HTML open"       "o" #'org-pandoc-export-to-html5-and-open
    :desc "Org PDF open"        "O" #'org-latex-export-to-pdf
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
