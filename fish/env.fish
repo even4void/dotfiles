@@ -12,12 +12,14 @@ set -x PATH '/Users/chl/.cargo/bin' $PATH
 set -x PATH '/usr/local/opt/sqlite/bin' $PATH
 set -x PATH '/Users/chl/.stack/programs/x86_64-osx/ghc-8.6.5/bin/' $PATH
 set -x PATH '/Users/chl/.pyenv/bin' $PATH
+set -x PATH '/Users/chl/local/bioinfo/bin' $PATH
 
 set -g fish_user_paths '/usr/local/sbin' $fish_user_paths
 
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
-status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive
+and . (pyenv init -|psub)
 
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)'/jre'
 set -x NODE_PATH '/usr/local/lib/node_modules'
