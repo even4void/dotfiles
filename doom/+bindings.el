@@ -76,13 +76,16 @@
    :desc "Mu4e"                "M" #'mu4e
    :desc "IELM"                "i" #'ielm
    :desc "IRC"                 "I" #'erc
+   :desc "Deft"                "D" #'deft
+   :desc "Markdown open"       "m" #'markdown-open
+   :desc "Org HTML open"       "o" #'org-html-export-to-html
+   :desc "Org PDF open"        "O" #'org-latex-export-to-pdf
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
  (:prefix "t"
    :desc "Select theme"        "t" #'counsel-load-theme
    :desc "Select dictionary"   "z" #'ispell-change-dictionary
    :desc "Spell check buffer"  "w" #'flyspell-buffer
-   :desc "Markdown open"       "o" #'markdown-open
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Undo tree"           "u" #'undo-tree-visualize
@@ -93,4 +96,4 @@
 
 ;; ex
 (evil-ex-define-cmd "wn" #'+workspace:new)
-(evil-ex-define-cmd "wu" #'+workspace:rename)
+(evil-ex-define-cmd "wr" #'+workspace:rename)

@@ -207,8 +207,10 @@
   (setq markdown-pre-face "Inziu Iosevka CL"
         markdown-code-face "Inziu Iosevka CL")
   (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
-  (remove-hook 'markdown-mode-hook #'turn-on-auto-fill)
+  (remove-hook 'markdown-mode-hook #'auto-fill-mode)
   (add-hook 'markdown-mode-hook #'turn-on-visual-line-mode))
+(remove-hook 'markdown-mode-hook #'auto-fill-mode)
+(add-hook 'markdown-mode-hook #'turn-on-visual-line-mode)
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
@@ -219,6 +221,7 @@
 
 ;; Org and R additional symbols
 ;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402)
+;; See also https://is.gd/RI0K2P
 (setq +pretty-code-iosevka-font-ligatures
       (append +pretty-code-iosevka-font-ligatures
               '(("[ ]" .  "☐")
@@ -227,7 +230,16 @@
                 ("%>%" . ?▷)
                 ("%$%" . ?◇)
                 ("%T>%" . ?▶)
-                ("function" . ?ƒ))))
+                ("function" . ?ƒ)
+                ("#+BEGIN_EXAMPLE" . "■")
+                ("#+END_EXAMPLE" . "▪")
+                ("#+BEGIN_COMMENT" . "¶")
+                ("#+END_COMMENT" . "▪")
+                ("#+BEGIN_QUOTE" . "“")
+                ("#+END_QUOTE" . "”")
+                ("#+CAPTION:" . "»")
+                ("<=" . "⩽")
+                (">=" . "⩾"))))
 
 ;; https://is.gd/3VuSXj
 (defface org-checkbox-done-text
@@ -351,7 +363,9 @@
         org-bibtex-file "~/org/references.bib"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options '((standalone . t)
-                             (bibliography . "~/org/references.bib"))))
+                             (bibliography . "~/org/references.bib")))
+  (remove-hook 'org-mode-hook #'auto-fill-mode))
+(remove-hook 'org-mode-hook #'auto-fill-mode)
 (add-hook 'org-mode-hook #'turn-on-visual-line-mode)
 
 ;; --tex ---------------------------------------------------------------------
