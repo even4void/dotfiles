@@ -23,6 +23,7 @@ alias ipy ipython
 alias her heroku
 alias R 'R -q --no-save --no-restore'
 alias cx 'chmod +x'
+alias cat bat
 alias ccat 'pygmentize -g'
 alias notes 'rg "TODO|NOTE|FIXME"'
 alias tree 'tree -NC'
