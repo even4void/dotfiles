@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Pelicoblog YAML meta-data 
+# key: post
+# binding: direct-keybinding
+# --
+---
+title: ${1:title}
+date: `(insert (format-time-string "%Y-%m-%d %H:%M:%S"))`
+draft: true
+tags: ["$2"]
+categories: ["$3"]
+$0

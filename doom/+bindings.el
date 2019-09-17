@@ -64,6 +64,11 @@
    :desc "Help (LSP)"          "h" #'lsp-describe-thing-at-point
    :desc "Help (Dash)"         "H" #'counsel-dash          ;; #'+lookup:dash
    :desc "Changelog"           "l" #'change-log-find-file)
+ (:prefix-map ("e" . "export")
+   :desc "Markdown open"       "m" #'markdown-open
+   :desc "Org HTML open"       "h" #'org-pandoc-export-to-html5-and-open
+   :desc "Org PDF open"        "p" #'org-pandoc-export-to-latex-pdf-and-open
+   :desc "Org HTML publish"    "H" #'org-publish-all)
  (:prefix "n"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Insert org citation" "c" #'org-ref-insert-cite-with-completion
@@ -77,9 +82,6 @@
    :desc "IELM"                "i" #'ielm
    :desc "IRC"                 "I" #'erc
    :desc "Deft"                "D" #'deft
-   :desc "Markdown open"       "m" #'markdown-open
-   :desc "Org HTML open"       "o" #'org-pandoc-export-to-html5-and-open
-   :desc "Org PDF open"        "O" #'org-pandoc-export-to-latex-pdf-and-open
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
  (:prefix "t"

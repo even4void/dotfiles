@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: TOC
+# key: toc
+# binding: direct-keybinding
+# --
+#+PANDOC_OPTIONS: table-of-contents:t toc-depth:${1:3}
+$0

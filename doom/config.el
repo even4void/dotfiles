@@ -390,7 +390,18 @@
 (setq org-hugo-default-section-directory "micro"
       org-hugo-default-base-dir "~/Sites/aliquote")
 
-(setq org-capture-templates
+(after! org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((clojure . t)
+     (python . t)
+     (C . t)
+     (R . t)
+     (stata . t)
+     (lisp . t)
+     (emacs-lisp . t)))
+
+  (setq org-capture-templates
       '(("t" "Personal todo" entry
          (file+headline +org-capture-todo-file "Inbox")
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
@@ -412,16 +423,6 @@
          (file+headline +org-capture-project-notes-file "Unreleased")
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
 
-(after! org
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((clojure . t)
-     (python . t)
-     (C . t)
-     (R . t)
-     (stata . t)
-     (lisp . t)
-     (emacs-lisp . t)))
   (setq org-hide-emphasis-markers t
         org-tags-column 79
         org-startup-indented nil

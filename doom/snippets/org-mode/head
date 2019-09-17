@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Header block
+# key: head
+# binding: direct-keybinding
+# --
+#+TITLE: ${1:The title}
+#+DATE: `(insert (format-time-string "%d %B, %Y"))`
+#+OPTIONS: num:nil H:2 ^:t |:t
+#+PANDOC_OPTIONS: number-sections:t
+#+PANDOC_OPTIONS: csl:~/.pandoc/csl/pnas.csl
+#+ABSTRACT: $2
+$0
