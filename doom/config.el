@@ -247,10 +247,12 @@
   "Face for the text part of a checked org-mode checkbox.")
 
 (font-lock-add-keywords 'org-mode
+                        '(("@[a-z]+.+?[^;,.]+" . font-lock-keyword-face)))
+
+(font-lock-add-keywords 'org-mode
                         '(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
                            1 'org-checkbox-done-text prepend))
                         'append)
-;; (custom-set-faces '(org-checkbox ((t (:foreground nil :inherit org-todo)))))
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)

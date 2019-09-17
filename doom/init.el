@@ -101,7 +101,10 @@
  '(lsp-ui-flycheck-enable t)
  '(lsp-ui-imenu-colors (quote ("#798cad" "#a2b583")))
  '(lsp-ui-sideline-ignore-duplicate t)
- '(lsp-ui-sideline-show-hover nil))
+ '(lsp-ui-sideline-show-hover nil)
+ '(org-agenda-files
+   (quote
+    ("~/org/drafts/ngs.org" "/Users/chl/org/micro.org" "/Users/chl/org/notebook.org" "/Users/chl/org/old-notes.org" "/Users/chl/org/papers.org" "/Users/chl/org/quickies.org" "/Users/chl/org/refile.org" "/Users/chl/org/urls.org"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

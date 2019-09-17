@@ -71,7 +71,6 @@
    :desc "Org HTML publish"    "H" #'org-publish-all)
  (:prefix "n"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
-   :desc "Insert org citation" "c" #'org-ref-insert-cite-with-completion
    :desc "Unfill region"       "f" #'unfill-region
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
