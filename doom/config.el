@@ -121,6 +121,14 @@
 ;; this is mainly to read the Hyperspec doc inline. Note, however, that dash-docs
 ;; already provides the Hyperspec, so we don't really need our local version.
 
+;; --tex ---------------------------------------------------------------------
+(setq TeX-auto-save nil
+      TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+      TeX-source-correlate-method 'synctex
+      TeX-source-correlate-start-server t)
+(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+
 ;; -- bibtex -----------------------------------------------------------------
 (setq bibtex-field-delimiters 'double-quotes
       bibtex-autokey-year-length 4
@@ -158,16 +166,6 @@
               :filter-return 'reverse))
 
 (setq reftex-default-bibliography '("~/org/references.bib"))
-
-;; org-ref
-;; (setq org-ref-default-bibliography '("~/org/references.bib")
-;;       org-ref-pdf-directory "~/Documents/Papers")
-;; (after! org-ref
-;;   (setq reftex-default-bibliography '("~/org/references.bib")
-;;         org-ref-bibliography-notes "~/org/papers.org"
-;;         org-ref-default-bibliography '("~/org/references.bib")
-;;         org-ref-pdf-directory "~/Documents/Papers"
-;;         org-ref-note-title-format "* [[/Users/chl/Documents/Papers/%k.pdf][%k]] - %t\n:PROPERTIES:\n :Custom_ID: %k\n :INTERLEAVE_PDF:/Users/chl/Documents/Papers/%k.pdf\n :END:\n"))
 
 ;; -- flycheck ---------------------------------------------------------------
 (setq flycheck-python-pycompile-executable "python3"
@@ -254,10 +252,18 @@
                         'append)
 ;; (custom-set-faces '(org-checkbox ((t (:foreground nil :inherit org-todo)))))
 
-;; -- dash-docs --------------------------------------------------------------
+;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
-;; FIXME We should enable docset only when in major mode
-;; (setq dash-docs-common-docsets '("Emacs Lisp" "Common Lisp" "Clojure" "Racket"))
+(setq +lookup-open-url-fn #'eww)
+(setq counsel-dash-browser-func #'eww)
+(setq counsel-dash-min-length 3)
+(set-docsets! 'racket-mode "Racket")
+(set-docsets! 'elisp-mode "Emacs Lisp")
+(set-docsets! 'lisp-mode "Common Lisp")
+(set-docsets! 'clojure-mode "Clojure")
+(set-docsets! 'haskell-mode "Haskell")
+(set-docsets! 'python-mode "Python")
+(set-docsets! 'rust-mode "Rust")
 
 ;; -- eshell -----------------------------------------------------------------
 ;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
@@ -292,18 +298,12 @@
         (""       3 magit-repolist-column-stashes                  ((:right-align t)))
         ("⤓"        3 magit-repolist-column-unpulled-from-upstream   ((:right-align t)))
         ("⤒"        3 magit-repolist-column-unpushed-to-upstream     ((:right-align t)))
-        ("↓"        3 magit-repolist-column-unpulled-from-pushremote ((:right-align t)))
-        ("↑"        3 magit-repolist-column-unpushed-to-pushremote   ((:right-align t)))
         ("Path"    99 magit-repolist-column-path                   ())))
 
 ;; -- neotree ----------------------------------------------------------------
 (setq neo-smart-open t
       neo-vc-integration '(face)
       projectile-switch-project-action 'neotree-projectile-action)
-
-;; -- ox-hugo ----------------------------------------------------------------
-(setq org-hugo-default-section-directory "micro"
-      org-hugo-default-base-dir "~/Sites/aliquote")
 
 ;; -- deft -------------------------------------------------------------------
 (setq deft-extensions '("org" "md" "txt")
@@ -315,157 +315,6 @@
         '((noslash . "-")
           (nospace . "-")
           (case-fn . downcase)))
-
-;; -- org --------------------------------------------------------------------
-(setq org-directory "~/org"
-      org-babel-clojure-backend 'cider
-      inferior-R-program-name "/usr/local/bin/R"
-      inferior-STA-program-name "/usr/local/bin/stata-mp")
-
-(setq org-capture-templates
-      '(("t" "Personal todo" entry
-         (file+headline +org-capture-todo-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("n" "Personal notes" entry
-         (file+headline +org-capture-notes-file "Inbox")
-         "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("w" "Web link" entry (file+headline "urls.org" "Inbox")
-         "* %? \n%U\n%(retrieve-url)\n")
-        ("b" "Blog" entry (file+headline "micro.org" "Micro")
-         "** TODO %?\n:PROPERTIES:\n:EXPORT_FILE_NAME:\n:END:\n%^g\n" :empty-lines 1)
-        ("p" "Templates for projects")
-        ("pt" "Project todo" entry  ; {project-root}/todo.org
-         (file+headline +org-capture-project-todo-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("pn" "Project notes" entry  ; {project-root}/notes.org
-         (file+headline +org-capture-project-notes-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("pc" "Project changelog" entry  ; {project-root}/changelog.org
-         (file+headline +org-capture-project-notes-file "Unreleased")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
-(after! org
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((clojure . t)
-     (python . t)
-     (C . t)
-     (R . t)
-     (stata . t)
-     (lisp . t)
-     (emacs-lisp . t)))
-  (setq org-hide-emphasis-markers t
-        org-tags-column 79
-        org-startup-indented nil
-        ;; org-indent-indentation-per-level 0
-        org-catch-invisible-edits 'error
-        org-highlight-links '(bracket angle plain radio tag date footnote)
-        org-startup-with-inline-images nil
-        org-confirm-babel-evaluate nil
-        org-src-fontify-natively t
-        org-highlight-latex-and-related '(latex)
-        org-support-shift-select t
-        ;; org-src-tab-acts-natively nil
-        ;; org-bullets-bullet-list '("#")
-        org-ellipsis " ▼ "
-        org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
-        org-log-done 'time
-        org-default-notes-file "~/org/notes.org"
-        org-default-todo-file "~/org/todos.org"
-        org-bibtex-file "~/org/references.bib"
-        org-export-with-author nil
-        org-export-with-creator nil
-        org-html-postamble nil
-        ;; default CSS file in case we don't want pandoc export
-        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/github.css\" />"
-        org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
-        org-pandoc-options-for-html5 '((section-divs . t)
-                                       (bibliography . "/Users/chl/org/references.bib")
-                                       ;; https://is.gd/lt21EQ
-                                       (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
-        org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
-                                           (bibliography . "/Users/chl/org/references.bib")
-                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))
-        org-pandoc-options '((standalone . t)
-                             (smart . t)
-                             (parse-raw . t)))
-  (remove-hook 'org-mode-hook #'auto-fill-mode))
-(remove-hook 'org-mode-hook #'auto-fill-mode)
-(add-hook 'org-mode-hook #'turn-on-visual-line-mode)
-
-;; --tex ---------------------------------------------------------------------
-(setq TeX-auto-save nil
-      TeX-view-program-selection '((output-pdf "PDF Tools"))
-      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
-      TeX-source-correlate-method 'synctex
-      TeX-source-correlate-start-server t)
-(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-
-;; -- mu4e -------------------------------------------------------------------
-;; NOTE Gmail is in read-only mode (2019-05); deactivated again (2019-08)
-(after! mu4e
-  (setq mu4e-get-mail-command "mbsync -a"
-        ; smtpmail-stream-type 'starttls
-        mu4e-change-filenames-when-moving t
-        mu4e-maildirs-extension-default-collapse-level 0
-        mu4e-maildirs-extension-maildir-expanded-prefix "»"
-        mu4e-maildirs-extension-maildir-default-prefix "◉"
-        mu4e-maildirs-extension-toggle-maildir-key "+"
-        mu4e-compose-format-flowed t
-        mu4e-headers-show-threads nil
-        mu4e-headers-date-format "%Y-%m-%d %H:%M"
-        mu4e-confirm-quit nil
-        ; mu4e-completing-read-function 'completing-read
-        smtpmail-queue-dir "~/.mail/queue/cur"
-        smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
-        mu4e-maildir "~/.mail"
-        mu4e-attachment-dir "~/Downloads")
-  (setq mu4e-headers-fields
-        '( (:date          .  25)
-           (:flags         .   6)
-           (:mailing-list  .  10)
-           (:from          .  22)
-           (:subject)))
-  (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
-  (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
-  (add-hook 'mu4e-compose-mode-hook
-          (lambda () (local-set-key (kbd "C-c C-w") #'mu4e-choose-signature)))
-  (setq mu4e-user-mail-address-list '("ch.lalanne@aliquote.org" "ch.lalanne@mac.com"))
-  (setq mu4e-contexts
-        `( ,(make-mu4e-context
-             :name "i icloud"
-             :enter-func (lambda () (mu4e-message "Enter ch.lalanne@mac.com context"))
-             :leave-func (lambda () (mu4e-message "Leave ch.lalanne@mac.com context"))
-             :match-func (lambda (msg)
-                           (when msg
-                             (mu4e-message-contact-field-matches msg :to "ch.lalanne@mac.com")))
-             :vars '((user-mail-address      . "ch.lalanne@mac.com")
-                     (user-full-name         . "Christophe Lalanne")
-                     (mu4e-sent-folder       . "/icloud/Sent Messages")
-                     (mu4e-drafts-folder     . "/icloud/Drafts")
-                     ;; ( mu4e-trash-folder      . "/icloud/Trash" )
-                     (smtpmail-smtp-server   . "smtp.mail.me.com")
-                     (smtpmail-stream-type   . starttls)
-                     (smtpmail-smtp-service  . 587)
-                     (mu4e-compose-signature . (concat "chl\n"))))
-
-           ,(make-mu4e-context
-             :name "a aliquote"
-             :enter-func (lambda () (mu4e-message "Enter chl@aliquote.org context"))
-             :match-func (lambda (msg)
-                           (when msg
-                             (mu4e-message-contact-field-matches msg :to "chl@aliquote.org")))
-             :vars '((user-mail-address       . "ch.lalanne@aliquote.org")
-                     (user-full-name          . "Christophe Lalanne")
-                     (mu4e-sent-folder        . "/aliquote/Sent")
-                     (mu4e-drafts-folder      . "/aliquote/Drafts")
-                     (mu4e-trash-folder       . "/aliquote/Trash")
-                     (smtpmail-smtp-server    . "ssl0.ovh.net")
-                     (smtpmail-smtp-service   . 587)
-                     (mu4e-compose-signature  . (concat "chl\n"))))))
-  (setq mu4e-context-policy 'pick-first
-        mu4e-compose-context-policy nil)
-  (add-to-list 'mu4e-bookmarks
-               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i)))
 
 ;; -- company ----------------------------------------------------------------
 (after! company
@@ -531,3 +380,86 @@
 
 (after! haskell
   (add-hook 'haskell-mode-hook #'hindent-mode))
+
+;; -- org --------------------------------------------------------------------
+(setq org-directory "~/org"
+      org-babel-clojure-backend 'cider
+      inferior-R-program-name "/usr/local/bin/R"
+      inferior-STA-program-name "/usr/local/bin/stata-mp")
+
+(setq org-hugo-default-section-directory "micro"
+      org-hugo-default-base-dir "~/Sites/aliquote")
+
+(setq org-capture-templates
+      '(("t" "Personal todo" entry
+         (file+headline +org-capture-todo-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("n" "Personal notes" entry
+         (file+headline +org-capture-notes-file "Inbox")
+         "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("w" "Web link" entry (file+headline "urls.org" "Inbox")
+         "* %? \n%U\n%(retrieve-url)\n")
+        ("b" "Blog" entry (file+headline "micro.org" "Micro")
+         "** TODO %?\n:PROPERTIES:\n:EXPORT_FILE_NAME:\n:END:\n%^g\n" :empty-lines 1)
+        ("p" "Templates for projects")
+        ("pt" "Project todo" entry  ; {project-root}/todo.org
+         (file+headline +org-capture-project-todo-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("pn" "Project notes" entry  ; {project-root}/notes.org
+         (file+headline +org-capture-project-notes-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("pc" "Project changelog" entry  ; {project-root}/changelog.org
+         (file+headline +org-capture-project-notes-file "Unreleased")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
+
+(after! org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((clojure . t)
+     (python . t)
+     (C . t)
+     (R . t)
+     (stata . t)
+     (lisp . t)
+     (emacs-lisp . t)))
+  (setq org-hide-emphasis-markers t
+        org-tags-column 79
+        org-startup-indented nil
+        ;; org-indent-indentation-per-level 0
+        org-catch-invisible-edits 'error
+        org-highlight-links '(bracket angle plain radio tag date footnote)
+        org-startup-with-inline-images nil
+        org-confirm-babel-evaluate nil
+        org-src-fontify-natively t
+        org-highlight-latex-and-related '(latex)
+        org-support-shift-select t
+        ;; org-src-tab-acts-natively nil
+        ;; org-bullets-bullet-list '("#")
+        org-ellipsis " ▼ "
+        org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
+        org-log-done 'time
+        org-default-notes-file "~/org/notes.org"
+        org-default-todo-file "~/org/todos.org"
+        org-bibtex-file "~/org/references.bib"
+        org-export-with-author nil
+        org-export-with-creator nil
+        org-html-postamble nil
+        ;; default CSS file in case we don't want pandoc export
+        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/github.css\" />"
+        org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
+        org-pandoc-options-for-html5 '((section-divs . t)
+                                       (bibliography . "/Users/chl/org/references.bib")
+                                       ;; https://is.gd/lt21EQ
+                                       (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
+        org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
+                                           (bibliography . "/Users/chl/org/references.bib")
+                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))
+        org-pandoc-options '((standalone . t)
+                             (smart . t)
+                             (parse-raw . t)))
+  (remove-hook 'org-mode-hook #'auto-fill-mode))
+(remove-hook 'org-mode-hook #'auto-fill-mode)
+(add-hook 'org-mode-hook #'turn-on-visual-line-mode)
+
+;; -- mu ---------------------------------------------------------------------
+(load! "lisp/mu4e")
