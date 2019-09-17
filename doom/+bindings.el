@@ -79,7 +79,7 @@
    :desc "Deft"                "D" #'deft
    :desc "Markdown open"       "m" #'markdown-open
    :desc "Org HTML open"       "o" #'org-pandoc-export-to-html5-and-open
-   :desc "Org PDF open"        "O" #'org-latex-export-to-pdf
+   :desc "Org PDF open"        "O" #'org-pandoc-export-to-latex-pdf-and-open
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
  (:prefix "t"

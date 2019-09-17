@@ -99,7 +99,6 @@
 ;; (setq undo-tree-visualizer-timestamps t)
 ;; (setq undo-tree-visualizer-diff t)
 
-(setq show-trailing-whitespace t)
 ;; (setq whitespace-style '(trailing lines space-before-tab
 ;;                          indentation space-after-tab))
 ;; (setq whitespace-line-column 80)
@@ -180,6 +179,9 @@
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
       time-stamp-line-limit 10)
+(eval-after-load 'recentf
+  ;; Pandoc aux files
+  '(add-to-list 'recentf-exclude "^~/org/.export"))
 (setq show-trailing-whitespace t)
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
@@ -319,23 +321,29 @@
       org-babel-clojure-backend 'cider
       inferior-R-program-name "/usr/local/bin/R"
       inferior-STA-program-name "/usr/local/bin/stata-mp")
-(after! org
-  (setq org-capture-templates
-      ;; (retrieve-url) is defined in autoload/
-      '(("w" "Web link" entry (file+headline "urls.org" "Inbox")
+
+(setq org-capture-templates
+      '(("t" "Personal todo" entry
+         (file+headline +org-capture-todo-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("n" "Personal notes" entry
+         (file+headline +org-capture-notes-file "Inbox")
+         "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n")
         ("b" "Blog" entry (file+headline "micro.org" "Micro")
          "** TODO %?\n:PROPERTIES:\n:EXPORT_FILE_NAME:\n:END:\n%^g\n" :empty-lines 1)
-        ("d" "Diary" entry (file+olp+datetree "diary.org" "Diary")
-         "* %?\n%T\n  %i\nFrom: %a")
-        ("m" "Meetings" entry (file+headline "diary.org" "Meetings")
-         "** MEET with %? :MEETING:\n%t" :clock-in t :clock-resume t)
-        ("n" "Notes" entry (file+headline org-default-notes-file "Notes")
-         "* %u %?\n%i" :prepend t :kill-buffer t)
-        ("p" "Projects todo" entry (file+headline org-default-todo-file "Projects")
-         "* TODO %? %^g \n %i\n")
-        ("t" "Todo" entry (file+headline org-default-todo-file "Tasks")
-         "* TODO %? %^g \n %i\n")))
+        ("p" "Templates for projects")
+        ("pt" "Project todo" entry  ; {project-root}/todo.org
+         (file+headline +org-capture-project-todo-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("pn" "Project notes" entry  ; {project-root}/notes.org
+         (file+headline +org-capture-project-notes-file "Inbox")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("pc" "Project changelog" entry  ; {project-root}/changelog.org
+         (file+headline +org-capture-project-notes-file "Unreleased")
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
+(after! org
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((clojure . t)
@@ -347,13 +355,16 @@
      (emacs-lisp . t)))
   (setq org-hide-emphasis-markers t
         org-tags-column 79
-        org-highlight-links '(bracket angle plain radio tag date footnote cite)
+        org-startup-indented nil
+        ;; org-indent-indentation-per-level 0
+        org-catch-invisible-edits 'error
+        org-highlight-links '(bracket angle plain radio tag date footnote)
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
         org-src-fontify-natively t
         org-highlight-latex-and-related '(latex)
         org-support-shift-select t
-        org-src-tab-acts-natively nil
+        ;; org-src-tab-acts-natively nil
         ;; org-bullets-bullet-list '("#")
         org-ellipsis " ▼ "
         org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
@@ -361,9 +372,22 @@
         org-default-notes-file "~/org/notes.org"
         org-default-todo-file "~/org/todos.org"
         org-bibtex-file "~/org/references.bib"
+        org-export-with-author nil
+        org-export-with-creator nil
+        org-html-postamble nil
+        ;; default CSS file in case we don't want pandoc export
+        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/github.css\" />"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
+        org-pandoc-options-for-html5 '((section-divs . t)
+                                       (bibliography . "/Users/chl/org/references.bib")
+                                       ;; https://is.gd/lt21EQ
+                                       (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
+        org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
+                                           (bibliography . "/Users/chl/org/references.bib")
+                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))
         org-pandoc-options '((standalone . t)
-                             (bibliography . "~/org/references.bib")))
+                             (smart . t)
+                             (parse-raw . t)))
   (remove-hook 'org-mode-hook #'auto-fill-mode))
 (remove-hook 'org-mode-hook #'auto-fill-mode)
 (add-hook 'org-mode-hook #'turn-on-visual-line-mode)
