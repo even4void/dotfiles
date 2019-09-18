@@ -16,6 +16,10 @@
           doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
 
 (load! "+bindings")
+;; Override default settings in modules/ui/pretty-code since I definitely
+;; don't like how <= and >= are rendered. Hence the local patch and further
+;; definitions below (see bookmark "pretty-code-section").
+(load! "+iosevka")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
@@ -189,11 +193,8 @@
 ; (setq require-final-newline t)
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (add-hook 'write-file-functions 'time-stamp)
-(auto-fill-mode -1)
-(remove-hook 'text-mode-hook #'turn-on-auto-fill)
+(remove-hook 'text-mode-hook #'auto-fill-mode)
 (add-hook 'text-mode-hook #'turn-on-visual-line-mode)
-;; too much noise (e.g., Magit commit messages)
-;; (add-hook 'text-mode-hook 'flyspell-mode)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.rmd\\'" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
@@ -206,7 +207,7 @@
 (after! markdown
   (setq markdown-pre-face "Inziu Iosevka CL"
         markdown-code-face "Inziu Iosevka CL")
-  (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
+  ;; (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
   (remove-hook 'markdown-mode-hook #'auto-fill-mode)
   (add-hook 'markdown-mode-hook #'turn-on-visual-line-mode))
 (remove-hook 'markdown-mode-hook #'auto-fill-mode)
@@ -214,7 +215,7 @@
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
-(setq +pretty-code-enabled-modes '(emacs-lisp-mode org-mode clojure-mode
+(setq +pretty-code-enabled-modes '(emacs-lisp-mode org-mode clojure-mode haskell-mode
                                    latex-mode scheme-mode racket-mode ess-r-mode))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
@@ -238,9 +239,9 @@
                 ("#+BEGIN_QUOTE" . "“")
                 ("#+END_QUOTE" . "”")
                 ("#+CAPTION:" . "»")
+                ;; ("file:" . "⌘")
                 ("<=" . "⩽")
-                (">=" . "⩾")
-                ("file:" . "⌘"))))
+                (">=" . "⩾"))))
 
 ;; https://is.gd/3VuSXj
 (defface org-checkbox-done-text

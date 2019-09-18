@@ -15,7 +15,7 @@
        neotree
        ophints
        (popup +all +defaults)
-       (pretty-code +iosevka)
+       pretty-code
        ;;treemacs
        vc-gutter
        window-select
