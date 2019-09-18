@@ -240,13 +240,14 @@
                 ("#+CAPTION:" . "»")
                 ("<=" . "⩽")
                 (">=" . "⩾")
-                ("file:" . ""))))
+                ("file:" . "⌘"))))
 
 ;; https://is.gd/3VuSXj
 (defface org-checkbox-done-text
   '((t (:foreground "#5a637b")))
   "Face for the text part of a checked org-mode checkbox.")
 
+;; See also https://emacs.stackexchange.com/a/52390
 (font-lock-add-keywords 'org-mode
                         '(("@[a-z]+.+?[^;,.]+" . font-lock-keyword-face)))
 
@@ -456,14 +457,17 @@
                                        ;; https://is.gd/lt21EQ
                                        (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
         org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
+                                           (listings . t)
+                                           ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
-                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))
-        org-pandoc-options '((standalone . t)
-                             (smart . t)
-                             (parse-raw . t)))
+                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" )))
   (remove-hook 'org-mode-hook #'auto-fill-mode))
 (remove-hook 'org-mode-hook #'auto-fill-mode)
 (add-hook 'org-mode-hook #'turn-on-visual-line-mode)
+;; (setq org-pandoc-options '((standalone . t)
+;;                            (mathjax . t)
+;;                            (smart . t)
+;;                            (parse-raw . t)))
 
 ;; -- mu ---------------------------------------------------------------------
 (load! "lisp/mu4e")

@@ -68,7 +68,8 @@
    :desc "Markdown open"       "m" #'markdown-open
    :desc "Org HTML open"       "h" #'org-pandoc-export-to-html5-and-open
    :desc "Org PDF open"        "p" #'org-pandoc-export-to-latex-pdf-and-open
-   :desc "Org HTML publish"    "H" #'org-publish-all)
+   :desc "Org HTML publish"    "H" #'org-publish-all
+   :desc "Org dispatcher"      "d" #'org-export-dispatch)
  (:prefix "n"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Unfill region"       "f" #'unfill-region
