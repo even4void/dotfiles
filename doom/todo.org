@@ -1,8 +1,10 @@
-* TODO Install & configure [2/3]
+* Inbox
+** TODO Install & configure [2/3]
 - [X] racket + geiser
 - [ ] check JS config
 - [X] check clj config
-* TODO Write custom documentation
-* DONE Revise personal keybindings (GUI/CLI)
+** TODO Write custom documentation
+** DONE Revise personal keybindings (GUI/CLI)
 CLOSED: [2019-09-12 Thu 07:47]
-* TODO Add some [[https://is.gd/JE4405][aliases]]
+** TODO Add some [[https://is.gd/JE4405][aliases]]
+** TODO Replace org/md snippets with file-template

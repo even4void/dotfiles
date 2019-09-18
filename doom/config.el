@@ -220,7 +220,7 @@
       highlight-indent-guides-delay 0)
 
 ;; Org and R additional symbols
-;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402)
+;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402), ⚐
 ;; See also https://is.gd/RI0K2P
 (setq +pretty-code-iosevka-font-ligatures
       (append +pretty-code-iosevka-font-ligatures
@@ -239,7 +239,8 @@
                 ("#+END_QUOTE" . "”")
                 ("#+CAPTION:" . "»")
                 ("<=" . "⩽")
-                (">=" . "⩾"))))
+                (">=" . "⩾")
+                ("file:" . ""))))
 
 ;; https://is.gd/3VuSXj
 (defface org-checkbox-done-text
