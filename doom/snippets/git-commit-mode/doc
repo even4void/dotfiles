@@ -1,6 +1,6 @@
-# -*- mode: snippet; require-final-newline: nil -*-
+# -*- mode: snippet -*-
 # name: fixes
 # key: doc
 # uuid: doc
 # --
-ⓘ  doc
+Add doc
