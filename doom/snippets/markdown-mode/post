@@ -1,5 +1,5 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: Pelicoblog YAML meta-data 
+# -*- mode: snippet -*-
+# name: Hugo YAML meta-data
 # key: post
 # binding: direct-keybinding
 # --

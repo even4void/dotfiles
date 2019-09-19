@@ -53,6 +53,7 @@
    :desc "Dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input
    :desc "Swiper all"          "s" #'doom/swiper-all-region-or-symbol
+   ;; :desc "Locate"              "f" #'counsel-locate
    :desc "Replace"             "r" #'query-replace
    :desc "Replace (regex)"     "R" #'replace-regexp)
  (:prefix "c"

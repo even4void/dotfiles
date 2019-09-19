@@ -188,6 +188,7 @@
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
         sql-mode         ; sqlformat is currently broken
+        markdown-mode    ; not funny with Hugo shortcode
         python-mode))    ; because I don't like it
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ; (setq require-final-newline t)
@@ -299,10 +300,10 @@
       '((""      25 magit-repolist-column-ident                  ())
         ("     " 30 magit-repolist-column-version                ((:right-align t)))
         ("⚡"        1 magit-repolist-column-dirty                  ())
-        (""        3 magit-repolist-column-branches                 ((:right-align t)))
-        (""       3 magit-repolist-column-stashes                  ((:right-align t)))
-        ("⤓"        3 magit-repolist-column-unpulled-from-upstream   ((:right-align t)))
-        ("⤒"        3 magit-repolist-column-unpushed-to-upstream     ((:right-align t)))
+        (""        3 magit-repolist-column-branches               ((:right-align t)))
+        (""       3 magit-repolist-column-stashes                ((:right-align t)))
+        ("⤓"        3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
+        ("⤒"        3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
         ("Path"    99 magit-repolist-column-path                   ())))
 
 ;; -- neotree ----------------------------------------------------------------

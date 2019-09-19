@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Hugo shortcode for <figure>
+# key: figure
+# condition: t
+# --
+{{< figure src="$1" alt="$2" title="" class="center" >}}
+$0
