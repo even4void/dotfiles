@@ -188,14 +188,11 @@
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
         sql-mode         ; sqlformat is currently broken
-        markdown-mode    ; not funny with Hugo shortcode
         python-mode))    ; because I don't like it
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ; (setq require-final-newline t)
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (add-hook 'write-file-functions 'time-stamp)
-(remove-hook 'text-mode-hook #'auto-fill-mode)
-(add-hook 'text-mode-hook #'turn-on-visual-line-mode)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.rmd\\'" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
@@ -211,8 +208,6 @@
   ;; (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
   (remove-hook 'markdown-mode-hook #'auto-fill-mode)
   (add-hook 'markdown-mode-hook #'turn-on-visual-line-mode))
-(remove-hook 'markdown-mode-hook #'auto-fill-mode)
-(add-hook 'markdown-mode-hook #'turn-on-visual-line-mode)
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
