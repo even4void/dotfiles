@@ -91,6 +91,7 @@
    :desc "Spell check buffer"  "w" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Auto fill"           "f" #'auto-fill-mode
+   :desc "Visual lines"        "v" #'visual-line-mode
    :desc "Undo tree"           "u" #'undo-tree-visualize
    :desc "Markdown hide/show"  "m" #'markdown-toggle-markup-hiding
    :desc "Flycheck"            "c" #'flycheck-buffer)
