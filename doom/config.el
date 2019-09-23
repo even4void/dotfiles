@@ -207,7 +207,7 @@
         markdown-code-face "Inziu Iosevka CL")
   ;; (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
   (remove-hook 'markdown-mode-hook #'auto-fill-mode)
-  (add-hook 'markdown-mode-hook #'turn-on-visual-line-mode))
+  (add-hook 'markdown-mode-hook #'visual-line-mode))
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
@@ -458,9 +458,10 @@
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex" )))
-  (remove-hook 'org-mode-hook #'auto-fill-mode))
+  (remove-hook 'org-mode-hook #'auto-fill-mode)
+  (add-hook 'org-mode-hook #'visual-line-mode))
 (remove-hook 'org-mode-hook #'auto-fill-mode)
-(add-hook 'org-mode-hook #'turn-on-visual-line-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)
 ;; (setq org-pandoc-options '((standalone . t)
 ;;                            (mathjax . t)
 ;;                            (smart . t)
