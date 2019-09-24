@@ -211,8 +211,11 @@
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
-(setq +pretty-code-enabled-modes '(emacs-lisp-mode org-mode clojure-mode haskell-mode
-                                   latex-mode scheme-mode racket-mode ess-r-mode))
+(setq +pretty-code-enabled-modes
+      '(emacs-lisp-mode org-mode clojure-mode
+                        haskell-mode python-mode
+                        latex-mode scheme-mode
+                        racket-mode ess-r-mode))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
 
