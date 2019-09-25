@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: music
+# key: music
+# condition: t
+# --
+{{% music %}}$1 • *$2*{{% /music %}}

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: img-fluid-2
+# key: fluid2
+# condition: t
+# --
+{{< fluid_imgs
+  "pure-u-1-2|/img/$1"
+  "pure-u-1-2|/img/$2" >}}

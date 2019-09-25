@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: kbd
+# key: kbd
+# condition: t
+# --
+<kbd>$1</kbd>

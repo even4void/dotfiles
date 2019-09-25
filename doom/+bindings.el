@@ -63,7 +63,7 @@
    :desc "LSP shutdown"        "q" #'lsp-shutdown-workspace
    :desc "Code outline"        "o" #'lsp-ui-imenu
    :desc "Help (LSP)"          "h" #'lsp-describe-thing-at-point
-   :desc "Help (Dash)"         "H" #'counsel-dash          ;; #'+lookup:dash
+   :desc "Help (Dash)"         "H" #'counsel-dash
    :desc "Changelog"           "l" #'change-log-find-file)
  (:prefix-map ("e" . "export")
    :desc "Markdown open"       "m" #'markdown-open
@@ -92,6 +92,7 @@
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Visual lines"        "v" #'visual-line-mode
+   :desc "Prettify"            "P" #'prettify-symbols-mode
    :desc "Undo tree"           "u" #'undo-tree-visualize
    :desc "Markdown hide/show"  "m" #'markdown-toggle-markup-hiding
    :desc "Flycheck"            "c" #'flycheck-buffer)
