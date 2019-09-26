@@ -5,7 +5,8 @@
 
 (map!
 
- :n "C-p" 'neotree-toggle
+ :n "zp"  #'neotree-toggle
+ :n "zn"  #'+evil:narrow-buffer
 
  ;; dictionnary
  :n "C-c d" 'osx-dictionary-search-word-at-point

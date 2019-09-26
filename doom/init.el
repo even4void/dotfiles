@@ -96,7 +96,7 @@
    (quote
     ("f99773b819cbfee5b3b12ec82ee7f9a82a32ebe3637ed60f5c4c062304cb9621" default)))
  '(flycheck-lintr-linters
-   "with_defaults(assignment_linter=NULL,commented_code_linter=NULL,absolute_paths_linter=NULL,line_length_linter(120))")
+   "with_defaults(assignment_linter=NULL,camel_case_linter=NULL,commented_code_linter=NULL,absolute_paths_linter=NULL,line_length_linter(120))")
  '(lsp-ui-doc-delay 0.7)
  '(lsp-ui-doc-max-height 8)
  '(lsp-ui-doc-max-width 40)
