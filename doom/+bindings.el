@@ -78,6 +78,7 @@
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
+   :desc "List project tasks"  "t" #'+default/project-tasks
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
    :desc "Mu4e"                "M" #'mu4e
