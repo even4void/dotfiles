@@ -7,6 +7,7 @@
 (package! osx-dictionary)
 (package! realgud-trepan-ni)
 (package! fish-mode)
+(package! interleave)
 
 ;; no thanks
 (package! helm :disable t)

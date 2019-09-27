@@ -77,6 +77,7 @@
    :desc "Unfill region"       "f" #'unfill-region
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
+   :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
    :desc "List project tasks"  "t" #'+default/project-tasks
    :desc "Insert URL"          "u" #'insert-url)
