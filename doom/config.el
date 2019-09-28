@@ -269,7 +269,7 @@
 (set-docsets! 'python-mode "Python")
 (set-docsets! 'rust-mode "Rust")
 
-;; -- eshell -----------------------------------------------------------------
+;; -- eshell/term -------------------------------------------------------------
 ;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
 (after! eshell
   (set-eshell-alias!
@@ -283,6 +283,8 @@
 (defun eshell/clear ()
   "Clear Eshell screen (other than the default method)"
    (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
+
+(setq multi-term-program "/bin/zsh")
 
 ;; -- git/magit ---------------------------------------------------------------
 ;; See https://github.com/magit/ghub/issues/81

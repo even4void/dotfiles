@@ -36,6 +36,7 @@
 
        :term
        eshell
+       term
 
        :tools
        debugger
