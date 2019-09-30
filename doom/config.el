@@ -238,6 +238,7 @@
                 ("#+BEGIN_QUOTE" . "“")
                 ("#+END_QUOTE" . "”")
                 ("#+CAPTION:" . "»")
+                ("#+ATTR_LaTeX:" . "»")
                 ;; ("file:" . "⌘")
                 ("<=" . "⩽")
                 (">=" . "⩾"))))
@@ -248,8 +249,10 @@
   "Face for the text part of a checked org-mode checkbox.")
 
 ;; See also https://emacs.stackexchange.com/a/52390
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("@[a-z]+.+?[^;,.]+" . font-lock-keyword-face)))
 (font-lock-add-keywords 'org-mode
-                        '(("@[a-z]+.+?[^;,.]+" . font-lock-keyword-face)))
+                        '(("\\[@.+?\\]" . font-lock-keyword-face)))
 
 (font-lock-add-keywords 'org-mode
                         '(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
