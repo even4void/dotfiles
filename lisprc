@@ -1,0 +1,11 @@
+(defun :ls (package)
+  (do-external-symbols (s package)
+    (print s)))
+
+(setf *print-pretty* t
+      *print-escape* t
+      *print-right-margin* 100
+      *print-miser-width* nil
+      *print-length* 1000
+      *print-level* 250)
+

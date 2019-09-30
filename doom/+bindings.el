@@ -7,6 +7,7 @@
 
  :n "zp"  #'neotree-toggle
  :n "zn"  #'+evil:narrow-buffer
+ :n "zg"  #'magit-status
 
  ;; dictionnary
  :n "C-c d" 'osx-dictionary-search-word-at-point

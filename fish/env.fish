@@ -27,3 +27,4 @@ set -x RUST_SRC_PATH (rustc --print sysroot)'/lib/rustlib/src/rust/src'
 set -x ARTEMIS_JAVA_JRE '/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home'
 set -x PSQLRC $HOME/.config/psql/psqlrc
 set -x BAT_THEME ansi-light
+set -x HOMEBREW_NO_EMOJI 1
