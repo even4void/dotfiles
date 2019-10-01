@@ -8,6 +8,10 @@
  :n "zp"  #'neotree-toggle
  :n "zn"  #'+evil:narrow-buffer
  :n "zg"  #'magit-status
+ :n "z^"  #'git-gutter:previous-hunk
+ :n "z$"  #'git-gutter:next-hunk
+ :n "z:"  #'+lookup/definition
+ :n "z="  #'+lookup/references
 
  ;; dictionnary
  :n "C-c d" 'osx-dictionary-search-word-at-point
@@ -25,8 +29,6 @@
  "s-a" #'mark-whole-buffer
  "s-;" #'eval-expression
  "s-r" #'query-replace
- "s-<" #'+lookup/definition
- "s->" #'+lookup/references
 
  (:map markdown-mode-map
    :i "s-i" #'markdown-insert-italic
@@ -48,6 +50,7 @@
 
  ;; which-key items
  :leader
+ :desc "Persp buffer"  ">"  #'persp-switch-to-buffer
  (:prefix "/"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Counsel Ag"          "c" #'doom/counsel-region-or-symbol
@@ -92,7 +95,7 @@
  (:prefix "t"
    :desc "Select theme"        "t" #'counsel-load-theme
    :desc "Select dictionary"   "z" #'ispell-change-dictionary
-   :desc "Spell check buffer"  "w" #'flyspell-buffer
+   :desc "Spellcheck"          "w" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Visual lines"        "v" #'visual-line-mode
