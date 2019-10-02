@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: figure
+# key: fig
+# --
+#+CAPTION: ${1:caption}
+#+ATTR_LATEX: ${2:scale=0.75}
+#+ATTR_HTML: ${3::width 75%}
+#+LABEL: fig:${3:label}
