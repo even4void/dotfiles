@@ -22,13 +22,17 @@
  :n "C--"    #'doom/decrease-font-size
 
  ;; osx shortcuts without cua-mode
- "s-z" #'undo
+ "s-z"       #'undo
  "s-c" (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
- "s-v" #'yank
- "s-s" #'save-buffer
- "s-a" #'mark-whole-buffer
- "s-;" #'eval-expression
- "s-r" #'query-replace
+ "s-v"       #'yank
+ "s-s"       #'save-buffer
+ "s-a"       #'mark-whole-buffer
+ "s-;"       #'eval-expression
+ "s-r"       #'query-replace
+ "s-<left>"    #'evil-window-left
+ "s-<right>"   #'evil-window-right
+ "s-<up>"      #'evil-window-up
+ "s-<down>"    #'evil-window-down
 
  (:map markdown-mode-map
    :i "s-i" #'markdown-insert-italic
