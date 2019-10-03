@@ -50,7 +50,7 @@
 
  ;; which-key items
  :leader
- :desc "Persp buffer"  ">"  #'persp-switch-to-buffer
+ :desc "Next workspace"  ">"  #'+workspace:switch-next
  (:prefix "/"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Counsel Ag"          "c" #'doom/counsel-region-or-symbol
@@ -84,6 +84,7 @@
    :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
    :desc "List project tasks"  "t" #'+default/project-tasks
+   :desc "Add bookmark"        "b" #'bookmark-set
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
    :desc "Mu4e"                "M" #'mu4e

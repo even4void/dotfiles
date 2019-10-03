@@ -206,8 +206,7 @@
   (setq markdown-pre-face "Inziu Iosevka CL"
         markdown-code-face "Inziu Iosevka CL")
   ;; (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
-  (remove-hook 'markdown-mode-hook #'auto-fill-mode)
-  (add-hook 'markdown-mode-hook #'visual-line-mode))
+  (remove-hook 'markdown-mode-hook #'auto-fill-mode))
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
