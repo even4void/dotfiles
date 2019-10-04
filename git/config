@@ -29,7 +29,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pr = pull-request
 	here = !git init && git add . && git commit -S -m \"Init repo\"
-    wip = commit -S -m '↯ wip'
+    wip = commit -S -m '↻ wip'
     cos = commit -S -m 'Cosmit changes'
     fix = commit -S -m '✓ Minor fix'
     doc = commit -S -m 'Add doc'
