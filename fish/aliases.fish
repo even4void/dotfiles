@@ -31,6 +31,7 @@ alias gg 'git show | tig'
 alias perms "stat -c '%A %a %n'"
 alias mkhttp "python3 -m http.server"
 alias dud "du -sh ./* | sort -h"
+alias venv "python3 -m venv"
 
 alias inbox 'mbsync -a && mu index -m "~/.mail"'
 alias podo 'ssh podospora@172.27.34.115'

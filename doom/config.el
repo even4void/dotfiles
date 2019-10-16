@@ -1,8 +1,8 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 175))
+;; (add-to-list 'default-frame-alist '(height . 50))
+;; (add-to-list 'default-frame-alist '(width . 175))
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
