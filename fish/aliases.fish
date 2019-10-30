@@ -9,6 +9,7 @@ alias j 'jobs -l'
 alias l ls
 alias ll 'ls -la'
 alias ls 'ls -FG'
+alias lk 'ls -lhSr'
 alias md 'mkdir -p'
 abbr -a -- - 'cd -'
 
