@@ -75,12 +75,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
 
-" lisp
-"" Lisp Bundle
-Plug 'kovisoft/slimv'
-"" Racket
-" Plug 'wlangstroth/vim-racket'
-
 " python
 "" Python Bundle
 Plug 'davidhalter/jedi-vim'
@@ -450,17 +444,6 @@ let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_folding_level = 2
-
-
-" lisp
-if has("autocmd")
-    au BufReadPost *.rkt,*.rktl set filetype=racket
-    au filetype racket set lisp
-    au filetype racket set autoindent
-endif
-
-let g:slimv_swank_cmd = '!osascript -e "tell application \"iTerm\" to do script \"sbcl --noinform --no-linedit --load ~/.vim/slime/start-swank.lisp\""'
-let g:slimv_swank_clojure = '!osascript -e "tell application \"iTerm\" to do script \"lein swank &\""'
 
 " python
 " vim-python

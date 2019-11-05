@@ -1,5 +1,6 @@
 alias confd 'nvim ~/.config/'
 
+alias e 'emacs -nw'
 alias eg 'emacsclient'
 alias et 'emacsclient -nw -s server'
 

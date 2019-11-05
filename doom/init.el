@@ -1,5 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
+(setenv "INDOOM" "1")
+
 (doom! :completion
        (company +childframe)
        (ivy +prescient)
@@ -73,6 +75,7 @@
         +present)
        ;;purescript
        (python +pyenv +lsp)
+       ;; (ruby +lsp)
        racket
        (rust +lsp)
        scheme

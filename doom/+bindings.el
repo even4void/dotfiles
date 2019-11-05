@@ -21,6 +21,8 @@
  :n "C-+"    #'doom/increase-font-size
  :n "C--"    #'doom/decrease-font-size
 
+ :n "s-<return>"  #'toggle-frame-fullscreen
+ 
  ;; osx shortcuts without cua-mode
  "s-z"       #'undo
  "s-c" (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)

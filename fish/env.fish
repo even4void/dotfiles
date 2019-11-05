@@ -9,6 +9,7 @@ set -x PATH '/Users/chl/.config/bin' $PATH
 set -x PATH '/Users/chl/.local/bin' $PATH
 set -x PATH '/Users/chl/.emacs.d/bin' $PATH
 set -x PATH '/Users/chl/.cargo/bin' $PATH
+# set -x PATH '/usr/local/lib/ruby/gems/*/bin' $PATH
 set -x PATH '/usr/local/opt/sqlite/bin' $PATH
 set -x PATH '/Users/chl/.stack/programs/x86_64-osx/ghc-8.6.5/bin/' $PATH
 set -x PATH '/Users/chl/.pyenv/bin' $PATH
