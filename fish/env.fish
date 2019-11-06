@@ -19,7 +19,7 @@ set -g fish_user_paths '/usr/local/sbin' $fish_user_paths
 
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
-status --is-interactive
+status --is-interactive 
 and . (pyenv init -|psub)
 
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)'/jre'

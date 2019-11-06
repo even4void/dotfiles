@@ -11,15 +11,16 @@
 
 ;; Use a patched font for GUI mode so that we get Iosevka ligatures
 ;; that we have free when using iTerm.
-(if (memq window-system '(ns mac x))
+(when (display-graphic-p)
     (setq doom-font (font-spec :family "Iosevka" :size 14)
-          doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)))
+          doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
+    (load! "+iosevka"))
 
 (load! "+bindings")
 ;; Override default settings in modules/ui/pretty-code since I definitely
 ;; don't like how <= and >= are rendered. Hence the local patch and further
 ;; definitions below (see bookmark "pretty-code-section").
-(load! "+iosevka")
+;; (load! "+iosevka")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
@@ -210,41 +211,43 @@
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
-(setq +pretty-code-enabled-modes
-      '(emacs-lisp-mode org-mode clojure-mode
-                        haskell-mode ;; python-mode
-                        latex-mode scheme-mode
-                        racket-mode ess-r-mode))
+(when (display-graphic-p)
+  (setq +pretty-code-enabled-modes
+        '(emacs-lisp-mode org-mode clojure-mode
+                          haskell-mode ;; python-mode
+                          latex-mode scheme-mode
+                          racket-mode ess-r-mode)))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
 
 ;; Org and R additional symbols
 ;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402), ⚐
 ;; See also https://is.gd/RI0K2P
-(setq +pretty-code-iosevka-font-ligatures
-      (append +pretty-code-iosevka-font-ligatures
-              '(("[ ]" .  "☐")
-                ("[X]" . "☑" )
-                ("[-]" . "❍" )
-                ("%>%" . #Xe175)
-                ("%$%" . #Xe112)
-                ("%<>%" . #Xe114)
-                ("%T>%" . #Xe1b1)
-                ("function" . "ƒ")
-                ("#+BEGIN_EXAMPLE" . "■")
-                ("#+END_EXAMPLE" . "▪")
-                ("#+BEGIN_COMMENT" . "¶")
-                ("#+END_COMMENT" . "▪")
-                ("#+BEGIN_QUOTE" . "“")
-                ("#+END_QUOTE" . "”")
-                ("#+CAPTION:" . "»")
-                ("#+ATTR_LaTeX:" . "»")
-                ("#+ATTR_LATEX:" . "»")
-                ("#+ATTR_HTML:" . "»")
-                ("#+LABEL:" . "»")
-                ;; ("file:" . "⌘")
-                ("<=" . "⩽")
-                (">=" . "⩾"))))
+(when (display-graphic-p)
+  (setq +pretty-code-iosevka-font-ligatures
+        (append +pretty-code-iosevka-font-ligatures
+                '(("[ ]" .  "☐")
+                  ("[X]" . "☑" )
+                  ("[-]" . "❍" )
+                  ("%>%" . #Xe175)
+                  ("%$%" . #Xe112)
+                  ("%<>%" . #Xe114)
+                  ("%T>%" . #Xe1b1)
+                  ("function" . "ƒ")
+                  ("#+BEGIN_EXAMPLE" . "■")
+                  ("#+END_EXAMPLE" . "▪")
+                  ("#+BEGIN_COMMENT" . "¶")
+                  ("#+END_COMMENT" . "▪")
+                  ("#+BEGIN_QUOTE" . "“")
+                  ("#+END_QUOTE" . "”")
+                  ("#+CAPTION:" . "»")
+                  ("#+ATTR_LaTeX:" . "»")
+                  ("#+ATTR_LATEX:" . "»")
+                  ("#+ATTR_HTML:" . "»")
+                  ("#+LABEL:" . "»")
+                  ;; ("file:" . "⌘")
+                  ("<=" . "⩽")
+                  (">=" . "⩾")))))
 
 ;; https://is.gd/3VuSXj
 (defface org-checkbox-done-text
