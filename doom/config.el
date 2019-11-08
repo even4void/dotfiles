@@ -1,6 +1,8 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 ;; (add-to-list 'default-frame-alist '(height . 50))
 ;; (add-to-list 'default-frame-alist '(width . 175))
 
@@ -28,10 +30,11 @@
 ;; doom-themes already comes with a custom Nord theme but I don't like it
 ;; (moreover we must activate a 24-bit mode for the terminal, see ~/.terminfo).
 ;; So here we go, with the true https://github.com/arcticicestudio/nord-emacs.
-(setq nord-comment-brightness 15)
-(setq nord-region-highlight "frost")
-(setq nord-uniform-mode-lines t)
-(load-theme 'nord t)
+;; (setq nord-comment-brightness 15)
+;; (setq nord-region-highlight "frost")
+;; (setq nord-uniform-mode-lines t)
+;; (load-theme 'nord t)
+(load-theme 'doom-nord t)
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)
 (set-face-italic 'font-lock-comment-face t)
@@ -44,18 +47,18 @@
 
 ;; doom-modeline setup
 (after! doom-modeline
+  ;; modals: evil state; indent-info: indentation level
   (doom-modeline-def-modeline 'my/modeline
     '(bar matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs))
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my/modeline 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-(setq doom-neotree-file-icons nil)
+(setq doom-themes-neotree-file-icons nil)
 (setq doom-modeline-env-python-executable "python3")
 (setq doom-modeline-enable-word-count t)
-(setq doom-modeline-indent-info t)
-; (setq doom-modeline-icon t)
 (setq doom-modeline-checker-simple-format t)
+(setq doom-modeline-unicode-fallback nil)
 
 ;; https://emacs.stackexchange.com/a/36373
 (define-fringe-bitmap 'flycheck-fringe-bitmap-ball

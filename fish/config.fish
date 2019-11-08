@@ -19,4 +19,4 @@ source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
 # Virtual Fish
-eval (python3 -m virtualfish auto_activation global_requirements)
+# eval (python3 -m virtualfish auto_activation global_requirements)

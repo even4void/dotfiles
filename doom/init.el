@@ -42,7 +42,7 @@
 
        :tools
        debugger
-       eval
+       (eval +overlay)
        (flycheck +childframe)
        flyspell
        gist
@@ -74,7 +74,7 @@
         +pandoc
         +present)
        ;;purescript
-       (python +pyenv +lsp)
+       (python +pyenv +lsp +cython)
        ;; (ruby +lsp)
        racket
        (rust +lsp)
@@ -118,11 +118,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(lsp-ui-doc-background ((t (:background "#2e3440"))))
- '(lsp-ui-peek-header ((t (:background "slate grey" :foreground "black"))))
- '(lsp-ui-peek-highlight ((t (:background "slate grey" :distant-foreground "white" :foreground "black" :box (:line-width -1 :color "white")))))
- '(lsp-ui-peek-list ((t (:background "#2e3440"))))
- '(lsp-ui-peek-peek ((t (:background "#2e3440"))))
- '(lsp-ui-peek-selection ((t (:background "slate grey" :foreground "black"))))
+ ;;'(lsp-ui-doc-background ((t (:background "#2e3440"))))
+ ;;'(lsp-ui-peek-header ((t (:background "slate grey" :foreground "black"))))
+ ;;'(lsp-ui-peek-highlight ((t (:background "slate grey" :distant-foreground "white" :foreground "black" :box (:line-width -1 :color "white")))))
+ ;;'(lsp-ui-peek-list ((t (:background "#2e3440"))))
+ ;;'(lsp-ui-peek-peek ((t (:background "#2e3440"))))
+ ;;'(lsp-ui-peek-selection ((t (:background "slate grey" :foreground "black"))))
  '(markdown-code-face ((t (:family "Inziu Iosevka CL"))))
- '(popup-tip-face ((t (:background "slate grey" :foreground "ivory")))))
+ ;;'(popup-tip-face ((t (:background "slate grey" :foreground "ivory"))))
+ )
