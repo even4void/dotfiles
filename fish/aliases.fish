@@ -38,7 +38,6 @@ alias podo 'ssh podospora@172.27.34.115'
 alias statadocs "open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
 alias rhelp "Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
 alias pip-upgrade-all "pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
-alias julia "/Applications/Julia-1.2.app/Contents/Resources/julia/bin/julia"
 
 # See plenty of other nice aliases at https://bit.ly/2OYA8qW
 abbr -a -U -- - prevd
