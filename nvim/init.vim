@@ -298,6 +298,9 @@ augroup vimrc-wrapping
   autocmd BufRead,BufNewFile *.txt call s:setupWrapping()
 augroup END
 
+"" Whitespace
+autocmd FileType c,cpp,python,markdown,scheme,haskell autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 "" make/cmake
 augroup vimrc-make-cmake
   autocmd!

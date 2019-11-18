@@ -12,7 +12,7 @@ SETUVAR _fish_abbr_gci:git\x20commit\x20\x2dS\x20\x2dm
 SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gfu:git\x20fetch\x20upstream
 SETUVAR _fish_abbr_gmu:git\x20merge\x20upstream/master
-SETUVAR _fish_abbr_gst:git\x20status
+SETUVAR _fish_abbr_gst:git\x20status\x20\x2ds
 SETUVAR fish_color_autosuggestion:9C9C9C
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:F4F4F4

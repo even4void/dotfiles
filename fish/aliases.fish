@@ -43,7 +43,7 @@ alias pip-upgrade-all "pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | x
 abbr -a -U -- - prevd
 abbr -a -U -- = nextd
 
-abbr -a gst git status
+abbr -a gst git status -s
 abbr -a gaa git add --all
 abbr -a gco git checkout
 abbr -a gcb git checkout -b
