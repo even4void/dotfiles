@@ -1,12 +1,7 @@
-" vim-bootstrap
-
 "*****************************************************************************
 "" Vim-PLug core
 "*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-
-let g:vim_bootstrap_langs = "c,lisp,python"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -45,7 +40,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
@@ -71,14 +65,16 @@ Plug 'arcticicestudio/nord-vim'
 "" Custom bundles
 "*****************************************************************************
 
+" Plug 'neovim/nvim-lsp'
+
 " c
-Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-Plug 'ludwig/split-manpage.vim'
+"Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
+"Plug 'ludwig/split-manpage.vim'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+"Plug 'davidhalter/jedi-vim'
+"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " markdown
 Plug 'godlygeek/tabular'
@@ -437,6 +433,9 @@ inoremap <C-a> <C-o>0
 "" Custom configs
 "*****************************************************************************
 
+" lsp
+" call nvim_lsp#setup("pyls", {})
+
 " c
 autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
@@ -450,30 +449,30 @@ let g:vim_markdown_folding_level = 2
 
 " python
 " vim-python
-augroup vimrc-python
-  autocmd!
-  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
-      \ formatoptions+=croq softtabstop=4
-      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-augroup END
+"augroup vimrc-python
+""  autocmd!
+""  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 colorcolumn=79
+""      \ formatoptions+=croq softtabstop=4
+""      \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+"augroup END
 
 " jedi-vim
-let g:jedi#popup_on_dot = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "0"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#smart_auto_mappings = 0
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>d"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#rename_command = "<leader>r"
+"let g:jedi#show_call_signatures = "0"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#smart_auto_mappings = 0
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
+"let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
 
