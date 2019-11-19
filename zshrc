@@ -5,6 +5,9 @@
 typeset -U PATH
 autoload colors; colors;
 
+# autoload -U promptinit; promptinit
+# prompt pure
+
 #############
 ## PRIVATE ##
 #############
@@ -239,7 +242,7 @@ if [ -r ${dir_info_color_file} ]; then
 fi
 
 local dir_info="%{$dir_info_color%}%(5~|%-1~/.../%2~|%4~)%{$reset_color%}"
-local promptnormal="%{$fg_bold[grey]%}λ %{$reset_color%}"
+local promptnormal="%{$fg_bold[yellow]%}λ %{$reset_color%}"
 local promptjobs="%{$fg_bold[red]%}λ %{$reset_color%}"
 
 PROMPT='${dir_info}$(git_prompt_info) %(1j.$promptjobs.$promptnormal)'
@@ -256,7 +259,7 @@ function check_last_exit_code() {
   fi
 }
 
-RPROMPT='$(check_last_exit_code)'
+# RPROMPT='$(check_last_exit_code)'
 
 ########
 # ENV
@@ -304,3 +307,29 @@ fi
 
 export BAT_THEME=ansi-light
 alias cat=bat
+
+alias la="ls -a"
+alias dud="du -sh ./* | sort -h"
+alias awk=gawk
+alias sed=gsed
+alias ccl=ccl64
+alias ipy=ipython
+alias R="R -q --no-save --no-restore"
+alias cx="chmod +x"
+alias ccat="pygmentize -g"
+alias notes='rg "TODO|NOTE|FIXME"'
+alias tree="tree -NC"
+alias gg="git show | tig"
+alias perms="stat -c '%A %a %n'"
+alias mkhttp="python3 -m http.server"
+alias venv="python3 -m venv"
+alias inbox='mbsync -a && mu index -m "~/.mail"'
+alias gst="git status -s"
+alias gci="git commit -S -m"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gaa="git add --all"
+alias j="jobs -l"
+alias l="exa --long --header --git"
+alias lk="ls -lhSr"
+alias md="mkdir -p"

@@ -62,7 +62,7 @@
        ;;elm
        emacs-lisp
        ess
-       (haskell +intero)
+       (haskell +lsp)
        (javascript +lsp)
        latex
        markdown
