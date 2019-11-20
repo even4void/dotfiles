@@ -22,7 +22,7 @@
  :n "C--"    #'doom/decrease-font-size
 
  :n "s-<return>"  #'toggle-frame-fullscreen
- 
+
  ;; osx shortcuts without cua-mode
  "s-z"       #'undo
  "s-c" (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
@@ -71,8 +71,10 @@
    :desc "Available checkers"  "z" #'flycheck-verify-setup
    :desc "Select checker"      "y" #'flycheck-select-checker
    :desc "LSP diagnostics"     "L" #'lsp-describe-session
+   :desc "LSP start"           "S" #'+lsp-init-a
    :desc "LSP shutdown"        "q" #'lsp-shutdown-workspace
    :desc "Code outline"        "o" #'lsp-ui-imenu
+   :desc "Rust hints mode"     "R" #'rust-analyzer-inlay-hints-mode
    :desc "Help (LSP)"          "h" #'lsp-describe-thing-at-point
    :desc "Help (Dash)"         "H" #'counsel-dash
    :desc "Changelog"           "l" #'change-log-find-file)
