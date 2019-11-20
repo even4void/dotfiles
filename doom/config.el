@@ -52,15 +52,17 @@
   ;; modals: evil state; indent-info: indentation level
   (doom-modeline-def-modeline 'my/modeline
     '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-    '(misc-info minor-modes checker input-method buffer-encoding major-mode process vcs))
+    '(misc-info minor-modes checker input-method buffer-encoding major-mode process github vcs))
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my/modeline 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-(setq doom-themes-neotree-file-icons nil)
+(setq doom-themes-neotree-file-icons 'simple)
 (setq doom-modeline-env-python-executable "python3")
 (setq doom-modeline-enable-word-count t)
 (setq doom-modeline-checker-simple-format t)
 (setq doom-modeline-unicode-fallback nil)
+(setq doom-modeline-github t)
+
 
 ;; https://emacs.stackexchange.com/a/36373
 (define-fringe-bitmap 'flycheck-fringe-bitmap-ball
