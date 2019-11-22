@@ -104,8 +104,8 @@
  ;; '(ansi-color-names-vector
  ;;   ["#3B4252" "#BF616A" "#A3BE8C" "#EBCB8B" "#81a1c1" "#B48EAD" "#5E81AC" "gray90"])
  '(lsp-ui-doc-delay 0.7)
- '(lsp-ui-doc-max-height 8)
- '(lsp-ui-doc-max-width 40)
+ ;; '(lsp-ui-doc-max-height 8)
+ ;; '(lsp-ui-doc-max-width 40)
  '(lsp-ui-flycheck-enable t)
  '(lsp-ui-imenu-colors (quote ("#798cad" "#a2b583")))
  '(lsp-ui-sideline-ignore-duplicate t)

@@ -327,7 +327,7 @@
       neo-vc-integration '(face)
       projectile-switch-project-action 'neotree-projectile-action)
 
-(setq projectile-git-submodule-command nil)
+;; (setq projectile-git-submodule-command nil)
 
 ;; -- deft -------------------------------------------------------------------
 (setq deft-extensions '("org" "md" "txt")
