@@ -304,12 +304,13 @@
 
 ;; -- git/magit ---------------------------------------------------------------
 ;; See https://github.com/magit/ghub/issues/81
+(after! magit
+  (setq magit-revision-show-gravatars nil))
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
       ghub-use-workaround-for-emacs-bug nil)
 (setq magit-repository-directories '(("~/git" . 1))
-      magit-save-repository-buffers nil
-      magit-revision-show-gravatars nil
-      transient-values '((magit-commit "--gpg-sign=152E3E3F7C4CCE44")
+      magit-save-repository-buffers nil)
+(setq transient-values '((magit-commit "--gpg-sign=152E3E3F7C4CCE44")
                          (magit-rebase "--autosquash" "--gpg-sign=152E3E3F7C4CCE44")
                          (magit-pull "--rebase" "--gpg-sign=152E3E3F7C4CCE44")))
 (setq magit-repolist-columns
