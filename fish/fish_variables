@@ -4,7 +4,7 @@ SETUVAR --path PATH:/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR _fish_abbr__2D_:prevd
+SETUVAR _fish_abbr__2D_:cd\x20\x2d
 SETUVAR _fish_abbr__3D_:nextd
 SETUVAR _fish_abbr_gaa:git\x20add\x20\x2d\x2dall
 SETUVAR _fish_abbr_gcb:git\x20checkout\x20\x2db

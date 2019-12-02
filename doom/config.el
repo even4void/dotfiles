@@ -1,5 +1,9 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
+;; FIXME Check for update on this issue
+;; https://github.com/hlissner/doom-emacs/issues/2135
+(fset 'battery-update #'ignore)
+
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -62,6 +66,7 @@
 (setq doom-modeline-checker-simple-format t)
 (setq doom-modeline-unicode-fallback nil)
 (setq doom-modeline-github t)
+(setq doom-modeline-mu4e t)
 
 
 ;; https://emacs.stackexchange.com/a/36373
@@ -226,6 +231,8 @@
                           racket-mode ess-r-mode)))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
+
+;; TODO format-all -- customize styler
 
 ;; Org and R additional symbols
 ;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402), ⚐
