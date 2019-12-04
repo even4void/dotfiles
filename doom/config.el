@@ -1,14 +1,10 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
-;; FIXME Check for update on this issue
-;; https://github.com/hlissner/doom-emacs/issues/2135
-(fset 'battery-update #'ignore)
-
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-;; (add-to-list 'default-frame-alist '(height . 50))
-;; (add-to-list 'default-frame-alist '(width . 175))
+(add-to-list 'default-frame-alist '(height . 48))
+(add-to-list 'default-frame-alist '(width . 126))
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
@@ -23,37 +19,19 @@
     (load! "+iosevka"))
 
 (load! "+bindings")
-;; Override default settings in modules/ui/pretty-code since I definitely
-;; don't like how <= and >= are rendered. Hence the local patch and further
-;; definitions below (see bookmark "pretty-code-section").
-;; (load! "+iosevka")
 
 (load! "lisp/ra-emacs-lsp")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
-;; doom-themes already comes with a custom Nord theme but I don't like it
-;; (moreover we must activate a 24-bit mode for the terminal, see ~/.terminfo).
-;; So here we go, with the true https://github.com/arcticicestudio/nord-emacs.
-;; (setq nord-comment-brightness 15)
-;; (setq nord-region-highlight "frost")
-;; (setq nord-uniform-mode-lines t)
-;; (load-theme 'nord t)
 (load-theme 'doom-nord t)
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)
 (set-face-italic 'font-lock-comment-face t)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
-; https://lists.gnu.org/archive/html/help-gnu-emacs/2013-01/msg00271.html
-; #x2758 for |; 0x78 for │
-(set-display-table-slot standard-display-table
-                        'vertical-border (make-glyph-code ?│ 'font-lock-comment-face))
-
-;; doom-modeline setup
 (after! doom-modeline
-  ;; modals: evil state; indent-info: indentation level
   (doom-modeline-def-modeline 'my/modeline
     '(bar matches buffer-info remote-host buffer-position parrot selection-info)
     '(misc-info minor-modes checker input-method buffer-encoding major-mode process github vcs))
@@ -65,9 +43,8 @@
 (setq doom-modeline-enable-word-count t)
 (setq doom-modeline-checker-simple-format t)
 (setq doom-modeline-unicode-fallback nil)
-(setq doom-modeline-github t)
-(setq doom-modeline-mu4e t)
-
+(setq doom-modeline-github nil)
+(setq doom-modeline-mu4e nil)
 
 ;; https://emacs.stackexchange.com/a/36373
 (define-fringe-bitmap 'flycheck-fringe-bitmap-ball
@@ -113,30 +90,14 @@
 
 (setq flycheck-indication-mode 'right-fringe)
 
-;; (setq undo-tree-visualizer-timestamps t)
-;; (setq undo-tree-visualizer-diff t)
-
-;; (setq whitespace-style '(trailing lines space-before-tab
-;;                          indentation space-after-tab))
-;; (setq whitespace-line-column 80)
-
 ;; ---------------------------------------------------------------------------
 ;; packages
 ;; ---------------------------------------------------------------------------
-
-;; Fish stuff
-;; (when (and (executable-find "fish")
-;;            (require 'fish-completion nil t))
-;;   (global-fish-completion-mode))
-
 (add-hook 'fish-mode-hook
           (lambda () (add-hook 'before-save-hook 'fish_indent-before-save)))
 
 ;; -- web & doc --------------------------------------------------------------
 (setq browse-url-browser-function 'eww-browse-url)
-;; NOTE We can still hit `&' to open the page in an external browser
-;; this is mainly to read the Hyperspec doc inline. Note, however, that dash-docs
-;; already provides the Hyperspec, so we don't really need our local version.
 
 ;; --tex ---------------------------------------------------------------------
 (setq TeX-auto-save nil
@@ -188,18 +149,14 @@
 (after! flycheck
  (setq
   flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
-
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
-;; FIXME It looks like this doesn't work unless we use custom-set-variables
-(setq flycheck-popup-tip-error-prefix "☣")
 
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
       time-stamp-line-limit 10)
 (eval-after-load 'recentf
-  ;; Pandoc aux files
   '(add-to-list 'recentf-exclude "^~/org/.export"))
 (setq show-trailing-whitespace t)
 (setq +format-on-save-enabled-modes
@@ -207,7 +164,6 @@
         sql-mode         ; sqlformat is currently broken
         python-mode))    ; because I don't like it
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-; (setq require-final-newline t)
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (add-hook 'write-file-functions 'time-stamp)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
@@ -222,7 +178,6 @@
 (after! markdown
   (setq markdown-pre-face "Inziu Iosevka CL"
         markdown-code-face "Inziu Iosevka CL")
-  ;; (remove-hook 'markdown-mode-hook #'delete-trailing-whitespace)
   (remove-hook 'markdown-mode-hook #'auto-fill-mode))
 
 ;; -- pretty-code ------------------------------------------------------------
@@ -235,8 +190,6 @@
                           racket-mode ess-r-mode)))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
-
-;; TODO format-all -- customize styler
 
 ;; Org and R additional symbols
 ;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402), ⚐
@@ -339,8 +292,6 @@
       neo-vc-integration '(face)
       projectile-switch-project-action 'neotree-projectile-action)
 
-;; (setq projectile-git-submodule-command nil)
-
 ;; -- deft -------------------------------------------------------------------
 (setq deft-extensions '("org" "md" "txt")
       deft-directory "~/org/drafts"
@@ -381,7 +332,6 @@
 ;; -- lsp --------------------------------------------------------------------
 (after! lsp-ui
   (setq lsp-ui-flycheck-enable t
-        ;; lsp-ui-flycheck-list-position 'right
         lsp-ui-doc-enable t
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-delay 0.2
@@ -393,19 +343,13 @@
           (lambda (frame _w)
             (set-face-attribute 'default frame :font "Iosevka" :height 130)))
 
-;; For whatever reason, I have to activate flake8 manually; otherwise we end up with
-  ;; pyflakes! And the following doesn't seem to work either.
-  ;; (setq lsp-clients-python-settings '(:configurationSources ["flake8"]))
-(setq-default lsp-pyls-configuration-sources ["flake8"])
-(setq lsp-pyls-plugins-pylint-enabled nil
-      lsp-pyls-plugins-pyflakes-enabled nil)
-
-;; FIXME At this point, I'm not sure if we really need clangd since Doom relies on ccls
-;; when +lsp.
-(setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
+;; (setq-default lsp-pyls-configuration-sources ["flake8"])
+;; (setq lsp-pyls-plugins-pylint-enabled nil
+;;       lsp-pyls-plugins-pyflakes-enabled nil)
+;; (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
 (setq ccls-executable "~/local/ccls/Release/ccls")
 
-;; -- lisp -------------------------------------------------------------------
+;; -- lisp/haskell -----------------------------------------------------------
 (setq inferior-lisp-program "ccl64")
 
 (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
@@ -462,7 +406,6 @@
   (setq org-hide-emphasis-markers t
         org-tags-column 79
         org-startup-indented nil
-        ;; org-indent-indentation-per-level 0
         org-catch-invisible-edits 'error
         org-highlight-links '(bracket angle plain radio tag date footnote)
         org-startup-with-inline-images nil
@@ -470,8 +413,6 @@
         org-src-fontify-natively t
         org-highlight-latex-and-related '(latex)
         org-support-shift-select t
-        ;; org-src-tab-acts-natively nil
-        ;; org-bullets-bullet-list '("#")
         org-ellipsis " ▼ "
         org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
         org-log-done 'time
@@ -481,7 +422,6 @@
         org-export-with-author nil
         org-export-with-creator nil
         org-html-postamble nil
-        ;; default CSS file in case we don't want pandoc export
         org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/github.css\" />"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options-for-html5 '((section-divs . t)
@@ -497,13 +437,6 @@
   (add-hook 'org-mode-hook #'visual-line-mode))
 (remove-hook 'org-mode-hook #'auto-fill-mode)
 (add-hook 'org-mode-hook #'visual-line-mode)
-;; (setq org-pandoc-options '((standalone . t)
-;;                            (mathjax . t)
-;;                            (smart . t)
-;;                            (parse-raw . t)))
 
 ;; -- mu ---------------------------------------------------------------------
 (load! "lisp/mu4e")
-
-;; (setq dna-do-setup-on-load t)
-;; (load! "lisp/dna-mode")

@@ -3,8 +3,11 @@
 - [X] racket + geiser
 - [ ] check JS config
 - [X] check clj config
-** TODO Write custom documentation
+** CANC Write custom documentation
+   CLOSED: [2019-12-04 Wed 20:21]
 ** DONE Revise personal keybindings (GUI/CLI)
 CLOSED: [2019-09-12 Thu 07:47]
 ** TODO Add some [[https://is.gd/JE4405][aliases]]
 ** TODO Replace org/md snippets with file-template
+** TODO Minimize and remove defunct code
+** TODO Byte-compile private directory
