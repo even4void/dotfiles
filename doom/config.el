@@ -185,6 +185,10 @@
 (setq reftex-default-bibliography '("~/org/references.bib"))
 
 ;; -- flycheck ---------------------------------------------------------------
+(after! flycheck
+ (setq
+  flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
+
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
