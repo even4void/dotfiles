@@ -9,5 +9,7 @@
 CLOSED: [2019-09-12 Thu 07:47]
 ** TODO Add some [[https://is.gd/JE4405][aliases]]
 ** TODO Replace org/md snippets with file-template
-** TODO Minimize and remove defunct code
-** TODO Byte-compile private directory
+** DONE Minimize and remove defunct code
+   CLOSED: [2019-12-05 Thu 10:02]
+** DONE Byte-compile private directory
+   CLOSED: [2019-12-05 Thu 10:03]

@@ -11,16 +11,12 @@
       epa-file-encrypt-to user-mail-address
       auth-sources '("~/.authinfo.gpg"))
 
-;; Use a patched font for GUI mode so that we get Iosevka ligatures
-;; that we have free when using iTerm.
 (when (display-graphic-p)
     (setq doom-font (font-spec :family "Iosevka" :size 14)
           doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
     (load! "+iosevka"))
 
 (load! "+bindings")
-
-(load! "lisp/ra-emacs-lsp")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
@@ -33,62 +29,18 @@
 (delete-selection-mode 1)
 (after! doom-modeline
   (doom-modeline-def-modeline 'my/modeline
-    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-    '(misc-info minor-modes checker input-method buffer-encoding major-mode process github vcs))
+    '(bar matches buffer-info remote-host buffer-position selection-info)
+    '(objed-state misc-info debug input-method buffer-encoding major-mode process vcs))
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my/modeline 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
 (setq doom-themes-neotree-file-icons 'simple)
-(setq doom-modeline-env-python-executable "python3")
-(setq doom-modeline-enable-word-count t)
-(setq doom-modeline-checker-simple-format t)
-(setq doom-modeline-unicode-fallback nil)
-(setq doom-modeline-github nil)
-(setq doom-modeline-mu4e nil)
-
-;; https://emacs.stackexchange.com/a/36373
-(define-fringe-bitmap 'flycheck-fringe-bitmap-ball
-  (vector #b00000000
-          #b00000000
-          #b00000000
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b01111110
-          #b00000000
-          #b00000000))
-
-(flycheck-define-error-level 'error
-  :severity 2
-  :compilation-level 2
-  :overlay-category 'flycheck-error-overlay
-  :fringe-bitmap 'flycheck-fringe-bitmap-ball
-  :fringe-face 'flycheck-fringe-error
-  :error-list-face 'flycheck-error-list-error)
-(flycheck-define-error-level 'warning
-  :severity 1
-  :compilation-level 1
-  :overlay-category 'flycheck-warning-overlay
-  :fringe-bitmap 'flycheck-fringe-bitmap-ball
-  :fringe-face 'flycheck-fringe-warning
-  :warning-list-face 'flycheck-warning-list-error)
-(flycheck-define-error-level 'info
-  :severity 0
-  :compilation-level 0
-  :overlay-category 'flycheck-info-overlay
-  :fringe-bitmap 'flycheck-fringe-bitmap-ball
-  :fringe-face 'flycheck-fringe-info
-  :info-list-face 'flycheck-info-list-error)
-
-(setq flycheck-indication-mode 'right-fringe)
+(setq doom-modeline-env-python-executable "python3"
+      doom-modeline-enable-word-count t
+      doom-modeline-checker-simple-format t
+      doom-modeline-unicode-fallback nil
+      doom-modeline-github nil
+      doom-modeline-mu4e nil)
 
 ;; ---------------------------------------------------------------------------
 ;; packages
@@ -100,11 +52,8 @@
 (setq browse-url-browser-function 'eww-browse-url)
 
 ;; --tex ---------------------------------------------------------------------
-(setq TeX-auto-save nil
-      TeX-view-program-selection '((output-pdf "PDF Tools"))
-      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
-      TeX-source-correlate-method 'synctex
-      TeX-source-correlate-start-server t)
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 
 ;; -- bibtex -----------------------------------------------------------------
@@ -153,19 +102,64 @@
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
 
+;; https://emacs.stackexchange.com/a/36373
+(define-fringe-bitmap 'flycheck-fringe-bitmap-ball
+  (vector #b00000000
+          #b00000000
+          #b00000000
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b01111110
+          #b00000000
+          #b00000000))
+
+(flycheck-define-error-level 'error
+  :severity 2
+  :compilation-level 2
+  :overlay-category 'flycheck-error-overlay
+  :fringe-bitmap 'flycheck-fringe-bitmap-ball
+  :fringe-face 'flycheck-fringe-error
+  :error-list-face 'flycheck-error-list-error)
+(flycheck-define-error-level 'warning
+  :severity 1
+  :compilation-level 1
+  :overlay-category 'flycheck-warning-overlay
+  :fringe-bitmap 'flycheck-fringe-bitmap-ball
+  :fringe-face 'flycheck-fringe-warning
+  :warning-list-face 'flycheck-warning-list-error)
+(flycheck-define-error-level 'info
+  :severity 0
+  :compilation-level 0
+  :overlay-category 'flycheck-info-overlay
+  :fringe-bitmap 'flycheck-fringe-bitmap-ball
+  :fringe-face 'flycheck-fringe-info
+  :info-list-face 'flycheck-info-list-error)
+
+(setq flycheck-indication-mode 'right-fringe)
+
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
       time-stamp-line-limit 10)
+(add-hook 'write-file-functions 'time-stamp)
 (eval-after-load 'recentf
   '(add-to-list 'recentf-exclude "^~/org/.export"))
 (setq show-trailing-whitespace t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+        ess-mode         ; FIXME styler needs configuration
         sql-mode         ; sqlformat is currently broken
         python-mode))    ; because I don't like it
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (remove-hook 'dired-mode-hook 'diredfl-mode)
-(add-hook 'write-file-functions 'time-stamp)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.rmd\\'" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
@@ -177,8 +171,7 @@
       markdown-header-scaling-values '(1.1 1.0 1.0 1.0 1.0 1.0))
 (after! markdown
   (setq markdown-pre-face "Inziu Iosevka CL"
-        markdown-code-face "Inziu Iosevka CL")
-  (remove-hook 'markdown-mode-hook #'auto-fill-mode))
+        markdown-code-face "Inziu Iosevka CL"))
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
@@ -241,13 +234,6 @@
 (setq +lookup-open-url-fn #'eww)
 (setq counsel-dash-browser-func #'eww)
 (setq counsel-dash-min-length 3)
-(set-docsets! 'racket-mode "Racket")
-(set-docsets! 'elisp-mode "Emacs Lisp")
-(set-docsets! 'lisp-mode "Common Lisp")
-(set-docsets! 'clojure-mode "Clojure")
-(set-docsets! 'haskell-mode "Haskell")
-(set-docsets! 'python-mode "Python")
-(set-docsets! 'rust-mode "Rust")
 
 ;; -- eshell/term -------------------------------------------------------------
 ;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
@@ -293,33 +279,20 @@
       projectile-switch-project-action 'neotree-projectile-action)
 
 ;; -- deft -------------------------------------------------------------------
-(setq deft-extensions '("org" "md" "txt")
-      deft-directory "~/org/drafts"
-      deft-text-mode 'org-mode
-      deft-use-filename-as-title t
-      deft-recursive t
-      deft-file-naming-rules
-        '((noslash . "-")
-          (nospace . "-")
-          (case-fn . downcase)))
+(setq deft-directory "~/org/drafts"
+      deft-recursive t)
 
 ;; -- company ----------------------------------------------------------------
 (after! company
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 3
-        company-require-match 'never
-        company-show-numbers nil
-        company-tooltip-offset-display nil
-        company-tooltip-align-annotations t
-        company-global-modes '(not comint-mode erc-mode message-mode
-                                   help-mode gud-mode org-mode text-mode
-                                   markdown-mode)))
+        company-show-numbers nil))
+        ;; company-tooltip-offset-display nil
 
 ;; -- ess --------------------------------------------------------------------
 (setq ess-use-eldoc t
       ess-eldoc-show-on-symbol t
-      ess-execute-in-process-buffer t
-      ess-history-file nil)
+      ess-execute-in-process-buffer t)
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
 
 ;; -- python -----------------------------------------------------------------
@@ -335,9 +308,7 @@
         lsp-ui-doc-enable t
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-delay 0.2
-        lsp-ui-doc-include-signature t
-        lsp-ui-doc-max-width 80
-        lsp-ui-doc-max-height 30))
+        lsp-ui-doc-include-signature t))
 
 (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
@@ -361,26 +332,15 @@
 (after! haskell
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
+(load! "lisp/ra-emacs-lsp")
+
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
       org-babel-clojure-backend 'cider
       inferior-R-program-name "/usr/local/bin/R"
       inferior-STA-program-name "/usr/local/bin/stata-mp")
 
-(setq org-hugo-default-section-directory "micro"
-      org-hugo-default-base-dir "~/Sites/aliquote")
-
 (after! org
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((clojure . t)
-     (python . t)
-     (C . t)
-     (R . t)
-     (stata . t)
-     (lisp . t)
-     (emacs-lisp . t)))
-
   (setq org-capture-templates
       '(("t" "Personal todo" entry
          (file+headline +org-capture-todo-file "Inbox")
@@ -390,8 +350,6 @@
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t)
-        ("b" "Blog" entry (file+headline "micro.org" "Micro")
-         "** TODO %?\n:PROPERTIES:\n:EXPORT_FILE_NAME:\n:END:\n%^g\n" :empty-lines 1)
         ("p" "Templates for projects")
         ("pt" "Project todo" entry  ; {project-root}/todo.org
          (file+headline +org-capture-project-todo-file "Inbox")
@@ -407,7 +365,6 @@
         org-tags-column 79
         org-startup-indented nil
         org-catch-invisible-edits 'error
-        org-highlight-links '(bracket angle plain radio tag date footnote)
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
         org-src-fontify-natively t
@@ -432,11 +389,7 @@
                                            (listings . t)
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
-                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" )))
-  (remove-hook 'org-mode-hook #'auto-fill-mode)
-  (add-hook 'org-mode-hook #'visual-line-mode))
-(remove-hook 'org-mode-hook #'auto-fill-mode)
-(add-hook 'org-mode-hook #'visual-line-mode)
+                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))))
 
 ;; -- mu ---------------------------------------------------------------------
 (load! "lisp/mu4e")
