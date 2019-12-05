@@ -146,6 +146,16 @@
 
 (setq flycheck-indication-mode 'right-fringe)
 
+(flycheck-define-checker racket-review
+  "check racket source code using racket-review"
+  :command ("raco" "review" source)
+  :error-patterns
+  ((error line-start (file-name) ":" line ":" column ":error:" (message) line-end)
+   (warning line-start (file-name) ":" line ":" column ":warning:" (message) line-end))
+  :modes racket-mode)
+
+(add-to-list 'flycheck-checkers 'racket-review)
+
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
       time-stamp-line-limit 10)
