@@ -3,8 +3,6 @@
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(add-to-list 'default-frame-alist '(height . 48))
-(add-to-list 'default-frame-alist '(width . 126))
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
@@ -34,7 +32,7 @@
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my/modeline 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-(setq doom-themes-neotree-file-icons 'simple)
+(setq doom-themes-neotree-file-icons nil)
 (setq doom-modeline-env-python-executable "python3"
       doom-modeline-enable-word-count t
       doom-modeline-checker-simple-format t
@@ -166,8 +164,10 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+        lisp-mode        ; ---
         ess-mode         ; FIXME styler needs configuration
-        sql-mode         ; sqlformat is currently broken
+        sql-mode         ; NOTE sqlformat is currently broken
+        web-mode         ; too bad
         python-mode))    ; because I don't like it
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
@@ -314,7 +314,7 @@
 
 ;; -- lsp --------------------------------------------------------------------
 (after! lsp-ui
-  (setq lsp-ui-flycheck-enable t
+  (setq lsp-prefer-flymake :none
         lsp-ui-doc-enable t
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-delay 0.2
