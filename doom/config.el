@@ -223,21 +223,8 @@
                   ("<=" . "⩽")
                   (">=" . "⩾")))))
 
-;; https://is.gd/3VuSXj
-(defface org-checkbox-done-text
-  '((t (:foreground "#5a637b")))
-  "Face for the text part of a checked org-mode checkbox.")
-
-;; See also https://emacs.stackexchange.com/a/52390
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("@[a-z]+.+?[^;,.]+" . font-lock-keyword-face)))
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
-
-(font-lock-add-keywords 'org-mode
-                        '(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
-                           1 'org-checkbox-done-text prepend))
-                        'append)
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
@@ -320,9 +307,9 @@
         lsp-ui-doc-delay 0.2
         lsp-ui-doc-include-signature t))
 
-(add-hook 'lsp-ui-doc-frame-hook
-          (lambda (frame _w)
-            (set-face-attribute 'default frame :font "Iosevka" :height 130)))
+;; (add-hook 'lsp-ui-doc-frame-hook
+;;           (lambda (frame _w)
+;;             (set-face-attribute 'default frame :font "Iosevka" :height 130)))
 
 ;; (setq-default lsp-pyls-configuration-sources ["flake8"])
 ;; (setq lsp-pyls-plugins-pylint-enabled nil

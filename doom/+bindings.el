@@ -106,6 +106,7 @@
    :desc "Select dictionary"   "z" #'ispell-change-dictionary
    :desc "Spellcheck"          "w" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
+   :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Visual lines"        "v" #'visual-line-mode
    :desc "Prettify"            "P" #'prettify-symbols-mode
