@@ -5,14 +5,6 @@
 
 (map!
 
- :n "zp"  #'neotree-toggle
- :n "zn"  #'+evil:narrow-buffer
- :n "zg"  #'magit-status
- :n "z^"  #'git-gutter:previous-hunk
- :n "z$"  #'git-gutter:next-hunk
- :n "z:"  #'+lookup/definition
- :n "z="  #'+lookup/references
-
  ;; dictionnary
  :n "C-c d" 'osx-dictionary-search-word-at-point
 

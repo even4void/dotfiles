@@ -167,7 +167,7 @@
         lisp-mode        ; ---
         ess-mode         ; FIXME styler needs configuration
         sql-mode         ; NOTE sqlformat is currently broken
-        web-mode         ; too bad
+        ;; web-mode         ; quite bad actually
         python-mode))    ; because I don't like it
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
@@ -329,7 +329,9 @@
 (after! haskell
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
-(load! "lisp/ra-emacs-lsp")
+(after! rustic
+  (setq rustic-lsp-server 'rust-analyzer))
+;; (load! "lisp/ra-emacs-lsp")
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
@@ -356,7 +358,23 @@
          "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
         ("pc" "Project changelog" entry  ; {project-root}/changelog.org
          (file+headline +org-capture-project-notes-file "Unreleased")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)))
+         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("o" "Centralized templates for projects")
+        ("ot" "Project todo" entry
+         (function +org-capture-central-project-todo-file)
+         "* TODO %?\n %i\n %a"
+         :heading "Tasks"
+         :prepend nil)
+        ("on" "Project notes" entry
+         (function +org-capture-central-project-notes-file)
+           "* %U %?\n %i\n %a"
+           :heading "Notes"
+           :prepend t)
+        ("oc" "Project changelog" entry
+         (function +org-capture-central-project-changelog-file)
+         "* %U %?\n %i\n %a"
+         :heading "Changelog"
+         :prepend t)))
 
   (setq org-hide-emphasis-markers t
         org-tags-column 79
