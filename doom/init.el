@@ -80,7 +80,7 @@
        (rust +lsp)
        scheme
        sh
-       (web +lsp)
+       (web)
 
        :email
        mu4e
