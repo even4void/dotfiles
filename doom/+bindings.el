@@ -8,11 +8,6 @@
  ;; dictionnary
  :n "C-c d" 'osx-dictionary-search-word-at-point
 
- ;; font (overrides +evil-bindings.el)
- :n "C-="    #'doom/reset-font-size
- :n "C-+"    #'doom/increase-font-size
- :n "C--"    #'doom/decrease-font-size
-
  :n "s-<return>"  #'toggle-frame-fullscreen
 
  ;; osx shortcuts without cua-mode
@@ -99,6 +94,7 @@
    :desc "Spellcheck"          "w" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
+   :desc "Toggle ruler"        "R" #'fci-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Visual lines"        "v" #'visual-line-mode
    :desc "Prettify"            "P" #'prettify-symbols-mode
