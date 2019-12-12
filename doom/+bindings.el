@@ -44,15 +44,13 @@
  ;; which-key items
  :leader
  :desc "Next workspace"  ">"  #'+workspace:switch-next
- (:prefix "/"
+ :desc "Ivy bibtex"      "B"  #'ivy-bibtex
+ (:prefix "s"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Counsel Ag"          "c" #'doom/counsel-region-or-symbol
    :desc "Counsel Dash"        "C" #'counsel-dash-at-point
    :desc "Dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input
-   :desc "Swiper all"          "s" #'doom/swiper-all-region-or-symbol
-   ;; :desc "Locate"              "f" #'counsel-locate
-   :desc "Replace"             "r" #'query-replace
    :desc "Replace (regex)"     "R" #'replace-regexp)
  (:prefix "c"
    :desc "Available checkers"  "z" #'flycheck-verify-setup
