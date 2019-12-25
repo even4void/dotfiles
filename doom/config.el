@@ -32,10 +32,9 @@
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my/modeline 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-(setq doom-themes-neotree-file-icons nil)
+; (setq doom-themes-neotree-file-icons nil)
 (setq doom-modeline-env-python-executable "python3"
       doom-modeline-enable-word-count t
-      doom-modeline-checker-simple-format t
       doom-modeline-unicode-fallback nil
       doom-modeline-github nil
       doom-modeline-mu4e nil)
@@ -303,11 +302,7 @@
 
 ;; -- lsp --------------------------------------------------------------------
 (after! lsp-ui
-  (setq lsp-prefer-flymake :none
-        lsp-ui-doc-enable t
-        lsp-ui-doc-use-childframe t
-        lsp-ui-doc-delay 0.2
-        lsp-ui-doc-include-signature t))
+  (setq lsp-prefer-flymake :none))
 
 ;; (add-hook 'lsp-ui-doc-frame-hook
 ;;           (lambda (frame _w)
@@ -323,7 +318,7 @@
 (setq inferior-lisp-program "ccl64")
 
 (add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
-(setq geiser-active-implementations '(chez chicken mit))
+(setq geiser-active-implementations '(chez chicken mit racket))
 
 (after! cider
   (setq cider-eldoc-display-context-dependent-info t))

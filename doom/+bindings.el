@@ -81,6 +81,7 @@
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
    :desc "Mu4e"                "M" #'mu4e
+   :desc "Geiser REPL"         "G" #'geiser
    :desc "IELM"                "i" #'ielm
    :desc "IRC"                 "I" #'erc
    :desc "Deft"                "D" #'deft

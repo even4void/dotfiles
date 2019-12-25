@@ -22,6 +22,7 @@ alias ccl ccl64
 alias ipy ipython
 alias hk heroku
 alias R 'R -q --no-save --no-restore'
+alias typora 'open -a Typora'
 alias cx 'chmod +x'
 alias cat bat
 alias ccat 'pygmentize -g'

@@ -17,6 +17,8 @@ set -x PATH '/Users/chl/local/bioinfo/bin' $PATH
 
 set -g fish_user_paths '/usr/local/sbin' $fish_user_paths
 
+set -x PYSPARK_PYTHON 'python3'
+
 set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PYENV_ROOT/bin $PATH
 status --is-interactive 
