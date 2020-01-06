@@ -4,7 +4,7 @@
 
 (doom! :completion
        (company +childframe)
-       (ivy +prescient)
+       (ivy +prescient +childframe)
 
        :ui
        deft
@@ -62,7 +62,7 @@
        ;;elm
        emacs-lisp
        ess
-       (haskell +lsp)
+       (haskell +dante)
        (javascript +lsp)
        (latex +latexmk)
        (markdown +grip)

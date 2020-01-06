@@ -1,8 +1,10 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
+(setq frame-resize-pixelwise t)
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
@@ -40,6 +42,14 @@
       doom-modeline-mu4e nil)
 
 (load! "lisp/fill-column-indicator")
+
+;; (setq ivy-posframe-display-functions-alist
+;;       '((ivy-bibtex . ivy-display-function-fallback)
+;;         (counsel-git-grep . ivy-display-function-fallback)
+;;         (counsel-grep . ivy-display-function-fallback)
+;;         (counsel-rg . ivy-display-function-fallback)
+;;         (swiper . ivy-display-function-fallback)
+;;         (t . +ivy-display-at-frame-center-near-bottom-fn)))
 
 ;; ---------------------------------------------------------------------------
 ;; packages
@@ -79,7 +89,7 @@
                                                         "-a" "/Applications/Preview.app"
                                                         fpath))
         bibtex-completion-display-formats
-        '((t . "${author:30} ${title:*} ${year:4} ${=has-pdf=:1} ${=has-note=:1} ${=type=:7}"))
+        '((t . "${author:30} ${title:60} ${year:4} ${=has-pdf=:1} ${=has-note=:1} ${=type=:7}"))
         bibtex-completion-cite-prompt-for-optional-arguments nil
         bibtex-completion-format-citation-functions
         '((org-mode      . bibtex-completion-format-citation-org-link-to-PDF)
@@ -326,8 +336,7 @@
 (after! haskell
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
-(after! rustic
-  (setq rustic-lsp-server 'rust-analyzer))
+(setq lsp-rust-server 'rust-analyzer)
 ;; (load! "lisp/ra-emacs-lsp")
 
 ;; -- org --------------------------------------------------------------------

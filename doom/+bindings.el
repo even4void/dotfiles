@@ -9,6 +9,7 @@
  :n "C-c d" 'osx-dictionary-search-word-at-point
 
  :n "s-<return>"  #'toggle-frame-fullscreen
+ :n "gh"          #'lsp-describe-thing-at-point
 
  ;; osx shortcuts without cua-mode
  "s-z"       #'undo
@@ -18,6 +19,9 @@
  "s-a"       #'mark-whole-buffer
  "s-;"       #'eval-expression
  "s-r"       #'query-replace
+ "s-p"       #'counsel-M-x
+ "s-@"       #'neotree-toggle
+ "s-x"       #'org-capture
  "s-<left>"    #'evil-window-left
  "s-<right>"   #'evil-window-right
  "s-<up>"      #'evil-window-up
@@ -56,10 +60,13 @@
    :desc "Available checkers"  "z" #'flycheck-verify-setup
    :desc "Select checker"      "y" #'flycheck-select-checker
    :desc "LSP diagnostics"     "L" #'lsp-describe-session
+   :desc "Toggle ruler"        "M" #'fci-mode
+   :desc "Prettify"            "P" #'prettify-symbols-mode
    :desc "LSP start"           "S" #'+lsp-init-a
    :desc "LSP shutdown"        "q" #'lsp-shutdown-workspace
    :desc "Code outline"        "o" #'lsp-ui-imenu
-   :desc "Rust hints mode"     "R" #'rust-analyzer-inlay-hints-mode
+   :desc "LSP doc mode"        "u" #'lsp-ui-doc-mode
+   :desc "Rust hints mode"     "R" #'lsp-rust-analyzer-inlay-hints-mode
    :desc "Help (LSP)"          "h" #'lsp-describe-thing-at-point
    :desc "Help (Dash)"         "H" #'counsel-dash
    :desc "Changelog"           "l" #'change-log-find-file)
@@ -93,16 +100,10 @@
    :desc "Spellcheck"          "w" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
-   :desc "Toggle ruler"        "R" #'fci-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Visual lines"        "v" #'visual-line-mode
-   :desc "Prettify"            "P" #'prettify-symbols-mode
    :desc "Undo tree"           "u" #'undo-tree-visualize
    :desc "Markdown hide/show"  "m" #'markdown-toggle-markup-hiding
    :desc "Flycheck"            "c" #'flycheck-buffer)
  (:prefix "w"
    :desc "Swap window H/V"     "w" #'doom/window-layout-toggle))
-
-;; ex
-(evil-ex-define-cmd "wn" #'+workspace:new)
-(evil-ex-define-cmd "wr" #'+workspace:rename)
