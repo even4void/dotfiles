@@ -6,26 +6,27 @@
 (map!
 
  ;; dictionnary
- :n "C-c d" 'osx-dictionary-search-word-at-point
+ :n "C-c d"       #'osx-dictionary-search-word-at-point
 
  :n "s-<return>"  #'toggle-frame-fullscreen
  :n "gh"          #'lsp-describe-thing-at-point
 
  ;; osx shortcuts without cua-mode
- "s-z"       #'undo
+ "s-z"        #'undo
  "s-c" (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
- "s-v"       #'yank
- "s-s"       #'save-buffer
- "s-a"       #'mark-whole-buffer
- "s-;"       #'eval-expression
- "s-r"       #'query-replace
- "s-p"       #'counsel-M-x
- "s-@"       #'neotree-toggle
- "s-x"       #'org-capture
+ "s-v"        #'yank
+ "s-s"        #'save-buffer
+ "s-a"        #'mark-whole-buffer
+ "s-;"        #'eval-expression
+ "s-r"        #'query-replace
+ "s-p"        #'counsel-M-x
+ "s-@"        #'neotree-toggle
  "s-<left>"    #'evil-window-left
  "s-<right>"   #'evil-window-right
  "s-<up>"      #'evil-window-up
  "s-<down>"    #'evil-window-down
+ "C-s-<left>"  #'+workspace/switch-left
+ "C-s-<right>"  #'+workspace/switch-right
 
  (:map markdown-mode-map
    :i "s-i" #'markdown-insert-italic
