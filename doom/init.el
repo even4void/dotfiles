@@ -43,8 +43,6 @@
        :tools
        debugger
        (eval +overlay)
-       (flycheck +childframe)
-       flyspell
        gist
        (lookup +docsets)
        lsp
@@ -74,7 +72,7 @@
         +pandoc
         +present)
        ;;purescript
-       (python +pyenv +lsp +cython)
+       (python +lsp +cython)
        ;; (ruby +lsp)
        racket
        (rust +lsp)
@@ -84,6 +82,11 @@
 
        :email
        mu4e
+
+       :checkers
+       spell
+       grammar
+       (syntax + childframe)
 
        :app
 
