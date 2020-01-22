@@ -64,11 +64,12 @@
        (javascript +lsp)
        (latex +latexmk)
        (markdown +grip)
-       (ocaml +opam-site-lisp)
+       ;;(ocaml +opam-site-lisp)
        (org
         +dragndrop
         +gnuplot
-        +ipython
+        +journal
+        +jupyter
         +pandoc
         +present)
        ;;purescript

@@ -164,6 +164,7 @@
   :modes racket-mode)
 
 (add-to-list 'flycheck-checkers 'racket-review)
+(setq ispell-dictionary "en")
 
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
@@ -353,6 +354,9 @@
         ("n" "Personal notes" entry
          (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
+        ("j" "Journal" entry
+         (file+olp+datetree +org-capture-journal-file "Inbox")
+         "* %U %?\n%i\n%a" :prepend t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t)
         ("p" "Templates for projects")
@@ -394,6 +398,7 @@
         org-ellipsis " ▼ "
         org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
         org-log-done 'time
+        org-id-locations-file "~/org/.orgids"
         org-default-notes-file "~/org/notes.org"
         org-default-todo-file "~/org/todos.org"
         org-bibtex-file "~/org/references.bib"
@@ -414,3 +419,5 @@
 
 ;; -- mu ---------------------------------------------------------------------
 (load! "lisp/mu4e")
+
+;; (delete-file "~/Library/Colors/Emacs.clr")

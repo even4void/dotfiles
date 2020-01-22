@@ -154,6 +154,8 @@ alias -g .....='../../../..'
 
 alias g='git'
 
+alias inbox='mbsync -a && mu index -m "~/.mail"'
+
 ##########
 # FUNCTIONS
 ##########
