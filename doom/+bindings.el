@@ -91,6 +91,7 @@
    :desc "Mu4e"                "M" #'mu4e
    :desc "Geiser REPL"         "G" #'geiser
    :desc "IELM"                "i" #'ielm
+   :desc "Elfeed"              "F" #'elfeed
    :desc "IRC"                 "I" #'erc
    :desc "Deft"                "D" #'deft
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer

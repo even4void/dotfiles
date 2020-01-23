@@ -60,6 +60,9 @@
 ;; -- web & doc --------------------------------------------------------------
 (setq browse-url-browser-function 'eww-browse-url)
 
+(after! elfeed
+  (setq elfeed-search-filter "@1-week-ago +unread "))
+
 ;; --tex ---------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))

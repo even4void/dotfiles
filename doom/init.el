@@ -90,6 +90,7 @@
        (syntax + childframe)
 
        :app
+       (rss +org)
 
        :collab
 

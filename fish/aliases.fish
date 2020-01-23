@@ -1,8 +1,8 @@
 alias confd 'nvim ~/.config/'
 
-alias e 'emacs -nw'
-alias eg 'emacsclient'
-alias et 'emacsclient -nw -s server'
+alias ew 'emacs -nw'
+alias ec 'emacsclient'
+alias ecw 'emacsclient -nw -s server'
 
 alias j 'jobs -l'
 alias l 'exa --long --header --git'
