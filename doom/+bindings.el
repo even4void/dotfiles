@@ -78,13 +78,11 @@
    :desc "Org HTML publish"    "H" #'org-publish-all
    :desc "Org dispatcher"      "d" #'org-export-dispatch)
  (:prefix "n"
-   :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Unfill region"       "f" #'unfill-region
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
-   :desc "List project tasks"  "t" #'+default/project-tasks
    :desc "Add bookmark"        "b" #'bookmark-set
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
