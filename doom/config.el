@@ -349,6 +349,17 @@
       inferior-R-program-name "/usr/local/bin/R"
       inferior-STA-program-name "/usr/local/bin/stata-mp")
 
+(setq org-journal-file-type 'monthly
+      org-journal-enable-cache t
+      org-journal-enable-agenda-integration t
+      org-icalendar-store-UID t
+      org-icalendar-include-todo "all"
+      org-icalendar-combined-agenda-file "~/org/journal/org-journal.ics")
+
+(defun org-journal-find-location ()
+  (org-journal-new-entry t)
+  (goto-char (point-min)))
+
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "~/Documents/Papers/"))
   (setq org-capture-templates
@@ -358,9 +369,11 @@
         ("n" "Personal notes" entry
          (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("j" "Journal" entry
-         (file+olp+datetree +org-capture-journal-file "Inbox")
-         "* %U %?\n%i\n%a" :prepend t)
+        ("j" "Journal entry" entry (function org-journal-find-location)
+         "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
+        ;; ("j" "Journal" entry
+        ;;  (file+olp+datetree +org-capture-journal-file "Inbox")
+        ;;  "* %U %?\n%i\n%a" :prepend t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t)
         ("p" "Templates for projects")
