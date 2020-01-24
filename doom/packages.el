@@ -3,7 +3,8 @@
 
 (package! bibtex-utils)
 ;; (package! nord-theme)
-(package! ox-hugo)
+;; (package! ox-hugo)
+(package! org-fancy-priorities)
 (package! osx-dictionary)
 (package! realgud-trepan-ni)
 (package! interleave)

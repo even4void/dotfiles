@@ -349,6 +349,10 @@
       inferior-R-program-name "/usr/local/bin/R"
       inferior-STA-program-name "/usr/local/bin/stata-mp")
 
+(use-package! org-fancy-priorities
+   :hook (org-mode . org-fancy-priorities-mode)
+   :config (setq org-fancy-priorities-list '("■" "■" "■")))
+
 (setq org-journal-file-type 'monthly
       org-journal-enable-cache t
       org-journal-enable-agenda-integration t
