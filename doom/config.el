@@ -43,14 +43,6 @@
 
 (load! "lisp/fill-column-indicator")
 
-;; (setq ivy-posframe-display-functions-alist
-;;       '((ivy-bibtex . ivy-display-function-fallback)
-;;         (counsel-git-grep . ivy-display-function-fallback)
-;;         (counsel-grep . ivy-display-function-fallback)
-;;         (counsel-rg . ivy-display-function-fallback)
-;;         (swiper . ivy-display-function-fallback)
-;;         (t . +ivy-display-at-frame-center-near-bottom-fn)))
-
 ;; ---------------------------------------------------------------------------
 ;; packages
 ;; ---------------------------------------------------------------------------
@@ -318,14 +310,6 @@
 (after! lsp-ui
   (setq lsp-prefer-flymake :none))
 
-;; (add-hook 'lsp-ui-doc-frame-hook
-;;           (lambda (frame _w)
-;;             (set-face-attribute 'default frame :font "Iosevka" :height 130)))
-
-;; (setq-default lsp-pyls-configuration-sources ["flake8"])
-;; (setq lsp-pyls-plugins-pylint-enabled nil
-;;       lsp-pyls-plugins-pyflakes-enabled nil)
-;; (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
 (setq ccls-executable "~/local/ccls/Release/ccls")
 
 ;; -- lisp/haskell -----------------------------------------------------------
@@ -341,7 +325,6 @@
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
 (setq lsp-rust-server 'rust-analyzer)
-;; (load! "lisp/ra-emacs-lsp")
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
@@ -358,6 +341,7 @@
       org-journal-enable-agenda-integration t
       org-icalendar-store-UID t
       org-icalendar-include-todo "all"
+      org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'"
       org-icalendar-combined-agenda-file "~/org/journal/org-journal.ics")
 
 (defun org-journal-find-location ()
@@ -441,5 +425,3 @@
 
 ;; -- mu ---------------------------------------------------------------------
 (load! "lisp/mu4e")
-
-;; (delete-file "~/Library/Colors/Emacs.clr")
