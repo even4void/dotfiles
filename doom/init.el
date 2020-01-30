@@ -87,7 +87,7 @@
        :checkers
        spell
        grammar
-       (syntax + childframe)
+       (syntax +childframe)
 
        :app
        (rss +org)

@@ -64,7 +64,7 @@
    :desc "Toggle ruler"        "M" #'fci-mode
    :desc "Prettify"            "P" #'prettify-symbols-mode
    :desc "LSP start"           "S" #'+lsp-init-a
-   :desc "LSP shutdown"        "q" #'lsp-shutdown-workspace
+   :desc "LSP shutdown"        "q" #'lsp-workspace-shutdown
    :desc "Code outline"        "o" #'lsp-ui-imenu
    :desc "LSP doc mode"        "u" #'lsp-ui-doc-mode
    :desc "Rust hints mode"     "R" #'lsp-rust-analyzer-inlay-hints-mode
