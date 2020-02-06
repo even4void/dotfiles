@@ -17,6 +17,7 @@
  "s-v"        #'yank
  "s-s"        #'save-buffer
  "s-a"        #'mark-whole-buffer
+ "s-b"        #'persp-switch-to-buffer
  "s-;"        #'eval-expression
  "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
@@ -38,6 +39,10 @@
      :n "o"      #'ace-link-help
      :n "q"      #'quit-window
      :n "Q"      #'ivy-resume))
+
+ (:after python
+   (:map python-mode-map
+     :n "C-<return>"  #'python-shell-send-region-or-line))
 
  (:after osx-dictionary
    :map osx-dictionary-mode-map

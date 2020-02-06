@@ -79,7 +79,7 @@
        (rust +lsp)
        scheme
        sh
-       (web)
+       web
 
        :email
        mu4e
@@ -90,7 +90,7 @@
        (syntax +childframe)
 
        :app
-       (rss +org)
+       ;; (rss +org)
 
        :collab
 

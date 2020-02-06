@@ -169,3 +169,22 @@ around point as the initial input."
                     (region-beginning) (region-end))
                  (thing-at-point 'symbol t))))
     (counsel-ag input)))
+
+;;;###autoload
+(defun python-shell-send-region-or-line nil
+  "Sends from python-mode buffer to a python shell, intelligently."
+  (interactive)
+  (cond ((region-active-p)
+     (setq deactivate-mark t)
+     (python-shell-send-region (region-beginning) (region-end))
+ ) (t (python-shell-send-current-statement))))
+
+;;;###autoload
+(defun python-shell-send-current-statement ()
+"Send current statement to Python shell.
+Taken from elpy-shell-send-current-statement"
+(interactive)
+(let ((beg (python-nav-beginning-of-statement))
+    (end (python-nav-end-of-statement)))
+(python-shell-send-string (buffer-substring beg end)))
+(python-nav-forward-statement))
