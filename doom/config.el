@@ -172,7 +172,7 @@
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
         lisp-mode        ; ---
-        ess-mode         ; FIXME styler needs configuration
+        ;; ess-r-mode       ; FIXME styler needs configuration
         sql-mode         ; NOTE sqlformat is currently broken
         ;; web-mode         ; quite bad actually
         python-mode))    ; because I don't like it
@@ -338,17 +338,17 @@
    :hook (org-mode . org-fancy-priorities-mode)
    :config (setq org-fancy-priorities-list '("■" "■" "■")))
 
-(setq org-journal-file-type 'monthly
-      org-journal-enable-cache t
-      org-journal-enable-agenda-integration t
-      org-icalendar-store-UID t
-      org-icalendar-include-todo "all"
-      org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'"
-      org-icalendar-combined-agenda-file "~/org/journal/org-journal.ics")
+;; (setq org-journal-file-type 'monthly
+;;       org-journal-enable-cache t
+;;       org-journal-enable-agenda-integration t
+;;       org-icalendar-store-UID t
+;;       org-icalendar-include-todo "all"
+;;       org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'"
+;;       org-icalendar-combined-agenda-file "~/org/journal/org-journal.ics")
 
-(defun org-journal-find-location ()
-  (org-journal-new-entry t)
-  (goto-char (point-min)))
+;; (defun org-journal-find-location ()
+;;   (org-journal-new-entry t)
+;;   (goto-char (point-min)))
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "~/Documents/Papers/"))
@@ -359,8 +359,8 @@
         ("n" "Personal notes" entry
          (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("j" "Journal entry" entry (function org-journal-find-location)
-         "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
+        ;;("j" "Journal entry" entry (function org-journal-find-location)
+        ;; "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
         ;; ("j" "Journal" entry
         ;;  (file+olp+datetree +org-capture-journal-file "Inbox")
         ;;  "* %U %?\n%i\n%a" :prepend t)

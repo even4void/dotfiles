@@ -20,6 +20,7 @@ alias awk gawk
 alias sed gsed
 alias ccl ccl64
 alias ipy ipython
+alias qpy "jupyter qtconsole"
 alias hk heroku
 alias R 'R -q --no-save --no-restore'
 alias typora 'open -a Typora'

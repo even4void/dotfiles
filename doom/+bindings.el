@@ -40,6 +40,10 @@
      :n "q"      #'quit-window
      :n "Q"      #'ivy-resume))
 
+ (:after ess
+   (:map ess-r-mode-map
+     :n "C-<return>"  #'ess-eval-line))
+
  (:after python
    (:map python-mode-map
      :n "C-<return>"  #'python-shell-send-region-or-line))
