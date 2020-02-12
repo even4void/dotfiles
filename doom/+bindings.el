@@ -109,6 +109,7 @@
    :desc "Spellcheck"          "w" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
+   :desc "Beautify buffer"     "B" #'format-all-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Visual lines"        "v" #'visual-line-mode
    :desc "Undo tree"           "u" #'undo-tree-visualize
