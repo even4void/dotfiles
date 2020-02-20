@@ -19,10 +19,10 @@ set -g fish_user_paths '/usr/local/sbin' $fish_user_paths
 
 set -x PYSPARK_PYTHON 'python3'
 
-set -x PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/bin $PATH
-status --is-interactive 
-and . (pyenv init -|psub)
+# set -x PYENV_ROOT $HOME/.pyenv
+# set -x PATH $PYENV_ROOT/bin $PATH
+# status --is-interactive 
+# and . (pyenv init -|psub)
 
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)'/jre'
 set -x NODE_PATH '/usr/local/lib/node_modules'

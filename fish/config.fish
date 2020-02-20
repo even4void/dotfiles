@@ -15,8 +15,8 @@ end
 # source $HOME/.pyenv/plugins/pyenv-autoenv/bin/pyenv-autoenv
 
 # OCaml
-source $HOME/.opam/opam-init/init.fish >/dev/null 2>/dev/null
-or true
+# source $HOME/.opam/opam-init/init.fish >/dev/null 2>/dev/null
+# or true
 
 # iTerm2
 test -e {$HOME}/.iterm2_shell_integration.fish
