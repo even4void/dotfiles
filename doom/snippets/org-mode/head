@@ -3,10 +3,12 @@
 # key: head
 # binding: direct-keybinding
 # --
-#+TITLE: ${1:The title}
+#+TITLE:  ${1:The title}
+#+AUTHOR: ${2:The author}
 #+DATE: `(insert (format-time-string "%d %B, %Y"))`
 #+OPTIONS: num:nil H:2 ^:t |:t
+#+PANDOC_OPTIONS: template:nil
 #+PANDOC_OPTIONS: number-sections:t
 #+PANDOC_OPTIONS: csl:~/.pandoc/csl/pnas.csl
-#+ABSTRACT: $2
+#+ABSTRACT: $3
 $0

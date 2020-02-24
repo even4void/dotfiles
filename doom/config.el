@@ -172,7 +172,7 @@
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
         lisp-mode        ; ---
-        ;; ess-r-mode       ; FIXME styler needs configuration
+        ;; ess-r-mode    ; FIXME styler needs configuration
         sql-mode         ; NOTE sqlformat is currently broken
         ;; web-mode         ; quite bad actually
         python-mode))    ; because I don't like it
@@ -233,6 +233,8 @@
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
+
+(remove-hook 'text-mode-hook #'turn-on-auto-fill)
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
