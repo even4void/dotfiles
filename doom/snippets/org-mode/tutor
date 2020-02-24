@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Header block for HTML tutor
+# key: tutor
+# binding: direct-keybinding
+# --
+# -*- ispell-dictionary: "french" -*-
+#+TITLE:        ${1:The title}
+#+LANG:         fr
+#+STARTUP:      align fold noindent hideblocks fnlocal
+#+OPTIONS:      H:3 num:nil toc:2 ':t *:t ::t f:t |:t -:t
+$0
