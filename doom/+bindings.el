@@ -87,7 +87,6 @@
    :desc "Org HTML publish"    "H" #'org-publish-all
    :desc "Org dispatcher"      "d" #'org-export-dispatch)
  (:prefix "n"
-   :desc "Unfill region"       "f" #'unfill-region
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Interleave"          "I" #'interleave-mode
@@ -104,9 +103,10 @@
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
  (:prefix "t"
+   :desc "Unfill region"       "U" #'unfill-region
    :desc "Select theme"        "t" #'counsel-load-theme
-   :desc "Select dictionary"   "z" #'ispell-change-dictionary
-   :desc "Spellcheck"          "w" #'flyspell-buffer
+   :desc "Select dictionary"   "Z" #'ispell-change-dictionary
+   :desc "Spellcheck"          "W" #'flyspell-buffer
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Beautify buffer"     "B" #'format-all-mode

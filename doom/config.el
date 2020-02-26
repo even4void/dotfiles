@@ -172,9 +172,9 @@
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
         lisp-mode        ; ---
-        ;; ess-r-mode    ; FIXME styler needs configuration
+        ess-r-mode       ; FIXME styler needs configuration
         sql-mode         ; NOTE sqlformat is currently broken
-        ;; web-mode         ; quite bad actually
+        ;; web-mode         ; quite bad actually when there are JINJA template
         python-mode))    ; because I don't like it
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
