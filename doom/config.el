@@ -1,6 +1,8 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(width . 140))
+(add-to-list 'default-frame-alist '(height . 49))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -208,17 +210,15 @@
   (setq +pretty-code-iosevka-font-ligatures
         (append +pretty-code-iosevka-font-ligatures
                 '(("[ ]" .  "☐")
-                  ("[X]" . "☑" )
-                  ("[-]" . "❍" )
+                  ("[X]" . "☑")
+                  ("[-]" . "❍")
                   ("%>%" . #Xe175)
                   ("%$%" . #Xe112)
                   ("%<>%" . #Xe114)
                   ("%T>%" . #Xe1b1)
                   ("function" . "ƒ")
-                  ("#+BEGIN_EXAMPLE" . "■")
-                  ("#+END_EXAMPLE" . "▪")
-                  ("#+BEGIN_COMMENT" . "¶")
-                  ("#+END_COMMENT" . "▪")
+                  ("#+BEGIN_COMMENT" . "#")
+                  ("#+END_COMMENT" . "#")
                   ("#+BEGIN_QUOTE" . "“")
                   ("#+END_QUOTE" . "”")
                   ("#+CAPTION:" . "»")
