@@ -354,7 +354,7 @@
 ;;   (goto-char (point-min)))
 
 (after! org
-  (pushnew! org-link-abbrev-alist '("papers" . "~/Documents/Papers/"))
+  (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
   (setq org-capture-templates
       '(("t" "Personal todo" entry
          (file+headline +org-capture-todo-file "Inbox")
