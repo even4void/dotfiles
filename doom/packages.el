@@ -9,5 +9,10 @@
 (package! realgud-trepan-ni)
 (package! interleave)
 
+;; ESS stuff
+;; See https://emacs.stackexchange.com/a/17065
+(package! polymode)
+(package! poly-R)
+
 ;; no thanks
 (package! helm :disable t)
