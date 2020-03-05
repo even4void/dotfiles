@@ -179,8 +179,6 @@
         ;; web-mode         ; quite bad actually when there are JINJA template
         python-mode))    ; because I don't like it
 (remove-hook 'dired-mode-hook 'diredfl-mode)
-(add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.rmd\\'" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
       markdown-command "/usr/local/bin/multimarkdown"
       markdown-enable-math t
@@ -218,15 +216,15 @@
                   ("%T>%" . #Xe1b1)
                   ("function" . "ƒ")
                   ("#+BEGIN_EXAMPLE" . "»")
-                  ("#+END_EXAMPLE" . "»")
+                  ("#+END_EXAMPLE" . "«")
                   ("#+BEGIN_COMMENT" . "#")
                   ("#+END_COMMENT" . "#")
                   ("#+BEGIN_QUOTE" . "“")
                   ("#+END_QUOTE" . "”")
                   ("#+begin_src" . "»")
-                  ("#+end_src" . "»")
+                  ("#+end_src" . "«")
                   ("#+begin_example" . "»")
-                  ("#+end_example" . "»")
+                  ("#+end_example" . "«")
                   ("#+RESULTS:" . "■")
                   ("#+CAPTION:" . "»")
                   ("#+ATTR_LaTeX:" . "»")
@@ -310,6 +308,8 @@
       ess-eldoc-show-on-symbol t
       ess-execute-in-process-buffer t)
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
+;; (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rmd\\'" . markdown-mode))
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
@@ -320,14 +320,13 @@
 
 ;; -- lsp --------------------------------------------------------------------
 (after! lsp-ui
-  (setq lsp-prefer-flymake :none))
+  (setq lsp-diagnostic-package :auto))
 
 (setq ccls-executable "~/local/ccls/Release/ccls")
 
 ;; -- lisp/haskell -----------------------------------------------------------
 (setq inferior-lisp-program "ccl64")
 
-(add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
 (setq geiser-active-implementations '(chez chicken mit racket))
 
 (after! cider
@@ -340,6 +339,8 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
+      org-agenda-files '("~/org" "~/org/local")
+      org-agenda-text-search-extra-files '("~/org/drafts")
       org-babel-clojure-backend 'cider
       inferior-R-program-name "/usr/local/bin/R"
       inferior-STA-program-name "/usr/local/bin/stata-mp")
@@ -422,6 +423,7 @@
         org-export-with-author nil
         org-export-with-creator nil
         org-html-postamble nil
+        org-html-htmlize-output-type nil
         org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/github.css\" />"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options-for-html5 '((section-divs . t)

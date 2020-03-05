@@ -5,10 +5,12 @@
   (setq mu4e-get-mail-command "mbsync -a"
         ; smtpmail-stream-type 'starttls
         mu4e-change-filenames-when-moving t
-        mu4e-maildirs-extension-default-collapse-level 0
-        mu4e-maildirs-extension-maildir-expanded-prefix "»"
-        mu4e-maildirs-extension-maildir-default-prefix "◉"
-        mu4e-maildirs-extension-toggle-maildir-key "+"
+        ; Looks like maildirs-extension is no longer available
+        ; https://github.com/hlissner/doom-emacs/commit/5b094b622030b21b43b57d7cd00b69ddd395a83b
+        ; mu4e-maildirs-extension-default-collapse-level 0
+        ; mu4e-maildirs-extension-maildir-expanded-prefix "»"
+        ; mu4e-maildirs-extension-maildir-default-prefix "◉"
+        ; mu4e-maildirs-extension-toggle-maildir-key "+"
         mu4e-compose-format-flowed t
         mu4e-headers-show-threads nil
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
@@ -76,5 +78,6 @@
   ;; (setq mu4e-context-policy 'pick-first
   ;;       mu4e-compose-context-policy nil)
 
-  (add-to-list 'mu4e-bookmarks
-               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i)))
+  ;; (add-to-list 'mu4e-bookmarks
+  ;;              '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i))
+  )

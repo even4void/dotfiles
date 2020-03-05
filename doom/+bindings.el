@@ -70,7 +70,6 @@
    :desc "Available checkers"  "z" #'flycheck-verify-setup
    :desc "Select checker"      "y" #'flycheck-select-checker
    :desc "LSP diagnostics"     "L" #'lsp-describe-session
-   :desc "Toggle ruler"        "M" #'fci-mode
    :desc "Prettify"            "P" #'prettify-symbols-mode
    :desc "LSP start"           "S" #'+lsp-init-a
    :desc "LSP shutdown"        "q" #'lsp-workspace-shutdown
@@ -111,7 +110,7 @@
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Beautify buffer"     "B" #'format-all-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
-   :desc "Visual lines"        "v" #'visual-line-mode
+   :desc "Ruler"               "R" #'fci-mode
    :desc "Undo tree"           "u" #'undo-tree-visualize
    :desc "Markdown hide/show"  "m" #'markdown-toggle-markup-hiding
    :desc "Flycheck"            "c" #'flycheck-buffer)
