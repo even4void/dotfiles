@@ -23,7 +23,7 @@ alias ipy ipython
 alias qpy "jupyter qtconsole"
 alias hk heroku
 alias R 'R -q --no-save --no-restore'
-alias typora 'open -a Typora'
+alias ete3 "~/Library/Python/3.7/bin/ete3"
 alias cx 'chmod +x'
 alias cat bat
 alias ccat 'pygmentize -g'

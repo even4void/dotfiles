@@ -39,6 +39,7 @@
        :term
        eshell
        term
+       vterm
 
        :tools
        debugger
