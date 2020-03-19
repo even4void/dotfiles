@@ -108,6 +108,7 @@
    :desc "Select theme"        "t" #'counsel-load-theme
    :desc "Select dictionary"   "Z" #'ispell-change-dictionary
    :desc "Spellcheck"          "W" #'flyspell-buffer
+   :desc "Poly Markdown"       "P" #'poly-markdown-mode
    :desc "Toggle letter case"  "L" #'toggle-letter-case
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Beautify buffer"     "B" #'format-all-mode
