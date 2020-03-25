@@ -1,3 +1,6 @@
+# Mostly stolen from Thorsten Ball's config
+# https://github.com/mrnugget/dotfiles/blob/master/zshrc
+
 ##############
 # BASIC SETUP
 ##############
@@ -139,9 +142,6 @@ alias gst='git status'
 alias gaa='git add -A'
 alias gd='git diff'
 alias gdc='git diff --cached'
-# Go way, Ghostscript
-alias gs='gst'
-alias gp='git push'
 
 # tmux
 alias tma='tmux attach -t'
@@ -244,8 +244,8 @@ if [ -r ${dir_info_color_file} ]; then
 fi
 
 local dir_info="%{$dir_info_color%}%(5~|%-1~/.../%2~|%4~)%{$reset_color%}"
-local promptnormal="%{$fg_bold[yellow]%}λ %{$reset_color%}"
-local promptjobs="%{$fg_bold[red]%}λ %{$reset_color%}"
+local promptnormal="%{$fg_bold[green]%}λ %{$reset_color%}"
+local promptjobs="%{$fg_bold[yellow]%}λ %{$reset_color%}"
 
 PROMPT='${dir_info}$(git_prompt_info) %(1j.$promptjobs.$promptnormal)'
 
@@ -308,15 +308,20 @@ if which pyenv &> /dev/null; then
 fi
 
 export BAT_THEME=ansi-light
-alias cat=bat
+if [ ! -n "$INSIDE_EMACS" ]; then
+  alias cat=bat
+fi
 
 alias la="ls -a"
 alias dud="du -sh ./* | sort -h"
 alias awk=gawk
 alias sed=gsed
 alias ccl=ccl64
+alias stata="stata-mp"
 alias ipy=ipython
+alias qpy="jupyter qtconsole"
 alias R="R -q --no-save --no-restore"
+alias ete3="~/Library/Python/3.7/bin/ete3"
 alias cx="chmod +x"
 alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME"'
@@ -335,3 +340,5 @@ alias j="jobs -l"
 alias l="exa --long --header --git"
 alias lk="ls -lhSr"
 alias md="mkdir -p"
+alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
+alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "

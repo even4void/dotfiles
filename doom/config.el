@@ -325,7 +325,7 @@
 (setq ccls-executable "~/local/ccls/Release/ccls")
 
 ;; -- lisp/haskell -----------------------------------------------------------
-(setq inferior-lisp-program "ccl64")
+(setq inferior-lisp-program "sbcl")  ;; ccl64
 
 (setq geiser-active-implementations '(chez chicken mit racket))
 
