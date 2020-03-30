@@ -25,7 +25,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'justinmk/vim-dirvish'
+Plug 'justinmk/vim-dirvish'
+Plug 'airblade/vim-rooter'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -39,9 +40,12 @@ Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale'
+Plug 'mbbill/undotree',                    { 'on': 'UndotreeToggle' }
+Plug 'mhinz/vim-grepper',                  { 'on': [ 'Grepper', 'GrepperRg', '<Plug>(GrepperOperator)' ] }
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'neoclide/coc.nvim',                  { 'do': { -> coc#util#install() } }
 
 let g:make = 'gmake'
 if exists('make')
@@ -61,24 +65,27 @@ Plug 'honza/vim-snippets'
 Plug 'arcticicestudio/nord-vim'
 "Plug 'tomasr/molokai'
 
-"*****************************************************************************
-"" Custom bundles
-"*****************************************************************************
-
-" Plug 'neovim/nvim-lsp'
-
 " c
-"Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-"Plug 'ludwig/split-manpage.vim'
+Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
+Plug 'ludwig/split-manpage.vim'
+
+"" Racket, Haskell
+Plug 'wlangstroth/vim-racket'
+Plug 'itchyny/vim-haskell-indent',         { 'for': 'haskell' }
 
 " python
 "" Python Bundle
 "Plug 'davidhalter/jedi-vim'
 "Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
-" markdown
+" Stata
+Plug 'zizhongyan/vim-stata'
+
+" Markdown, Org
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown',  { 'for': 'markdown' }
+Plug 'itspriddle/vim-marked',    { 'for': 'markdown' }
+Plug 'jceb/vim-orgmode'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -94,6 +101,7 @@ call plug#end()
 filetype plugin indent on
 
 let g:loaded_python_provider = 1 " disable Python 2 support
+let g:python_host_skip_check = 1
 let g:python3_host_prog="/usr/local/bin/python3"
 let g:python2_host_prog="/usr/local/bin/python"
 
@@ -115,6 +123,12 @@ set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
+
+set shiftround
+set autoindent
+set smartindent
+set cindent
+set breakindent
 
 "" Map leader to ,
 let mapleader=','
@@ -150,6 +164,10 @@ set ruler
 set number
 "set relativenumber
 
+" chars style, hidden by default
+set listchars=tab:▸\ ,trail:∙
+set nolist
+
 let no_buffers_menu=1
 
 colorscheme nord
@@ -160,27 +178,21 @@ let g:nord_comment_brightness = 20
 set mouse=a
 set mousemodel=popup
 set t_Co=256
-set guioptions=egmrti
-set gfn=Monospace\ 10
+" set guioptions=egmrti
+" set gfn=Monospace\ 10
 set conceallevel=2
 set foldenable
+set foldmethod=syntax
+set foldlevelstart=99
+set foldcolumn=0
+set foldtext=foldtext#foldtext()
 
-
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-endif
-
-
+let g:CSApprox_loaded = 1
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
