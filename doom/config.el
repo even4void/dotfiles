@@ -36,7 +36,8 @@
   (defun setup-custom-doom-modeline ()
     (doom-modeline-set-modeline 'my/modeline 'default))
   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-; (setq doom-themes-neotree-file-icons nil)
+(setq doom-themes-neotree-enable-file-icons nil
+      doom-themes-neotree-enable-folder-icons nil)
 (setq doom-modeline-env-python-executable "python3"
       doom-modeline-enable-word-count t
       doom-modeline-unicode-fallback nil
