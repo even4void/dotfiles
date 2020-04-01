@@ -1,7 +1,7 @@
 # Mostly stolen from Thorsten Ball's config
 # https://github.com/mrnugget/dotfiles/blob/master/zshrc
 #
-# Time-stamp: <2020-04-01 13:41:24 chl>
+# Time-stamp: <2020-04-01 18:53:09 chl>
 
 typeset -U PATH
 autoload colors; colors;
@@ -281,14 +281,26 @@ function check_last_exit_code() {
   fi
 }
 
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd() {
+  if [ $timer ]; then
+    toc=$(($SECONDS - $timer))
+    if [ ${toc} -ge 3 ]; then
+      export RPROMPT="%F{cyan}${toc}ms %{$reset_color%}"
+    fi
+    unset timer
+  fi
+}
+
 _is_ssh() {
   [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]
 }
 
 if _is_ssh || (( EUID == 0 )); then
   RPROMPT="@${(%):-%m}"
-else
-  RPROMPT=""
 fi
 
 ########
