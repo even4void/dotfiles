@@ -33,51 +33,51 @@
 
   ;; one-shot email address
 
-  (setq user-mail-address "ch.lalanne@aliquote.org"
-        user-full-name "Christophe Lalanne"
-        mu4e-sent-folder "/aliquote/Sent"
-        mu4e-drafts-folder "/aliquote/Drafts"
-        mu4e-trash-folder "/aliquote/Trash"
-        smtpmail-smtp-server "ssl0.ovh.net"
-        smtpmail-smtp-service 587
-        mu4e-compose-signature "chl")
+  ;; (setq user-mail-address "ch.lalanne@aliquote.org"
+  ;;       user-full-name "Christophe Lalanne"
+  ;;       mu4e-sent-folder "/aliquote/Sent"
+  ;;       mu4e-drafts-folder "/aliquote/Drafts"
+  ;;       mu4e-trash-folder "/aliquote/Trash"
+  ;;       smtpmail-smtp-server "ssl0.ovh.net"
+  ;;       smtpmail-smtp-service 587
+  ;;       mu4e-compose-signature "chl")
 
-  ;; (setq mu4e-user-mail-address-list '("ch.lalanne@aliquote.org" "ch.lalanne@mac.com"))
-  ;; (setq mu4e-contexts
-  ;;       `( ,(make-mu4e-context
-  ;;            :name "i icloud"
-  ;;            :enter-func (lambda () (mu4e-message "Enter ch.lalanne@mac.com context"))
-  ;;            :leave-func (lambda () (mu4e-message "Leave ch.lalanne@mac.com context"))
-  ;;            :match-func (lambda (msg)
-  ;;                          (when msg
-  ;;                            (mu4e-message-contact-field-matches msg :to "ch.lalanne@mac.com")))
-  ;;            :vars '((user-mail-address      . "ch.lalanne@mac.com")
-  ;;                    (user-full-name         . "Christophe Lalanne")
-  ;;                    (mu4e-sent-folder       . "/icloud/Sent Messages")
-  ;;                    (mu4e-drafts-folder     . "/icloud/Drafts")
-  ;;                    ;; ( mu4e-trash-folder      . "/icloud/Trash" )
-  ;;                    (smtpmail-smtp-server   . "smtp.mail.me.com")
-  ;;                    (smtpmail-stream-type   . starttls)
-  ;;                    (smtpmail-smtp-service  . 587)
-  ;;                    (mu4e-compose-signature . (concat "chl\n"))))
+  (setq mu4e-user-mail-address-list '("ch.lalanne@aliquote.org" "ch.lalanne@mac.com"))
+  (setq mu4e-contexts
+        `( ,(make-mu4e-context
+             :name "i icloud"
+             :enter-func (lambda () (mu4e-message "Enter ch.lalanne@mac.com context"))
+             :leave-func (lambda () (mu4e-message "Leave ch.lalanne@mac.com context"))
+             :match-func (lambda (msg)
+                           (when msg
+                             (mu4e-message-contact-field-matches msg :to "ch.lalanne@mac.com")))
+             :vars '((user-mail-address      . "ch.lalanne@mac.com")
+                     (user-full-name         . "Christophe Lalanne")
+                     (mu4e-sent-folder       . "/icloud/Sent Messages")
+                     (mu4e-drafts-folder     . "/icloud/Drafts")
+                     ;; ( mu4e-trash-folder      . "/icloud/Trash" )
+                     (smtpmail-smtp-server   . "smtp.mail.me.com")
+                     (smtpmail-stream-type   . starttls)
+                     (smtpmail-smtp-service  . 587)
+                     (mu4e-compose-signature . (concat "chl\n"))))
 
-  ;;          ,(make-mu4e-context
-  ;;            :name "a aliquote"
-  ;;            :enter-func (lambda () (mu4e-message "Enter chl@aliquote.org context"))
-  ;;            :match-func (lambda (msg)
-  ;;                          (when msg
-  ;;                            (mu4e-message-contact-field-matches msg :to "chl@aliquote.org")))
-  ;;            :vars '((user-mail-address       . "ch.lalanne@aliquote.org")
-  ;;                    (user-full-name          . "Christophe Lalanne")
-  ;;                    (mu4e-sent-folder        . "/aliquote/Sent")
-  ;;                    (mu4e-drafts-folder      . "/aliquote/Drafts")
-  ;;                    (mu4e-trash-folder       . "/aliquote/Trash")
-  ;;                    (smtpmail-smtp-server    . "ssl0.ovh.net")
-  ;;                    (smtpmail-smtp-service   . 587)
-  ;;                    (mu4e-compose-signature  . (concat "chl\n"))))))
-  ;; (setq mu4e-context-policy 'pick-first
-  ;;       mu4e-compose-context-policy nil)
+           ,(make-mu4e-context
+             :name "a aliquote"
+             :enter-func (lambda () (mu4e-message "Enter chl@aliquote.org context"))
+             :match-func (lambda (msg)
+                           (when msg
+                             (mu4e-message-contact-field-matches msg :to "chl@aliquote.org")))
+             :vars '((user-mail-address       . "ch.lalanne@aliquote.org")
+                     (user-full-name          . "Christophe Lalanne")
+                     (mu4e-sent-folder        . "/aliquote/Sent")
+                     (mu4e-drafts-folder      . "/aliquote/Drafts")
+                     (mu4e-trash-folder       . "/aliquote/Trash")
+                     (smtpmail-smtp-server    . "ssl0.ovh.net")
+                     (smtpmail-smtp-service   . 587)
+                     (mu4e-compose-signature  . (concat "chl\n"))))))
+  (setq mu4e-context-policy 'pick-first
+        mu4e-compose-context-policy nil)
 
-  ;; (add-to-list 'mu4e-bookmarks
-  ;;              '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i))
+  (add-to-list 'mu4e-bookmarks
+               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i))
   )

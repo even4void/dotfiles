@@ -188,3 +188,11 @@ Taken from elpy-shell-send-current-statement"
     (end (python-nav-end-of-statement)))
 (python-shell-send-string (buffer-substring beg end)))
 (python-nav-forward-statement))
+
+;;;###autoload
+(defun zeit-file ()
+  "Create a Zeit file in Org directory"
+  (interactive)
+  (let ((name (read-string "Filename: ")))
+      (expand-file-name (format "%s.org"
+                                  name) "~/org/z/")))

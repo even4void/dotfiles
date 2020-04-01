@@ -339,11 +339,13 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org" "~/org/local")
+      org-agenda-files '("~/org/z/" "~/org/local/todo.org")
       org-agenda-text-search-extra-files '("~/org/drafts")
       org-babel-clojure-backend 'cider
       inferior-R-program-name "/usr/local/bin/R"
-      inferior-STA-program-name "/usr/local/bin/stata-mp")
+      inferior-R-args "-q --no-save --no-restore"
+      inferior-STA-program-name "/usr/local/bin/stata-mp"
+      inferior-STA-start-args "-q")
 
 (use-package! org-fancy-priorities
    :hook (org-mode . org-fancy-priorities-mode)
@@ -377,6 +379,8 @@
         ;;  "* %U %?\n%i\n%a" :prepend t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t)
+        ("z" "Zeit notes" entry
+          (file zeit-file) "* TITLE%?\n\n #+FILETAGS:\n\n %U")
         ("p" "Templates for projects")
         ("pt" "Project todo" entry  ; {project-root}/todo.org
          (file+headline +org-capture-project-todo-file "Inbox")
