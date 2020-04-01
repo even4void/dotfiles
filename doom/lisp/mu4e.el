@@ -12,7 +12,7 @@
         ; mu4e-maildirs-extension-maildir-default-prefix "◉"
         ; mu4e-maildirs-extension-toggle-maildir-key "+"
         mu4e-compose-format-flowed t
-        mu4e-headers-show-threads nil
+        mu4e-headers-show-threads t
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
         ; mu4e-completing-read-function 'completing-read

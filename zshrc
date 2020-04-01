@@ -1,9 +1,7 @@
 # Mostly stolen from Thorsten Ball's config
 # https://github.com/mrnugget/dotfiles/blob/master/zshrc
-
-##############
-# BASIC SETUP
-##############
+#
+# Time-stamp: <2020-04-01 13:41:24 chl>
 
 typeset -U PATH
 autoload colors; colors;
@@ -15,7 +13,7 @@ autoload colors; colors;
 ## PRIVATE ##
 #############
 # Include private stuff that's not supposed to show up
-# in the dotfiles repo
+# in the dotfiles repo -- not used actually
 local private="${HOME}/.zsh.d/private.sh"
 if [ -r ${private} ]; then
   . ${private}
@@ -126,9 +124,44 @@ alias llt='ls -l -snew'
 alias ls="ls -G"
 alias ll="ls -G -l"
 alias lh="ls -G -lh"
+# alias ll="ls -la"
+# alias ls="ls -FG"
+alias la="ls -a"
+alias l="exa --long --header --git"
+alias lk="ls -lhSr"
 
+# More dir actions
+alias dud="du -sh ./* | sort -h"
+alias j="jobs -l"
+alias md="mkdir -p"
+alias tree="tree -NC"
+alias perms="stat -c '%A %a %n'"
+alias cx="chmod +x"
+
+# History
 alias history='history 1'
 alias hs='history | grep '
+
+# Python stuff
+alias mkhttp="python3 -m http.server"
+alias venv="python3 -m venv"
+alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
+
+# Misc
+alias ccat="pygmentize -g"
+alias notes='rg "TODO|NOTE|FIXME"'
+alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
+alias inbox='mbsync -a && mu index -m "~/.mail"'
+
+# Handy shortcuts
+alias awk=gawk
+alias sed=gsed
+alias ccl=ccl64
+alias stata="stata-mp"
+alias ipy=ipython
+alias qpy="jupyter qtconsole"
+alias R="R -q --no-save --no-restore"
+alias ete3="~/Library/Python/3.7/bin/ete3"
 
 # Use rsync with ssh and show progress
 alias rsyncssh='rsync -Pr --rsh=ssh'
@@ -138,10 +171,14 @@ alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 # git
-alias gst='git status'
-alias gaa='git add -A'
+alias gg="git show | tig"
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gst="git status -s"
+alias gci="git commit -S -m"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gaa="git add --all"
 
 # tmux
 alias tma='tmux attach -t'
@@ -151,10 +188,6 @@ alias tmn='tmux new -s'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
-
-alias g='git'
-
-alias inbox='mbsync -a && mu index -m "~/.mail"'
 
 ##########
 # FUNCTIONS
@@ -202,12 +235,6 @@ spinner() {
   done
 }
 
-s3() {
-  local route="s3.thorstenball.com/${1}"
-  aws s3 cp ${1} s3://${route}
-  echo http://${route} | pbcopy
-}
-
 f() {
   find . -iname "*${1}*"
 }
@@ -229,13 +256,6 @@ git_prompt_info() {
   echo " %{$fg_bold[green]%}${ref#refs/heads/}$dirstatus%{$reset_color%}"
 }
 
-# local dir_info_color="$fg_bold[black]"
-
-# This just sets the color to "bold".
-# Future me. Try this to see what's correct:
-#   $ print -P '%fg_bold[black] black'
-#   $ print -P '%B%F{black} black'
-#   $ print -P '%B black'
 local dir_info_color="%B"
 
 local dir_info_color_file="${HOME}/.zsh.d/dir_info_color"
@@ -261,14 +281,22 @@ function check_last_exit_code() {
   fi
 }
 
-# RPROMPT='$(check_last_exit_code)'
+_is_ssh() {
+  [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]
+}
+
+if _is_ssh || (( EUID == 0 )); then
+  RPROMPT="@${(%):-%m}"
+else
+  RPROMPT=""
+fi
 
 ########
 # ENV
 ########
 # export TERM=xterm-256color
 
-export PATH="$HOME/local/bin:$PATH"
+export PATH="$HOME/local/bin:$HOME/.config/bin:$PATH"
 
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
@@ -311,34 +339,3 @@ export BAT_THEME=ansi-light
 if [ ! -n "$INSIDE_EMACS" ]; then
   alias cat=bat
 fi
-
-alias la="ls -a"
-alias dud="du -sh ./* | sort -h"
-alias awk=gawk
-alias sed=gsed
-alias ccl=ccl64
-alias stata="stata-mp"
-alias ipy=ipython
-alias qpy="jupyter qtconsole"
-alias R="R -q --no-save --no-restore"
-alias ete3="~/Library/Python/3.7/bin/ete3"
-alias cx="chmod +x"
-alias ccat="pygmentize -g"
-alias notes='rg "TODO|NOTE|FIXME"'
-alias tree="tree -NC"
-alias gg="git show | tig"
-alias perms="stat -c '%A %a %n'"
-alias mkhttp="python3 -m http.server"
-alias venv="python3 -m venv"
-alias inbox='mbsync -a && mu index -m "~/.mail"'
-alias gst="git status -s"
-alias gci="git commit -S -m"
-alias gco="git checkout"
-alias gcb="git checkout -b"
-alias gaa="git add --all"
-alias j="jobs -l"
-alias l="exa --long --header --git"
-alias lk="ls -lhSr"
-alias md="mkdir -p"
-alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
-alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
