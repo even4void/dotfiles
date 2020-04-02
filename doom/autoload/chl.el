@@ -175,24 +175,36 @@ around point as the initial input."
   "Sends from python-mode buffer to a python shell, intelligently."
   (interactive)
   (cond ((region-active-p)
-     (setq deactivate-mark t)
-     (python-shell-send-region (region-beginning) (region-end))
- ) (t (python-shell-send-current-statement))))
+         (setq deactivate-mark t)
+         (python-shell-send-region (region-beginning) (region-end)))
+        (t (python-shell-send-current-statement))))
 
 ;;;###autoload
 (defun python-shell-send-current-statement ()
-"Send current statement to Python shell.
-Taken from elpy-shell-send-current-statement"
-(interactive)
-(let ((beg (python-nav-beginning-of-statement))
-    (end (python-nav-end-of-statement)))
-(python-shell-send-string (buffer-substring beg end)))
-(python-nav-forward-statement))
+  "Send current statement to Python shell. Taken from elpy-shell-send-current-statement"
+  (interactive)
+  (let ((beg (python-nav-beginning-of-statement))
+        (end (python-nav-end-of-statement)))
+    (python-shell-send-string (buffer-substring beg end)))
+  (python-nav-forward-statement))
 
 ;;;###autoload
-(defun zeit-file ()
+(defun z-file ()
   "Create a Zeit file in Org directory"
   (interactive)
   (let ((name (read-string "Filename: ")))
-      (expand-file-name (format "%s.org"
-                                  name) "~/org/z/")))
+      (expand-file-name (format "%s-%s.org"
+                                  (now) name) "/Users/chl/org/z/")))
+
+;;;###autoload
+(defun blog-post ()
+  "Create a new post in Hugo directory"
+  (interactive)
+  (let ((name (read-string "Filename: ")))
+      (expand-file-name (format "%s.md"
+                                  name) "/Users/chl/Sites/aliquote/content/post/")))
+
+;;;###autoload
+(defun now ()
+  "Insert date (HUgo format)"
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))

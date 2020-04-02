@@ -380,8 +380,10 @@
         ;;  "* %U %?\n%i\n%a" :prepend t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t)
-        ("z" "Zeit notes" entry
-          (file zeit-file) "* TITLE%?\n\n #+FILETAGS:\n\n %U")
+        ("z" "Org/z notes" entry
+         (function z-file) "* TITLE%?\n\n #+FILETAGS:\n\n %U")
+        ("b" "Blog post" entry
+         (function blog-post) "---\ntitle:\ndate:\ndraft: true\ntags: []\ncategories: []\n---\n %U")
         ("p" "Templates for projects")
         ("pt" "Project todo" entry  ; {project-root}/todo.org
          (file+headline +org-capture-project-todo-file "Inbox")
