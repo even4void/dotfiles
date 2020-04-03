@@ -1,7 +1,7 @@
 # Mostly stolen from Thorsten Ball's config
 # https://github.com/mrnugget/dotfiles/blob/master/zshrc
 #
-# Time-stamp: <2020-04-02 19:09:02 chl>
+# Time-stamp: <2020-04-03 20:12:42 chl>
 
 typeset -U PATH
 autoload colors; colors;
@@ -141,6 +141,7 @@ alias cx="chmod +x"
 # History
 alias history='history 1'
 alias hs='history | grep '
+alias nonascii="LC_CTYPE=C ggrep --color='auto' -n -P '[\x80-\xFF]'"
 
 # Python stuff
 alias mkhttp="python3 -m http.server"
@@ -158,16 +159,22 @@ alias awk=gawk
 alias sed=gsed
 alias ccl=ccl64
 alias stata="stata-mp"
-alias ipy=ipython
+alias statadocs="open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
+alias ipy="jupyter console --simple-prompt"
 alias qpy="jupyter qtconsole"
 alias R="R -q --no-save --no-restore"
+alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
 alias ete3="~/Library/Python/3.7/bin/ete3"
+alias c="clear"
+alias e="emacsclient -n"
+alias edit "open -e"
+alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
+
 
 # Use rsync with ssh and show progress
 alias rsyncssh='rsync -Pr --rsh=ssh'
 
 # Edit/Source vim config
-alias ez='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 
 # git
@@ -179,6 +186,8 @@ alias gci="git commit -S -m"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gaa="git add --all"
+alias gfu="git fetch upstream"
+alias gmu="git merge upstream/master"
 
 # tmux
 alias tma='tmux attach -t'
@@ -237,6 +246,53 @@ spinner() {
 
 f() {
   find . -iname "*${1}*"
+}
+
+enc64() {
+  openssl base64 -in "${1}" | awk -v ext=(get_ext ${1}) '{ str1=str1 $0 }END{ print "background:url(data:image/"ext";base64,"str1");" }'|pbcopy
+  echo "${1} encoded to clipboard"
+}
+
+bkp() {
+  cp -a "${1}" "${1}_(date --iso-8601=seconds)"
+}
+
+cl() {
+  history --max=1 | sed -e 's/^ +//' | pbcopy
+  echo "Last stdout encoded to clipboard"
+}
+
+dash() {
+  open "dash://${1}"
+}
+
+day() {
+  echo (date -j -f '%Y-%m-%d' ${1} +'%A')
+}
+
+flow_all() {
+  flow | grep -Ee '^Error --' | rev | cut -d' ' -f1 | rev | cut -d: -f1 | sort -u
+}
+
+git_search() {
+  git log -S"$argv" --pretty=format:%H | xargs -n1 git show 
+}
+
+ip() {
+  ifconfig | grep "inet " | awk '{ print $2 }' | grep -v "^127"
+  curl -Ss icanhazip.com
+}
+
+snif() {
+  sudo lsof -iTCP -sTCP:LISTEN -P -n  
+}
+
+stata_help() {
+  links https://www.stata.com/help.cgi\?"${1}"
+}
+
+wget_single() {
+  wget --no-parent --timestamping --convert-links --page-requisites --no-directories --no-host-directories --span-hosts --adjust-extension ${1}
 }
 
 #########
