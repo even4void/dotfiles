@@ -1,7 +1,7 @@
 # Mostly stolen from Thorsten Ball's config
 # https://github.com/mrnugget/dotfiles/blob/master/zshrc
 #
-# Time-stamp: <2020-04-01 18:53:09 chl>
+# Time-stamp: <2020-04-02 19:09:02 chl>
 
 typeset -U PATH
 autoload colors; colors;
@@ -289,7 +289,9 @@ function precmd() {
   if [ $timer ]; then
     toc=$(($SECONDS - $timer))
     if [ ${toc} -ge 3 ]; then
-      export RPROMPT="%F{cyan}${toc}ms %{$reset_color%}"
+      export RPROMPT="%F{cyan}${toc}s %{$reset_color%}"
+    else
+      export RPROMPT=""
     fi
     unset timer
   fi

@@ -340,7 +340,7 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/z/" "~/org/local/todo.org")
+      org-agenda-files '("~/org/z/" "~/org/local/" "~/org/refile.org")
       org-agenda-text-search-extra-files '("~/org/drafts")
       org-babel-clojure-backend 'cider
       inferior-R-program-name "/usr/local/bin/R"
