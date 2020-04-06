@@ -343,6 +343,7 @@
       org-agenda-files '("~/org/z/" "~/org/local/" "~/org/refile.org")
       org-agenda-text-search-extra-files '("~/org/drafts")
       org-babel-clojure-backend 'cider
+      +org-capture-todo-file "~/org/local/todo.org"
       inferior-R-program-name "/usr/local/bin/R"
       inferior-R-args "-q --no-save --no-restore"
       inferior-STA-program-name "/usr/local/bin/stata-mp"
@@ -369,7 +370,7 @@
   (setq org-capture-templates
       '(("t" "Personal todo" entry
          (file+headline +org-capture-todo-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+         "* TODO %?\n%i\n" :prepend t :kill-buffer t)
         ("n" "Personal notes" entry
          (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
@@ -379,11 +380,12 @@
         ;;  (file+olp+datetree +org-capture-journal-file "Inbox")
         ;;  "* %U %?\n%i\n%a" :prepend t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
-         "* %? \n%U\n%(retrieve-url)\n" :prepend t)
-        ("z" "Org/z notes" entry
-         (function z-file) "* TITLE%?\n\n #+FILETAGS:\n\n %U")
-        ("b" "Blog post" entry
-         (function blog-post) "---\ntitle:\ndate:\ndraft: true\ntags: []\ncategories: []\n---\n %U")
+         "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
+        ("z" "Org/z notes" entry (file my/write-file)
+         "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
+        ;; ("b" "Blog post" entry
+        ;;  (file (my/write-file "~/Sites/aliquote/content/post"))
+        ;;  "---\ntitle:\ndate:\ndraft: true\ntags: []\ncategories: []\n---\n %U")
         ("p" "Templates for projects")
         ("pt" "Project todo" entry  ; {project-root}/todo.org
          (file+headline +org-capture-project-todo-file "Inbox")

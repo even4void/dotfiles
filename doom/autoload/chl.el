@@ -189,22 +189,9 @@ around point as the initial input."
   (python-nav-forward-statement))
 
 ;;;###autoload
-(defun z-file ()
-  "Create a Zeit file in Org directory"
+(defun my/write-file ()
+  "Create a text file in a given directory"
   (interactive)
-  (let ((name (read-string "Filename: ")))
+  (let ((name (read-string "Name: ")))
       (expand-file-name (format "%s-%s.org"
-                                  (now) name) "/Users/chl/org/z/")))
-
-;;;###autoload
-(defun blog-post ()
-  "Create a new post in Hugo directory"
-  (interactive)
-  (let ((name (read-string "Filename: ")))
-      (expand-file-name (format "%s.md"
-                                  name) "/Users/chl/Sites/aliquote/content/post/")))
-
-;;;###autoload
-(defun now ()
-  "Insert date (HUgo format)"
-  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+                                (format-time-string "%Y-%m-%d-%H-%M-%S") name) "~/org/z/")))
