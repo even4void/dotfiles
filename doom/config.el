@@ -177,6 +177,7 @@
         lisp-mode        ; ---
         ess-r-mode       ; FIXME styler needs configuration
         sql-mode         ; NOTE sqlformat is currently broken
+        latex-mode
         ;; web-mode         ; quite bad actually when there are JINJA template
         python-mode))    ; because I don't like it
 (remove-hook 'dired-mode-hook 'diredfl-mode)
