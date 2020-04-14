@@ -8,6 +8,7 @@
 (package! osx-dictionary)
 (package! realgud-trepan-ni)
 (package! interleave)
+(package! ivy-bibtex)
 
 ;; ESS stuff
 ;; See https://emacs.stackexchange.com/a/17065
