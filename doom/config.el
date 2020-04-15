@@ -287,6 +287,20 @@
         ("⤒"        3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
         ("Path"    99 magit-repolist-column-path                   ())))
 
+(eval-after-load 'vc-msg-git
+  '(progn
+     ;; show code of commit
+     (setq vc-msg-git-show-commit-function 'magit-show-commit)
+     ;; open file of certain revision
+     (push '("m"
+             "[m]agit-find-file"
+             (lambda ()
+               (let* ((info vc-msg-previous-commit-info)
+                      (git-dir (locate-dominating-file default-directory ".git")))
+                 (magit-find-file (plist-get info :id )
+                                  (concat git-dir (plist-get info :filename))))))
+           vc-msg-git-extra)))
+
 ;; -- neotree ----------------------------------------------------------------
 (setq neo-smart-open t
       neo-vc-integration '(face)

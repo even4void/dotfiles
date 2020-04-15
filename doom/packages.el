@@ -9,6 +9,7 @@
 (package! realgud-trepan-ni)
 (package! interleave)
 (package! ivy-bibtex)
+(package! vc-msg)
 
 ;; ESS stuff
 ;; See https://emacs.stackexchange.com/a/17065
