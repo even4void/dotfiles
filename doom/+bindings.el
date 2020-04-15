@@ -57,8 +57,10 @@
 
  ;; which-key items
  :leader
- :desc "Next workspace"  ">"  #'+workspace:switch-next
- :desc "Ivy bibtex"      "B"  #'ivy-bibtex
+ :desc "Next workspace"     ">"  #'+workspace:switch-next
+ :desc "Ivy bibtex"         "B"  #'ivy-bibtex
+ :desc "Split horizontally" "-"  #'split-window-below
+ :desc "Split vertically"   "|"  #'split-window-right
  (:prefix "s"
    :desc "Ivy bibtex"          "B" #'ivy-bibtex
    :desc "Counsel Ag"          "c" #'doom/counsel-region-or-symbol

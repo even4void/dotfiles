@@ -63,6 +63,9 @@
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 
+(map! :map cdlatex-mode-map
+      :i "TAB" #'cdlatex-tab)
+
 ;; -- bibtex -----------------------------------------------------------------
 (setq bibtex-field-delimiters 'double-quotes
       bibtex-autokey-year-length 4
@@ -178,9 +181,12 @@
         ess-r-mode       ; FIXME styler needs configuration
         sql-mode         ; NOTE sqlformat is currently broken
         latex-mode
+        tex-mode
         ;; web-mode         ; quite bad actually when there are JINJA template
         python-mode))    ; because I don't like it
 (remove-hook 'dired-mode-hook 'diredfl-mode)
+(remove-hook 'text-mode-hook #'auto-fill-mode)
+(add-hook 'message-mode-hook #'word-wrap-mode)
 (setq markdown-open-command "/usr/local/bin/mark"
       markdown-command "/usr/local/bin/multimarkdown"
       markdown-enable-math t
