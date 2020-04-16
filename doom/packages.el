@@ -8,13 +8,8 @@
 (package! osx-dictionary)
 (package! realgud-trepan-ni)
 (package! interleave)
-(package! ivy-bibtex)
+(package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
 (package! vc-msg)
-
-;; ESS stuff
-;; See https://emacs.stackexchange.com/a/17065
-(package! polymode)
-(package! poly-R)
 
 ;; no thanks
 (package! helm :disable t)
