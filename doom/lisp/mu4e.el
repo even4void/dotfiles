@@ -15,6 +15,7 @@
         mu4e-headers-show-threads t
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
+        mu4e-use-fancy-chars nil  ;; too bad actually
         ; mu4e-completing-read-function 'completing-read
         smtpmail-queue-dir "~/.mail/queue/cur"
         smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
