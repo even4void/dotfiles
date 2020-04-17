@@ -63,9 +63,6 @@
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 
-(map! :map cdlatex-mode-map
-      :i "TAB" #'cdlatex-tab)
-
 ;; -- bibtex -----------------------------------------------------------------
 (setq bibtex-field-delimiters 'double-quotes
       bibtex-autokey-year-length 4

@@ -66,7 +66,6 @@
        (javascript +lsp)
        (latex
         +latexmk
-        +cdlatex
         +fold)
        (markdown +grip)
        ;;(ocaml +opam-site-lisp)

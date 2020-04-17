@@ -15,6 +15,7 @@
  "s-z"        #'undo
  "s-c" (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
  "s-v"        #'yank
+ "s-x"        #'kill-region
  "s-s"        #'save-buffer
  "s-a"        #'mark-whole-buffer
  "s-b"        #'persp-switch-to-buffer
