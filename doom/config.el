@@ -20,6 +20,9 @@
 
 (load! "+bindings")
 
+;; local leader key (insert mode)
+(setq doom-localleader-alt-key "s-m")
+
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
@@ -62,6 +65,8 @@
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+(add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
 ;; -- bibtex -----------------------------------------------------------------
 (setq bibtex-field-delimiters 'double-quotes
