@@ -84,9 +84,11 @@
    :desc "Changelog"           "l" #'change-log-find-file)
  (:prefix-map ("e" . "export")
    :desc "Markdown open"       "m" #'markdown-open
-   :desc "Org HTML open"       "h" #'org-pandoc-export-to-html5-and-open
-   :desc "Org PDF open"        "p" #'org-pandoc-export-to-latex-pdf-and-open
-   :desc "Org HTML publish"    "H" #'org-publish-all
+   :desc "Org HTML+Pandoc"     "h" #'org-pandoc-export-to-html5-and-open
+   :desc "Org HTML"            "H" #'org-html-export-to-html
+   :desc "Org PDF+Pandoc"      "p" #'org-pandoc-export-to-latex-pdf-and-open
+   :desc "Org PDF+Latex"       "P" #'org-latex-export-to-pdf
+   :desc "Org HTML publish"    "=" #'org-publish-all
    :desc "Org dispatcher"      "d" #'org-export-dispatch)
  (:prefix "n"
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer

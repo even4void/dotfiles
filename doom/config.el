@@ -451,7 +451,7 @@
         org-export-with-creator nil
         org-html-postamble nil
         org-html-htmlize-output-type nil
-        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"_assets/github.css\" />"
+        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/_assets/github.css\" />"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")
