@@ -243,6 +243,7 @@
                   ("#+ATTR_ORG:" . "»")
                   ("#+LABEL:" . "»")
                   ;; ("file:" . "⌘")
+                  ("*" . "∗")
                   ("<=" . "⩽")
                   (">=" . "⩾")))))
 
@@ -272,7 +273,8 @@
   "Clear Eshell screen (other than the default method)"
    (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
 
-(setq multi-term-program "/bin/zsh")
+;; (setq multi-term-program "/bin/zsh")
+(setq vterm-shell "/bin/zsh")
 
 ;; -- git/magit ---------------------------------------------------------------
 ;; See https://github.com/magit/ghub/issues/81
@@ -341,6 +343,8 @@
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
+
+(setq jupyter-repl-echo-eval-p t)
 
 ;; -- lsp --------------------------------------------------------------------
 (after! lsp-ui

@@ -45,6 +45,8 @@
    (:map ess-r-mode-map
      :n "C-<return>"  #'ess-eval-line))
 
+;; TODO Update jupyter-(repl-)mode-map
+
  (:after python
    (:map python-mode-map
      :n "C-<return>"  #'python-shell-send-region-or-line))
@@ -103,8 +105,8 @@
    :desc "IELM"                "i" #'ielm
    :desc "Elfeed"              "F" #'elfeed
    :desc "IRC"                 "I" #'erc
-   :desc "Toggle zsh popup"    "z" #'+term/toggle
-   :desc "Open zsh here"       "Z" #'+term/here
+   :desc "Jupyter"             "J" #'jupyter-run-repl
+   :desc "Multi-term"          "m" #'+term/here
    :desc "Deft"                "D" #'deft
    :desc "dictionary"          "w" #'osx-dictionary-search-pointer
    :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
