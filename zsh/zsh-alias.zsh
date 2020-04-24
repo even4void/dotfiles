@@ -47,9 +47,9 @@ alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"ba
 alias ete3="~/Library/Python/3.7/bin/ete3"
 alias c="clear"
 alias e="emacsclient -n"
-alias edit "open -e"
+alias edit="open -e"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
-
+alias vim="nvim"
 
 # Use rsync with ssh and show progress
 alias rsyncssh='rsync -Pr --rsh=ssh'

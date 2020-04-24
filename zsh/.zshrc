@@ -95,6 +95,16 @@ if which pyenv &> /dev/null; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
+export PYSPARK_PYTHON="python3"
+
+# Doom and local repos
+export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
+# export JAVA_HOME=(/usr/libexec/java_home -v 1.8)'/jre'
+export NODE_PATH="/usr/local/lib/node_modules"
+export ARTEMIS_JAVA_JRE="/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home"
+export PSQLRC="$HOME/.config/psql/psqlrc"
+export HOMEBREW_NO_EMOJI=1
+
 export BAT_THEME=ansi-light
 if [ ! -n "$INSIDE_EMACS" ]; then
   alias cat=bat
