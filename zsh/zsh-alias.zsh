@@ -32,7 +32,7 @@ alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | x
 alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
-alias inbox='mbsync -a && mu index -m "~/.mail"'
+alias inbox="mbsync -a && mu index"
 
 # Handy shortcuts
 alias awk=gawk
@@ -77,4 +77,3 @@ alias tmn='tmux new -s'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
-
