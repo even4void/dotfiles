@@ -75,14 +75,6 @@ export PATH="/usr/local/bin:$PATH"
 # node.js
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
-#heroku
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# direnv
-if which direnv &> /dev/null; then
-  eval "$(direnv hook zsh)"
-fi
-
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 if which rustc &> /dev/null; then
