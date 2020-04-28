@@ -365,6 +365,7 @@
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
 (setq lsp-rust-server 'rust-analyzer)
+(setq rustic-lsp-server 'rust-analyzer)
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"

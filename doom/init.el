@@ -43,6 +43,7 @@
        vterm
 
        :tools
+       biblio
        debugger
        (eval +overlay)
        gist
@@ -77,7 +78,7 @@
         +pandoc
         +present)
        ;;purescript
-       (python +lsp +cython)
+       (python +lsp +cython +poetry)
        ;; (ruby +lsp)
        racket
        (rust +lsp)

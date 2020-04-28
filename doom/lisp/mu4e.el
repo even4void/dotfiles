@@ -1,5 +1,9 @@
 ;;; ~/.config/doom/lisp/mu4e.el -*- lexical-binding: t; -*-
 
+;; HACK since I need to reinistall mu for emacs-plus
+(add-to-list 'load-path "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
+;; (require 'mu4e)
+
 ;; NOTE Gmail is in read-only mode (2019-05); deactivated again (2019-08)
 (after! mu4e
   (setq mu4e-get-mail-command "mbsync -a"

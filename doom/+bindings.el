@@ -61,26 +61,18 @@
  ;; which-key items
  :leader
  :desc "Next workspace"     ">"  #'+workspace:switch-next
- :desc "Ivy bibtex"         "B"  #'ivy-bibtex
  :desc "Split horizontally" "-"  #'split-window-below
  :desc "Split vertically"   "|"  #'split-window-right
  (:prefix "s"
-   :desc "Ivy bibtex"          "B" #'ivy-bibtex
-   :desc "Counsel Ag"          "c" #'doom/counsel-region-or-symbol
+   :desc "Counsel rg"          "c" #'doom/counsel-region-or-symbol
    :desc "Counsel Dash"        "C" #'counsel-dash-at-point
-   :desc "Dictionary"          "w" #'osx-dictionary-search-pointer
-   :desc "dictionary (input)"  "W" #'osx-dictionary-search-input
+   :desc "Dictionary (input)"  "W" #'osx-dictionary-search-input
    :desc "Replace (regex)"     "R" #'replace-regexp)
  (:prefix "c"
    :desc "Available checkers"  "z" #'flycheck-verify-setup
    :desc "Select checker"      "y" #'flycheck-select-checker
-   :desc "LSP diagnostics"     "L" #'lsp-describe-session
    :desc "Prettify"            "P" #'prettify-symbols-mode
-   :desc "LSP start"           "S" #'+lsp-init-a
-   :desc "LSP shutdown"        "q" #'lsp-workspace-shutdown
    :desc "Code outline"        "o" #'lsp-ui-imenu
-   :desc "LSP doc mode"        "u" #'lsp-ui-doc-mode
-   :desc "Rust hints mode"     "R" #'lsp-rust-analyzer-inlay-hints-mode
    :desc "Help (LSP)"          "h" #'lsp-describe-thing-at-point
    :desc "Help (Dash)"         "H" #'counsel-dash
    :desc "Changelog"           "l" #'change-log-find-file)
@@ -97,19 +89,16 @@
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
-   :desc "Add bookmark"        "b" #'bookmark-set
+   :desc "Add bookmark"        "B" #'bookmark-set
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
    :desc "Mu4e"                "M" #'mu4e
    :desc "Geiser REPL"         "G" #'geiser
    :desc "IELM"                "i" #'ielm
-   :desc "Elfeed"              "F" #'elfeed
    :desc "IRC"                 "I" #'erc
    :desc "Jupyter"             "J" #'jupyter-run-repl
    :desc "Multi-term"          "m" #'+term/here
-   :desc "Deft"                "D" #'deft
-   :desc "dictionary"          "w" #'osx-dictionary-search-pointer
-   :desc "dictionary (input)"  "W" #'osx-dictionary-search-input)
+   :desc "Deft"                "D" #'deft)
  (:prefix "t"
    :desc "Unfill region"       "U" #'unfill-region
    :desc "Select theme"        "t" #'counsel-load-theme

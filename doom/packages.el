@@ -8,7 +8,7 @@
 (package! osx-dictionary)
 (package! realgud-trepan-ni)
 (package! interleave)
-(package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
+;; (package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
 (package! vc-msg)
 
 ;; no thanks
