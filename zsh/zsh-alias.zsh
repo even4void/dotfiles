@@ -33,23 +33,21 @@ alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
 alias inbox="mbsync -a && mu index"
-
-# Handy shortcuts
 alias awk=gawk
 alias sed=gsed
 alias ccl=ccl64
 alias stata="stata-mp"
 alias statadocs="open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
-alias ipy="jupyter console --simple-prompt"
-alias qpy="jupyter qtconsole"
 alias R="R -q --no-save --no-restore"
 alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
 alias ete3="~/Library/Python/3.7/bin/ete3"
 alias c="clear"
-alias e="emacsclient -n"
+alias ec="emacsclient -n"
+alias ew="emacs -nw"
 alias edit="open -e"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 alias vim="nvim"
+alias confd="nvim ~/.config"
 
 # Use rsync with ssh and show progress
 alias rsyncssh='rsync -Pr --rsh=ssh'
@@ -74,6 +72,7 @@ alias tma='tmux attach -t'
 alias tmn='tmux new -s'
 
 # ceedee dot dot dot
+alias -g ..='../'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'

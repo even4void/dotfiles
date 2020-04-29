@@ -10,7 +10,7 @@
         ;; smtpmail-stream-type 'starttls
         mu4e-change-filenames-when-moving t
         mu4e-compose-format-flowed t
-        mu4e-view-use-gnus t
+        mu4e-view-use-gnus nil    ;; not that tasty
         mu4e-headers-show-threads t
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
@@ -78,4 +78,6 @@
 
   (add-to-list 'mu4e-bookmarks
                '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i))
+  (add-to-list 'mu4e-bookmarks
+               '("flag:attach" "Messages with attachment" ?a))
   )

@@ -32,20 +32,22 @@
 (set-face-italic 'font-lock-comment-face t)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
-(after! doom-modeline
-  (doom-modeline-def-modeline 'my/modeline
-    '(bar matches buffer-info remote-host buffer-position selection-info)
-    '(objed-state misc-info debug input-method buffer-encoding major-mode process vcs))
-  (defun setup-custom-doom-modeline ()
-    (doom-modeline-set-modeline 'my/modeline 'default))
-  (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
+
+;; (after! doom-modeline
+;;  (doom-modeline-def-modeline 'my/modeline
+;;    '(bar matches buffer-info remote-host buffer-position selection-info)
+;;    '(objed-state misc-info debug input-method buffer-encoding major-mode process vcs))
+;;  (defun setup-custom-doom-modeline ()
+;;    (doom-modeline-set-modeline 'my/modeline 'default))
+;;  (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
+;;(setq doom-modeline-env-python-executable "python3"
+;;      doom-modeline-enable-word-count t
+;;      doom-modeline-unicode-fallback nil
+;;      doom-modeline-github nil
+;;      doom-modeline-mu4e nil)
+
 (setq doom-themes-neotree-enable-file-icons nil
       doom-themes-neotree-enable-folder-icons nil)
-(setq doom-modeline-env-python-executable "python3"
-      doom-modeline-enable-word-count t
-      doom-modeline-unicode-fallback nil
-      doom-modeline-github nil
-      doom-modeline-mu4e nil)
 
 (load! "lisp/fill-column-indicator")
 
