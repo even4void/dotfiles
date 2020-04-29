@@ -358,6 +358,10 @@
 ;; -- lisp/haskell -----------------------------------------------------------
 (setq inferior-lisp-program "sbcl")  ;; ccl64
 
+;; (setq sly-lisp-implementations
+;;       '((ccl ("ccl64" "-quiet"))
+;;         (sbcl ("sbcl") :coding-system utf-8-unix)))
+
 (setq geiser-active-implementations '(chez chicken mit racket))
 
 (after! cider
