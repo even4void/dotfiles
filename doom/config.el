@@ -16,12 +16,14 @@
 (when (display-graphic-p)
     (setq doom-font (font-spec :family "Iosevka" :size 14)
           doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
+    (setq doom-localleader-alt-key "s-m")
     (load! "+iosevka"))
 
-(load! "+bindings")
+;; TODO merge with the above after adding a (progn ...)
+(when (not (display-graphic-p))
+  (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
-;; local leader key (insert mode)
-(setq doom-localleader-alt-key "s-m")
+(load! "+bindings")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
@@ -54,8 +56,6 @@
 ;; ---------------------------------------------------------------------------
 ;; packages
 ;; ---------------------------------------------------------------------------
-(add-hook 'fish-mode-hook
-          (lambda () (add-hook 'before-save-hook 'fish_indent-before-save)))
 
 ;; -- web & doc --------------------------------------------------------------
 (setq browse-url-browser-function 'eww-browse-url)
@@ -291,14 +291,14 @@
                          (magit-rebase "--autosquash" "--gpg-sign=152E3E3F7C4CCE44")
                          (magit-pull "--rebase" "--gpg-sign=152E3E3F7C4CCE44")))
 (setq magit-repolist-columns
-      '((""      25 magit-repolist-column-ident                  ())
-        ("     " 30 magit-repolist-column-version                ((:right-align t)))
-        ("⚡"        1 magit-repolist-column-dirty                  ())
-        (""        3 magit-repolist-column-branches               ((:right-align t)))
-        (""       3 magit-repolist-column-stashes                ((:right-align t)))
-        ("⤓"        3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
-        ("⤒"        3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
-        ("Path"    99 magit-repolist-column-path                   ())))
+      '(("Repository" 25 magit-repolist-column-ident                  ())
+        ("Version"    30 magit-repolist-column-version                ((:right-align t)))
+        ("⚡"          1 magit-repolist-column-dirty                  ())
+        (""           3 magit-repolist-column-branches               ((:right-align t)))
+        ("≣"           3 magit-repolist-column-stashes                ((:right-align t)))
+        ("⤓"           3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
+        ("⤒"           3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
+        ("Path"       99 magit-repolist-column-path                   ())))
 
 (eval-after-load 'vc-msg-git
   '(progn
