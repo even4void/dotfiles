@@ -14,27 +14,39 @@
       auth-sources '("~/.authinfo.gpg"))
 
 (when (display-graphic-p)
-    (setq doom-font (font-spec :family "Iosevka" :size 14)
-          doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
-    (setq doom-localleader-alt-key "s-m")
-    (load! "+iosevka"))
+  (setq doom-font (font-spec :family "Iosevka" :size 14)
+        doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
+  (load! "+iosevka"))
+
 
 ;; TODO merge with the above after adding a (progn ...)
-(when (not (display-graphic-p))
-  (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+(unless (display-graphic-p)
+  (custom-set-variables
+   '(git-gutter:modified-sign "│")
+   '(git-gutter:added-sign "│")
+   '(git-gutter:deleted-sign "│"))
+  (setq org-hide-leading-stars t)
+  (setf ns-command-modifier 'super)
+  ;; (setq mac-right-command-modifier 'super)
+  (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (remove-hook 'org-mode-hook 'highlight-indent-guides-mode))
 
+;; FIXME need to seperate full-GUI bindings from CLI-only ones.
 (load! "+bindings")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
 (load-theme 'doom-nord t)
+(load! "lisp/faces")
+
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)
 (set-face-italic 'font-lock-comment-face t)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 
+;; NOTE No longer needed with the +light option in init.el
 ;; (after! doom-modeline
 ;;  (doom-modeline-def-modeline 'my/modeline
 ;;    '(bar matches buffer-info remote-host buffer-position selection-info)
@@ -205,12 +217,9 @@
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
-(when (display-graphic-p)
-  (setq +pretty-code-enabled-modes
-        '(emacs-lisp-mode org-mode clojure-mode
-                          haskell-mode ;; python-mode
-                          latex-mode scheme-mode
-                          racket-mode ess-r-mode)))
+(setq +pretty-code-enabled-modes
+      '(emacs-lisp-mode org-mode clojure-mode haskell-mode latex-mode
+                        scheme-mode racket-mode ess-r-mode))
 (setq highlight-indent-guides-responsive 'top
       highlight-indent-guides-delay 0)
 
@@ -248,7 +257,8 @@
                   ;; ("file:" . "⌘")
                   ("*" . "∗")
                   ("<=" . "⩽")
-                  (">=" . "⩾")))))
+                  (">=" . "⩾"))))
+)
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
