@@ -1,5 +1,6 @@
 ;;; ~/.config/doom/+bindings.el -*- lexical-binding: t; -*-
 
+;; Some additional keybindings for my Doom config.
 ;; Other bindings are defined in ~/.emacs.d/modules/config/default;
 ;; See +evil-bindings.el for usual Vim-like bindings
 
@@ -8,12 +9,11 @@
  ;; dictionnary
  :n "C-c d"       #'osx-dictionary-search-word-at-point
 
- :n "s-<return>"  #'toggle-frame-fullscreen
- :n "gh"          #'lsp-describe-thing-at-point
+ :n "s-<return>"  #'toggle-frame-maximized  ;; toggle-frame-fullscreen seems buggy
 
- ;; osx shortcuts without cua-mode
+ ;; OSX shortcuts without cua-mode (mostly redefined here)
  "s-z"        #'undo
- "s-c" (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
+ "s-c"        (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
  "s-v"        #'yank
  "s-x"        #'kill-region
  "s-s"        #'save-buffer
@@ -23,11 +23,13 @@
  "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
  "s-@"        #'neotree-toggle
- "s-<left>"    #'evil-window-left
- "s-<right>"   #'evil-window-right
- "s-<up>"      #'evil-window-up
- "s-<down>"    #'evil-window-down
- "C-s-<left>"  #'+workspace/switch-left
+
+ ;; window/workspace
+ "s-<left>"     #'evil-window-left
+ "s-<right>"    #'evil-window-right
+ "s-<up>"       #'evil-window-up
+ "s-<down>"     #'evil-window-down
+ "C-s-<left>"   #'+workspace/switch-left
  "C-s-<right>"  #'+workspace/switch-right
 
  (:map markdown-mode-map
