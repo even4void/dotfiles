@@ -25,12 +25,12 @@
  "s-@"        #'neotree-toggle
 
  ;; window/workspace
- "s-<left>"     #'evil-window-left
- "s-<right>"    #'evil-window-right
- "s-<up>"       #'evil-window-up
- "s-<down>"     #'evil-window-down
- "C-s-<left>"   #'+workspace/switch-left
- "C-s-<right>"  #'+workspace/switch-right
+ :ni "s-<left>"     #'evil-window-left
+ :ni "s-<right>"    #'evil-window-right
+ :ni "s-<up>"       #'evil-window-up
+ :ni "s-<down>"     #'evil-window-down
+ :ni "C-s-<left>"   #'+workspace/switch-left
+ :ni "C-s-<right>"  #'+workspace/switch-right
 
  (:map markdown-mode-map
    :i "s-i" #'markdown-insert-italic
@@ -45,7 +45,7 @@
 
  (:after ess
    (:map ess-r-mode-map
-     :n "C-<return>"  #'ess-eval-line))
+     :ni "C-<return>"  #'ess-eval-line))
 
 ;; TODO Update jupyter-(repl-)mode-map
 
