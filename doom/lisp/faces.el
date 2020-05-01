@@ -1,16 +1,23 @@
 ;;; ~/.config/doom/lisp/faces.el -*- lexical-binding: t; -*-
 
+;; Some customizations around doom-nord (dark) theme, mostly to be more
+;; pleasant with Emacs in CLI mode (use true colors instead of 256-color
+;; mode) and to reduce the color burden in prog-mode.
+;;
+;; TODO Use custom-theme-set-faces! instead and override doom-dark main
+;; palette for 256-color mode.
+
 (custom-set-faces!
   '(font-lock-variable-name-face :foreground "white")
-  '(font-lock-function-name-face :foreground "#8282c2")  ;; font-lock-function-keyword-face #51afef
+  '(font-lock-function-name-face :foreground "#8282c2")
   '(font-lock-keyword-face :foreground "#81a1c1")
   ;; '(font-lock-type-face :foreground "#81a1c1")
-  `(font-lock-builtin-face :foreground ,(doom-darken "#ffffff" 0.2))
-  `(font-lock-constant-face :foreground ,(doom-darken "#ffffff" 0.2))
-  `(ess-constant-face :foreground ,(doom-darken "#ffffff" 0.2))
+  `(font-lock-builtin-face :foreground ,(doom-darken "#ffffff" 0.3))
+  `(font-lock-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
+  `(ess-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
   '(ess-modifiers-face :foreground "#8282c2")
-  `(highlight-quoted-symbol :foreground ,(doom-darken "#ffffff" 0.2))
-  '(highlight-numbers-number :foreground "#bebf8e")  ;; d08770
+  `(highlight-quoted-symbol :foreground ,(doom-darken "#ffffff" 0.3))
+  '(highlight-numbers-number :foreground "#bebf8e")
   `(rainbow-delimiters-depth-2-face :foreground ,(doom-darken "#51afef" 0.2))
   `(rainbow-delimiters-depth-3-face :foreground ,(doom-darken "#51afef" 0.4))
   `(rainbow-delimiters-depth-4-face :foreground ,(doom-darken "#51afef" 0.6))
