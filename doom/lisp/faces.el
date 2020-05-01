@@ -15,7 +15,7 @@
   `(font-lock-builtin-face :foreground ,(doom-darken "#ffffff" 0.3))
   `(font-lock-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
   `(ess-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
-  '(ess-modifiers-face :foreground "#8282c2")
+  '(ess-modifiers-face :foreground "#ffffff")  ;; better nothing than half the job done
   `(highlight-quoted-symbol :foreground ,(doom-darken "#ffffff" 0.3))
   '(highlight-numbers-number :foreground "#bebf8e")
   `(rainbow-delimiters-depth-2-face :foreground ,(doom-darken "#51afef" 0.2))
