@@ -9,9 +9,9 @@
 
 (custom-set-faces!
   '(font-lock-variable-name-face :foreground "white")
-  '(font-lock-function-name-face :foreground "#8282c2")
+  `(font-lock-function-name-face :foreground ,(doom-darken "#81a1c1" 0.2))  ;; #8282c2
   '(font-lock-keyword-face :foreground "#81a1c1")
-  ;; '(font-lock-type-face :foreground "#81a1c1")
+  '(font-lock-type-face :foreground "#81a1c1")
   `(font-lock-builtin-face :foreground ,(doom-darken "#ffffff" 0.3))
   `(font-lock-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
   `(ess-constant-face :foreground ,(doom-darken "#ffffff" 0.3))

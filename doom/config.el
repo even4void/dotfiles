@@ -26,12 +26,11 @@
    '(git-gutter:added-sign "│")
    '(git-gutter:deleted-sign "│"))
   (setq org-hide-leading-stars t)
-  (setf ns-command-modifier 'super)
+  (setf mac-command-modifier 'super)
   ;; (setq mac-right-command-modifier 'super)
   (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (remove-hook 'org-mode-hook 'highlight-indent-guides-mode))
 
-;; FIXME need to seperate full-GUI bindings from CLI-only ones.
 (load! "+bindings")
 
 ;; ---------------------------------------------------------------------------
@@ -46,20 +45,6 @@
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 
-;; NOTE No longer needed with the +light option in init.el
-;; (after! doom-modeline
-;;  (doom-modeline-def-modeline 'my/modeline
-;;    '(bar matches buffer-info remote-host buffer-position selection-info)
-;;    '(objed-state misc-info debug input-method buffer-encoding major-mode process vcs))
-;;  (defun setup-custom-doom-modeline ()
-;;    (doom-modeline-set-modeline 'my/modeline 'default))
-;;  (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-;;(setq doom-modeline-env-python-executable "python3"
-;;      doom-modeline-enable-word-count t
-;;      doom-modeline-unicode-fallback nil
-;;      doom-modeline-github nil
-;;      doom-modeline-mu4e nil)
-
 (setq doom-themes-neotree-enable-file-icons nil
       doom-themes-neotree-enable-folder-icons nil)
 
@@ -71,9 +56,6 @@
 
 ;; -- web & doc --------------------------------------------------------------
 (setq browse-url-browser-function 'eww-browse-url)
-
-;; (after! elfeed
-;;   (setq elfeed-search-filter "@1-week-ago +unread "))
 
 ;; --tex ---------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
@@ -122,11 +104,7 @@
 
 ;; -- flycheck ---------------------------------------------------------------
 (after! flycheck
- (setq
-  flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
-(setq flycheck-python-pycompile-executable "python3"
-      flycheck-python-pylint-executable "python3"
-      flycheck-python-flake8-executable "python3")
+ (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
 
 ;; https://emacs.stackexchange.com/a/36373
 (define-fringe-bitmap 'flycheck-fringe-bitmap-ball
@@ -172,15 +150,6 @@
 
 (setq flycheck-indication-mode 'right-fringe)
 
-(flycheck-define-checker racket-review
-  "check racket source code using racket-review"
-  :command ("raco" "review" source)
-  :error-patterns
-  ((error line-start (file-name) ":" line ":" column ":error:" (message) line-end)
-   (warning line-start (file-name) ":" line ":" column ":warning:" (message) line-end))
-  :modes racket-mode)
-
-(add-to-list 'flycheck-checkers 'racket-review)
 (setq ispell-dictionary "en")
 
 ;; -- text/markdown editing --------------------------------------------------
@@ -191,6 +160,7 @@
   '(add-to-list 'recentf-exclude "^~/org/.export"))
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (setq +format-on-save-enabled-modes
   '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
         lisp-mode        ; ---
@@ -200,9 +170,11 @@
         tex-mode
         ;; web-mode         ; quite bad actually when there are JINJA template
         python-mode))    ; because I don't like it
+
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
 (add-hook 'message-mode-hook #'word-wrap-mode)
+
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
       markdown-command "/usr/local/bin/multimarkdown"
@@ -229,33 +201,32 @@
 (when (display-graphic-p)
   (setq +pretty-code-iosevka-font-ligatures
         (append +pretty-code-iosevka-font-ligatures
-                '(("[ ]" .  "☐")
-                  ("[X]" . "☑")
-                  ("[-]" . "❍")
-                  ("%>%" . #Xe175)
-                  ("%$%" . #Xe112)
+                '(("[ ]"  . "☐")
+                  ("[X]"  . "☑")
+                  ("[-]"  . "☒")
+                  ("%>%"  . #Xe175)
+                  ("%$%"  . #Xe112)
                   ("%<>%" . #Xe114)
                   ("%T>%" . #Xe1b1)
                   ("function" . "ƒ")
                   ("#+BEGIN_EXAMPLE" . "»")
-                  ("#+END_EXAMPLE" . "«")
+                  ("#+END_EXAMPLE"   . "«")
                   ("#+BEGIN_COMMENT" . "#")
-                  ("#+END_COMMENT" . "#")
-                  ("#+BEGIN_QUOTE" . "“")
-                  ("#+END_QUOTE" . "”")
-                  ("#+begin_src" . "»")
-                  ("#+end_src" . "«")
+                  ("#+END_COMMENT"   . "#")
+                  ("#+BEGIN_QUOTE"   . "“")
+                  ("#+END_QUOTE"     . "”")
+                  ("#+begin_src"     . "»")
+                  ("#+end_src"       . "«")
                   ("#+begin_example" . "»")
-                  ("#+end_example" . "«")
-                  ("#+RESULTS:" . "■")
-                  ("#+CAPTION:" . "»")
-                  ("#+ATTR_LaTeX:" . "»")
-                  ("#+ATTR_LATEX:" . "»")
-                  ("#+ATTR_HTML:" . "»")
-                  ("#+ATTR_ORG:" . "»")
-                  ("#+LABEL:" . "»")
-                  ;; ("file:" . "⌘")
-                  ("*" . "∗")
+                  ("#+end_example"   . "«")
+                  ("#+RESULTS:"      . "■")
+                  ("#+CAPTION:"      . "»")
+                  ("#+ATTR_LaTeX:"   . "»")
+                  ("#+ATTR_LATEX:"   . "»")
+                  ("#+ATTR_HTML:"    . "»")
+                  ("#+ATTR_ORG:"     . "»")
+                  ("#+LABEL:"        . "»")
+                  ("*"  . "∗")
                   ("<=" . "⩽")
                   (">=" . "⩾"))))
 )
@@ -299,11 +270,11 @@
       magit-save-repository-buffers nil)
 (setq transient-values '((magit-commit "--gpg-sign=152E3E3F7C4CCE44")
                          (magit-rebase "--autosquash" "--gpg-sign=152E3E3F7C4CCE44")
-                         (magit-pull "--rebase" "--gpg-sign=152E3E3F7C4CCE44")))
+                         (magit-pull   "--rebase" "--gpg-sign=152E3E3F7C4CCE44")))
 (setq magit-repolist-columns
       '(("Repository" 25 magit-repolist-column-ident                  ())
         ("Version"    30 magit-repolist-column-version                ((:right-align t)))
-        ("⚡"          1 magit-repolist-column-dirty                  ())
+        ("⚡"           1 magit-repolist-column-dirty                  ())
         (""           3 magit-repolist-column-branches               ((:right-align t)))
         ("≣"           3 magit-repolist-column-stashes                ((:right-align t)))
         ("⤓"           3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
@@ -347,8 +318,6 @@
       ess-eldoc-show-on-symbol t
       ess-execute-in-process-buffer t)
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
-;; (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.rmd\\'" . markdown-mode))
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
@@ -374,12 +343,22 @@
 
 (setq geiser-active-implementations '(chez chicken mit racket))
 
+(flycheck-define-checker racket-review
+  "check racket source code using racket-review"
+  :command ("raco" "review" source)
+  :error-patterns
+  ((error line-start (file-name) ":" line ":" column ":error:" (message) line-end)
+   (warning line-start (file-name) ":" line ":" column ":warning:" (message) line-end))
+  :modes racket-mode)
+(add-to-list 'flycheck-checkers 'racket-review)
+
 (after! cider
   (setq cider-eldoc-display-context-dependent-info t))
 
 (after! haskell
   (add-hook 'haskell-mode-hook #'hindent-mode))
 
+;; -- rust -------------------------------------------------------------------
 (setq lsp-rust-server 'rust-analyzer)
 (setq rustic-lsp-server 'rust-analyzer)
 
@@ -398,18 +377,6 @@
    :hook (org-mode . org-fancy-priorities-mode)
    :config (setq org-fancy-priorities-list '("■" "■" "■")))
 
-;; (setq org-journal-file-type 'monthly
-;;       org-journal-enable-cache t
-;;       org-journal-enable-agenda-integration t
-;;       org-icalendar-store-UID t
-;;       org-icalendar-include-todo "all"
-;;       org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'"
-;;       org-icalendar-combined-agenda-file "~/org/journal/org-journal.ics")
-
-;; (defun org-journal-find-location ()
-;;   (org-journal-new-entry t)
-;;   (goto-char (point-min)))
-
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
   (setq org-capture-templates
@@ -419,18 +386,10 @@
         ("n" "Personal notes" entry
          (file+headline +org-capture-notes-file "Inbox")
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
-        ;;("j" "Journal entry" entry (function org-journal-find-location)
-        ;; "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
-        ;; ("j" "Journal" entry
-        ;;  (file+olp+datetree +org-capture-journal-file "Inbox")
-        ;;  "* %U %?\n%i\n%a" :prepend t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
         ("z" "Org/z notes" entry (file my/write-file)
          "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
-        ;; ("b" "Blog post" entry
-        ;;  (file (my/write-file "~/Sites/aliquote/content/post"))
-        ;;  "---\ntitle:\ndate:\ndraft: true\ntags: []\ncategories: []\n---\n %U")
         ("p" "Templates for projects")
         ("pt" "Project todo" entry  ; {project-root}/todo.org
          (file+headline +org-capture-project-todo-file "Inbox")
@@ -489,7 +448,6 @@
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))))
-
 
 ;; -- mu ---------------------------------------------------------------------
 (load! "lisp/mu4e")
