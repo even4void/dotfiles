@@ -158,6 +158,8 @@
 (add-hook 'write-file-functions 'time-stamp)
 (eval-after-load 'recentf
   '(add-to-list 'recentf-exclude "^~/org/.export"))
+(add-to-list 'recentf-exclude "^~/Sites/aliquote/content/micro")
+(add-to-list 'recentf-exclude "^~/.mail")
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -168,12 +170,11 @@
         sql-mode         ; NOTE sqlformat is currently broken
         latex-mode
         tex-mode
-        ;; web-mode         ; quite bad actually when there are JINJA template
         python-mode))    ; because I don't like it
 
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
-(add-hook 'message-mode-hook #'word-wrap-mode)
+;; (add-hook 'message-mode-hook #'word-wrap-mode)
 
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
