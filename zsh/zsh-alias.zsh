@@ -36,7 +36,6 @@ alias inbox="mbsync -a && mu index"
 alias awk=gawk
 alias sed=gsed
 alias ccl=ccl64
-alias stata="stata-mp"
 alias statadocs="open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
 alias R="R -q --no-save --no-restore"
 alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"

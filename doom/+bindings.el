@@ -86,6 +86,8 @@
    :desc "Org PDF+Latex"       "P" #'org-latex-export-to-pdf
    :desc "Org HTML publish"    "=" #'org-publish-all
    :desc "Org dispatcher"      "d" #'org-export-dispatch)
+ (:prefix "g"
+   :desc "Popup hunk"          "-" #'git-gutter:popup-hunk)
  (:prefix "n"
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
    :desc "Org narrow"          "N" #'org-narrow-to-subtree

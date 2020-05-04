@@ -435,9 +435,11 @@
         org-bibtex-file "~/org/references.bib"
         org-export-with-author nil
         org-export-with-creator nil
+        org-export-with-toc nil
+        org-export-with-section-numbers nil
         org-html-postamble nil
         org-html-htmlize-output-type nil
-        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/_assets/github.css\" />"
+        ;; org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/drafts/_assets/github.css\" />"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")

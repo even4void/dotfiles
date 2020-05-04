@@ -47,9 +47,11 @@
        debugger
        (eval +overlay)
        gist
-       (lookup +docsets)
-       lsp
-       magit
+       (lookup
+        +docsets
+        +dictionary) ;;+offline
+       (lsp +peek)
+       (magit +forge)
        make
        pdf
 
