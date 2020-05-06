@@ -26,6 +26,7 @@
    '(git-gutter:added-sign "│")
    '(git-gutter:deleted-sign "│"))
   (setq org-hide-leading-stars t)
+  (setq org-superstar-leading-fallback ?\s)
   (setf mac-command-modifier 'super)
   ;; (setq mac-right-command-modifier 'super)
   (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode)
@@ -158,8 +159,10 @@
 (add-hook 'write-file-functions 'time-stamp)
 (eval-after-load 'recentf
   '(add-to-list 'recentf-exclude "^~/org/.export"))
-(add-to-list 'recentf-exclude "^~/Sites/aliquote/content/micro")
-(add-to-list 'recentf-exclude "^~/.mail")
+(eval-after-load 'recentf
+  '(add-to-list 'recentf-exclude "^~/Sites/aliquote/content/micro"))
+(eval-after-load 'recentf
+  '(add-to-list 'recentf-exclude "^~/.mail"))
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -174,7 +177,6 @@
 
 (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
-;; (add-hook 'message-mode-hook #'word-wrap-mode)
 
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
