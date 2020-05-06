@@ -11,7 +11,7 @@
         mu4e-change-filenames-when-moving t
         mu4e-compose-format-flowed t
         mu4e-view-use-gnus nil    ;; not that tasty
-        mu4e-headers-show-threads t
+        mu4e-headers-show-threads nil
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
         mu4e-use-fancy-chars nil  ;; too bad actually
