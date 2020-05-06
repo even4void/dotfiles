@@ -212,6 +212,7 @@
                   ("%<>%" . #Xe114)
                   ("%T>%" . #Xe1b1)
                   ("function" . "ƒ")
+                  ("lambda"   . "λ")
                   ("#+BEGIN_EXAMPLE" . "»")
                   ("#+END_EXAMPLE"   . "«")
                   ("#+BEGIN_COMMENT" . "#")
