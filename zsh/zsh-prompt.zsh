@@ -43,7 +43,7 @@ function preexec() {
 function precmd() {
   if [ $timer ]; then
     toc=$(($SECONDS - $timer))
-    if [ ${toc} -ge 3 ]; then
+    if [ ${toc} -ge 5 ]; then
       export RPROMPT="%F{cyan}${toc}s %{$reset_color%}"
     else
       export RPROMPT=""

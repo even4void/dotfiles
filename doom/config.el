@@ -38,7 +38,7 @@
 ;; ui
 ;; ---------------------------------------------------------------------------
 (load-theme 'doom-nord t)
-(load! "lisp/faces")
+;; (load! "lisp/faces")
 
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)

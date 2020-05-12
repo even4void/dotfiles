@@ -11,5 +11,7 @@
 ;; (package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
 (package! vc-msg)
 
+;; (unpin! lsp)
+
 ;; no thanks
 (package! helm :disable t)
