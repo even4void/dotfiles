@@ -18,8 +18,7 @@
         doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
   (load! "+iosevka"))
 
-
-;; TODO merge with the above after adding a (progn ...)
+;; FIXME merge with the above after adding a (progn ...)
 (unless (display-graphic-p)
   (custom-set-variables
    '(git-gutter:modified-sign "│")
@@ -38,7 +37,7 @@
 ;; ui
 ;; ---------------------------------------------------------------------------
 (load-theme 'doom-nord t)
-;; (load! "lisp/faces")
+(load! "lisp/faces")
 
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)

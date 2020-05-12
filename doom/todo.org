@@ -1,14 +1,16 @@
 * Inbox
-** TODO Install & configure [2/3]
+** DONE Install & configure [3/3]
+   CLOSED: [2020-05-12 Tue 18:52]
 - [X] racket + geiser
-- [ ] check JS config
+- [X] check JS config
 - [X] check clj config
 ** CANC Write custom documentation
    CLOSED: [2019-12-04 Wed 20:21]
 ** DONE Revise personal keybindings (GUI/CLI)
 CLOSED: [2019-09-12 Thu 07:47]
 ** TODO Add some [[https://is.gd/JE4405][aliases]]
-** TODO Replace org/md snippets with file-template
+** CANC Replace org/md snippets with file-template
+   CLOSED: [2020-05-12 Tue 18:53]
 ** DONE Minimize and remove defunct code
    CLOSED: [2019-12-05 Thu 10:02]
 ** DONE Byte-compile private directory

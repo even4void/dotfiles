@@ -1,44 +1,85 @@
 ;;; ~/.config/doom/lisp/faces.el -*- lexical-binding: t; -*-
 
-;; Some customizations around doom-nord (dark) theme, mostly to be more
-;; pleasant with Emacs in CLI mode (use true colors instead of 256-color
-;; mode) and to reduce the color burden in prog-mode.
-;;
-;; TODO Use custom-theme-set-faces! instead and override doom-dark main
-;; palette for 256-color mode.
+;;; mostly derived from Nicolas Rougier's work
+;;; https://github.com/rougier/elegant-emacs
+(defadvice load-theme (before theme-dont-propagate activate)
+  (mapc #'disable-theme custom-enabled-themes))
+
+(defun set-face (face style)
+  "Reset a face and make it inherit style."
+  (set-face-attribute face nil
+   :foreground 'unspecified :background 'unspecified
+   :family     'unspecified :slant      'unspecified
+   :weight     'unspecified :height     'unspecified
+   :underline  'unspecified :overline   'unspecified
+   :box        'unspecified :inherit    style))
+
+(defface face-popout  '((t :foreground "#c2a282"))  "Popout")
+(defface face-strong  '((t :weight regular))        "Strong")
+(defface face-salient '((t :foreground "#81a1c1")) "Salient")
+(defface face-faded   '((t :foreground "#999999"))   "Faded")
+(defface face-subtle  '((t :background "#f0f0f0"))  "Subtle")
+(defface face-warning '((t :foreground "#ffa07a")) "Warning")
+
+
+(defface face-display
+  '((t :family "Fira Code" :inherit 'face-faded))  "Display")
+(set-display-table-slot standard-display-table 'truncation
+                        (make-glyph-code ?… 'face-display))
+(set-display-table-slot standard-display-table 'wrap
+                        (make-glyph-code ?↩ 'face-display))
+
+(set-face 'header-line-highlight                          'face-faded)
+(set-face 'region                                        'face-subtle)
+;; (set-face 'highlight                                     'face-subtle)
+(set-face 'bold                                          'face-strong)
+(set-face 'italic                                         'face-faded)
+(set-face 'cursor                                        'face-strong)
+(set-face-attribute 'cursor nil
+                    :background (face-foreground        'face-strong))
+(set-face 'minibuffer-prompt                             'face-strong)
+(set-face 'link                                         'face-salient)
+(set-face 'fringe                                         'face-faded)
+(set-face 'isearch                                       'face-strong)
+(set-face 'lazy-highlight                                'face-subtle)
+(set-face 'show-paren-match                              'face-popout)
+(set-face 'show-paren-mismatch                           'face-normal)
+(set-face 'shadow                                         'face-faded)
+(set-face 'warning                                     'face-warning)
+
+(after! org
+  (set-face 'outline-1                                     'face-strong)
+  (set-face 'outline-2                                     'face-strong)
+  (set-face 'outline-3                                     'face-strong)
+  (set-face 'outline-4                                     'face-strong)
+  (set-face 'outline-5                                     'face-strong)
+  (set-face 'outline-6                                     'face-strong)
+  (set-face 'org-link                                     'face-salient)
+  (set-face 'org-verbatim                                 'face-salient)
+  (set-face 'flyspell-incorrect                            'face-popout))
+
+;; (set-face 'font-lock-comment-face                         'face-faded)
+(set-face 'font-lock-doc-face                             'face-faded)
+(set-face 'font-lock-string-face                         'face-popout)
+(set-face 'font-lock-constant-face                      'face-salient)
+(set-face 'font-lock-warning-face                        'face-popout)
+(set-face 'font-lock-function-name-face                  'face-strong)
+(set-face 'font-lock-variable-name-face                  'face-strong)
+(set-face 'font-lock-builtin-face                       'face-salient)
+(set-face 'font-lock-type-face                          'face-salient)
+(set-face 'font-lock-keyword-face                       'face-salient)
+;; (set-face 'highlight-numbers-number                      'face-popout)
 
 (custom-set-faces!
-  '(font-lock-variable-name-face :foreground "white")
-  `(font-lock-function-name-face :foreground ,(doom-darken "#81a1c1" 0.2))  ;; #8282c2
-  '(font-lock-keyword-face :foreground "#81a1c1")
-  '(font-lock-type-face :foreground "#81a1c1")
-  `(font-lock-builtin-face :foreground ,(doom-darken "#ffffff" 0.3))
-  `(font-lock-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
-  `(ess-constant-face :foreground ,(doom-darken "#ffffff" 0.3))
-  '(ess-modifiers-face :foreground "#ffffff")  ;; better nothing than half the job done
-  `(highlight-quoted-symbol :foreground ,(doom-darken "#ffffff" 0.3))
   '(highlight-numbers-number :foreground "#bebf8e")
-  `(rainbow-delimiters-depth-2-face :foreground ,(doom-darken "#51afef" 0.2))
-  `(rainbow-delimiters-depth-3-face :foreground ,(doom-darken "#51afef" 0.4))
-  `(rainbow-delimiters-depth-4-face :foreground ,(doom-darken "#51afef" 0.6))
-  `(markdown-metadata-key-face :foreground ,(doom-darken "#ffffff" 0.3))
-  `(markdown-header-face-1 :foreground ,(doom-darken "#51afef" 0.2))
-  `(markdown-header-face-2 :foreground ,(doom-darken "#ffffff" 0.2))
-  `(markdown-header-face-3 :foreground ,(doom-darken "#ffffff" 0.2))
-  `(markdown-link-face :foreground ,(doom-darken "#51afef" 0.2))
-  `(markdown-url-face :foreground ,(doom-darken "#51afef" 0.2))
-  `(link :foreground ,(doom-darken "#51afef" 0.2) :weight normal)
-  `(org-level-1 :inherit 'outline-1 :foreground ,(doom-darken "#51afef" 0.2))
-  `(org-level-2 :inherit 'outline-2 :foreground ,(doom-darken "#ffffff" 0.2))
-  `(org-level-3 :inherit 'outline-3 :foreground ,(doom-darken "#ffffff" 0.2))
-  '(org-document-title :foreground "#81a1c1")
-  '(org-block :background nil)
-  '(org-block-begin-line :background nil)
-  '(org-block-end-line :background nil)
-  '(org-formula :foreground "#81a1c1")
-  `(org-latex-and-related :foreground ,(doom-darken "#bebf8e" 0.3))
-  (unless (display-graphic-p)
-    '(writegood-weasels-face :background nil :underline (:color "#ebcb8b"))
-    '(writegood-duplicates-face :background nil :underline (:color "#ebcb8b")))
-  '(flyspell-duplicate :underline (:color "#ebcb8b"))
-  )
+  '(ess-modifiers-face :foreground "#ffffff")  ;; better nothing than half the job done
+  '(mu4e-header-key-face :foreground "#4c566a")
+  '(markdown-metadata-key-face :foreground "#4c566a")
+  '(markdown-header-delimiter-face :foreground "#ffffff" :weight bold)
+  '(markdown-header-face-1 :foreground "#ffffff" :weight bold)
+  '(markdown-header-face-2 :foreground "#ffffff" :weight bold)
+  '(org-level-1 :inherit 'outline-1 :weight bold)
+  '(org-level-2 :inherit 'outline-2 :weight bold)
+  '(racket-keyword-argument-face :foreground "#c2a282")
+  '(racket-selfeval-face :foreground "#c2a282")
+  '(ess-constant-face :foreground "#bebf8e"))
