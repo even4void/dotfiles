@@ -27,8 +27,8 @@
            (:subject)))
   (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
   (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
-  (add-hook 'mu4e-compose-mode-hook
-            (lambda () (local-set-key (kbd "C-c C-w") #'mu4e-choose-signature)))
+  ;; (add-hook 'mu4e-compose-mode-hook
+  ;;           (lambda () (local-set-key (kbd "C-c C-w") #'mu4e-choose-signature)))
 
   ;; one-shot email address
 
