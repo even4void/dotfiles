@@ -57,10 +57,11 @@
   (set-face 'outline-5                                   'face-strong)
   (set-face 'outline-6                                   'face-strong)
   (set-face 'org-link                                   'face-salient)
-  (set-face 'org-verbatim                               'face-salient)
-  (set-face 'flyspell-incorrect                         'face-popout))
+  (set-face 'org-verbatim                               'face-salient))
 
-;; (set-face 'font-lock-comment-face                         'face-faded)
+;; (set-face 'flyspell-incorrect                         'face-popout)
+
+;; (set-face 'font-lock-comment-face                      'face-faded)
 (set-face 'font-lock-doc-face                             'face-faded)
 (set-face 'font-lock-string-face                         'face-popout)
 (set-face 'font-lock-constant-face                      'face-salient)
