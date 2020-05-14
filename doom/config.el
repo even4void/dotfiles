@@ -384,13 +384,19 @@
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
       org-agenda-files '("~/org/z/" "~/org/local/" "~/org/refile.org")
-      org-agenda-text-search-extra-files '("~/org/drafts")
+      ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
       +org-capture-todo-file "~/org/local/todo.org"
+      org-journal-dir "j/"
       inferior-R-program-name "/usr/local/bin/R"
       inferior-R-args "-q --no-save --no-restore"
       inferior-STA-program-name "/usr/local/bin/stata-mp"
       inferior-STA-start-args "-q")
+
+;; (load! "lisp/org-mac-iCal")
+;; (add-to-list 'org-modules 'org-mac-iCal)
+(setq diary-file "~/.diary")
+(setq calendar-week-start-day 1)
 
 (use-package! org-fancy-priorities
    :hook (org-mode . org-fancy-priorities-mode)
@@ -398,6 +404,7 @@
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
+  (setq org-agenda-include-diary t)
   (setq org-capture-templates
       '(("t" "Personal todo" entry
          (file+headline +org-capture-todo-file "Inbox")
@@ -407,6 +414,9 @@
          "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
+        ("j" "Journal" entry
+          (file+olp+datetree +org-capture-journal-file "Inbox")
+          "* %U %?\n%i\n%a" :prepend t)
         ("z" "Org/z notes" entry (file my/write-file)
          "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
         ("p" "Templates for projects")

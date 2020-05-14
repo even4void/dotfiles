@@ -75,7 +75,7 @@
        (org
         +dragndrop
         +gnuplot
-        ;;+journal
+        +journal
         +jupyter
         +pandoc
         +present)
