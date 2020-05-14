@@ -94,6 +94,7 @@
    :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
    :desc "Add bookmark"        "B" #'bookmark-set
+   :desc "Select dictionary"   "Z" #'ispell-change-dictionary
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
    :desc "Mu4e"                "M" #'mu4e

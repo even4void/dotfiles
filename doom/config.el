@@ -387,7 +387,7 @@
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
       +org-capture-todo-file "~/org/local/todo.org"
-      org-journal-dir "j/"
+      org-journal-dir "~/org/j/"
       inferior-R-program-name "/usr/local/bin/R"
       inferior-R-args "-q --no-save --no-restore"
       inferior-STA-program-name "/usr/local/bin/stata-mp"
@@ -404,7 +404,9 @@
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
-  (setq org-agenda-include-diary t)
+  (setq org-agenda-include-diary t
+        org-journal-enable-agenda-integration t
+        org-journal-enable-cache t)
   (setq org-capture-templates
       '(("t" "Personal todo" entry
          (file+headline +org-capture-todo-file "Inbox")
