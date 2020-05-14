@@ -319,11 +319,14 @@
         company-show-numbers nil))
         ;; company-tooltip-offset-display nil
 
-;; -- ess --------------------------------------------------------------------
+;; -- ess/julia---------------------------------------------------------------
 (setq ess-use-eldoc t
       ess-eldoc-show-on-symbol t
       ess-execute-in-process-buffer t)
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
+
+(setq lsp-julia-default-environment "~/.julia/environments/v1.4")
+;; (add-hook 'ess-julia-mode-hook #'lsp-mode)
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
@@ -331,6 +334,12 @@
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
+
+(after! lsp-python-ms
+  (set-lsp-priority! 'mspyls 1))
+
+;; NOTE in case there're unresolved import warnings, use
+;; lsp-python-ms-extra-paths
 
 (setq jupyter-repl-echo-eval-p t)
 
@@ -348,6 +357,10 @@
 ;;         (sbcl ("sbcl") :coding-system utf-8-unix)))
 
 (setq geiser-active-implementations '(chez chicken mit racket))
+
+(after! racket-mode
+  (add-hook! racket-mode
+             #'racket-smart-open-bracket-mode))
 
 (flycheck-define-checker racket-review
   "check racket source code using racket-review"

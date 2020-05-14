@@ -81,6 +81,7 @@
         +present)
        ;;purescript
        (python +lsp +cython +poetry)
+       (julia +lsp)
        ;; (ruby +lsp)
        racket
        (rust +lsp)

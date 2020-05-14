@@ -11,7 +11,9 @@
 ;; (package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
 (package! vc-msg)
 
-;; (unpin! lsp)
+(package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
+
+(unpin! (:tools lsp))
 
 ;; no thanks
 (package! helm :disable t)
