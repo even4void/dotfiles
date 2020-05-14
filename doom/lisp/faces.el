@@ -76,15 +76,17 @@
 (custom-set-faces!
   '(highlight-numbers-number :foreground "#bebf8e")
   `(highlight-quoted-symbol :foreground ,(doom-darken "#81a1c1" 0.2))
-  '(ess-modifiers-face :foreground "#ffffff")  ;; better nothing than half the job done
+  '(ess-modifiers-face :foreground unspecified)  ;; better nothing than half the job done
   '(ess-constant-face :foreground "#bebf8e")
   '(mu4e-header-key-face :foreground "#4c566a")
   '(markdown-metadata-key-face :foreground "#4c566a")
-  '(markdown-header-delimiter-face :foreground "#ffffff" :weight bold)
-  '(markdown-list-face :foreground "#ffffff" :weight bold)
-  '(markdown-header-face-1 :foreground "#ffffff" :weight bold :height 1.05)
-  '(markdown-header-face-2 :foreground "#ffffff" :weight bold)
-  '(markdown-italic-face :foreground "#ffffff" :slant italic)
+  '(markdown-header-delimiter-face :foreground unspecified :weight bold)
+  '(markdown-list-face :foreground unspecified :weight regular)
+  '(markdown-header-face-1 :inherit 'outline-1 :weight bold :height 1.05)
+  '(markdown-header-face-2 :inherit 'outline-2 :weight bold)
+  '(markdown-italic-face :foreground unspecified :slant italic)
+  '(markdown-link-face :foreground "#81a1c1")
+  `(markdown-url-face :foreground ,(doom-darken "#81a1c1" 0.2))
   '(flyspell-incorrect :underline (:color "#c2a282"))
   '(flyspell-duplicate :underline (:color "#bebf8e"))
   '(writegood-weasels-face :background nil :underline (:color "#bfa78e" :style wave))
@@ -92,6 +94,7 @@
   '(org-document-title :foreground "#c2a282")
   '(org-level-1 :inherit 'outline-1 :weight bold :height 1.05)
   '(org-level-2 :inherit 'outline-2 :weight bold)
+  '(org-journal-calendar-entry-face :foreground "#c2a282" :slant normal)
   '(racket-keyword-argument-face :foreground "#c2a282")
   '(racket-selfeval-face :foreground "#c2a282")
   '(doom-modeline-buffer-modified :foreground "#c2a282"))  ;; useless when +light enabled

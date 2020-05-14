@@ -326,7 +326,6 @@
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
 
 (setq lsp-julia-default-environment "~/.julia/environments/v1.4")
-;; (add-hook 'ess-julia-mode-hook #'lsp-mode)
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
