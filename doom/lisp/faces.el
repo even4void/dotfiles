@@ -48,6 +48,7 @@
 (set-face 'show-paren-mismatch                           'face-normal)
 (set-face 'shadow                                         'face-faded)
 (set-face 'warning                                      'face-warning)
+(set-face 'ivy-subdir                                   'face-salient)
 
 (after! org
   (set-face 'outline-1                                   'face-strong)
@@ -57,6 +58,7 @@
   (set-face 'outline-5                                   'face-strong)
   (set-face 'outline-6                                   'face-strong)
   (set-face 'org-link                                   'face-salient)
+  (set-face 'org-todo                                    'face-popout)
   (set-face 'org-verbatim                               'face-salient))
 
 ;; (set-face 'flyspell-incorrect                         'face-popout)
@@ -87,6 +89,10 @@
   '(markdown-italic-face :foreground unspecified :slant italic)
   '(markdown-link-face :foreground "#81a1c1")
   `(markdown-url-face :foreground ,(doom-darken "#81a1c1" 0.2))
+  '(markdown-pre-face :foreground "#bebf8e")
+  '(dired-directory :foreground "#81a1c1")
+  `(dired-symlink :foreground ,(doom-darken "#81a1c1" 0.2))
+  '(pdf-isearch-batch :foreground "#bebf8e")
   '(flyspell-incorrect :underline (:color "#c2a282"))
   '(flyspell-duplicate :underline (:color "#bebf8e"))
   '(writegood-weasels-face :background nil :underline (:color "#bfa78e" :style wave))
