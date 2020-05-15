@@ -90,6 +90,7 @@
   '(flyspell-incorrect :underline (:color "#c2a282"))
   '(flyspell-duplicate :underline (:color "#bebf8e"))
   '(writegood-weasels-face :background nil :underline (:color "#bfa78e" :style wave))
+  '(writegood-passive-voice-face :background nil :underline (:color "#81a1c1" :style wave))
   '(writegood-duplicates-face :background nil :underline (:color "#bebf8e" :style wave))
   '(org-document-title :foreground "#c2a282")
   '(org-level-1 :inherit 'outline-1 :weight bold :height 1.05)
