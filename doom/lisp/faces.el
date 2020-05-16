@@ -57,9 +57,7 @@
   (set-face 'outline-4                                   'face-strong)
   (set-face 'outline-5                                   'face-strong)
   (set-face 'outline-6                                   'face-strong)
-  (set-face 'org-link                                   'face-salient)
-  (set-face 'org-todo                                    'face-popout)
-  (set-face 'org-verbatim                               'face-salient))
+  (set-face 'org-todo                                    'face-popout))
 
 ;; (set-face 'flyspell-incorrect                         'face-popout)
 
@@ -87,7 +85,7 @@
   '(markdown-header-face-1 :inherit 'outline-1 :weight bold :height 1.05)
   '(markdown-header-face-2 :inherit 'outline-2 :weight bold)
   '(markdown-italic-face :foreground unspecified :slant italic)
-  '(markdown-link-face :foreground "#81a1c1")
+  '(markdown-link-face :foreground "#81a1c1" :underline (:color "#81a1c1"))
   `(markdown-url-face :foreground ,(doom-darken "#81a1c1" 0.2))
   '(markdown-pre-face :foreground "#bebf8e")
   '(dired-directory :foreground "#81a1c1")
@@ -101,6 +99,8 @@
   '(org-document-title :foreground "#c2a282")
   '(org-level-1 :inherit 'outline-1 :weight bold :height 1.05)
   '(org-level-2 :inherit 'outline-2 :weight bold)
+  '(org-link :foreground "#81a1c1" :underline (:color "#81a1c1"))
+  '(org-verbatim :foreground "#bebf8e")
   '(org-journal-calendar-entry-face :foreground "#c2a282" :slant normal)
   '(racket-keyword-argument-face :foreground "#c2a282")
   '(racket-selfeval-face :foreground "#c2a282")
