@@ -64,7 +64,7 @@
        ;;elixir
        ;;elm
        emacs-lisp
-       ess
+       (ess +lsp)
        (haskell +dante)
        (javascript +lsp)
        (latex

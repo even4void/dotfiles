@@ -12,9 +12,11 @@
         mu4e-compose-format-flowed t
         mu4e-view-use-gnus nil    ;; not that tasty
         mu4e-headers-show-threads nil
+        mu4e-headers-include-related nil
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
         mu4e-use-fancy-chars nil  ;; too bad actually
+        mu4e-compose-signature "-- chl"
         ; mu4e-completing-read-function 'completing-read
         smtpmail-queue-dir "~/.mail/queue/cur"
         smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
@@ -56,8 +58,7 @@
                      ;; ( mu4e-trash-folder      . "/icloud/Trash" )
                      (smtpmail-smtp-server   . "smtp.mail.me.com")
                      (smtpmail-stream-type   . starttls)
-                     (smtpmail-smtp-service  . 587)
-                     (mu4e-compose-signature . (concat "chl\n"))))
+                     (smtpmail-smtp-service  . 587)))
 
            ,(make-mu4e-context
              :name "a aliquote"
@@ -71,8 +72,7 @@
                      (mu4e-drafts-folder      . "/aliquote/Drafts")
                      (mu4e-trash-folder       . "/aliquote/Trash")
                      (smtpmail-smtp-server    . "ssl0.ovh.net")
-                     (smtpmail-smtp-service   . 587)
-                     (mu4e-compose-signature  . (concat "chl\n"))))))
+                     (smtpmail-smtp-service   . 587)))))
   (setq mu4e-context-policy 'pick-first
         mu4e-compose-context-policy nil)
 

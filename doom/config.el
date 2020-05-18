@@ -1,8 +1,10 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
 ;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-(add-to-list 'default-frame-alist '(width . 140))
-(add-to-list 'default-frame-alist '(height . 49))
+(add-to-list 'default-frame-alist '(top . 12))
+(add-to-list 'default-frame-alist '(left . 12))
+(add-to-list 'default-frame-alist '(width . 148))
+(add-to-list 'default-frame-alist '(height . 48))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
@@ -268,9 +270,6 @@
    "gl"  "(call-interactively 'magit-log-current)"
    "gs"  "magit-status"
    "gc"  "magit-commit"))
-(defun eshell/clear ()
-  "Clear Eshell screen (other than the default method)"
-   (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
 
 ;; (setq multi-term-program "/bin/zsh")
 (setq vterm-shell "/bin/zsh")
@@ -343,8 +342,8 @@
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
 
-(after! lsp-python-ms
-  (set-lsp-priority! 'mspyls 1))
+;; (after! lsp-python-ms
+;;   (set-lsp-priority! 'mspyls 1))
 
 ;; NOTE in case there're unresolved import warnings, use
 ;; lsp-python-ms-extra-paths

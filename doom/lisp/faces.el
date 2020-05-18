@@ -48,7 +48,6 @@
 (set-face 'show-paren-mismatch                           'face-normal)
 (set-face 'shadow                                         'face-faded)
 (set-face 'warning                                      'face-warning)
-(set-face 'ivy-subdir                                   'face-salient)
 
 (after! org
   (set-face 'outline-1                                   'face-strong)
@@ -91,6 +90,7 @@
   '(dired-directory :foreground "#81a1c1")
   `(dired-symlink :foreground ,(doom-darken "#81a1c1" 0.2))
   '(pdf-isearch-batch :foreground "#bebf8e")
+  '(ivy-subdir :foreground "#81a1c1")
   '(flyspell-incorrect :underline (:color "#c2a282"))
   '(flyspell-duplicate :underline (:color "#bebf8e"))
   '(writegood-weasels-face :background nil :underline (:color "#bfa78e" :style wave))
