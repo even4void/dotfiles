@@ -338,6 +338,12 @@
 
 (setq lsp-julia-default-environment "~/.julia/environments/v1.4")
 
+(add-to-list 'load-path "~/local/ado-mode/lisp")
+;; (require 'ado-mode)
+;; (add-hook 'ess-stata-mode #'(lambda () 'ado-mode))
+;; (add-to-list 'auto-mode-alist '("\\.ado" . ado-mode))
+;; (add-to-list 'auto-mode-alist '("\\.do" . ado-mode))
+
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
 (setq python-shell-interpreter-args "-m IPython --simple-prompt -i")

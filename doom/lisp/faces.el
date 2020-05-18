@@ -102,6 +102,7 @@
   '(org-link :foreground "#81a1c1" :underline (:color "#81a1c1"))
   '(org-verbatim :foreground "#bebf8e")
   '(org-journal-calendar-entry-face :foreground "#c2a282" :slant normal)
+  '(org-journal-calendar-scheduled-face :foreground "#bf616a" :slant normal)
   '(racket-keyword-argument-face :foreground "#c2a282")
   '(racket-selfeval-face :foreground "#c2a282")
   '(doom-modeline-buffer-modified :foreground "#c2a282"))  ;; useless when +light enabled
