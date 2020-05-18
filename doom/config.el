@@ -10,6 +10,9 @@
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq frame-resize-pixelwise t)
 
+;; Emacs 27 needs to be informed of my $HOME apparently
+(setq default-directory "~/")
+
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
       epa-file-encrypt-to user-mail-address
@@ -424,7 +427,7 @@
         ("w" "Web link" entry (file+headline "urls.org" "Inbox")
          "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
         ("j" "Journal" entry
-          (file+olp+datetree +org-capture-journal-file "Inbox")
+          (file+olp+datetree +org-capture-journal-file)
           "* %U %?\n%i\n%a" :prepend t)
         ("z" "Org/z notes" entry (file my/write-file)
          "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
