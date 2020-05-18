@@ -32,17 +32,6 @@
   ;; (add-hook 'mu4e-compose-mode-hook
   ;;           (lambda () (local-set-key (kbd "C-c C-w") #'mu4e-choose-signature)))
 
-  ;; one-shot email address
-
-  ;; (setq user-mail-address "ch.lalanne@aliquote.org"
-  ;;       user-full-name "Christophe Lalanne"
-  ;;       mu4e-sent-folder "/aliquote/Sent"
-  ;;       mu4e-drafts-folder "/aliquote/Drafts"
-  ;;       mu4e-trash-folder "/aliquote/Trash"
-  ;;       smtpmail-smtp-server "ssl0.ovh.net"
-  ;;       smtpmail-smtp-service 587
-  ;;       mu4e-compose-signature "chl")
-
   (setq mu4e-contexts
         `( ,(make-mu4e-context
              :name "i icloud"
@@ -77,7 +66,8 @@
         mu4e-compose-context-policy nil)
 
   (add-to-list 'mu4e-bookmarks
-               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All Inboxes" ?i))
+               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All inboxes" ?i))
   (add-to-list 'mu4e-bookmarks
-               '("flag:attach" "Messages with attachment" ?a))
-  )
+               '("maildir:/archives" "Archives" ?z))
+  (add-to-list 'mu4e-bookmarks
+               '("flag:attach" "Messages with attachment" ?a)))
