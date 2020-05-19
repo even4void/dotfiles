@@ -4,7 +4,7 @@
 (add-to-list 'default-frame-alist '(top . 12))
 (add-to-list 'default-frame-alist '(left . 12))
 (add-to-list 'default-frame-alist '(width . 148))
-(add-to-list 'default-frame-alist '(height . 48))
+(add-to-list 'default-frame-alist '(height . 47))
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))

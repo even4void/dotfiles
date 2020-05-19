@@ -27,6 +27,8 @@ loader <- function(p)
 .pkg <- c("ggplot2", "skimr")
 if (interactive()) invisible(sapply(.pkg, loader))
 
+.First <- function() grDevices::palette("Tableau10")
+
 .Last <- function() {
   if (interactive()) {
     hf <- Sys.getenv("R_HISTFILE")

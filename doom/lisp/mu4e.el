@@ -66,8 +66,10 @@
         mu4e-compose-context-policy nil)
 
   (add-to-list 'mu4e-bookmarks
-               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All inboxes" ?i))
+               '("size:1m..100m" "Large files (> 1Mo)" ?l))
+  (add-to-list 'mu4e-bookmarks
+               '("flag:attach" "Messages with attachment" ?a))
   (add-to-list 'mu4e-bookmarks
                '("maildir:/archives" "Archives" ?z))
   (add-to-list 'mu4e-bookmarks
-               '("flag:attach" "Messages with attachment" ?a)))
+               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All inboxes" ?i)))
