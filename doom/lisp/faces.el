@@ -78,9 +78,11 @@
   '(ess-modifiers-face :foreground unspecified)  ;; better nothing than half the job done
   '(ess-constant-face :foreground "#bebf8e")
   '(mu4e-header-key-face :foreground "#4c566a")
+  '(mu4e-highlight-face :foreground "#81a1c1" :weight bold)
   '(markdown-metadata-key-face :foreground "#4c566a")
   '(markdown-header-delimiter-face :foreground unspecified :weight bold)
   '(markdown-list-face :foreground unspecified :weight regular)
+  '(markdown-math-face :foreground unspecified :weight bold)
   '(markdown-header-face-1 :inherit 'outline-1 :weight bold :height 1.05)
   '(markdown-header-face-2 :inherit 'outline-2 :weight bold)
   '(markdown-italic-face :foreground unspecified :slant italic)
