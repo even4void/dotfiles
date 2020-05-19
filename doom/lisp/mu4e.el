@@ -1,13 +1,9 @@
 ;;; ~/.config/doom/lisp/mu4e.el -*- lexical-binding: t; -*-
 
-;; HACK since I need to reinistall mu for emacs-plus
 (add-to-list 'load-path "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
-;; (require 'mu4e)
 
-;; NOTE Gmail is in read-only mode (2019-05); deactivated again (2019-08)
 (after! mu4e
   (setq mu4e-get-mail-command "mbsync -a"
-        ;; smtpmail-stream-type 'starttls
         mu4e-change-filenames-when-moving t
         mu4e-compose-format-flowed t
         mu4e-view-use-gnus nil    ;; not that tasty
@@ -17,7 +13,6 @@
         mu4e-confirm-quit nil
         mu4e-use-fancy-chars nil  ;; too bad actually
         mu4e-compose-signature "-- chl"
-        ; mu4e-completing-read-function 'completing-read
         smtpmail-queue-dir "~/.mail/queue/cur"
         smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
         mu4e-attachment-dir "~/Downloads")
@@ -29,8 +24,6 @@
            (:subject)))
   (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
   (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
-  ;; (add-hook 'mu4e-compose-mode-hook
-  ;;           (lambda () (local-set-key (kbd "C-c C-w") #'mu4e-choose-signature)))
 
   (setq mu4e-contexts
         `( ,(make-mu4e-context
