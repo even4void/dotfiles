@@ -1,5 +1,38 @@
-options(menu.graphics=FALSE)
-## options(max.print=100)
-## options(prompt="R> ")
-## options(continue="... ")
+options(menu.graphics = FALSE)
+options(width = 100, tibble.width = 100)
+makeActiveBinding(".__", function() .Last.value, .GlobalEnv)
 
+## alias
+.env <- new.env()
+assign("su", base::summary, env = .env)
+assign("last", function(x) tail(x, n = 1), env = .env)
+assign("ht", function(d) rbind(head(d, 10), tail(d, 10)), env = .env)
+assign("h5", function(d) d[1:5, 1:5], env = .env)
+attach(.env)
+
+## console
+if (Sys.getenv("TERM") %in% c("xterm-256color", "dumb")) {
+  library("colorout")
+  .bw_col <- 15
+  setOutputColors(normal = .bw_col, negnu = .bw_col, zero = .bw_col,
+                  number = .bw_col, date = .bw_col, string = .bw_col,
+                  const = .bw_col, false = .bw_col, true = .bw_col,
+                  infinite = .bw_col, index = 59, stderror = 136,
+                  error = 166, warn = 136, verbose = FALSE)
+}
+
+## autoload
+.First <- function() {
+  loader <- function(p)
+    suppressPackageStartupMessages(library(p, character.only = TRUE))
+  pkg <- c("ggplot2", "skimr")
+  if (interactive()) invisible(sapply(pkg, loader))
+}
+
+.Last <- function() {
+  if (interactive()) {
+    hf <- Sys.getenv("R_HISTFILE")
+    if (hf == "") hf <- "~/.RHistory"
+    savehistory(hf)
+  }
+}
