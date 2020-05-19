@@ -10,8 +10,8 @@ assign("ht", function(d) rbind(head(d, 10), tail(d, 10)), env = .env)
 assign("h5", function(d) d[1:5, 1:5], env = .env)
 attach(.env)
 
-## console
-if (Sys.getenv("TERM") %in% c("xterm-256color", "dumb")) {
+## console (not Emacs)
+if (Sys.getenv("TERM")  == "xterm-256color") {
   library("colorout")
   .bw_col <- 15
   setOutputColors(normal = .bw_col, negnu = .bw_col, zero = .bw_col,
@@ -22,12 +22,10 @@ if (Sys.getenv("TERM") %in% c("xterm-256color", "dumb")) {
 }
 
 ## autoload
-.First <- function() {
-  loader <- function(p)
-    suppressPackageStartupMessages(library(p, character.only = TRUE))
-  pkg <- c("ggplot2", "skimr")
-  if (interactive()) invisible(sapply(pkg, loader))
-}
+loader <- function(p)
+  suppressPackageStartupMessages(library(p, character.only = TRUE))
+.pkg <- c("ggplot2", "skimr")
+if (interactive()) invisible(sapply(.pkg, loader))
 
 .Last <- function() {
   if (interactive()) {
