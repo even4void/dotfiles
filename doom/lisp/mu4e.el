@@ -11,8 +11,10 @@
         mu4e-headers-include-related nil
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
+        mu4e-display-update-status-in-modeline nil
         mu4e-use-fancy-chars nil  ;; too bad actually
-        mu4e-compose-signature "-- chl"
+        mu4e-compose-signature "chl@aliquote.org | even4void on Github/Freenode\n(•̀ᴗ•́)و"
+        mu4e-compose-signature-auto-include nil
         smtpmail-queue-dir "~/.mail/queue/cur"
         smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
         mu4e-attachment-dir "~/Downloads")

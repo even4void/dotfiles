@@ -34,7 +34,8 @@
   (setf mac-command-modifier 'super)
   ;; (setq mac-right-command-modifier 'super)
   (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (remove-hook 'org-mode-hook 'highlight-indent-guides-mode))
+  (remove-hook 'org-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-auto-enabled nil))
 
 (load! "+bindings")
 
@@ -208,8 +209,9 @@
 (setq +pretty-code-enabled-modes
       '(emacs-lisp-mode org-mode clojure-mode haskell-mode latex-mode
                         scheme-mode racket-mode ess-r-mode))
-(setq highlight-indent-guides-responsive 'top
-      highlight-indent-guides-delay 0)
+(when (display-graphic-p)
+  (setq highlight-indent-guides-responsive 'top
+        highlight-indent-guides-delay 0))
 
 ;; Org and R additional symbols
 ;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402), ⚐
