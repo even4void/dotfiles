@@ -49,7 +49,8 @@
        gist
        (lookup
         +docsets
-        +dictionary) ;;+offline
+        +dictionary
+        +offline)
        (lsp +peek)
        (magit +forge)
        make

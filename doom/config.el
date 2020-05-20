@@ -317,6 +317,12 @@
       neo-vc-integration '(face)
       projectile-switch-project-action 'neotree-projectile-action)
 
+(all-the-icons-ibuffer-mode 1)
+(setq all-the-icons-ibuffer-icon-size 0.8
+      all-the-icons-ibuffer-icon-v-adjust 0.0
+      all-the-icons-ibuffer-human-readable-size t)
+
+
 ;; -- deft -------------------------------------------------------------------
 (setq deft-directory "~/Sites/aliquote/content/post"
       deft-recursive nil
@@ -396,6 +402,11 @@
 ;; -- rust -------------------------------------------------------------------
 (setq lsp-rust-server 'rust-analyzer)
 (setq rustic-lsp-server 'rust-analyzer)
+
+(setq lsp-rust-analyzer-display-chaining-hints t
+      lsp-rust-analyzer-display-parameter-hints nil
+      lsp-rust-analyzer-server-display-inlay-hints t
+      lsp-rust-full-docs t)
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"

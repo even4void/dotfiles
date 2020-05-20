@@ -11,6 +11,8 @@
 ;; (package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
 (package! vc-msg)
 (package! guess-language)
+(package! all-the-icons-ibuffer)
+(package! keypression)
 
 (package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
 
