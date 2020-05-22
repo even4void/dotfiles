@@ -12,6 +12,8 @@
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-confirm-quit nil
         mu4e-display-update-status-in-modeline nil
+        mu4e-index-lazy-check t
+        mu4e-update-interval 600
         mu4e-use-fancy-chars nil  ;; too bad actually
         mail-host-address "aliquote.org"
         mu4e-compose-signature "chl@aliquote.org | even4void on Github/Freenode\n(•̀ᴗ•́)و"
