@@ -44,7 +44,7 @@
 (set-face 'fringe                                         'face-faded)
 (set-face 'isearch                                       'face-strong)
 (set-face 'lazy-highlight                                'face-subtle)
-(set-face 'show-paren-match                              'face-popout)
+(set-face 'show-paren-match                              'face-subtle)
 (set-face 'show-paren-mismatch                           'face-normal)
 (set-face 'shadow                                         'face-faded)
 (set-face 'warning                                      'face-warning)
@@ -105,6 +105,7 @@
   '(org-verbatim :foreground "#bebf8e")
   '(org-journal-calendar-entry-face :foreground "#c2a282" :slant normal)
   '(org-journal-calendar-scheduled-face :foreground "#bf616a" :slant normal)
+  '(lsp-ui-sideline-code-action :foreground "#ffa07a")
   '(racket-keyword-argument-face :foreground "#c2a282")
   '(racket-selfeval-face :foreground "#c2a282")
   '(doom-modeline-buffer-modified :foreground "#c2a282"))  ;; useless when +light enabled

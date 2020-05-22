@@ -13,6 +13,7 @@
         mu4e-confirm-quit nil
         mu4e-display-update-status-in-modeline nil
         mu4e-use-fancy-chars nil  ;; too bad actually
+        mail-host-address "aliquote.org"
         mu4e-compose-signature "chl@aliquote.org | even4void on Github/Freenode\n(•̀ᴗ•́)و"
         mu4e-compose-signature-auto-include nil
         smtpmail-queue-dir "~/.mail/queue/cur"
@@ -65,6 +66,6 @@
   (add-to-list 'mu4e-bookmarks
                '("flag:attach" "Messages with attachment" ?a))
   (add-to-list 'mu4e-bookmarks
-               '("maildir:/archives" "Archives" ?z))
+               '("maildir:/archives" "Archives 2016" ?z))
   (add-to-list 'mu4e-bookmarks
                '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All inboxes" ?i)))

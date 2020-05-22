@@ -13,8 +13,8 @@
 (package! guess-language)
 (package! all-the-icons-ibuffer)
 (package! keypression)
-
 (package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
+;; (package! lsp-racket :recipe (:host github :repo "mullikine/lsp-racket-el"))
 
 (unpin! (:tools lsp))
 

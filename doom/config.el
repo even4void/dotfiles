@@ -359,9 +359,6 @@
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
 
-;; (after! lsp-python-ms
-;;   (set-lsp-priority! 'mspyls 1))
-
 ;; NOTE in case there're unresolved import warnings, use
 ;; lsp-python-ms-extra-paths
 
@@ -369,7 +366,15 @@
 
 ;; -- lsp --------------------------------------------------------------------
 (after! lsp-ui
-  (setq lsp-diagnostic-package :auto))
+  (setq lsp-diagnostic-package :auto
+        lsp-ui-doc-enable t
+        lsp-ui-doc-use-childframe t
+        lsp-ui-doc-position 'top
+        lsp-ui-doc-include-signature t
+        lsp-ui-doc-max-width 60
+        lsp-ui-imenu-colors '("#798cad" "#88b582")
+        lsp-ui-peek-list-width 60
+        lsp-ui-peek-peek-height 20))
 
 (setq ccls-executable "~/local/ccls/Release/ccls")
 
@@ -385,6 +390,8 @@
 (after! racket-mode
   (add-hook! racket-mode
              #'racket-smart-open-bracket-mode))
+;; (require 'lsp-racket)
+;; (add-hook 'racket-mode-hook #'lsp)
 
 (flycheck-define-checker racket-review
   "check racket source code using racket-review"
@@ -412,7 +419,7 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/z/" "~/org/local/" "~/org/refile.org")
+      org-agenda-files '("~/org/z/" "~/org/local/" "~/org/refile.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
       +org-capture-todo-file "~/org/local/todo.org"
