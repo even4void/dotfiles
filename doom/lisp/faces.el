@@ -45,7 +45,7 @@
 (set-face 'isearch                                       'face-strong)
 (set-face 'lazy-highlight                                'face-subtle)
 (set-face 'show-paren-match                              'face-subtle)
-(set-face 'show-paren-mismatch                           'face-normal)
+(set-face 'show-paren-mismatch                           'face-normal) ;; FIXME
 (set-face 'shadow                                         'face-faded)
 (set-face 'warning                                      'face-warning)
 
@@ -77,7 +77,7 @@
   `(highlight-quoted-symbol :foreground ,(doom-darken "#81a1c1" 0.2))
   '(ess-modifiers-face :foreground unspecified)  ;; better nothing than half the job done
   '(ess-constant-face :foreground "#bebf8e")
-  '(mu4e-header-key-face :foreground "#4c566a")
+  '(mu4e-header-key-face :foreground "#c2a282")  ;; #4c566a
   '(mu4e-highlight-face :foreground "#81a1c1" :weight bold)
   '(markdown-metadata-key-face :foreground "#4c566a")
   '(markdown-header-delimiter-face :foreground unspecified :weight bold)

@@ -12,7 +12,7 @@
        ;;fill-column
        hl-todo
        indent-guides
-       (modeline +light)
+       modeline
        nav-flash
        neotree
        ophints

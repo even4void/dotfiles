@@ -230,4 +230,3 @@
                         +pretty-code-iosevka-font-ligatures)))
 
 (add-hook 'doom-init-ui-hook #'+pretty-code|setup-iosevka-ligatures)
-

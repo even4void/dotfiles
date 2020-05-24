@@ -116,6 +116,7 @@
    :desc "Beautify buffer"     "B" #'format-all-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
    :desc "Ruler"               "R" #'fci-mode
+   :desc "Mail checker"        "n" #'mu4e-alert-enable-mode-line-display
    :desc "Undo tree"           "u" #'undo-tree-visualize
    :desc "Markdown hide/show"  "m" #'markdown-toggle-markup-hiding
    :desc "Flycheck"            "c" #'flycheck-buffer)

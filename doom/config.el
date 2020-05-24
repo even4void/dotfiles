@@ -10,7 +10,6 @@
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq frame-resize-pixelwise t)
 
-;; Emacs 27 needs to be informed of my $HOME apparently
 (setq default-directory "~/")
 
 (setq user-full-name "chl"
@@ -20,10 +19,10 @@
 
 (when (display-graphic-p)
   (setq doom-font (font-spec :family "Iosevka" :size 14)
-        doom-variable-pitch-font (font-spec :family "Iosevka" :size 14))
+        ;; doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)
+        doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
   (load! "+iosevka"))
 
-;; FIXME merge with the above after adding a (progn ...)
 (unless (display-graphic-p)
   (custom-set-variables
    '(git-gutter:modified-sign "│")
@@ -51,8 +50,33 @@
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 
-(setq doom-themes-neotree-enable-file-icons nil
-      doom-themes-neotree-enable-folder-icons nil)
+(setq doom-themes-neotree-file-icons 'simple
+      doom-themes-neotree-folder-icons 'simple
+      doom-themes-neotree-enable-variable-pitch t)
+
+;; (after! doom-modeline
+;;   (doom-modeline-def-modeline 'my/modeline
+;;   '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+;;   '(misc-info minor-modes mu4e github vcs checker input-method buffer-encoding major-mode process))
+;;   (defun setup-custom-doom-modeline ()
+;;     (doom-modeline-set-modeline 'my/modeline 'default))
+;;   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
+
+(set-face-attribute 'mode-line nil :family "Roboto Mono" :height 130)
+(set-face-attribute 'mode-line-inactive nil :family "Roboto Mono" :height 130)
+
+(minions-mode 1)
+
+(setq doom-modeline-mu4e t
+      ;; doom-modeline-github t
+      ;; doom-modeline-modal-icon nil
+      doom-modeline-enable-word-count t
+      doom-modeline-persp-name nil
+      doom-modeline-buffer-modification-icon nil
+      doom-modeline-indent-info nil
+      doom-modeline-unicode-fallback t
+      doom-modeline-minor-modes t
+      doom-modeline-lsp nil)
 
 (load! "lisp/fill-column-indicator")
 
@@ -61,7 +85,8 @@
 ;; ---------------------------------------------------------------------------
 
 ;; -- web & doc --------------------------------------------------------------
-(setq browse-url-browser-function 'eww-browse-url)
+;; (setq browse-url-browser-function 'eww-browse-url)
+(setq browse-url-browser-function 'xwidget-webkit-browse-url)
 
 ;; --tex ---------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
