@@ -19,7 +19,6 @@
 
 (when (display-graphic-p)
   (setq doom-font (font-spec :family "Iosevka" :size 14)
-        ;; doom-variable-pitch-font (font-spec :family "Iosevka" :size 14)
         doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
   (load! "+iosevka"))
 
@@ -31,7 +30,6 @@
   (setq org-hide-leading-stars t)
   (setq org-superstar-leading-fallback ?\s)
   (setf mac-command-modifier 'super)
-  ;; (setq mac-right-command-modifier 'super)
   (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   (remove-hook 'org-mode-hook 'highlight-indent-guides-mode)
   (setq highlight-indent-guides-auto-enabled nil))
@@ -54,14 +52,6 @@
       doom-themes-neotree-folder-icons 'simple
       doom-themes-neotree-enable-variable-pitch t)
 
-;; (after! doom-modeline
-;;   (doom-modeline-def-modeline 'my/modeline
-;;   '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-;;   '(misc-info minor-modes mu4e github vcs checker input-method buffer-encoding major-mode process))
-;;   (defun setup-custom-doom-modeline ()
-;;     (doom-modeline-set-modeline 'my/modeline 'default))
-;;   (add-hook 'doom-modeline-mode-hook 'setup-custom-doom-modeline))
-
 (set-face-attribute 'mode-line nil :family "Roboto Mono" :height 130)
 (set-face-attribute 'mode-line-inactive nil :family "Roboto Mono" :height 130)
 
@@ -69,7 +59,6 @@
 
 (setq doom-modeline-mu4e t
       ;; doom-modeline-github t
-      ;; doom-modeline-modal-icon nil
       doom-modeline-enable-word-count t
       doom-modeline-persp-name nil
       doom-modeline-buffer-modification-icon nil
