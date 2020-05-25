@@ -306,8 +306,8 @@
                          (magit-pull   "--rebase" "--gpg-sign=152E3E3F7C4CCE44")))
 (setq magit-repolist-columns
       '(("Repository" 25 magit-repolist-column-ident                  ())
-        ("Version"    30 magit-repolist-column-version                ((:right-align t)))
-        ("⚡"           1 magit-repolist-column-dirty                  ())
+        ("Version "   30 magit-repolist-column-version                ((:right-align t)))
+        (" ⚡"          2 magit-repolist-column-dirty                  ((:right-align t)))
         (""           3 magit-repolist-column-branches               ((:right-align t)))
         ("≣"           3 magit-repolist-column-stashes                ((:right-align t)))
         ("⤓"           3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
@@ -333,10 +333,10 @@
       neo-vc-integration '(face)
       projectile-switch-project-action 'neotree-projectile-action)
 
-(all-the-icons-ibuffer-mode 1)
-(setq all-the-icons-ibuffer-icon-size 0.8
-      all-the-icons-ibuffer-icon-v-adjust 0.0
-      all-the-icons-ibuffer-human-readable-size t)
+;; (all-the-icons-ibuffer-mode 1)
+;; (setq all-the-icons-ibuffer-icon-size 0.8
+;;       all-the-icons-ibuffer-icon-v-adjust 0.0
+;;       all-the-icons-ibuffer-human-readable-size t)
 
 
 ;; -- deft -------------------------------------------------------------------

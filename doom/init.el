@@ -28,12 +28,15 @@
        file-templates
        fold
        (format +onsave)
+       parinfer
        rotate-text
        snippets
+       ;; word-wrap
 
        :emacs
        dired
        electric
+       (ibuffer +icons)
        vc
        (undo +tree)
 
@@ -55,6 +58,8 @@
        (magit +forge)
        make
        pdf
+       rgb
+       ;; taskrunner
 
        :lang
        (cc +lsp)
@@ -69,8 +74,8 @@
        (haskell +dante)
        (javascript +lsp)
        (latex
-        +latexmk
-        +fold)
+        ;; +fold
+        +latexmk)
        (markdown +grip)
        ;;(ocaml +opam-site-lisp)
        (org

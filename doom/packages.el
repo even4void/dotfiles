@@ -8,12 +8,12 @@
 (package! interleave)
 (package! vc-msg)
 (package! guess-language)
-(package! all-the-icons-ibuffer)
 (package! keypression)
 (package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
 (package! mu4e-alert)
 (package! minions)
 
+;; (package! all-the-icons-ibuffer)
 ;; (package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el
 ;; (package! lsp-racket :recipe (:host github :repo "mullikine/lsp-racket-el"))
 

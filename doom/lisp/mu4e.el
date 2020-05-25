@@ -42,7 +42,7 @@
                      (user-full-name         . "Christophe Lalanne")
                      (mu4e-sent-folder       . "/icloud/Sent Messages")
                      (mu4e-drafts-folder     . "/icloud/Drafts")
-                     ;; ( mu4e-trash-folder      . "/icloud/Trash" )
+                     (mu4e-trash-folder      . "/icloud/Deleted Messages")
                      (smtpmail-smtp-server   . "smtp.mail.me.com")
                      (smtpmail-stream-type   . starttls)
                      (smtpmail-smtp-service  . 587)))
@@ -70,4 +70,4 @@
   (add-to-list 'mu4e-bookmarks
                '("maildir:/archives" "Archives 2016" ?z))
   (add-to-list 'mu4e-bookmarks
-               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "All inboxes" ?i)))
+               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "Inbox" ?i)))
