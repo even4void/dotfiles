@@ -65,8 +65,10 @@
  :desc "Next workspace"     ">"  #'+workspace:switch-next
  :desc "Split horizontally" "-"  #'split-window-below
  :desc "Split vertically"   "|"  #'split-window-right
+ :desc "Remove split"       "="  #'delete-other-windows
+ :desc "Counsel ag"         "@"  #'doom/swiper-all-region-or-symbol
  (:prefix "s"
-   :desc "Counsel rg"          "c" #'doom/counsel-region-or-symbol
+   :desc "Counsel ag"          "c" #'doom/counsel-region-or-symbol
    :desc "Counsel Dash"        "C" #'counsel-dash-at-point
    :desc "Dictionary (input)"  "W" #'osx-dictionary-search-input
    :desc "Replace (regex)"     "R" #'replace-regexp)
@@ -100,9 +102,9 @@
    :desc "Mu4e"                "M" #'mu4e
    :desc "Geiser REPL"         "G" #'geiser
    :desc "IELM"                "i" #'ielm
-   :desc "IRC"                 "I" #'erc
+   :desc "IRC"                 "I" #'=irc
    :desc "Jupyter"             "J" #'jupyter-run-repl
-   :desc "Multi-term"          "m" #'+term/here
+   ;; :desc "Multi-term"          "m" #'+term/here
    :desc "Deft"                "D" #'deft)
  (:prefix "t"
    :desc "Unfill region"       "U" #'unfill-region

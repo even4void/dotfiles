@@ -42,7 +42,7 @@
 
        :term
        eshell
-       term
+       ;; term
        vterm
 
        :tools
@@ -105,6 +105,7 @@
 
        :app
        ;; (rss +org)
+       irc
 
        :collab
 

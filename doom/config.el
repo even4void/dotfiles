@@ -532,5 +532,6 @@
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))))
 
-;; -- mu ---------------------------------------------------------------------
+;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")
+(load! "lisp/irc")
