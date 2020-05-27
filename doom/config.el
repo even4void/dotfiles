@@ -20,7 +20,10 @@
 (when (display-graphic-p)
   (setq doom-font (font-spec :family "Iosevka" :size 14)
         doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
-  (load! "+iosevka"))
+  (load! "+iosevka")
+  (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
+        flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
+        flycheck-posframe-error-prefix (all-the-icons-material "error")))
 
 (unless (display-graphic-p)
   (custom-set-variables
@@ -52,14 +55,16 @@
       doom-themes-neotree-folder-icons 'simple
       doom-themes-neotree-enable-variable-pitch t)
 
-(set-face-attribute 'mode-line nil :family "Roboto Mono" :height 130)
-(set-face-attribute 'mode-line-inactive nil :family "Roboto Mono" :height 130)
+(setq all-the-icons-scale-factor 1.1)
+(set-face-attribute 'mode-line nil :family "Roboto Mono" :height 0.92)
+(set-face-attribute 'mode-line-inactive nil :family "Roboto Mono" :height 0.92)
 
 (minions-mode 1)
 
 (setq doom-modeline-mu4e t
       ;; doom-modeline-github t
       doom-modeline-enable-word-count t
+      doom-modeline-height 22
       doom-modeline-persp-name nil
       doom-modeline-buffer-modification-icon nil
       doom-modeline-indent-info nil
@@ -379,6 +384,8 @@
 (setq jupyter-repl-echo-eval-p t)
 
 ;; -- lsp --------------------------------------------------------------------
+;; (setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 (after! lsp-ui
   (setq lsp-diagnostic-package :auto
         lsp-ui-doc-enable t

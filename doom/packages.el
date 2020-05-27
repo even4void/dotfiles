@@ -21,7 +21,7 @@
 (package! doom-modeline :pin "2b308857677e983ca4eaedc36438ed94aadf9e65")
 
 ;; always get the latest version when updating packages
-(unpin! (:tools lsp))
+;; (unpin! (:tools lsp))
 
 ;; no thanks
 (package! helm :disable t)

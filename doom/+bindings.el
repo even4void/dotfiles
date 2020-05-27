@@ -9,7 +9,7 @@
  ;; dictionnary
  :n "C-c d"       #'osx-dictionary-search-word-at-point
 
- :n "s-<return>"  #'toggle-frame-maximized  ;; toggle-frame-fullscreen seems buggy
+ :n "s-<return>"  #'toggle-frame-fullscreen
 
  ;; OSX shortcuts without cua-mode (mostly redefined here)
  "s-z"        #'undo
@@ -117,6 +117,7 @@
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Beautify buffer"     "B" #'format-all-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
+   :desc "Frame maximized"     "F" #'toggle-frame-maximized  ;; instead of fullscreen
    :desc "Ruler"               "R" #'fci-mode
    :desc "Mail checker"        "n" #'mu4e-alert-enable-mode-line-display
    :desc "Undo tree"           "u" #'undo-tree-visualize
