@@ -20,10 +20,10 @@
 (when (display-graphic-p)
   (setq doom-font (font-spec :family "Iosevka" :size 14)
         doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
-  (load! "+iosevka")
-  (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
-        flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
-        flycheck-posframe-error-prefix (all-the-icons-material "error")))
+  (load! "+iosevka"))
+  ;; (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
+  ;;       flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
+  ;;       flycheck-posframe-error-prefix (all-the-icons-material "error")))
 
 (unless (display-graphic-p)
   (custom-set-variables
@@ -45,6 +45,8 @@
 (load-theme 'doom-nord t)
 (load! "lisp/faces")
 
+(setq all-the-icons-scale-factor 1.1)
+
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)
 (set-face-italic 'font-lock-comment-face t)
@@ -54,10 +56,6 @@
 (setq doom-themes-neotree-file-icons 'simple
       doom-themes-neotree-folder-icons 'simple
       doom-themes-neotree-enable-variable-pitch t)
-
-(setq all-the-icons-scale-factor 1.1)
-(set-face-attribute 'mode-line nil :family "Roboto Mono" :height 0.92)
-(set-face-attribute 'mode-line-inactive nil :family "Roboto Mono" :height 0.92)
 
 (minions-mode 1)
 
@@ -384,9 +382,14 @@
 (setq jupyter-repl-echo-eval-p t)
 
 ;; -- lsp --------------------------------------------------------------------
-;; (setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-eldoc-enable-hover nil
+      lsp-ui-doc-border "white"
+      lsp-enable-links t)
 
 (after! lsp-ui
+  (add-hook 'lsp-ui-doc-frame-hook
+            (lambda (frame _w)
+              (set-face-attribute 'default frame :font "Iosevka" :height 125)))
   (setq lsp-diagnostic-package :auto
         lsp-ui-doc-enable t
         lsp-ui-doc-use-childframe t

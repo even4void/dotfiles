@@ -99,13 +99,10 @@
    :desc "Select dictionary"   "Z" #'ispell-change-dictionary
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
-   :desc "Mu4e"                "M" #'mu4e
    :desc "Geiser REPL"         "G" #'geiser
    :desc "IELM"                "i" #'ielm
    :desc "IRC"                 "I" #'=irc
-   :desc "Jupyter"             "J" #'jupyter-run-repl
-   ;; :desc "Multi-term"          "m" #'+term/here
-   :desc "Deft"                "D" #'deft)
+   :desc "Jupyter"             "J" #'jupyter-run-repl)
  (:prefix "t"
    :desc "Unfill region"       "U" #'unfill-region
    :desc "Select theme"        "t" #'counsel-load-theme
