@@ -61,13 +61,33 @@
                      (smtpmail-smtp-server    . "ssl0.ovh.net")
                      (smtpmail-smtp-service   . 587)))))
   (setq mu4e-context-policy 'pick-first
-        mu4e-compose-context-policy nil)
+        mu4e-compose-context-policy nil))
 
-  (add-to-list 'mu4e-bookmarks
-               '("size:1m..100m" "Large files (> 1Mo)" ?l))
-  (add-to-list 'mu4e-bookmarks
-               '("flag:attach" "Messages with attachment" ?a))
-  (add-to-list 'mu4e-bookmarks
-               '("maildir:/archives" "Archives 2016" ?z))
-  (add-to-list 'mu4e-bookmarks
-               '("maildir:/aliquote/INBOX OR maildir:/icloud/INBOX" "Inbox" ?i)))
+(setq mu4e-maildir-shortcuts
+      '((:maildir "/icloud/Archive" :key ?i)
+        (:maildir "/aliquote/Archive" :key ?a)
+        (:maildir "/jussieu/Archive" :key ?j)
+        (:maildir "/archives" :key ?z)
+        (:maildir "/queue" :key ?q)))
+
+(setq mu4e-bookmarks
+      '((:name  "Main inboxes"
+         :query "maildir:/aliquote/INBOX OR maildir:/icloud/INBOX"
+         :key ?i)
+        (:name  "Unread messages"
+         :query "flag:unread AND NOT flag:trashed"
+         :key ?u)
+        (:name "Today's messages"
+         :query "date:today..now"
+         :key ?t)
+        (:name "Last 7 days"
+         :query "date:7d..now"
+         :key ?w)
+        (:name  "Large files (≥ 1 Mo)"
+         :query "size:1m..100m"
+         :hide-unread t
+         :key ?l)
+        (:name  "Messages with attachment"
+         :query "flag:attach"
+         :hide-unread t
+         :key ?a)))

@@ -197,16 +197,18 @@
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(setq +format-on-save-enabled-modes
-  '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
-        lisp-mode        ; ---
-        ess-r-mode       ; FIXME styler needs configuration
-        sql-mode         ; NOTE sqlformat is currently broken
-        latex-mode
-        tex-mode
-        python-mode))    ; because I don't like it
+;; (setq flycheck-textlint-config "~/.textlintrc")
 
-(remove-hook 'dired-mode-hook 'diredfl-mode)
+(setq +format-on-save-enabled-modes
+      '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+            lisp-mode        ; ---
+            ess-r-mode       ; FIXME styler needs configuration
+            sql-mode         ; NOTE sqlformat is currently broken
+            latex-mode
+            tex-mode
+            python-mode))    ; because I don't like it
+
+;; (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
 
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
@@ -263,8 +265,8 @@
                   ("#+ATTR_ORG:"     . "»")
                   ("#+LABEL:"        . "»")
                   ("#+PROPERTY:"     . "☸")
-                  (":PROPERTIES:"    . "⚙")
-                  (":END:"           . "∎")
+                  (":PROPERTIES:"    . "☸")
+                  (":END:"           . "■")
                   ("*"  . "∗")
                   ("<=" . "⩽")
                   (">=" . "⩾"))))
@@ -468,49 +470,50 @@
         org-journal-enable-agenda-integration t
         org-journal-enable-cache t)
   (setq org-capture-templates
-      '(("t" "Personal todo" entry
-         (file+headline +org-capture-todo-file "Inbox")
-         "* TODO %?\n%i\n" :prepend t :kill-buffer t)
-        ("n" "Personal notes" entry
-         (file+headline +org-capture-notes-file "Inbox")
-         "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("w" "Web link" entry (file+headline "urls.org" "Inbox")
-         "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
-        ("j" "Journal" entry
-          (file+olp+datetree +org-capture-journal-file)
-          "* %U %?\n%i\n%a" :prepend t)
-        ("z" "Org/z notes" entry (file my/write-file)
-         "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
-        ("p" "Templates for projects")
-        ("pt" "Project todo" entry  ; {project-root}/todo.org
-         (file+headline +org-capture-project-todo-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("pn" "Project notes" entry  ; {project-root}/notes.org
-         (file+headline +org-capture-project-notes-file "Inbox")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("pc" "Project changelog" entry  ; {project-root}/changelog.org
-         (file+headline +org-capture-project-notes-file "Unreleased")
-         "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
-        ("o" "Centralized templates for projects")
-        ("ot" "Project todo" entry
-         (function +org-capture-central-project-todo-file)
-         "* TODO %?\n %i\n %a"
-         :heading "Tasks"
-         :prepend nil)
-        ("on" "Project notes" entry
-         (function +org-capture-central-project-notes-file)
+        '(("t" "Personal todo" entry
+           (file+headline +org-capture-todo-file "Inbox")
+           "* TODO %?\n%i\n" :prepend t :kill-buffer t)
+          ("n" "Personal notes" entry
+           (file+headline +org-capture-notes-file "Inbox")
+           "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
+          ("w" "Web link" entry (file+headline "urls.org" "Inbox")
+           "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
+          ("j" "Journal" entry
+           (file+olp+datetree +org-capture-journal-file)
+           "* %U %?\n%i\n%a" :prepend t)
+          ("z" "Org/z notes" entry (file my/write-file)
+           "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
+          ("p" "Templates for projects")
+          ("pt" "Project todo" entry  ; {project-root}/todo.org
+           (file+headline +org-capture-project-todo-file "Inbox")
+           "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+          ("pn" "Project notes" entry  ; {project-root}/notes.org
+           (file+headline +org-capture-project-notes-file "Inbox")
+           "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+          ("pc" "Project changelog" entry  ; {project-root}/changelog.org
+           (file+headline +org-capture-project-notes-file "Unreleased")
+           "* TODO %?\n%i\n%a" :prepend t :kill-buffer t)
+          ("o" "Centralized templates for projects")
+          ("ot" "Project todo" entry
+           (function +org-capture-central-project-todo-file)
+           "* TODO %?\n %i\n %a"
+           :heading "Tasks"
+           :prepend nil)
+          ("on" "Project notes" entry
+           (function +org-capture-central-project-notes-file)
            "* %U %?\n %i\n %a"
            :heading "Notes"
            :prepend t)
-        ("oc" "Project changelog" entry
-         (function +org-capture-central-project-changelog-file)
-         "* %U %?\n %i\n %a"
-         :heading "Changelog"
-         :prepend t)))
+          ("oc" "Project changelog" entry
+           (function +org-capture-central-project-changelog-file)
+           "* %U %?\n %i\n %a"
+           :heading "Changelog"
+           :prepend t)))
 
   (setq org-hide-emphasis-markers t
         org-tags-column 79
-        org-startup-indented nil
+        org-startup-indented 'noindent
+        org-startup-folded 'fold
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
