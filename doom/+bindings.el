@@ -23,6 +23,7 @@
  "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
  "s-@"        #'neotree-toggle
+ "s-m"        #'mu4e
 
  ;; window/workspace
  :ni "s-<left>"     #'evil-window-left

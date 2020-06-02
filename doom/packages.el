@@ -12,6 +12,7 @@
 (package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
 (package! mu4e-alert)
 (package! minions)
+(package! base16-theme)
 
 ;; (package! all-the-icons-ibuffer)
 ;; (package! ivy-bibtex :pin "3cff6bd70")  ;; missing bibtex-completion.el

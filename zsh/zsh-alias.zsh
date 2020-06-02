@@ -21,7 +21,6 @@ alias cx="chmod +x"
 # History
 alias history='history 1'
 alias hs='history | grep '
-alias nonascii="LC_CTYPE=C ggrep --color='auto' -n -P '[\x80-\xFF]'"
 
 # Python stuff
 alias mkhttp="python3 -m http.server"
@@ -29,6 +28,7 @@ alias venv="python3 -m venv"
 alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
 
 # Misc
+alias nonascii="LC_CTYPE=C ggrep --color='auto' -n -P '[\x80-\xFF]'"
 alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
@@ -43,6 +43,7 @@ alias ete3="~/Library/Python/3.7/bin/ete3"
 alias c="clear"
 alias ec="emacsclient -n"
 alias ew="emacs -nw"
+alias eq="emacs -nw -q"
 alias edit="open -e"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 alias vim="nvim"
@@ -52,7 +53,7 @@ alias confd="nvim ~/.config"
 alias rsyncssh='rsync -Pr --rsh=ssh'
 
 # Edit/Source vim config
-alias sz='source ~/.zshrc'
+alias sz='source ~/.config/zsh/.zshrc'
 
 # git
 alias gg="git show | tig"
@@ -67,8 +68,9 @@ alias gfu="git fetch upstream"
 alias gmu="git merge upstream/master"
 
 # tmux
-alias tma='tmux attach -t'
-alias tmn='tmux new -s'
+alias tma="tmux attach -t"
+alias tmk="tmux kill-session -t"
+alias tmn="tmux new -s"
 
 # ceedee dot dot dot
 alias -g ..='../'

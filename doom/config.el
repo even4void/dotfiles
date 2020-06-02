@@ -19,7 +19,8 @@
 
 (when (display-graphic-p)
   (setq doom-font (font-spec :family "Iosevka" :size 14)
-        doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
+        doom-big-font (font-spec :family "Victor Mono" :size 16)
+        doom-variable-pitch-font (font-spec :family "Helvetica Neue" :size 12))
   (load! "+iosevka"))
   ;; (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
   ;;       flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
@@ -30,6 +31,7 @@
    '(git-gutter:modified-sign "│")
    '(git-gutter:added-sign "│")
    '(git-gutter:deleted-sign "│"))
+  ;; (add-to-list 'default-frame-alist '(background-color . "#2E3440"))
   (setq org-hide-leading-stars t)
   (setq org-superstar-leading-fallback ?\s)
   (setf mac-command-modifier 'super)
@@ -43,10 +45,12 @@
 ;; ui
 ;; ---------------------------------------------------------------------------
 (load-theme 'doom-nord t)
+
 (load! "lisp/faces")
 
-(setq all-the-icons-scale-factor 1.1)
+;; (setq all-the-icons-scale-factor 1.1)
 
+(setq doom-themes-enable-bold nil)
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)
 (set-face-italic 'font-lock-comment-face t)
@@ -71,6 +75,7 @@
       doom-modeline-lsp nil)
 
 (load! "lisp/fill-column-indicator")
+
 
 ;; ---------------------------------------------------------------------------
 ;; packages
@@ -149,27 +154,29 @@
           #b00000000
           #b00000000))
 
-(flycheck-define-error-level 'error
-  :severity 2
-  :compilation-level 2
-  :overlay-category 'flycheck-error-overlay
-  :fringe-bitmap 'flycheck-fringe-bitmap-ball
-  :fringe-face 'flycheck-fringe-error
-  :error-list-face 'flycheck-error-list-error)
-(flycheck-define-error-level 'warning
-  :severity 1
-  :compilation-level 1
-  :overlay-category 'flycheck-warning-overlay
-  :fringe-bitmap 'flycheck-fringe-bitmap-ball
-  :fringe-face 'flycheck-fringe-warning
-  :warning-list-face 'flycheck-warning-list-error)
-(flycheck-define-error-level 'info
-  :severity 0
-  :compilation-level 0
-  :overlay-category 'flycheck-info-overlay
-  :fringe-bitmap 'flycheck-fringe-bitmap-ball
-  :fringe-face 'flycheck-fringe-info
-  :info-list-face 'flycheck-info-list-error)
+
+(when (display-graphic-p)
+  (flycheck-define-error-level 'error
+    :severity 2
+    :compilation-level 2
+    :overlay-category 'flycheck-error-overlay
+    :fringe-bitmap 'flycheck-fringe-bitmap-ball
+    :fringe-face 'flycheck-fringe-error
+    :error-list-face 'flycheck-error-list-error)
+  (flycheck-define-error-level 'warning
+    :severity 1
+    :compilation-level 1
+    :overlay-category 'flycheck-warning-overlay
+    :fringe-bitmap 'flycheck-fringe-bitmap-ball
+    :fringe-face 'flycheck-fringe-warning
+    :warning-list-face 'flycheck-warning-list-error)
+  (flycheck-define-error-level 'info
+    :severity 0
+    :compilation-level 0
+    :overlay-category 'flycheck-info-overlay
+    :fringe-bitmap 'flycheck-fringe-bitmap-ball
+    :fringe-face 'flycheck-fringe-info
+    :info-list-face 'flycheck-info-list-error))
 
 (setq flycheck-indication-mode 'right-fringe)
 

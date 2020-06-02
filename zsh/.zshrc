@@ -11,6 +11,7 @@ source ~/.config/zsh/zsh-comp.zsh      # completions
 source ~/.config/zsh/zsh-alias.zsh     # alias
 source ~/.config/zsh/zsh-func.zsh      # functions
 source ~/.config/zsh/zsh-prompt.zsh    # prompt
+source ~/.config/zsh/private.zsh       # private stuff
 
 ### HISTORY ###
 HISTFILE=$HOME/.zsh_history
@@ -73,7 +74,7 @@ export PATH="/usr/local/bin:$PATH"
 # export LANG=en_US.UTF-8
 
 # node.js
-export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+export NODE_PATH="/usr/local/lib/node_modules"
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -88,6 +89,8 @@ if which pyenv &> /dev/null; then
 fi
 
 export PYSPARK_PYTHON="python3"
+
+source $HOME/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 
 # Doom and local repos
 export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
