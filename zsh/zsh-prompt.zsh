@@ -19,22 +19,10 @@ if [ -r ${dir_info_color_file} ]; then
 fi
 
 local dir_info="%{$dir_info_color%}%(5~|%-1~/.../%2~|%4~)%{$reset_color%}"
-local promptnormal="%{$fg_bold[green]%}λ %{$reset_color%}"
-local promptjobs="%{$fg_bold[yellow]%}λ %{$reset_color%}"
+local promptnormal="%(?.%{$fg_bold[green]%}.%{$fg_bold[red]%})λ %{$reset_color%}"
+local promptjobs="%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%})λ %{$reset_color%}"
 
 PROMPT='${dir_info}$(git_prompt_info) %(1j.$promptjobs.$promptnormal)'
-
-# Taken from here: https://zenbro.github.io/2015/07/23/show-exit-code-of-last-command-in-zsh
-function check_last_exit_code() {
-  local LAST_EXIT_CODE=$?
-  if [[ $LAST_EXIT_CODE -ne 0 ]]; then
-    local EXIT_CODE_PROMPT=' '
-    EXIT_CODE_PROMPT+="%{$fg[red]%}-%{$reset_color%}"
-    EXIT_CODE_PROMPT+="%{$fg_bold[red]%}$LAST_EXIT_CODE%{$reset_color%}"
-    EXIT_CODE_PROMPT+="%{$fg[red]%}-%{$reset_color%}"
-    echo "$EXIT_CODE_PROMPT"
-  fi
-}
 
 function preexec() {
   timer=${timer:-$SECONDS}
