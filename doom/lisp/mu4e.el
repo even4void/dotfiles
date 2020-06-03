@@ -16,7 +16,7 @@
         mu4e-update-interval 600
         mu4e-use-fancy-chars nil  ;; too bad actually
         mail-host-address "aliquote.org"
-        mu4e-compose-signature "chl@aliquote.org | even4void on Github/Freenode\n(•̀ᴗ•́)و"
+        mu4e-compose-signature "chl AT aliquote.org\n152E3E3F7C4CCE44\n(•̀ᴗ•́)و"
         mu4e-compose-signature-auto-include nil
         smtpmail-queue-dir "~/.mail/queue/cur"
         smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
@@ -64,8 +64,8 @@
         mu4e-compose-context-policy nil))
 
 (setq mu4e-maildir-shortcuts
-      '((:maildir "/icloud/Archive" :key ?i)
-        (:maildir "/aliquote/Archive" :key ?a)
+      '((:maildir "/aliquote/Archive" :key ?a)
+        (:maildir "/icloud/Archive" :key ?i)
         (:maildir "/jussieu/Archive" :key ?j)
         (:maildir "/archives" :key ?z)
         (:maildir "/queue" :key ?q)))
@@ -75,7 +75,7 @@
          :query "maildir:/aliquote/INBOX OR maildir:/icloud/INBOX"
          :key ?i)
         (:name  "Unread messages"
-         :query "flag:unread AND NOT flag:trashed"
+         :query "flag:unread AND NOT flag:trashed AND NOT maildir:/icloud/Deleted*"
          :key ?u)
         (:name "Today's messages"
          :query "date:today..now"
@@ -83,11 +83,11 @@
         (:name "Last 7 days"
          :query "date:7d..now"
          :key ?w)
-        (:name  "Large files (≥ 1 Mo)"
+        (:name  "Messages ≥ 1 Mo"
          :query "size:1m..100m"
          :hide-unread t
          :key ?l)
-        (:name  "Messages with attachment"
+        (:name  "All attachments"
          :query "flag:attach"
          :hide-unread t
          :key ?a)))

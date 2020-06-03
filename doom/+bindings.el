@@ -67,7 +67,7 @@
  :desc "Split horizontally" "-"  #'split-window-below
  :desc "Split vertically"   "|"  #'split-window-right
  :desc "Remove split"       "="  #'delete-other-windows
- :desc "Counsel ag"         "@"  #'doom/swiper-all-region-or-symbol
+ :desc "Swiper all"         "@"  #'doom/swiper-all-region-or-symbol
  (:prefix "s"
    :desc "Counsel ag"          "c" #'doom/counsel-region-or-symbol
    :desc "Counsel Dash"        "C" #'counsel-dash-at-point

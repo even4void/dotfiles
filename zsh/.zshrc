@@ -103,3 +103,12 @@ export BAT_THEME=ansi-light
 if [ ! -n "$INSIDE_EMACS" ]; then
   alias cat=bat
 fi
+
+# show available tmux sessions
+if [[ -z $TMUX ]]; then
+    sessions=$( tmux ls 2> /dev/null | awk '! /attached/ { sub(":", "", $1); print $1; }' | xargs echo )
+    if [[ ! -z $sessions ]]; then
+        echo "⚠  Available tmux sessions: \033[34m$sessions\033[0m"
+    fi
+    unset sessions
+fi
