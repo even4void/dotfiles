@@ -108,8 +108,8 @@
   '(lsp-ui-sideline-code-action :foreground "#ffa07a")
   '(racket-keyword-argument-face :foreground "#c2a282")
   '(racket-selfeval-face :foreground "#c2a282")
-  ;; '(mode-line :family "Roboto Mono" :height 0.95)
-  ;; '(mode-line-inactive :family "Roboto Mono" :height 0.95)i
-  '(mode-line :family "Helvetica Neue" :height 0.96)
-  '(mode-line-inactive :family "Helvetica Neue" :height 0.96)
-  '(doom-modeline-buffer-modified :foreground "#c2a282"))  ;; useless when +light enabled
+  '(diredfl-date-time :foreground "#81a1c1")
+  (unless (featurep! "+light")
+    '(mode-line :family "Helvetica Neue" :height 0.96)
+    '(mode-line-inactive :family "Helvetica Neue" :height 0.96))
+  '(doom-modeline-buffer-modified :foreground "#c2a282"))

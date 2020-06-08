@@ -40,15 +40,14 @@
   (setq highlight-indent-guides-auto-enabled nil))
 
 (load! "+bindings")
+(load! "lisp/+light-fix")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
 (load-theme 'doom-nord t)
-
 (load! "lisp/faces")
 
-;; (setq all-the-icons-scale-factor 1.1)
 
 (setq doom-themes-enable-bold nil)
 (setq which-key-idle-delay 0.1)
@@ -63,19 +62,20 @@
 
 (minions-mode 1)
 
-(setq doom-modeline-mu4e t
-      ;; doom-modeline-github t
-      doom-modeline-enable-word-count t
-      doom-modeline-height 22
-      doom-modeline-persp-name nil
-      doom-modeline-buffer-modification-icon nil
-      doom-modeline-indent-info nil
-      doom-modeline-unicode-fallback t
-      doom-modeline-minor-modes t
-      doom-modeline-lsp nil)
+(unless (featurep! "+light")
+  ;; (setq all-the-icons-scale-factor 1.1)
+  (setq doom-modeline-mu4e t
+        ;; doom-modeline-github t
+        doom-modeline-enable-word-count t
+        doom-modeline-height 22
+        doom-modeline-persp-name nil
+        doom-modeline-buffer-modification-icon nil
+        doom-modeline-indent-info nil
+        doom-modeline-unicode-fallback t
+        doom-modeline-minor-modes t
+        doom-modeline-lsp nil))
 
 (load! "lisp/fill-column-indicator")
-
 
 ;; ---------------------------------------------------------------------------
 ;; packages
@@ -474,6 +474,7 @@
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
   (setq org-agenda-include-diary t
+        org-journal-follow-mode t
         org-journal-enable-agenda-integration t
         org-journal-enable-cache t)
   (setq org-capture-templates

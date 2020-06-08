@@ -108,7 +108,7 @@ fi
 if [[ -z $TMUX ]]; then
     sessions=$( tmux ls 2> /dev/null | awk '! /attached/ { sub(":", "", $1); print $1; }' | xargs echo )
     if [[ ! -z $sessions ]]; then
-        echo "⚠ Available tmux session(s): \033[34m$sessions\033[0m"
+        echo "⚠  Available tmux session(s): \033[34m$sessions\033[0m"
     fi
     unset sessions
 fi
