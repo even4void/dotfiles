@@ -108,6 +108,7 @@
    :desc "Unfill region"       "U" #'unfill-region
    :desc "Select theme"        "t" #'counsel-load-theme
    :desc "Select dictionary"   "Z" #'ispell-change-dictionary
+   :desc "Switch dictionary"   "z" #'ispell-cycle-dictionary
    :desc "Spellcheck"          "W" #'flyspell-buffer
    :desc "Keypression"         "k" #'keypression-mode
    :desc "Poly Markdown"       "P" #'poly-markdown-mode

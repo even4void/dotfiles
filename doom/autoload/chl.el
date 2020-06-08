@@ -193,5 +193,16 @@ around point as the initial input."
   "Create a text file in a given directory"
   (interactive)
   (let ((name (read-string "Name: ")))
-      (expand-file-name (format "%s-%s.org"
-                                (format-time-string "%Y-%m-%d-%H-%M-%S") name) "~/org/z/")))
+    (expand-file-name (format "%s-%s.org"
+                              (format-time-string "%Y-%m-%d-%H-%M-%S") name) "~/org/z/")))
+
+;;;###autoload
+(let ((langs '("en" "fr")))
+  (setq lang-ring (make-ring (length langs)))
+  (dolist (elem langs) (ring-insert lang-ring elem)))
+
+(defun ispell-cycle-dictionary ()
+  (interactive)
+  (let ((lang (ring-ref lang-ring -1)))
+    (ring-insert lang-ring lang)
+    (ispell-change-dictionary lang)))

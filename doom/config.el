@@ -184,12 +184,12 @@
 ;; -- Spelling ---------------------------------------------------------------
 ;; (setq ispell-dictionary "en")
 ;; guess-language is probably better than auto-dictionary (7 years old)
-(setq guess-language-langcodes
-  '((en . ("en_GB" "English"))
-    (fr . ("fr_FR" "French"))))
-(setq guess-language-languages '(en fr))
-(setq guess-language-min-paragraph-length 45)
-(add-hook 'text-mode-hook #'guess-language-mode)
+;; (setq guess-language-langcodes
+;;       '((en . ("en_GB" "English"))
+;;         (fr . ("fr_FR" "French"))))
+;; (setq guess-language-languages '(en fr))
+;; (setq guess-language-min-paragraph-length 45)
+;; (add-hook 'text-mode-hook #'guess-language-mode)
 
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
