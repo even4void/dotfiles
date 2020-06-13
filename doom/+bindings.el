@@ -116,6 +116,7 @@
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Beautify buffer"     "B" #'format-all-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
+   :desc "Switch theme"        "T" #'set-light-theme
    :desc "Frame maximized"     "F" #'toggle-frame-maximized  ;; instead of fullscreen
    :desc "Ruler"               "R" #'fci-mode
    :desc "Mail checker"        "n" #'mu4e-alert-enable-mode-line-display

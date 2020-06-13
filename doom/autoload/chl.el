@@ -196,13 +196,22 @@ around point as the initial input."
     (expand-file-name (format "%s-%s.org"
                               (format-time-string "%Y-%m-%d-%H-%M-%S") name) "~/org/z/")))
 
-;;;###autoload
 (let ((langs '("en" "fr")))
   (setq lang-ring (make-ring (length langs)))
   (dolist (elem langs) (ring-insert lang-ring elem)))
 
+;;;###autoload
 (defun ispell-cycle-dictionary ()
+  "Cycle between fr <-> en dictionaries"
   (interactive)
   (let ((lang (ring-ref lang-ring -1)))
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
+
+;;;###autoload
+(defun set-light-theme ()
+  "Swich to light theme"
+  (interactive)
+  (load-theme 'doom-opera-light t)
+  (load! "../lisp/faces")
+  (set-face-italic 'font-lock-comment-face t))
