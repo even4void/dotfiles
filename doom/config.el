@@ -45,7 +45,7 @@
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
-(load-theme 'doom-nord t)
+(load-theme 'doom-opera-light t)
 (load! "lisp/faces")
 
 
@@ -277,7 +277,7 @@
                   ("*"  . "∗")
                   ("<=" . "⩽")
                   (">=" . "⩾"))))
-)
+  )
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
@@ -452,18 +452,16 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/z/" "~/org/local/" "~/org/refile.org" "~/org/j/")
+      org-agenda-files '("~/org/z/" "~/org/refile.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
-      +org-capture-todo-file "~/org/local/todo.org"
+      +org-capture-todo-file "~/org/todo.org"
       org-journal-dir "~/org/j/"
       inferior-R-program-name "/usr/local/bin/R"
       inferior-R-args "-q --no-save --no-restore"
       inferior-STA-program-name "/usr/local/bin/stata-mp"
       inferior-STA-start-args "-q")
 
-;; (load! "lisp/org-mac-iCal")
-;; (add-to-list 'org-modules 'org-mac-iCal)
 (setq diary-file "~/.diary")
 (setq calendar-week-start-day 1)
 
