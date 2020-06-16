@@ -208,16 +208,21 @@ around point as the initial input."
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
 
-(let ((thems '("doom-nord" "doom-opera-light")))
-  (setq them-ring (make-ring (length thems)))
-  (dolist (elem thems) (ring-insert them-ring elem)))
+(setq color-themes (list
+                    'doom-opera-light
+                    'doom-nord))
 
 ;;;###autoload
-(defun set-light-theme ()
-  "Swich to light theme"
+(defun theme-set-default ()
   (interactive)
-  (let ((them (ring-ref them-ring -1)))
-   (ring-insert them-ring them)
-   (load-theme (quote them) t))
-  (load! "../lisp/faces")
-  (set-face-italic 'font-lock-comment-face t))
+  (setq theme-current color-themes)
+  (load-theme (car theme-current) t))
+
+;;;###autoload
+(defun theme-cycle ()
+  (interactive)
+  (disable-theme (car theme-current))
+  (setq theme-current (cdr theme-current))
+  (if (null theme-current)
+      (setq theme-current color-themes))
+  (load-theme (car theme-current) t))

@@ -14,7 +14,8 @@
        indent-guides
        (modeline +light)
        nav-flash
-       neotree
+       ;; neotree
+       treemacs
        ophints
        (popup +all +defaults)
        pretty-code
@@ -47,7 +48,7 @@
 
        :tools
        biblio
-       debugger
+       (debugger +lsp)
        (eval +overlay)
        gist
        (lookup
@@ -90,7 +91,7 @@
        (python +lsp +cython +poetry)
        (julia +lsp)
        ;; (ruby +lsp)
-       racket
+       (racket +xp)
        (rust +lsp)
        scheme
        sh

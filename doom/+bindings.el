@@ -22,8 +22,7 @@
  "s-;"        #'eval-expression
  "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
- "s-@"        #'neotree-toggle
- "s-m"        #'mu4e
+ "s-@"        #'+treemacs/toggle
 
  ;; window/workspace
  :ni "s-<left>"     #'evil-window-left
@@ -63,11 +62,13 @@
 
  ;; which-key items
  :leader
- :desc "Next workspace"     ">"  #'+workspace:switch-next
- :desc "Split horizontally" "-"  #'split-window-below
- :desc "Split vertically"   "|"  #'split-window-right
- :desc "Remove split"       "="  #'delete-other-windows
- :desc "Swiper all"         "@"  #'doom/swiper-all-region-or-symbol
+ :desc "Next workspace"        ">"  #'+workspace:switch-next
+ :desc "Split horizontally"    "-"  #'split-window-below
+ :desc "Split vertically"      "|"  #'split-window-right
+ :desc "Remove split"          "="  #'delete-other-windows
+ :desc "Swiper all"            "@"  #'doom/swiper-all-region-or-symbol
+ :desc "Pop up scratch buffer" "X"    #'doom/open-scratch-buffer
+ :desc "Org Capture"           "x"    #'org-capture
  (:prefix "s"
    :desc "Counsel ag"          "c" #'doom/counsel-region-or-symbol
    :desc "Counsel Dash"        "C" #'counsel-dash-at-point
@@ -116,7 +117,7 @@
    :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
    :desc "Beautify buffer"     "B" #'format-all-mode
    :desc "Auto fill"           "f" #'auto-fill-mode
-   :desc "Switch theme"        "T" #'set-light-theme
+   :desc "Switch theme"        "T" #'cycle-theme
    :desc "Frame maximized"     "F" #'toggle-frame-maximized  ;; instead of fullscreen
    :desc "Ruler"               "R" #'fci-mode
    :desc "Mail checker"        "n" #'mu4e-alert-enable-mode-line-display

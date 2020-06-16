@@ -45,14 +45,16 @@
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
-(load-theme 'doom-opera-light t)
+;; (theme-set-default)
+(if (display-graphic-p)
+    (load-theme 'doom-opera-light t)
+  (load-theme 'doom-nord t))
 (load! "lisp/faces")
-
-
 (setq doom-themes-enable-bold nil)
+(set-face-italic 'font-lock-comment-face t)
+
 (setq which-key-idle-delay 0.1)
 (setq ns-use-proxy-icon nil)
-(set-face-italic 'font-lock-comment-face t)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 
@@ -180,6 +182,16 @@
 
 (setq flycheck-indication-mode 'right-fringe)
 
+(after! git-gutter-fringe
+  (when +vc-gutter-default-style
+    (if (fboundp 'fringe-mode) (fringe-mode '4))
+    (setq-default fringes-outside-margins t)
+    (define-fringe-bitmap 'git-gutter-fr:added [224]
+      nil nil '(center repeated))
+    (define-fringe-bitmap 'git-gutter-fr:modified [224]
+      nil nil '(center repeated))
+    (define-fringe-bitmap 'git-gutter-fr:deleted [224]
+      nil nil '(center repeated))))
 
 ;; -- Spelling ---------------------------------------------------------------
 ;; (setq ispell-dictionary "en")
@@ -201,6 +213,8 @@
   '(add-to-list 'recentf-exclude "^~/Sites/aliquote/content/micro"))
 (eval-after-load 'recentf
   '(add-to-list 'recentf-exclude "^~/.mail"))
+(eval-after-load 'recentf
+  '(add-to-list 'recentf-exclude "^~/.emacs.d/.local/etc/workspaces"))
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -246,8 +260,9 @@
   (setq +pretty-code-iosevka-font-ligatures
         (append +pretty-code-iosevka-font-ligatures
                 '(("[ ]"  . "☐")
-                  ("[X]"  . "☑")
-                  ("[-]"  . "☒")
+                  ;; ("[X]"  . "☑")
+                  ("[X]"  . "☒")
+                  ("[-]"  . "⧇")
                   ("%>%"  . #Xe175)
                   ("%$%"  . #Xe112)
                   ("%<>%" . #Xe114)
@@ -276,8 +291,8 @@
                   (":END:"           . "■")
                   ("*"  . "∗")
                   ("<=" . "⩽")
-                  (">=" . "⩾"))))
-  )
+                  (">=" . "⩾")))))
+
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
