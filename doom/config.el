@@ -214,7 +214,7 @@
 (eval-after-load 'recentf
   '(add-to-list 'recentf-exclude "^~/.mail"))
 (eval-after-load 'recentf
-  '(add-to-list 'recentf-exclude "^~/.emacs.d/.local/etc/workspaces"))
+  '(add-to-list 'recentf-exclude "^~/.emacs.d/.local/etc"))
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 

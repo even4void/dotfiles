@@ -10,6 +10,7 @@
 	required = true
 [core]
 	excludesfile = /Users/chl/.config/git/ignore
+	pager = delta --dark --theme='Nord' --24-bit-color --file-color="#fdf6e3" --hunk-color="#cb4b16"
 [include]
 	path = ~/.gitconfig.local
 [push]
@@ -25,15 +26,18 @@
 	co = checkout
 	cob = checkout -b
 	details = log -n1 -p --format=fuller
+	dms = diff master --summary
 	export = archive -o latest.tar.gz -9 --prefix=latest/<Paste>
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	nuke = "!git reset --hard; git clean -fd"
+	unstage = reset HEAD
 	pr = pull-request
 	here = !git init && git add . && git commit -S -m \"Init repo\"
-    wip = commit -S -m '↻ wip'
-    cos = commit -S -m 'Cosmit changes'
-    fix = commit -S -m '✓ Minor fix'
-    doc = commit -S -m 'Add doc'
-    todo = commit -S -m 'Add todo'
+	wip = commit -S -m '↻ wip'
+	cos = commit -S -m 'Cosmit changes'
+	fix = commit -S -m '✓ Minor fix'
+	doc = commit -S -m 'Add doc'
+	todo = commit -S -m 'Add todo'
 	discard-merge = reset --hard HEAD
 	ack = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S
 [filter "lfs"]

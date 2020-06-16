@@ -97,6 +97,7 @@
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
+   :desc "Org sort entries"    "R" #'org-sort-entries
    :desc "Add bookmark"        "B" #'bookmark-set
    :desc "Select dictionary"   "Z" #'ispell-change-dictionary
    :desc "Insert URL"          "u" #'insert-url)

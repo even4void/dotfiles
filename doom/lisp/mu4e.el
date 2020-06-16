@@ -1,5 +1,8 @@
 ;;; ~/.config/doom/lisp/mu4e.el -*- lexical-binding: t; -*-
 
+;; NOTE See https://github.com/djcb/mu/issues/1692 for some
+;; customizations.
+
 (add-to-list 'load-path "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
 
 (after! mu4e
@@ -21,12 +24,16 @@
         smtpmail-queue-dir "~/.mail/queue/cur"
         smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
         mu4e-attachment-dir "~/Downloads")
+  ;; (setq
+  ;;   message-citation-line-format "On %A %b %d %Y, %N wrote:\n"
+  ;;   message-citation-line-function 'message-insert-formatted-citation-line)
   (setq mu4e-headers-fields
-        '( (:date          .  25)
-           (:flags         .   6)
-           (:mailing-list  .  10)
-           (:from          .  22)
-           (:subject)))
+        '((:account       .  10)
+          (:date          .  18)
+          (:flags         .   6)
+          (:mailing-list  .  10)
+          (:from          .  22)
+          (:subject)))
   (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
   (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
