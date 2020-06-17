@@ -481,8 +481,14 @@
 (setq calendar-week-start-day 1)
 
 (use-package! org-fancy-priorities
-   :hook (org-mode . org-fancy-priorities-mode)
-   :config (setq org-fancy-priorities-list '("■" "■" "■")))
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config (setq org-fancy-priorities-list '("■" "■" "■")))
+
+(use-package ox-gfm
+  :after org)
+
+(use-package ox-leanpub
+  :after org)
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))

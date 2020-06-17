@@ -49,6 +49,7 @@
        :tools
        biblio
        (debugger +lsp)
+       docker
        (eval +overlay)
        gist
        (lookup
