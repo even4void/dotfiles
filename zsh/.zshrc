@@ -92,6 +92,9 @@ export PYSPARK_PYTHON="python3"
 
 source $HOME/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 
+# pandoc
+export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+
 # Doom and local repos
 export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
 # export JAVA_HOME=(/usr/libexec/java_home -v 1.8)'/jre'
