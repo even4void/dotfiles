@@ -1,0 +1,56 @@
+{
+    "rules": {
+        "abbr-within-parentheses": true,
+        // "en-capitalization": true,
+        //"max-comma": true,
+        "no-todo": {
+        "severity" : "warning"
+	    },
+        // "unexpanded-acronym": {
+        //    "severity" : "warning",
+        //    "min_acronym_len": 3,
+        //    "ignore_acronyms": [
+        //        "TITLE", "OPTIONS", "DONE", "TODO", "FIXME", "HACK",
+        //        "EOF", "PDF", "DOCX", "PNG", "RGB", "IRC", "DNA", "RNA"
+        //    ]
+        //},
+        "en-max-word-count": {
+            "severity" : "warning",
+            "max" : 80
+        },
+        "diacritics": {
+            "words": []
+        },
+        "@textlint-rule/no-invalid-control-character": true,
+        "terminology": {
+            "severity" : "warning",
+            "defaultTerms": true,
+            "exclude": ["PDF", "Node.js", "HTML"]
+        },
+        // "max-doc-width": {
+	    // "severity" : "warning"
+	    // },
+        "stop-words": {
+	    "severity" : "warning",
+            "defaultWords": true
+        },
+        "common-misspellings": {
+            "ignore": []
+        }
+    },
+    "filters": {
+	"comments": true,
+        "whitelist": {
+            "allow": [
+                "ignored-word",
+                "/\\d{4}-\\d{2}-\\d{2}/",
+                "/===IGNORE===[\\s\\S]*?===\/IGNORE===/m"
+            ]
+        }
+    },
+    "plugins": {
+        "@textlint/text": {
+            "extensions": [".org"]
+        }
+    }
+}
