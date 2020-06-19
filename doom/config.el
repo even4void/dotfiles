@@ -360,12 +360,6 @@
       neo-vc-integration '(face)
       projectile-switch-project-action 'neotree-projectile-action)
 
-;; (all-the-icons-ibuffer-mode 1)
-;; (setq all-the-icons-ibuffer-icon-size 0.8
-;;       all-the-icons-ibuffer-icon-v-adjust 0.0
-;;       all-the-icons-ibuffer-human-readable-size t)
-
-
 ;; -- deft -------------------------------------------------------------------
 (setq deft-directory "~/org/z"
       deft-recursive nil
@@ -494,6 +488,7 @@
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
   (setq org-agenda-include-diary t
         org-journal-follow-mode t
+        ;; org-journal-date-format "%A, %d %B %Y"
         org-journal-enable-agenda-integration t
         org-journal-enable-cache t)
   (setq org-capture-templates
@@ -570,7 +565,7 @@
                                            (listings . t)
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
-                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex" ))))
+                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
 
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")

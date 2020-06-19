@@ -226,3 +226,8 @@ around point as the initial input."
   (if (null theme-current)
       (setq theme-current color-themes))
   (load-theme (car theme-current) t))
+
+;;;###autoload
+(defun open-github ()
+  (interactive)
+  (browse-url "https://github.com/even4void"))

@@ -24,6 +24,11 @@
  "s-p"        #'counsel-M-x
  "s-@"        #'+treemacs/toggle
 
+ "C-f"        #'forward-word
+ "C-b"        #'backward-word
+ "C-a"        #'backward-sentence
+ "C-e"        #'forward-sentence
+
  ;; window/workspace
  :ni "s-<left>"     #'evil-window-left
  :ni "s-<right>"    #'evil-window-right
@@ -104,6 +109,7 @@
    :desc "Insert URL"          "u" #'insert-url)
  (:prefix "o"
    :desc "Geiser REPL"         "G" #'geiser
+   :desc "Github"              "g" #'open-github
    :desc "IELM"                "i" #'ielm
    :desc "IRC"                 "I" #'=irc
    :desc "Jupyter"             "J" #'jupyter-run-repl)
