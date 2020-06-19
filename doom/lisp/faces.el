@@ -35,7 +35,7 @@
 (set-face 'region                                        'face-subtle)
 (set-face 'highlight                                     'face-subtle)
 (set-face 'bold                                          'face-strong)
-(set-face 'italic                                         'face-faded)
+;; (set-face 'italic                                         'face-faded)
 (set-face 'cursor                                        'face-strong)
 (set-face-attribute 'cursor nil
                     :background (face-foreground        'face-strong))

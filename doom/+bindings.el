@@ -94,6 +94,7 @@
    :desc "Popup hunk"          "-" #'git-gutter:popup-hunk)
  (:prefix "n"
    :desc "Gist region/buffer"  "g" #'gist-region-or-buffer
+   :desc "Markdown hide/show"  "M" #'markdown-toggle-markup-hiding
    :desc "Org narrow"          "N" #'org-narrow-to-subtree
    :desc "Interleave"          "I" #'interleave-mode
    :desc "Org clean results"   "r" #'org-remove-all-result-blocks
@@ -123,7 +124,6 @@
    :desc "Ruler"               "R" #'fci-mode
    :desc "Mail checker"        "n" #'mu4e-alert-enable-mode-line-display
    :desc "Undo tree"           "u" #'undo-tree-visualize
-   :desc "Markdown hide/show"  "m" #'markdown-toggle-markup-hiding
    :desc "Flycheck"            "c" #'flycheck-buffer)
  (:prefix "w"
    :desc "Swap window H/V"     "w" #'doom/window-layout-toggle))

@@ -367,10 +367,10 @@
 
 
 ;; -- deft -------------------------------------------------------------------
-(setq deft-directory "~/Sites/aliquote/content/post"
+(setq deft-directory "~/org/z"
       deft-recursive nil
-      deft-use-filename-as-title t
-      deft-strip-summary-regexp "\\(^---\\|^title:.*$\\|^date:.*$\\|^draft:.*$\\|^tags:.*$\\|^categories:.*$\\)")
+      deft-use-filename-as-title t)
+;; deft-strip-summary-regexp "\\(^---\\|^title:.*$\\|^date:.*$\\|^draft:.*$\\|^tags:.*$\\|^categories:.*$\\)")
 
 ;; -- company ----------------------------------------------------------------
 (after! company

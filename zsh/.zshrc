@@ -59,6 +59,9 @@ bindkey '^[[3~' delete-char
 
 export PATH="$HOME/local/bin:$HOME/.config/bin:$PATH"
 
+# rg
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
+
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
 # Reduce delay for key combinations in order to change to vi mode faster

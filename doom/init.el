@@ -13,13 +13,13 @@
        hl-todo
        indent-guides
        (modeline +light)
+       minimap
        nav-flash
        ;; neotree
        treemacs
        ophints
        (popup +all +defaults)
        pretty-code
-       ;;treemacs
        vc-gutter
        window-select
        workspaces
@@ -61,7 +61,7 @@
        make
        pdf
        rgb
-       ;; taskrunner
+       taskrunner
        upload
 
        :lang
