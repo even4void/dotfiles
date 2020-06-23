@@ -58,13 +58,14 @@
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 
+(setq doom-localleader-alt-key "s-$")
+
 (setq doom-themes-neotree-file-icons 'simple
       doom-themes-neotree-folder-icons 'simple
       doom-themes-neotree-enable-variable-pitch t)
 
-(minions-mode 1)
-
 (unless (featurep! "+light")
+  ;; (minions-mode 1)
   ;; (setq all-the-icons-scale-factor 1.1)
   (setq doom-modeline-mu4e t
         ;; doom-modeline-github t
@@ -484,6 +485,7 @@
 (use-package ox-leanpub
   :after org)
 
+
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
   (setq org-agenda-include-diary t
@@ -495,6 +497,10 @@
         '(("t" "Personal todo" entry
            (file+headline +org-capture-todo-file "Inbox")
            "* TODO %?\n%i\n" :prepend t :kill-buffer t)
+          ("m" "Mail" entry
+           (file+headline +org-capture-todo-file "Inbox")
+           "* TODO [#A] [[%:path][%:subject]] :mu4e:\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
+           :immediate-finish t :prepend t)
           ("n" "Personal notes" entry
            (file+headline +org-capture-notes-file "Inbox")
            "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
@@ -569,4 +575,6 @@
 
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")
+(add-to-list 'org-modules 'org-mu4e)
+
 (load! "lisp/irc")

@@ -44,7 +44,6 @@ let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
 
-let g:coc_node_path = '/usr/local/bin/node'  " for coc
 let g:make = 'gmake'                         " for vimproc
 if exists('make')
         let g:make = 'make'

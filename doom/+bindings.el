@@ -18,11 +18,12 @@
  "s-x"        #'kill-region
  "s-s"        #'save-buffer
  "s-a"        #'mark-whole-buffer
- "s-b"        #'persp-switch-to-buffer
+ "s-&"        #'persp-switch-to-buffer
  "s-;"        #'eval-expression
  "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
- "s-@"        #'+treemacs/toggle
+ "s-b"        #'+treemacs/toggle
+ "s-@"        #'+workspace:switch-next
 
  "C-f"        #'forward-word
  "C-b"        #'backward-word

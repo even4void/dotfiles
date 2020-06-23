@@ -4,6 +4,7 @@
 ;; customizations.
 
 (add-to-list 'load-path "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
+(require 'org-mu4e)
 
 (after! mu4e
   (setq mu4e-get-mail-command "mbsync -a"
@@ -16,7 +17,7 @@
         mu4e-confirm-quit nil
         mu4e-display-update-status-in-modeline nil
         mu4e-index-lazy-check t
-        mu4e-update-interval 600
+        mu4e-update-interval nil ;; 600
         mu4e-use-fancy-chars nil  ;; too bad actually
         mail-host-address "aliquote.org"
         mu4e-compose-signature "chl AT aliquote.org\n152E3E3F7C4CCE44\n(•̀ᴗ•́)و"

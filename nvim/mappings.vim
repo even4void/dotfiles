@@ -53,10 +53,8 @@ if has('macunix')
 endif
 
 "" Buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
+noremap <leader>a :bp<CR>
+noremap <leader>z :bn<CR>
 
 "" Close buffer
 noremap <leader>c :bd<CR>
