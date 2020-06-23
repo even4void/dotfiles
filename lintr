@@ -1,2 +1,2 @@
-linters: with_defaults(assignment_linter=NULL,camel_case_linter=NULL,object_name_linter=NULL,commented_code_linter=NULL,absolute_paths_linter=NULL,line_length_linter(80))
+linters: with_defaults(assignment_linter=NULL,camel_case_linter=NULL,object_name_linter=NULL,commented_code_linter=NULL,absolute_paths_linter=NULL,line_length_linter(120))
 exclusions: list("tmp.r")

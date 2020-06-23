@@ -114,6 +114,7 @@
   '(org-journal-calendar-entry-face :foreground "#c2a282" :slant normal)
   '(org-journal-calendar-scheduled-face :foreground "#bf616a" :slant normal)
   '(lsp-ui-sideline-code-action :foreground "#ffa07a")
+  '(lsp-face-highlight-textual :background "#c2c282")
   '(racket-keyword-argument-face :foreground "#c2a282")
   '(racket-selfeval-face :foreground "#c2a282")
   '(diredfl-date-time :foreground "#81a1c1")
