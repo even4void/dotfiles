@@ -120,6 +120,7 @@
    :desc "Select dictionary"   "Z" #'ispell-change-dictionary
    :desc "Switch dictionary"   "z" #'ispell-cycle-dictionary
    :desc "Spellcheck"          "W" #'flyspell-buffer
+   :desc "Rainbow colors"      "C" #'rainbow-mode
    :desc "Keypression"         "k" #'keypression-mode
    :desc "Poly Markdown"       "P" #'poly-markdown-mode
    :desc "Toggle letter case"  "L" #'toggle-letter-case

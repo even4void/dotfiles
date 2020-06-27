@@ -90,7 +90,7 @@
   `(markdown-url-face :foreground ,(doom-darken "#81a1c1" 0.2))
   '(markdown-pre-face :foreground "#bebf8e")
   '(markdown-code-face :background "#f9f9f9")
-  '(markdown-inline-code-face :background nil)
+  '(markdown-inline-code-face :background nil :inherit 'markdown-pre-face)
   '(dired-directory :foreground "#81a1c1")
   `(dired-symlink :foreground ,(doom-darken "#81a1c1" 0.2))
   '(pdf-isearch-batch :foreground "#bebf8e")

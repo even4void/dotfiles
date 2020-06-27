@@ -510,7 +510,7 @@
            (file+olp+datetree +org-capture-journal-file)
            "* %U %?\n%i\n%a" :prepend t)
           ("z" "Org/z notes" entry (file my/write-file)
-           "* %?\n\n #+FILETAGS:\n\n" :prepend nil :kill-buffer t)
+           "* %?\n\n#+FILETAGS:\n\n" :prepend nil :kill-buffer t)
           ("p" "Templates for projects")
           ("pt" "Project todo" entry  ; {project-root}/todo.org
            (file+headline +org-capture-project-todo-file "Inbox")
