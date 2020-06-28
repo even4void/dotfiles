@@ -161,7 +161,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " Other config files
 source ~/.config/nvim/plug.vim
-source ~/.config/nvim/coc-setup.vim
+" source ~/.config/nvim/coc-setup.vim
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/cmd.vim
 
