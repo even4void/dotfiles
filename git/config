@@ -10,7 +10,7 @@
 	required = true
 [core]
 	excludesfile = /Users/chl/.config/git/ignore
-	pager = delta --dark --theme='Nord' --24-bit-color --file-color="#fdf6e3" --hunk-color="#cb4b16"
+	pager = delta --theme='none' --24-bit-color --plus-color="#89b085" --plus-emph-color="#6c9c68" --minus-color="#a786af" --minus-emph-color="#91699b"
 [include]
 	path = ~/.gitconfig.local
 [push]

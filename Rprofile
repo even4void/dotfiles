@@ -31,7 +31,10 @@ if (Sys.getenv("TERM")  == "xterm-256color") {
 .pkg <- c("ggplot2", "skimr")
 if (interactive()) invisible(sapply(.pkg, .loader))
 
-.First <- function()  grDevices::palette("Tableau10")
+.First <- function() {
+  grDevices::quartz.options(width = 6, height = 6)
+  grDevices::palette("Tableau10")
+}
 
 .Last <- function() {
   if (interactive()) {
