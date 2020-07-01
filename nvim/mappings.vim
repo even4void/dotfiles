@@ -15,12 +15,6 @@ noremap <Leader>gB :GitMessenger<CR>
 noremap <Leader>gl :ToggleBlameLine<CR>
 noremap <Leader>gh :GitGutterPreviewHunk<CR>
 
-" session management
-" nnoremap <leader>so :OpenSession<Space>
-" nnoremap <leader>ss :SaveSession<Space>
-" nnoremap <leader>sd :DeleteSession<CR>
-" nnoremap <leader>sc :CloseSession<CR>
-
 "" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -36,11 +30,6 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <leader>e :FZF -m<CR>
-nnoremap <silent> <leader>t :BTags<CR>
-" Recovery commands from history through FZF
-nmap <leader>y :History:<CR>
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -91,3 +80,4 @@ inoremap <C-a> <C-o>0
 nmap ; :Buffers<CR>
 nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
+nmap <leader>y :History:<CR>
