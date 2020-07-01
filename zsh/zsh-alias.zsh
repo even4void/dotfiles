@@ -53,7 +53,8 @@ alias confd="nvim ~/.config"
 alias rsyncssh='rsync -Pr --rsh=ssh'
 
 # Edit/Source vim config
-alias sz='source ~/.config/zsh/.zshrc'
+alias sz='source $HOME/.config/zsh/.zshrc'
+alias ss="source $HOME/.config/zsh/.zshrc"
 
 # git
 alias gg="git show | tig"
@@ -66,14 +67,17 @@ alias gcb="git checkout -b"
 alias gaa="git add --all"
 alias gfu="git fetch upstream"
 alias gmu="git merge upstream/master"
+alias guu="git fetch && git diff master origin/master" # or gd @{upstream}
 
 # tmux
 alias tma="tmux attach -t"
 alias tmk="tmux kill-session -t"
 alias tmn="tmux new -s"
 
-# ceedee dot dot dot
-alias -g ..='../'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+# cd'ing stuff
+alias ..='cd ../'
+alias ...=' cd ../..'
+alias cd..='cd ../'
+
+# launch app
+alias -s log=vim

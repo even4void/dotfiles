@@ -4,6 +4,8 @@
 typeset -U PATH
 autoload colors; colors;
 
+# setopt autocd
+
 # autoload -U promptinit; promptinit
 
 ### CUSTOM FILES ###
@@ -31,7 +33,6 @@ setopt inc_append_history
 setopt share_history
 
 ### KEY BINDINGS ###
-# Vim Keybindings
 bindkey -e
 
 # CTRL-R to search through history
