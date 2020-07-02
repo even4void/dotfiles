@@ -63,20 +63,7 @@ set titleold="Terminal"
 set titlestring=%F
 
 " set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l:%c)\
-
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
-
-" vim-airline
-let g:airline_theme = 'base16'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tagbar#enabled = 0
-let g:airline_skip_empty_sections = 1
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l:%c)\
 
 " Git gutter/messenger
 let g:gitgutter_map_keys = 0
@@ -97,18 +84,12 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 40
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
-nnoremap <silent> <C-P> :NERDTreeToggle<CR>
 
 " Prettier
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
-
-" terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
 
 " ale
 let g:ale_sign_error = '▮'
@@ -118,10 +99,8 @@ let g:ale_linters = {'python': ['flake8', 'mypy'], 'markdown': ['mdl']}
 let g:ale_fixers = {'python': ['autopep8', 'yapf'], 'javascript': ['eslint']}
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 " let g:ale_fix_on_save = 1
-nmap <F6> <Plug>(ale_fix)
 
 " Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " Copy/Paste/Cut
@@ -144,9 +123,6 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_folding_level = 2
 
-" vim-airline
-let g:airline#extensions#virtualenv#enabled = 1
-
 " Other config files
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/mappings.vim
@@ -164,6 +140,21 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
+let g:airline_theme = 'base16'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline_skip_empty_sections = 1
+" let g:airline#extensions#virtualenv#enabled = 1
+" let g:airline#extensions#fzf#enabled = 1
+" let g:airline#extensions#fugitiveline#enabled = 1
+" let g:airline#extensions#grepper#enabled = 1
+
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_alt_sep                    = '»'
@@ -177,10 +168,10 @@ let g:airline_symbols.branch                  = ''
 let g:airline_symbols.notexists               = '⤓'
 let g:airline_symbols.dirty                   = '⚡'
 let g:airline_symbols.paste                   = 'ρ'
-let g:airline_symbols.paste                   = 'Þ'
-let g:airline_symbols.paste                   = '∥'
 let g:airline_symbols.readonly                = ''
 let g:airline_symbols.whitespace              = 'Ξ'
+
+au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%% %L:%3v'])
 
 highlight Comment cterm=italic  " vim
 highlight Comment gui=italic    " nvim

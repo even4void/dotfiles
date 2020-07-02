@@ -34,5 +34,6 @@ Plug 'itspriddle/vim-marked',              { 'for': 'markdown' }
 Plug 'jceb/vim-orgmode'
 Plug 'junegunn/fzf',                       { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Plug 'sainnhe/edge'
 
 call plug#end()

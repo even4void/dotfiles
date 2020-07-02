@@ -317,10 +317,10 @@ c.TerminalInteractiveShell.highlighting_style = 'bw'
 
 ## Override highlighting format for specific tokens
 c.TerminalInteractiveShell.highlighting_style_overrides = {
-    Token.Prompt: '#ffffff',
-    Token.PromptNum: '#888888',
-    Token.OutPrompt: '#008b8b',
-    Token.OutPromptNum: '#006b6b',
+    Token.Prompt: '#888888',
+    Token.PromptNum: '#555555',
+    Token.OutPrompt: '#888888',
+    Token.OutPromptNum: '#555555',
 }
 
 ## Enable mouse support in the prompt (Note: prevents selecting text with the

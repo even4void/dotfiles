@@ -1,6 +1,5 @@
 "" Split
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <Leader>- :<C-u>split<CR>
 
 "" Buffer nav
 noremap <leader>j :bp<CR>
@@ -17,6 +16,17 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
+
+"" Nerdtree and Tagbar
+nnoremap <leader>z :NERDTreeFind<CR>
+nnoremap <silent> <C-P> :NERDTreeToggle<CR>
+nmap <Leader>@ :Tagbar<CR>
+
+" terminal emulation
+nnoremap <silent> <leader>sh :terminal<CR>
+
+"" Ale
+nmap <Leader>= <Plug>(ale_fix)
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
