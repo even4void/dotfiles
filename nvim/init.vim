@@ -19,7 +19,7 @@ set ignorecase
 set smartcase
 set shell=/bin/zsh                     " default $SHELL
 set ruler                              " visual settings
-set number
+set relativenumber
 set listchars=tab:▸\ ,trail:∙          " chars style
 set nolist                             " (hidden by default)
 set mouse=a                            " mouse support
@@ -55,14 +55,15 @@ set scrolloff=3
 
 " Modeline and gutter
 set laststatus=2
-set modeline
-set modelines=10
+" CVE-2019-12735.
+set nomodeline
 
 set title
 set titleold="Terminal"
 set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l:%c)\
 
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
@@ -71,10 +72,10 @@ endif
 " vim-airline
 let g:airline_theme = 'base16'
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#enabled = 0
 let g:airline_skip_empty_sections = 1
 
 " Git gutter/messenger
@@ -93,7 +94,6 @@ let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 40
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
@@ -107,20 +107,8 @@ let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
 
-" grep.vim
-nnoremap <silent> <leader>f :Rgrep<CR>
-let Grep_Default_Options = '-IR'
-let Grep_Skip_Files = '*.log *.db'
-let Grep_Skip_Dirs = '.git node_modules'
-
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_sign_error = '▮'
@@ -161,8 +149,8 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " Other config files
 source ~/.config/nvim/plug.vim
-" source ~/.config/nvim/coc-setup.vim
 source ~/.config/nvim/mappings.vim
+source ~/.config/nvim/coc-setup.vim
 source ~/.config/nvim/cmd.vim
 
 " Theme
@@ -180,12 +168,12 @@ let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_alt_sep                    = '»'
 let g:airline_right_alt_sep                   = '«'
-let g:airline#extensions#branch#prefix        = '⎇' "➔, ➥, ⎇
+let g:airline#extensions#branch#prefix        = '⎇'
 let g:airline#extensions#readonly#symbol      = '⊘'
 let g:airline#extensions#linecolumn#prefix    = '¶'
 let g:airline#extensions#paste#symbol         = 'ρ'
 let g:airline_symbols.linenr                  = ''
-let g:airline_symbols.branch                  = ''    "'⎇'
+let g:airline_symbols.branch                  = ''
 let g:airline_symbols.notexists               = '⤓'
 let g:airline_symbols.dirty                   = '⚡'
 let g:airline_symbols.paste                   = 'ρ'
