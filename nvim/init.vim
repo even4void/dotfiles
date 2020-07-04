@@ -17,13 +17,17 @@ set hlsearch                           " searching
 set incsearch
 set ignorecase
 set smartcase
+set inccommand=split                   " live substitution (nvim only)
 set shell=/bin/zsh                     " default $SHELL
 set ruler                              " visual settings
 set relativenumber
-set listchars=tab:▸\ ,trail:∙          " chars style
+set listchars=tab:▸\ ,trail:∙,conceal:┊,nbsp:·
 set nolist                             " (hidden by default)
 set mouse=a                            " mouse support
 set mousemodel=popup
+set nojoinspaces                       " one space, not two, after punctuation
+set splitbelow splitright
+set grepprg=rg\ --vimgrep
 set t_Co=256                           " termical color model
 set conceallevel=2                     " concealing
 set foldenable                         " folding
@@ -44,7 +48,7 @@ let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
 
-let g:make = 'gmake'                         " for vimproc
+let g:make = 'gmake'                   " for vimproc
 if exists('make')
         let g:make = 'make'
 endif
@@ -61,9 +65,6 @@ set nomodeline
 set title
 set titleold="Terminal"
 set titlestring=%F
-
-" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
-" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l:%c)\
 
 " Git gutter/messenger
 let g:gitgutter_map_keys = 0
@@ -122,11 +123,14 @@ let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_folding_level = 2
+let g:vim_markdown_emphasis_multiline = 0
+let g:vim_markdown_fenced_languages = ['julia=jl', 'python=py']
+
 
 " Other config files
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/mappings.vim
-source ~/.config/nvim/coc-setup.vim
+source ~/.config/nvim/lsp.vim
 source ~/.config/nvim/cmd.vim
 
 " Theme
@@ -171,7 +175,7 @@ let g:airline_symbols.paste                   = 'ρ'
 let g:airline_symbols.readonly                = ''
 let g:airline_symbols.whitespace              = 'Ξ'
 
-au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%% %L:%3v'])
+au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%% %l:%3v'])
 
 highlight Comment cterm=italic  " vim
 highlight Comment gui=italic    " nvim

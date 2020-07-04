@@ -6,6 +6,8 @@ noremap <leader>j :bp<CR>
 noremap <leader>k :bn<CR>
 noremap <leader>c :bd<CR>
 
+nnoremap <silent> <C-d><C-d> :confirm bdelete<CR>
+
 "" Tabs
 nnoremap <leader>a :tabnew<CR>
 nnoremap <leader>h :tabprevious<CR>
@@ -25,16 +27,11 @@ nmap <Leader>@ :Tagbar<CR>
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
 
-"" Ale
-nmap <Leader>= <Plug>(ale_fix)
-
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
-"" Opens an edit command with the path of the currently edited file filled in
+"" Opens a (tab) edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-"" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 noremap YY "+y<CR>
@@ -42,10 +39,15 @@ noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
 
 if has('macunix')
-  " pbcopy for OSX copy/paste
   vmap <C-x> :!pbcopy<CR>
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
+
+"" Shift select
+imap <S-Left> <ESC>v<Left>
+imap <S-Right> <ESC>v<Right>
+imap <S-Up> <ESC>v<Up>
+imap <S-Down> <ESC>v<Down>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><leader> :noh<cr>
@@ -64,70 +66,44 @@ inoremap <C-a> <C-o>0
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gg :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
-noremap <Leader>gB :GitMessenger<CR>
-noremap <Leader>gl :ToggleBlameLine<CR>
 noremap <Leader>gh :GitGutterPreviewHunk<CR>
+noremap <Leader>gl :ToggleBlameLine<CR>
+noremap <Leader>gm :GitMessenger<CR>
+noremap <Leader>gp :Gpush<CR>
+noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gu :Gpull<CR>
 
 "" fzf
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
+nmap <Leader>/ :BLines<CR>
 nmap <Leader>t :Tags<CR>
 nmap <leader>y :History:<CR>
 
 "" grepper
 nmap <unique> <Leader>r :GrepperRg<SPACE>
 
-"" coc settings
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"" Ale
+nmap <Leader>= <Plug>(ale_fix)
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+"" lsp
+nmap gc <cmd>lua vim.lsp.buf.declaration()<CR>
+nmap gd <cmd>lua vim.lsp.buf.definition()<CR>
+nmap gh <cmd>lua vim.lsp.buf.hover()<CR>
+" nmap gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nmap gD <cmd>lua vim.lsp.buf.references()<CR>
+nmap g* <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nmap gr <cmd>lua vim.lsp.buf.rename()<CR>
+nmap gf <cmd>lua vim.lsp.buf.formatting()<CR>
+nmap gs <cmd>lua vim.lsp.buf.signature_help()<CR>
+nmap ga <cmd>lua vim.lsp.buf.code_action()<CR>
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> gh :call <SID>show_documentation()<CR>
+autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nmap <leader>ca  <Plug>(coc-codeaction)
-nmap <leader>cq  <Plug>(coc-fix-current)
-nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
-nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
-nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
-nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
-nnoremap <silent> <leader>cp  :<C-u>CocListResume<CR>
-nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<CR>
-nnoremap <silent> <leader>cx  :<C-u>CocList extensions<cr>
-nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<CR>
-vmap <leader>ca  <Plug>(coc-codeaction-selected)
-nmap <leader>cr  <Plug>(coc-rename)
-nmap <leader>cf  <Plug>(coc-format-selected)
-vmap <leader>cf  <Plug>(coc-format-selected)
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
+nmap <leader>d :OpenDiagnostic<CR>
+nmap <silent> [g :PrevDiagnosticCycle<CR>
+nmap <silent> ]g :NextDiagnosticCycle<CR>
