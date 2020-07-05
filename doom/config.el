@@ -47,17 +47,19 @@
 ;; ---------------------------------------------------------------------------
 ;; (theme-set-default)
 (if (display-graphic-p)
-    (load-theme 'doom-opera-light t)
+    (load-theme 'doom-nord-light t)
   (load-theme 'doom-nord t))
 (load! "lisp/faces")
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
 
-(setq which-key-idle-delay 0.1)
+(setq which-key-idle-delay 0.2)
 (setq ns-use-proxy-icon nil)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 
+(setq doom-leader-key ","
+      doom-localleader-key "\\")
 (setq doom-localleader-alt-key "s-$")
 
 (setq doom-themes-neotree-file-icons 'simple
@@ -107,8 +109,7 @@
 
 (after! ivy-bibtex
   (setq bibtex-completion-bibliography '("~/org/references.bib")
-        bibtex-completion-library-path '("~/Documents/Papers"
-                                         "~/Documents/Papers/_iBooks")
+        bibtex-completion-library-path '("~/Documents/Papers")
         bibtex-completion-pdf-extension '(".pdf" ".epub")
         bibtex-completion-notes-path "/Users/chl/org/papers.org"
         bibtex-completion-notes-symbol "≣"
@@ -156,7 +157,6 @@
           #b01111110
           #b00000000
           #b00000000))
-
 
 (when (display-graphic-p)
   (flycheck-define-error-level 'error
@@ -302,8 +302,8 @@
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
-(setq +lookup-open-url-fn #'eww)
-(setq counsel-dash-browser-func #'eww)
+(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
+(setq counsel-dash-browser-func #'+lookup-xwidget-webkit-open-url-fn)
 (setq counsel-dash-min-length 3)
 
 ;; -- eshell/term -------------------------------------------------------------

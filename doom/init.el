@@ -29,7 +29,7 @@
        file-templates
        fold
        (format +onsave)
-       parinfer
+       ;; parinfer
        rotate-text
        snippets
        ;; word-wrap
@@ -55,7 +55,8 @@
        (lookup
         +docsets
         +dictionary
-        +offline)
+        +offline
+        +xwidget)
        (lsp +peek)
        (magit +forge)
        make
@@ -119,11 +120,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("f99773b819cbfee5b3b12ec82ee7f9a82a32ebe3637ed60f5c4c062304cb9621" default)))
- '(flycheck-lintr-linters
-   "with_defaults(assignment_linter=NULL,camel_case_linter=NULL,commented_code_linter=NULL,absolute_paths_linter=NULL,line_length_linter(120))"))
+)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
