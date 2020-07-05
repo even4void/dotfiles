@@ -1,5 +1,5 @@
 "" Split
-noremap <Leader>- :<C-u>split<CR>
+noremap <leader>- :<C-u>split<CR>
 
 "" Buffer nav
 noremap <leader>j :bp<CR>
@@ -22,7 +22,8 @@ noremap <C-h> <C-w>h
 "" Nerdtree and Tagbar
 nnoremap <leader>z :NERDTreeFind<CR>
 nnoremap <silent> <C-P> :NERDTreeToggle<CR>
-nmap <Leader>@ :Tagbar<CR>
+nmap <leader>@ :Vista nvim_lsp<CR>
+nmap <leader>& :Vista finder nvim_lsp<CR>
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>
@@ -31,8 +32,8 @@ nnoremap <silent> <leader>sh :terminal<CR>
 nnoremap <leader>. :lcd %:p:h<CR>
 
 "" Opens a (tab) edit command with the path of the currently edited file filled in
-noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
@@ -50,7 +51,7 @@ imap <S-Up> <ESC>v<Up>
 imap <S-Down> <ESC>v<Down>
 
 "" Clean search (highlight)
-nnoremap <silent> <leader><leader> :noh<cr>
+nnoremap <silent> <ESC><ESC> :noh<cr>
 
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
@@ -65,34 +66,32 @@ inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>0
 
 "" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gh :GitGutterPreviewHunk<CR>
-noremap <Leader>gl :ToggleBlameLine<CR>
-noremap <Leader>gm :GitMessenger<CR>
-noremap <Leader>gp :Gpush<CR>
-noremap <Leader>gr :Gremove<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gu :Gpull<CR>
+noremap <leader>ga :Gwrite<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gd :Gvdiff<CR>
+noremap <leader>gh :GitGutterPreviewHunk<CR>
+noremap <leader>gl :ToggleBlameLine<CR>
+noremap <leader>gm :GitMessenger<CR>
+noremap <leader>gp :Gpush<CR>
+noremap <leader>gr :Gremove<CR>
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gu :Gpull<CR>
 
 "" fzf
-nmap ; :Buffers<CR>
-nmap <Leader>f :Files<CR>
-nmap <Leader>/ :BLines<CR>
-nmap <Leader>t :Tags<CR>
+nmap <leader>, :Buffers<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>/ :BLines<CR>
+nmap <leader>t :Tags<CR>
 nmap <leader>y :History:<CR>
-
-"" grepper
-nmap <unique> <Leader>r :GrepperRg<SPACE>
+nmap <leader>r :Rg<SPACE>
 
 "" Ale
-nmap <Leader>= <Plug>(ale_fix)
+nmap <leader>= <Plug>(ale_fix)
 
 "" lsp
 nmap ga <cmd>lua vim.lsp.buf.code_action()<CR>
-nmap gc <cmd>lua vim.lsp.buf.declaration()<CR>
+" nmap gc <cmd>lua vim.lsp.buf.declaration()<CR>
 nmap gd <cmd>lua vim.lsp.buf.definition()<CR>
 nmap gD <cmd>lua vim.lsp.buf.references()<CR>
 nmap gf <cmd>lua vim.lsp.buf.formatting()<CR>

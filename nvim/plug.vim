@@ -1,8 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
 
 "" project/buffers management
-Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'   " TODO try defx as a replacement or remove altogether
+Plug 'liuchengxu/vista.vim'  " instead of tagbar
 Plug 'airblade/vim-rooter'
 
 "" code editing, text manipulation
@@ -14,13 +14,10 @@ Plug 'w0rp/ale'
 Plug 'mbbill/undotree',                    { 'on': 'UndotreeToggle' }
 Plug 'Yggdroot/indentLine'
 Plug 'rust-lang/rust.vim'
-Plug 'JuliaEditorSupport/julia-vim'
 Plug 'cespare/vim-toml'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'wlangstroth/vim-racket'
 Plug 'prettier/vim-prettier',              { 'do': 'yarn install' }
-Plug 'Shougo/vimproc.vim',                 { 'do': g:make }
-Plug 'vim-scripts/c.vim',                  { 'for': ['c', 'cpp'] }
-Plug 'ludwig/split-manpage.vim'
 Plug 'plasticboy/vim-markdown',            { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',           { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',              { 'for': 'markdown' }
@@ -28,7 +25,6 @@ Plug 'jceb/vim-orgmode'
 
 "" Git
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'rhysd/git-messenger.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tveskag/nvim-blame-line'
@@ -39,8 +35,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 "" searching tools
-Plug 'mhinz/vim-grepper',                  { 'on': ['Grepper', 'GrepperRg', '<Plug>(GrepperOperator)'] }
-Plug 'osyo-manga/vim-anzu'
 Plug 'junegunn/fzf',                       { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 

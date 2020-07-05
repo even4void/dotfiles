@@ -48,11 +48,6 @@ let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
 
-let g:make = 'gmake'                   " for vimproc
-if exists('make')
-        let g:make = 'make'
-endif
-
 " Disable the blinking cursor
 set gcr=a:blinkon0
 set scrolloff=3
@@ -101,13 +96,18 @@ let g:ale_fixers = {'python': ['autopep8', 'yapf'], 'javascript': ['eslint']}
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 " let g:ale_fix_on_save = 1
 
-" Tagbar
-let g:tagbar_autofocus = 1
-
 " Copy/Paste/Cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
+
+" fzf
+" let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
+let g:fzf_layout = { 'down': '20%' }
+let g:fzf_preview_window = ''
+let g:fzf_buffers_jump = 1
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " Rust
 let g:rust_recommended_style = 0
