@@ -62,6 +62,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gst="git status -s"
 alias gci="git commit -S -m"
+alias gp="git push"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gaa="git add --all"
