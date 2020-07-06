@@ -46,10 +46,13 @@
 ;; ui
 ;; ---------------------------------------------------------------------------
 ;; (theme-set-default)
-(if (display-graphic-p)
-    (load-theme 'doom-nord-light t)
-  (load-theme 'doom-nord t))
+; (if (display-graphic-p)
+;     (load-theme 'doom-nord-light t)
+;   (load-theme 'doom-nord t))
+
+(setq doom-theme 'doom-nord)
 (load! "lisp/faces")
+
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
 
@@ -57,9 +60,8 @@
 (setq ns-use-proxy-icon nil)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
+(setq display-line-numbers-type 'relative)
 
-(setq doom-leader-key ","
-      doom-localleader-key "\\")
 (setq doom-localleader-alt-key "s-$")
 
 (setq doom-themes-neotree-file-icons 'simple
@@ -578,3 +580,56 @@
 (add-to-list 'org-modules 'org-mu4e)
 
 (load! "lisp/irc")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values '((ispell-dictionary))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(dired-directory ((t (:foreground "#81a1c1"))))
+ '(dired-symlink ((t (:foreground "#67809a"))))
+ '(diredfl-date-time ((t (:foreground "#81a1c1"))))
+ '(doom-modeline-buffer-modified ((t (:foreground "#c2a282"))))
+ '(ess-constant-face ((t (:foreground "#bebf8e"))))
+ '(ess-modifiers-face ((t (:foreground unspecified))))
+ '(flyspell-duplicate ((t (:underline (:color "#bebf8e")))))
+ '(flyspell-incorrect ((t (:underline (:color "#c2a282")))))
+ '(highlight-numbers-number ((t (:foreground "#bebf8e"))))
+ '(highlight-quoted-symbol ((t (:foreground "#67809a"))))
+ '(ivy-subdir ((t (:foreground "#81a1c1"))))
+ '(lsp-face-highlight-textual ((t (:background "#c2c282"))))
+ '(lsp-ui-sideline-code-action ((t (:foreground "#ffa07a"))))
+ '(markdown-header-delimiter-face ((t (:foreground unspecified :weight bold))))
+ '(markdown-header-face-1 ((t (:inherit 'outline-1 :weight bold :height 1.05))))
+ '(markdown-header-face-2 ((t (:inherit 'outline-2 :weight bold))))
+ '(markdown-inline-code-face ((t (:background nil :inherit 'markdown-pre-face))))
+ '(markdown-italic-face ((t (:foreground unspecified :slant italic))))
+ '(markdown-link-face ((t (:foreground "#81a1c1" :underline (:color "#81a1c1")))))
+ '(markdown-list-face ((t (:foreground unspecified :weight regular))))
+ '(markdown-math-face ((t (:foreground unspecified :weight bold))))
+ '(markdown-metadata-key-face ((t (:foreground "#4c566a"))))
+ '(markdown-pre-face ((t (:foreground "#bebf8e"))))
+ '(markdown-url-face ((t (:foreground "#67809a"))))
+ '(mode-line-inactive ((t (:family "Helvetica Neue" :height 0.96))))
+ '(mu4e-header-key-face ((t (:foreground "#c2a282"))))
+ '(mu4e-highlight-face ((t (:foreground "#81a1c1" :weight bold))))
+ '(org-document-title ((t (:foreground "#c2a282"))))
+ '(org-drawer ((t (:foreground "#999999"))))
+ '(org-footnote ((t (:foreground "#999999"))))
+ '(org-journal-calendar-entry-face ((t (:foreground "#c2a282" :slant normal))))
+ '(org-journal-calendar-scheduled-face ((t (:foreground "#bf616a" :slant normal))))
+ '(org-level-1 ((t (:inherit 'outline-1 :weight bold :height 1.05))))
+ '(org-level-2 ((t (:inherit 'outline-2 :weight bold))))
+ '(org-link ((t (:foreground "#81a1c1" :underline (:color "#81a1c1")))))
+ '(org-verbatim ((t (:foreground "#bebf8e"))))
+ '(pdf-isearch-batch ((t (:foreground "#bebf8e"))))
+ '(racket-keyword-argument-face ((t (:foreground "#c2a282"))))
+ '(racket-selfeval-face ((t (:foreground "#c2a282"))))
+ '(writegood-duplicates-face ((t (:background nil :underline (:color "#bebf8e" :style wave)))))
+ '(writegood-passive-voice-face ((t (:background nil :underline (:color "#81a1c1" :style wave)))))
+ '(writegood-weasels-face ((t (:background nil :underline (:color "#bfa78e" :style wave))))))

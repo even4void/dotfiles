@@ -6,9 +6,6 @@
 
 (map!
 
- ;; dictionnary
- :n "C-c d"       #'osx-dictionary-search-word-at-point
-
  :n "s-<return>"  #'toggle-frame-fullscreen
 
  ;; OSX shortcuts without cua-mode (mostly redefined here)
