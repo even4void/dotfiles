@@ -50,7 +50,7 @@
 ;     (load-theme 'doom-nord-light t)
 ;   (load-theme 'doom-nord t))
 
-(setq doom-theme 'doom-nord)
+(load-theme 'doom-nord t)
 (load! "lisp/faces")
 
 (setq doom-themes-enable-bold nil)
@@ -64,9 +64,9 @@
 
 (setq doom-localleader-alt-key "s-$")
 
-(setq doom-themes-neotree-file-icons 'simple
-      doom-themes-neotree-folder-icons 'simple
-      doom-themes-neotree-enable-variable-pitch t)
+;; (setq doom-themes-neotree-file-icons 'simple
+;;       doom-themes-neotree-folder-icons 'simple
+;;       doom-themes-neotree-enable-variable-pitch t)
 
 (unless (featurep! "+light")
   ;; (minions-mode 1)
@@ -405,14 +405,16 @@
 ;; -- lsp --------------------------------------------------------------------
 (setq lsp-eldoc-enable-hover nil
       lsp-ui-doc-border "white"
-      lsp-enable-links t)
+      lsp-enable-links t
+      lsp-symbol-highlighting-skip-current t)
 
 (after! lsp-ui
   (add-hook 'lsp-ui-doc-frame-hook
             (lambda (frame _w)
               (set-face-attribute 'default frame :font "Iosevka" :height 125)))
   (setq lsp-diagnostic-package :auto
-        lsp-ui-doc-enable t
+        lsp-ui-doc-enable nil
+        lsp-ui-doc-delay 0.5
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-position 'top
         lsp-ui-doc-include-signature t
