@@ -19,7 +19,7 @@
        treemacs
        ophints
        (popup +all +defaults)
-       pretty-code
+       (pretty-code +iosevka)
        vc-gutter
        window-select
        workspaces

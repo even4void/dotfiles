@@ -20,11 +20,12 @@
 (when (display-graphic-p)
   (setq doom-font (font-spec :family "Iosevka" :size 14)
         doom-big-font (font-spec :family "Victor Mono" :size 16)
-        doom-variable-pitch-font (font-spec :family "Helvetica Neue" :size 12))
-  (load! "+iosevka"))
-  ;; (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
-  ;;       flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
-  ;;       flycheck-posframe-error-prefix (all-the-icons-material "error")))
+        doom-variable-pitch-font (font-spec :family "Helvetica Neue" :size 12)))
+
+;; (load! "+iosevka")
+;; (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
+;;       flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
+;;       flycheck-posframe-error-prefix (all-the-icons-material "error"))
 
 (unless (display-graphic-p)
   (custom-set-variables
@@ -270,8 +271,11 @@
                   ("%$%"  . #Xe112)
                   ("%<>%" . #Xe114)
                   ("%T>%" . #Xe1b1)
-                  ("function" . "ƒ")
+                  ;; ("function" . "ƒ")
                   ("lambda"   . "λ")
+                  ;; ("*"  . "∗")
+                  ;; ("<=" . "⩽")
+                  ;; (">=" . "⩾")
                   ("#+BEGIN_EXAMPLE" . "»")
                   ("#+END_EXAMPLE"   . "«")
                   ("#+BEGIN_COMMENT" . "#")
@@ -291,10 +295,7 @@
                   ("#+LABEL:"        . "»")
                   ("#+PROPERTY:"     . "☸")
                   (":PROPERTIES:"    . "☸")
-                  (":END:"           . "■")
-                  ("*"  . "∗")
-                  ("<=" . "⩽")
-                  (">=" . "⩾")))))
+                  (":END:"           . "■")))))
 
 
 (font-lock-add-keywords 'org-mode
@@ -359,9 +360,9 @@
            vc-msg-git-extra)))
 
 ;; -- neotree ----------------------------------------------------------------
-(setq neo-smart-open t
-      neo-vc-integration '(face)
-      projectile-switch-project-action 'neotree-projectile-action)
+;; (setq neo-smart-open t
+;;       neo-vc-integration '(face)
+;;       projectile-switch-project-action 'neotree-projectile-action)
 
 ;; -- deft -------------------------------------------------------------------
 (setq deft-directory "~/org/z"
@@ -403,7 +404,7 @@
 (setq jupyter-repl-echo-eval-p t)
 
 ;; -- lsp --------------------------------------------------------------------
-(setq lsp-eldoc-enable-hover nil
+(setq lsp-eldoc-enable-hover nil  ;; trigger manually using K
       lsp-ui-doc-border "white"
       lsp-enable-links t
       lsp-symbol-highlighting-skip-current t)
@@ -413,8 +414,8 @@
             (lambda (frame _w)
               (set-face-attribute 'default frame :font "Iosevka" :height 125)))
   (setq lsp-diagnostic-package :auto
-        lsp-ui-doc-enable nil
-        lsp-ui-doc-delay 0.5
+        lsp-ui-doc-enable nil    ;; finally, don't like it so much (too noisy)
+        lsp-ui-doc-delay 0.2
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-position 'top
         lsp-ui-doc-include-signature t
@@ -582,56 +583,3 @@
 (add-to-list 'org-modules 'org-mu4e)
 
 (load! "lisp/irc")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values '((ispell-dictionary))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(dired-directory ((t (:foreground "#81a1c1"))))
- '(dired-symlink ((t (:foreground "#67809a"))))
- '(diredfl-date-time ((t (:foreground "#81a1c1"))))
- '(doom-modeline-buffer-modified ((t (:foreground "#c2a282"))))
- '(ess-constant-face ((t (:foreground "#bebf8e"))))
- '(ess-modifiers-face ((t (:foreground unspecified))))
- '(flyspell-duplicate ((t (:underline (:color "#bebf8e")))))
- '(flyspell-incorrect ((t (:underline (:color "#c2a282")))))
- '(highlight-numbers-number ((t (:foreground "#bebf8e"))))
- '(highlight-quoted-symbol ((t (:foreground "#67809a"))))
- '(ivy-subdir ((t (:foreground "#81a1c1"))))
- '(lsp-face-highlight-textual ((t (:background "#c2c282"))))
- '(lsp-ui-sideline-code-action ((t (:foreground "#ffa07a"))))
- '(markdown-header-delimiter-face ((t (:foreground unspecified :weight bold))))
- '(markdown-header-face-1 ((t (:inherit 'outline-1 :weight bold :height 1.05))))
- '(markdown-header-face-2 ((t (:inherit 'outline-2 :weight bold))))
- '(markdown-inline-code-face ((t (:background nil :inherit 'markdown-pre-face))))
- '(markdown-italic-face ((t (:foreground unspecified :slant italic))))
- '(markdown-link-face ((t (:foreground "#81a1c1" :underline (:color "#81a1c1")))))
- '(markdown-list-face ((t (:foreground unspecified :weight regular))))
- '(markdown-math-face ((t (:foreground unspecified :weight bold))))
- '(markdown-metadata-key-face ((t (:foreground "#4c566a"))))
- '(markdown-pre-face ((t (:foreground "#bebf8e"))))
- '(markdown-url-face ((t (:foreground "#67809a"))))
- '(mode-line-inactive ((t (:family "Helvetica Neue" :height 0.96))))
- '(mu4e-header-key-face ((t (:foreground "#c2a282"))))
- '(mu4e-highlight-face ((t (:foreground "#81a1c1" :weight bold))))
- '(org-document-title ((t (:foreground "#c2a282"))))
- '(org-drawer ((t (:foreground "#999999"))))
- '(org-footnote ((t (:foreground "#999999"))))
- '(org-journal-calendar-entry-face ((t (:foreground "#c2a282" :slant normal))))
- '(org-journal-calendar-scheduled-face ((t (:foreground "#bf616a" :slant normal))))
- '(org-level-1 ((t (:inherit 'outline-1 :weight bold :height 1.05))))
- '(org-level-2 ((t (:inherit 'outline-2 :weight bold))))
- '(org-link ((t (:foreground "#81a1c1" :underline (:color "#81a1c1")))))
- '(org-verbatim ((t (:foreground "#bebf8e"))))
- '(pdf-isearch-batch ((t (:foreground "#bebf8e"))))
- '(racket-keyword-argument-face ((t (:foreground "#c2a282"))))
- '(racket-selfeval-face ((t (:foreground "#c2a282"))))
- '(writegood-duplicates-face ((t (:background nil :underline (:color "#bebf8e" :style wave)))))
- '(writegood-passive-voice-face ((t (:background nil :underline (:color "#81a1c1" :style wave)))))
- '(writegood-weasels-face ((t (:background nil :underline (:color "#bfa78e" :style wave))))))

@@ -17,17 +17,10 @@
   '(shadow :foreground "#9099ab")
   '(warning :foreground "#bf616a")
 
-  (after! org
-    '(outline-1 :weight regular)
-    '(outline-2 :weight regular)
-    '(outline-3 :weight regular)
-    '(outline-4 :weight regular)
-    '(outline-5 :weight regular)
-    '(outline-6 :weight regular)
-    '(org-todo :foreground "#ebcb8b"))
+  '(org-todo :foreground "#ebcb8b")
   '(org-document-title :foreground "#81a1c1")
-  '(org-level-1 :inherit 'outline-1 :weight bold :height 1.05)
-  '(org-level-2 :inherit 'outline-2 :weight bold)
+  '(org-level-1 :foreground nil :weight bold :height 1.05)
+  '(org-level-2 :foreground nil :weight bold)
   '(org-link :foreground "#81a1c1" :underline (:color "#81a1c1"))
   '(org-footnote :foreground "#9099ab")
   '(org-verbatim :foreground "#a3be8c")
@@ -63,8 +56,8 @@
   '(markdown-header-delimiter-face :foreground unspecified :weight bold)
   '(markdown-list-face :foreground unspecified :weight regular)
   '(markdown-math-face :foreground unspecified :weight bold)
-  '(markdown-header-face-1 :inherit 'outline-1 :weight bold :height 1.05)
-  '(markdown-header-face-2 :inherit 'outline-2 :weight bold)
+  '(markdown-header-face-1 :foreground nil :weight bold :height 1.05)
+  '(markdown-header-face-2 :foreground nil :weight bold)
   '(markdown-italic-face :foreground unspecified :slant italic)
   '(markdown-link-face :foreground "#81a1c1" :underline (:color "#81a1c1"))
   `(markdown-url-face :foreground ,(doom-darken "#81a1c1" 0.2))
@@ -75,11 +68,13 @@
   `(dired-symlink :foreground ,(doom-darken "#81a1c1" 0.2))
   '(diredfl-date-time :foreground "#81a1c1")
 
+  `(magit-branch-local :foreground ,(doom-darken "#81a1c1" 0.2))
+
   '(pdf-isearch-batch :foreground "#c2c282")
 
   '(ivy-subdir :foreground "#81a1c1")
 
-  '(flyspell-incorrect :foreground "#bf616a")
+  '(flyspell-incorrect :underline (:color "#bf616a"))
   '(flyspell-duplicate :underline (:color "#d08770"))
 
   '(writegood-weasels-face :background nil :underline (:color "#d08770" :style wave))
