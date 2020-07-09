@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: Google-like docstring
+# key: docs
+# condition: t
+# --
+\"\"\"$1
+
+Longer description goes here.
+
+Note:
+    Any note
+
+Args:
+    param1 (int): The first parameter.
+    param2 (str): The second parameter.
+
+Returns:
+    out (type):bool: The return value. True for success, False otherwise.
+
+Example:
+Examples should be written in doctest format, and should illustrate how to use the function.
+
+>>> print("Hello World!")
+
+.. _PEP 484:
+        https://www.python.org/dev/peps/pep-0484/
+\"\"\"
