@@ -425,6 +425,9 @@
         lsp-ui-peek-peek-height 20))
 
 (setq ccls-executable "~/local/ccls/Release/ccls")
+(setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
+(after! lsp-clients
+  (set-lsp-priority! 'clangd 1))
 
 ;; -- lisp/haskell -----------------------------------------------------------
 (setq inferior-lisp-program "sbcl")  ;; ccl64
@@ -583,3 +586,10 @@
 (add-to-list 'org-modules 'org-mu4e)
 
 (load! "lisp/irc")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values '((ispell-dictionary))))
