@@ -130,7 +130,10 @@ let g:vim_markdown_fenced_languages = ['julia=jl', 'python=py']
 " Other config files
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/mappings.vim
-source ~/.config/nvim/lsp.vim
+" source ~/.config/nvim/lsp.vim
+" source ~/.config/nvim/mappings-lsp.vim
+source ~/.config/nvim/coc.vim
+source ~/.config/nvim/mappings-coc.vim
 source ~/.config/nvim/cmd.vim
 
 " Theme

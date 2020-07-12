@@ -6,6 +6,7 @@ Plug 'liuchengxu/vista.vim'  " instead of tagbar
 Plug 'airblade/vim-rooter'
 
 "" code editing, text manipulation
+Plug 'neoclide/coc.nvim',                  {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
@@ -39,9 +40,9 @@ Plug 'junegunn/fzf',                       { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 "" lsp stuff
-Plug 'neovim/nvim-lsp'
-Plug 'haorenW1025/diagnostic-nvim'
-Plug 'haorenW1025/completion-nvim'
-Plug 'ncm2/float-preview.nvim'
+" Plug 'neovim/nvim-lsp'
+" Plug 'haorenW1025/diagnostic-nvim'
+" Plug 'haorenW1025/completion-nvim'
+" Plug 'ncm2/float-preview.nvim'
 
 call plug#end()
