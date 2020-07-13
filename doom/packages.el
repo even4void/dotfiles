@@ -11,9 +11,10 @@
 (package! keypression)
 (package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
 (package! mu4e-alert)
-(package! base16-theme)
 (package! ox-gfm)
 (package! ox-leanpub)
+(package! nordless-theme)
+(package! nord-theme)
 
 ;; (package! minions)
 ;; (package! all-the-icons-ibuffer)

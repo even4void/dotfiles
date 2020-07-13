@@ -47,12 +47,12 @@
 ;; ui
 ;; ---------------------------------------------------------------------------
 ;; (theme-set-default)
-; (if (display-graphic-p)
-;     (load-theme 'doom-nord-light t)
-;   (load-theme 'doom-nord t))
-
-(load-theme 'doom-nord t)
-(load! "lisp/faces")
+(if (display-graphic-p)
+    (progn
+      (load-theme 'doom-nord t)
+      (load! "lisp/faces"))
+  (load-theme 'nord t)
+  (set-face-italic 'font-lock-comment-face t))
 
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
