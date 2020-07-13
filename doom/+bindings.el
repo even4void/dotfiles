@@ -8,7 +8,7 @@
 
  :n "s-<return>"  #'toggle-frame-maximized
 
- :nv "gh" #'lsp-ui-doc-glance
+ :nv "gh"         #'lsp-ui-doc-glance
 
  ;; OSX shortcuts without cua-mode (mostly redefined here)
  "s-z"        #'undo
@@ -21,7 +21,7 @@
  "s-;"        #'eval-expression
  "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
- "s-b"        #'+treemacs/toggle
+ ;; "s-b"        #'+treemacs/toggle
  "s-@"        #'+workspace:switch-next
 
  "C-f"        #'forward-word
@@ -75,8 +75,9 @@
  :desc "Split vertically"      "|"  #'split-window-right
  :desc "Remove split"          "="  #'delete-other-windows
  :desc "Swiper all"            "@"  #'doom/swiper-all-region-or-symbol
- :desc "Pop up scratch buffer" "X"    #'doom/open-scratch-buffer
- :desc "Org Capture"           "x"    #'org-capture
+ :desc "Pop up scratch buffer" "X"  #'doom/open-scratch-buffer
+ :desc "Org Capture"           "x"  #'org-capture
+ :desc "Project drawer"        "z"  #'+treemacs/toggle
  (:prefix "s"
   :desc "Counsel ag"          "c" #'doom/counsel-region-or-symbol
   :desc "Counsel Dash"        "C" #'counsel-dash-at-point
