@@ -1,23 +1,21 @@
 git_prompt_info() {
-  local dirstatus=""
-  local dirty="%{$fg_bold[yellow]%} %{$reset_color%}"
-
-  if [[ ! -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
-    dirstatus=$dirty
-  fi
-
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  echo " %{$fg_bold[yellow]%}${ref#refs/heads/}$dirstatus%{$reset_color%}"
+  local dirstatus=" %{$fg_bold[green]%}${ref#refs/heads/}%{$reset_color%}"
+  if [[ ! -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
+    dirstatus=" %{$fg_bold[yellow]%}${ref#refs/heads/}%{$reset_color%}"
+  fi
+
+  echo $dirstatus
 }
 
 local dir_info="%{$fg_bold[blue]%}%(5~|%-1~/.../%2~|%4~)%{$reset_color%}"
 local promptnormal="%(?.%{$fg_bold[blue]%}.%{$fg_bold[red]%}) %{$reset_color%}"
-local promptjobs="%(?.%{$fg_bold[cyan]%}.%{$fg_bold[red]%}) %{$reset_color%}"
+local promptjobs="%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%}) %{$reset_color%}"
 
 PROMPT='${dir_info}$(git_prompt_info) %(1j.$promptjobs.$promptnormal)'
 
-function preexec() {
+preexec() {
   timer=${timer:-$SECONDS}
 }
 
@@ -25,7 +23,7 @@ _is_ssh() {
   [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]
 }
 
-function precmd() {
+precmd() {
   if _is_ssh || (( EUID == 0 )); then
     remote="@${(%):-%m}"
   else

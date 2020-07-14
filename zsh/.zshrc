@@ -4,7 +4,7 @@
 typeset -U PATH
 autoload colors; colors;
 
-# setopt autocd
+setopt autocd
 
 # autoload -U promptinit; promptinit
 
@@ -20,6 +20,8 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
 
+HISTORY_IGNORE="l[alsh]*:htop:ps ax:ew*:[bc]at*:less*:which*:inbox:cd ..:cd -"
+
 setopt EXTENDED_HISTORY
 setopt HIST_VERIFY
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
@@ -28,6 +30,9 @@ setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a d
 setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
 setopt HIST_IGNORE_SPACE         # Dont record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Dont write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Delete empty lines from history file
+setopt HIST_NO_STORE             # Don't store history (fc -l) command
+setopt HIST_NO_FUNCTIONS         # Don't store function definitions
 
 setopt inc_append_history
 setopt share_history
@@ -73,7 +78,6 @@ export KEYTIMEOUT=1
 # homebrew
 export PATH="/usr/local/bin:$PATH"
 
-# Encoding problems with gem
 # export LC_ALL=en_US.UTF-8
 # export LANG=en_US.UTF-8
 
@@ -87,10 +91,12 @@ if which rustc &> /dev/null; then
 fi
 
 # python
-if which pyenv &> /dev/null; then
-  eval "$(pyenv init -)"
-  export PATH="$HOME/.local/bin:$PATH"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+export PATH="$HOME/.poetry/bin:$PATH"
 
 export PYSPARK_PYTHON="python3"
 
