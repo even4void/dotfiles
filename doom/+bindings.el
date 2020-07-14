@@ -32,8 +32,8 @@
  "s-)"         #'ace-swap-window
  "s-("         #'doom/window-layout-toggle
 
- :nv "]k"         ":move'<-2"
- :nv "]j"         ":move'>+1"
+ :v "J"         (concat ":m '>+1" (kbd "RET") "gv=gv")
+ :v "K"         (concat ":m '<-2" (kbd "RET") "gv=gv")
 
  ;; window/workspace
  :ni "s-<left>"     #'evil-window-left

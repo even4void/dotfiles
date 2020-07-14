@@ -22,8 +22,6 @@ noremap <C-h> <C-w>h
 "" Nerdtree and Tagbar
 nnoremap <leader>z :NERDTreeFind<CR>
 nnoremap <silent> <C-P> :NERDTreeToggle<CR>
-nmap <leader>@ :Vista nvim_lsp<CR>
-nmap <leader>& :Vista finder nvim_lsp<CR>
 
 " terminal emulation
 nnoremap <silent> <leader>sh :terminal<CR>

@@ -15,3 +15,7 @@ autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
 nmap <leader>d :OpenDiagnostic<CR>
 nmap <silent> [g :PrevDiagnosticCycle<CR>
 nmap <silent> ]g :NextDiagnosticCycle<CR>
+
+" Vista (tag bar)
+nmap <leader>@ :Vista nvim_lsp<CR>
+nmap <leader>& :Vista finder nvim_lsp<CR>
