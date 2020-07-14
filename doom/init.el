@@ -90,7 +90,7 @@
         +pandoc
         +present)
        ;;purescript
-       (python +lsp +cython +poetry)
+       (python +lsp +cython +poetry +pyenv)
        (julia +lsp)
        ;; (ruby +lsp)
        (racket +xp)
