@@ -72,7 +72,7 @@
        data
        ;;erlang
        ;;elixir
-       ;;elm
+       elm
        emacs-lisp
        (ess +lsp)
        (haskell +dante)
@@ -89,7 +89,7 @@
         +jupyter
         +pandoc
         +present)
-       ;;purescript
+       purescript
        (python +lsp +cython +poetry +pyenv)
        (julia +lsp)
        ;; (ruby +lsp)
