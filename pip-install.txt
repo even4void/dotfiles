@@ -1,1 +1,0 @@
-pip3 install pylint flake8 pytest nose black pyflakes isort Cython ipython jupyter matplotlib mypy neovim networkx numpy scipy biopython pandas
