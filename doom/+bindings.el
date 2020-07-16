@@ -17,31 +17,34 @@
  "s-x"        #'kill-region
  "s-s"        #'save-buffer
  "s-a"        #'mark-whole-buffer
- "s-&"        #'persp-switch-to-buffer
  "s-;"        #'eval-expression
- "s-r"        #'query-replace
+ "s-:"        #'query-replace
+ "s-i"        #'isearch-forward-regexp
+ "s-r"        #'isearch-query-replace
  "s-p"        #'counsel-M-x
- ;; "s-b"        #'+treemacs/toggle
- "s-@"        #'+workspace:switch-next
+ "s-b"        #'persp-switch-to-buffer
+ "s-&"        #'+workspace:switch-next
+ "s-@"        #'lsp-ui-imenu
 
  "C-f"        #'forward-word
  "C-b"        #'backward-word
  "C-a"        #'backward-sentence
  "C-e"        #'forward-sentence
 
- "s-)"         #'ace-swap-window
- "s-("         #'doom/window-layout-toggle
+ "s-)"        #'ace-swap-window
+ "s-("        #'doom/window-layout-toggle
 
- :v "J"         (concat ":m '>+1" (kbd "RET") "gv=gv")
- :v "K"         (concat ":m '<-2" (kbd "RET") "gv=gv")
+ :v "J"       (concat ":m '>+1" (kbd "RET") "gv=gv")
+ :v "K"       (concat ":m '<-2" (kbd "RET") "gv=gv")
 
  ;; window/workspace
- :ni "s-<left>"     #'evil-window-left
- :ni "s-<right>"    #'evil-window-right
- :ni "s-<up>"       #'evil-window-up
- :ni "s-<down>"     #'evil-window-down
- :ni "C-s-<left>"   #'+workspace/switch-left
- :ni "C-s-<right>"  #'+workspace/switch-right
+ :ni "s-m"        #'evil-window-next
+ :ni "s-<up>"     #'evil-window-up
+ :ni "s-<down>"   #'evil-window-down
+ :ni "s-<left>"   #'evil-window-left
+ :ni "s-<right>"  #'evil-window-right
+ :ni "s-l"        #'+workspace/switch-left
+ :ni "s-h"        #'+workspace/switch-right
 
  (:map markdown-mode-map
   :i "s-i" #'markdown-insert-italic

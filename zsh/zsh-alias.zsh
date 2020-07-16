@@ -12,7 +12,7 @@ alias lk="ls -lhSr"
 
 # More dir actions
 alias dud="du -sh ./* | sort -h"
-alias j="jobs -l"
+alias jl="jobs -l"
 alias md="mkdir -p"
 alias tree="tree -NC"
 alias perms="stat -c '%A %a %n'"
