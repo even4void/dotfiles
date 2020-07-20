@@ -12,7 +12,7 @@ alias lk="ls -lhSr"
 
 # More dir actions
 alias dud="du -sh ./* | sort -h"
-alias j="jobs -l"
+alias jl="jobs -l"
 alias md="mkdir -p"
 alias tree="tree -NC"
 alias perms="stat -c '%A %a %n'"
@@ -42,7 +42,7 @@ alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"ba
 alias ete3="~/Library/Python/3.7/bin/ete3"
 alias c="clear"
 alias ec="emacsclient -n"
-alias ew="emacs -nw"
+alias em="emacsclient -t -a ''"
 alias eq="emacs -nw -q"
 alias edit="open -e"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"

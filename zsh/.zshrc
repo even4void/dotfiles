@@ -1,13 +1,8 @@
-# Partly inspired by Thorsten Ball's config
-# https://github.com/mrnugget/dotfiles/blob/master/zshrc
-
 typeset -U PATH
 autoload colors
 colors
 
 setopt autocd
-
-# autoload -U promptinit; promptinit
 
 ### CUSTOM FILES ###
 source ~/.config/zsh/zsh-comp.zsh   # completions
@@ -61,26 +56,26 @@ bindkey '^N' history-search-forward
 bindkey '^?' backward-delete-char
 bindkey '^[[3~' delete-char
 
-### ENV ###
-# export TERM=xterm-256color
-
-export PATH="$HOME/local/bin:$HOME/.config/bin:$PATH"
+# local binaries
+export PATH="$HOME/local/bin:$PATH"
 
 # rg
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 
+# bat
+export BAT_THEME=ansi-dark
+# if [ ! -n "$INSIDE_EMACS" ]; then
+# 	alias cat=bat
+# fi
+
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-# Reduce delay for key combinations in order to change to vi mode faster
-# See: http://www.johnhawthorn.com/2012/09/vi-escape-delays/
-# Set it to 10ms
+# http://www.johnhawthorn.com/2012/09/vi-escape-delays/
 export KEYTIMEOUT=1
 
-# homebrew
+# Homebrew
 export PATH="/usr/local/bin:$PATH"
-
-# export LC_ALL=en_US.UTF-8
-# export LANG=en_US.UTF-8
+export HOMEBREW_NO_EMOJI=1
 
 # node.js
 export NODE_PATH="/usr/local/lib/node_modules"
@@ -96,27 +91,21 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export PATH="$HOME/.poetry/bin:$PATH"
-
 export PATH="$HOME/Library/Python/3.8/bin:$PATH"
-
 export PYSPARK_PYTHON="python3"
 
 source $HOME/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 
-# pandoc
-export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+# pandoc extra stuff
+# export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
 # Doom and local repos
 export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
+
+# Java stuff
 # export JAVA_HOME=(/usr/libexec/java_home -v 1.8)'/jre'
 export ARTEMIS_JAVA_JRE="/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home"
 export PSQLRC="$HOME/.config/psql/psqlrc"
-export HOMEBREW_NO_EMOJI=1
-
-export BAT_THEME=ansi-light
-if [ ! -n "$INSIDE_EMACS" ]; then
-	alias cat=bat
-fi
 
 # show available tmux sessions
 if [[ -z $TMUX ]]; then
