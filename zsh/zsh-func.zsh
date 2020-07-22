@@ -15,6 +15,10 @@ mkdircd() {
   mkdir -p $1 && cd $1
 }
 
+ew() {
+  emacsclient -a 'emacs' -n "$@" 2>/dev/null || command emacs;
+}
+
 serve() {
   local port=${1:-8000}
   local ip=$(ipconfig getifaddr en0)
@@ -114,4 +118,15 @@ extract () {
     else
         echo "'$1' is not a valid file"
     fi
+}
+
+webmp4() {
+    if [ -z "$(command -v ffmpeg)" ]; then
+        printf "%s\n" "ffmpeg is not installed" >&2
+        return 1
+    fi
+    while [ $# -ne 0 ]; do
+        ffmpeg -i "$1" "${1%.*}.mp4"
+        shift
+    done
 }

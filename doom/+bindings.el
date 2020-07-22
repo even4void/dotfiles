@@ -124,6 +124,7 @@
   :desc "IRC"                 "I" #'=irc
   :desc "Jupyter"             "J" #'jupyter-run-repl)
  (:prefix "t"
+  :desc "Tab line mode"       "a" #'global-tab-line-mode
   :desc "Unfill region"       "U" #'unfill-region
   :desc "Select theme"        "t" #'counsel-load-theme
   :desc "Select dictionary"   "Z" #'ispell-change-dictionary

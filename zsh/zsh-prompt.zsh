@@ -5,7 +5,6 @@ git_prompt_info() {
   if [[ ! -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
     dirstatus=" %{$fg_bold[yellow]%}${ref#refs/heads/}%{$reset_color%}"
   fi
-
   echo $dirstatus
 }
 

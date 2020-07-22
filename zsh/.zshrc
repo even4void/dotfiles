@@ -16,7 +16,7 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
 
-HISTORY_IGNORE="l[alsh]*:htop:ps ax:ew*:[bc]at*:less*:which*:inbox:cd ..:cd -"
+# HISTORY_IGNORE="ls *:ll *:l *:la *:htop:ps ax:ew *:ec *:cat *:less *:which *:inbox:cd ..:cd -:..:dud: du *:gst:gaa:fg:bg:"
 
 setopt EXTENDED_HISTORY
 setopt HIST_VERIFY

@@ -21,7 +21,7 @@
         mu4e-use-fancy-chars nil  ;; too bad actually
         mail-host-address "aliquote.org"
         mu4e-compose-signature "chl AT aliquote.org\n152E3E3F7C4CCE44\n(•̀ᴗ•́)و"
-        message-citation-line-format "On %Y-%m-%d %H:%M, %N wrote:\n"
+        message-citation-line-format "On %a, %b %d %Y (%H:%M), %N (%n) wrote:\n"
         message-citation-line-function 'message-insert-formatted-citation-line
         mu4e-compose-signature-auto-include nil
         smtpmail-queue-dir "~/.mail/queue/cur"

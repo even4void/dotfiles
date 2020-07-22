@@ -42,6 +42,7 @@
 
 (load! "+bindings")
 (load! "lisp/+light-fix")
+(load! "lisp/tab-line-custom")
 
 ;; ---------------------------------------------------------------------------
 ;; ui
@@ -385,7 +386,7 @@
 
 (setq lsp-julia-default-environment "~/.julia/environments/v1.4")
 
-(add-to-list 'load-path "~/local/ado-mode/lisp")
+;; (add-to-list 'load-path "~/local/ado-mode/lisp")
 ;; (require 'ado-mode)
 ;; (add-hook 'ess-stata-mode #'(lambda () 'ado-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.ado" . ado-mode))
