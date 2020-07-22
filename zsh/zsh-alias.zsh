@@ -60,12 +60,15 @@ alias ss="source $HOME/.config/zsh/.zshrc"
 alias gg="git show | tig"
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias gst="git status -s"
+alias gst="git status -s -b"
 alias gci="git commit -S -m"
-alias gp="git push"
+alias gca="git commit --amend --reuse-message=HEAD"
+alias gph="git push"
+alias gpl="git pull --ff-only"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gaa="git add --all"
+alias gap="git add -p"
 alias gfu="git fetch upstream"
 alias gmu="git merge upstream/master"
 alias guu="git fetch && git diff master origin/master" # or gd @{upstream}
