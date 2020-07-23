@@ -4,6 +4,10 @@ if type brew &>/dev/null; then
   FPATH=/usr/local/share/zsh/site-functions:$FPATH
 fi
 
+### Correction ###
+setopt CORRECT
+setopt CORRECT_ALL
+
 # More completions and Fish-like autosuggestions
 FPATH=~/.zsh/zsh-completions/src:$FPATH
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

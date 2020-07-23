@@ -18,8 +18,11 @@ SAVEHIST=50000
 
 # HISTORY_IGNORE="ls *:ll *:l *:la *:htop:ps ax:ew *:ec *:cat *:less *:which *:inbox:cd ..:cd -:..:dud: du *:gst:gaa:fg:bg:"
 
-setopt EXTENDED_HISTORY
-setopt HIST_VERIFY
+setopt EXTENDED_HISTORY       # Additional data like timestamp
+setopt APPEND_HISTORY         # Don't erase history
+setopt INC_APPEND_HISTORY     # Add immediately
+setopt SHARE_HISTORY          # Share history between session/terminals
+setopt HIST_VERIFY            # Show the substituted command
 setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
 setopt HIST_IGNORE_DUPS       # Dont record an entry that was just recorded again.
 setopt HIST_IGNORE_ALL_DUPS   # Delete old recorded entry if new entry is a duplicate.
@@ -29,9 +32,6 @@ setopt HIST_SAVE_NO_DUPS      # Dont write duplicate entries in the history file
 setopt HIST_REDUCE_BLANKS     # Delete empty lines from history file
 setopt HIST_NO_STORE          # Don't store history (fc -l) command
 setopt HIST_NO_FUNCTIONS      # Don't store function definitions
-
-setopt inc_append_history
-setopt share_history
 
 ### KEY BINDINGS ###
 bindkey -e
