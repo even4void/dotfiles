@@ -47,7 +47,6 @@
 ;; ---------------------------------------------------------------------------
 ;; ui
 ;; ---------------------------------------------------------------------------
-;; (theme-set-default)
 (if (display-graphic-p)
     (progn
       (load-theme 'doom-nord t)
@@ -65,10 +64,6 @@
 (setq display-line-numbers-type 'relative)
 
 (setq doom-localleader-alt-key "s-$")
-
-;; (setq doom-themes-neotree-file-icons 'simple
-;;       doom-themes-neotree-folder-icons 'simple
-;;       doom-themes-neotree-enable-variable-pitch t)
 
 (unless (featurep! "+light")
   ;; (minions-mode 1)
@@ -91,7 +86,6 @@
 ;; ---------------------------------------------------------------------------
 
 ;; -- web & doc --------------------------------------------------------------
-;; (setq browse-url-browser-function 'eww-browse-url)
 (setq browse-url-browser-function 'xwidget-webkit-browse-url)
 
 ;; --tex ---------------------------------------------------------------------
@@ -229,10 +223,7 @@
       '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
             lisp-mode        ; ---
             ess-r-mode       ; FIXME styler needs configuration
-            sql-mode         ; NOTE sqlformat is currently broken
-            latex-mode
-            tex-mode
-            python-mode))    ; because I don't like it
+            sql-mode))       ; NOTE sqlformat is currently broken
 
 ;; (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
@@ -246,8 +237,8 @@
       markdown-gfm-uppercase-checkbox t
       markdown-header-scaling-values '(1.1 1.0 1.0 1.0 1.0 1.0))
 (after! markdown
-  (setq markdown-pre-face "Inziu Iosevka CL"
-        markdown-code-face "Inziu Iosevka CL"))
+  (setq markdown-pre-face "Iosevka"
+        markdown-code-face "Iosevka"))
 
 ;; -- pretty-code ------------------------------------------------------------
 ;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
@@ -265,7 +256,6 @@
   (setq +pretty-code-iosevka-font-ligatures
         (append +pretty-code-iosevka-font-ligatures
                 '(("[ ]"  . "☐")
-                  ;; ("[X]"  . "☑")
                   ("[X]"  . "☒")
                   ("[-]"  . "⧇")
                   ("%>%"  . #Xe175)
@@ -348,9 +338,7 @@
 
 (eval-after-load 'vc-msg-git
   '(progn
-     ;; show code of commit
      (setq vc-msg-git-show-commit-function 'magit-show-commit)
-     ;; open file of certain revision
      (push '("m"
              "[m]agit-find-file"
              (lambda ()
@@ -359,11 +347,6 @@
                  (magit-find-file (plist-get info :id )
                                   (concat git-dir (plist-get info :filename))))))
            vc-msg-git-extra)))
-
-;; -- neotree ----------------------------------------------------------------
-;; (setq neo-smart-open t
-;;       neo-vc-integration '(face)
-;;       projectile-switch-project-action 'neotree-projectile-action)
 
 ;; -- deft -------------------------------------------------------------------
 (setq deft-directory "~/org/z"
@@ -376,7 +359,6 @@
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 3
         company-show-numbers nil))
-        ;; company-tooltip-offset-display nil
 
 ;; -- ess/julia---------------------------------------------------------------
 (setq ess-use-eldoc t
@@ -398,9 +380,6 @@
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
-
-;; NOTE in case there're unresolved import warnings, use
-;; lsp-python-ms-extra-paths
 
 (setq jupyter-repl-echo-eval-p t)
 
@@ -442,8 +421,6 @@
 (after! racket-mode
   (add-hook! racket-mode
              #'racket-smart-open-bracket-mode))
-;; (require 'lsp-racket)
-;; (add-hook 'racket-mode-hook #'lsp)
 
 (flycheck-define-checker racket-review
   "check racket source code using racket-review"
@@ -471,7 +448,7 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/z/" "~/org/refile.org" "~/org/j/")
+      org-agenda-files '("~/org/refile.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
       +org-capture-todo-file "~/org/todo.org"
@@ -488,12 +465,11 @@
   :hook (org-mode . org-fancy-priorities-mode)
   :config (setq org-fancy-priorities-list '("■" "■" "■")))
 
-(use-package ox-gfm
-  :after org)
+;; (use-package ox-gfm
+;;   :after org)
 
-(use-package ox-leanpub
-  :after org)
-
+;; (use-package ox-leanpub
+;;   :after org)
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
@@ -581,6 +557,7 @@
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
+(load! "lisp/ox-tufte-latex")
 
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")

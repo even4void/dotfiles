@@ -9,13 +9,11 @@
        :ui
        deft
        doom
-       ;;fill-column
        hl-todo
        indent-guides
        (modeline +light)
        minimap
        nav-flash
-       ;; neotree
        treemacs
        ophints
        (popup +all +defaults)
@@ -29,10 +27,8 @@
        file-templates
        fold
        (format +onsave)
-       ;; parinfer
        rotate-text
        snippets
-       ;; word-wrap
 
        :emacs
        dired
@@ -70,18 +66,13 @@
        (clojure +lsp)
        common-lisp
        data
-       ;;erlang
-       ;;elixir
        elm
        emacs-lisp
        (ess +lsp)
        (haskell +dante)
        (javascript +lsp)
-       (latex
-        ;; +fold
-        +latexmk)
+       (latex +latexmk)
        (markdown +grip)
-       ;;(ocaml +opam-site-lisp)
        (org
         +dragndrop
         +gnuplot
@@ -92,7 +83,6 @@
        purescript
        (python +lsp +cython +poetry +pyenv)
        (julia +lsp)
-       ;; (ruby +lsp)
        (racket +xp)
        (rust +lsp)
        scheme
@@ -108,7 +98,6 @@
        (syntax +childframe)
 
        :app
-       ;; (rss +org)
        irc
 
        :collab
