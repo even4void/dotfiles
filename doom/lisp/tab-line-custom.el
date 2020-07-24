@@ -96,9 +96,10 @@ truncates text if needed.  Minimal width can be set with
                                             'mouse-face 'tab-line-close-highlight
                                             'help-echo "Click to close tab"))
 
-    (let ((bg (if (facep 'solaire-default-face)
-                  (face-attribute 'solaire-default-face :background)
-                (face-attribute 'default :background)))
+    (let ((bg (face-attribute 'mode-line :background))
+          ;; ((bg (if (facep 'solaire-default-face)
+          ;;         (face-attribute 'solaire-default-face :background)
+          ;;       (face-attribute 'default :background)))
           (fg (face-attribute 'default :foreground))
           (base (face-attribute 'mode-line :background))
           (box-width (/ (line-pixel-height) 2)))
