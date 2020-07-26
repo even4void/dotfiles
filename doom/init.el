@@ -38,28 +38,26 @@
        (undo +tree)
 
        :term
-       eshell
+       ;; eshell
        ;; term
        vterm
 
        :tools
        biblio
        (debugger +lsp)
-       docker
+       ;; docker
        (eval +overlay)
        gist
        (lookup
         +docsets
-        +dictionary
-        +offline
-        +xwidget)
+        +dictionary)
        (lsp +peek)
        (magit +forge)
        make
        pdf
        rgb
-       taskrunner
-       upload
+       ;; taskrunner
+       ;; upload
 
        :lang
        (cc +lsp)

@@ -32,7 +32,7 @@ alias nonascii="LC_CTYPE=C ggrep --color='auto' -n -P '[\x80-\xFF]'"
 alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
-alias inbox="mbsync -a && mu index --quiet; mu find flag:unread -u --fields 'd f s m' --sortfield=date --reverse -n 5"
+alias inbox="mbsync -a && mu index --quiet; mu find flag:unread -u --fields 'd f s m' --sortfield=date --reverse -n 5 || echo 'No new mail'"
 alias awk=gawk
 alias sed=gsed
 alias ccl=ccl64

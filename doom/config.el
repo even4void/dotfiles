@@ -221,12 +221,11 @@
 
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
-            lisp-mode        ; ---
-            ess-r-mode       ; FIXME styler needs configuration
-            sql-mode))       ; NOTE sqlformat is currently broken
+            lisp-mode))
 
 ;; (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
+(remove-hook 'text-mode-hook #'turn-on-auto-fill)
 
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
@@ -292,7 +291,6 @@
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
 
-(remove-hook 'text-mode-hook #'turn-on-auto-fill)
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
@@ -302,15 +300,15 @@
 
 ;; -- eshell/term -------------------------------------------------------------
 ;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
-(after! eshell
-  (set-eshell-alias!
-   "f"   "(other-window 1) && find-file $1"
-   "l"   "ls -lh"
-   ".."  "cd ../"
-   "d"   "dired $1"
-   "gl"  "(call-interactively 'magit-log-current)"
-   "gs"  "magit-status"
-   "gc"  "magit-commit"))
+; (after! eshell
+;   (set-eshell-alias!
+;    "f"   "(other-window 1) && find-file $1"
+;    "l"   "ls -lh"
+;    ".."  "cd ../"
+;    "d"   "dired $1"
+;    "gl"  "(call-interactively 'magit-log-current)"
+;    "gs"  "magit-status"
+;    "gc"  "magit-commit"))
 
 ;; (setq multi-term-program "/bin/zsh")
 (setq vterm-shell "/bin/zsh")
@@ -557,7 +555,6 @@
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
-(load! "lisp/ox-tufte-latex")
 
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")
