@@ -19,11 +19,8 @@
  "s-a"        #'mark-whole-buffer
  "s-;"        #'eval-expression
  "s-:"        #'query-replace
- "s-i"        #'isearch-forward-regexp
- "s-r"        #'isearch-query-replace
  "s-p"        #'counsel-M-x
  "s-b"        #'persp-switch-to-buffer
- "s-&"        #'+workspace:switch-next
  "s-@"        #'lsp-ui-imenu
 
  "s-)"        #'ace-swap-window
@@ -33,13 +30,10 @@
  :v "K"       (concat ":m '<-2" (kbd "RET") "gv=gv")
 
  ;; window/workspace
- :ni "s-m"        #'evil-window-next
  :ni "s-<up>"     #'evil-window-up
  :ni "s-<down>"   #'evil-window-down
  :ni "s-<left>"   #'evil-window-left
  :ni "s-<right>"  #'evil-window-right
- ;; :ni "s-l"        #'+workspace/switch-left
- ;; :ni "s-h"        #'+workspace/switch-right
 
  (:map markdown-mode-map
   :i "s-i" #'markdown-insert-italic
@@ -56,8 +50,6 @@
   (:map ess-r-mode-map
    :ni "C-<return>"  #'ess-eval-line))
 
- ;; TODO Update jupyter-(repl-)mode-map
-
  (:after python
   (:map python-mode-map
    :n "C-<return>"  #'python-shell-send-region-or-line))
@@ -71,14 +63,19 @@
 
  ;; which-key items
  :leader
- :desc "Next workspace"        ">"  #'+workspace:switch-next
- :desc "Split horizontally"    "-"  #'split-window-below
- :desc "Split vertically"      "|"  #'split-window-right
- :desc "Remove split"          "="  #'delete-other-windows
- :desc "Swiper all"            "@"  #'doom/swiper-all-region-or-symbol
- :desc "Pop up scratch buffer" "X"  #'doom/open-scratch-buffer
- :desc "Org Capture"           "x"  #'org-capture
- :desc "Project drawer"        "z"  #'+treemacs/toggle
+ :desc "Next workspace"           ">"  #'+workspace:switch-next
+ :desc "Delete workspace"         "d"  #'+workspace/delete
+ :desc "Split horizontally"       "-"  #'split-window-below
+ :desc "Split vertically"         "|"  #'split-window-right
+ :desc "Remove split"             "="  #'delete-other-windows
+ :desc "Swiper all"               "@"  #'doom/swiper-all-region-or-symbol
+ :desc "Pop up scratch buffer"    "X"  #'doom/open-scratch-buffer
+ :desc "Org Capture"              "x"  #'org-capture
+ :desc "Project drawer"           "z"  #'+treemacs/toggle
+ :desc "Next window"              "&"  #'evil-window-next
+ :desc "Interactive regex"        "%"  #'isearch-forward-regexp
+ :desc "Query replace"            "/"  #'query-replace-regexp
+
  (:prefix "s"
   :desc "Counsel ag"          "c" #'doom/counsel-region-or-symbol
   :desc "Counsel Dash"        "C" #'counsel-dash-at-point
