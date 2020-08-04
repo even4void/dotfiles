@@ -18,10 +18,11 @@
  "s-s"        #'save-buffer
  "s-a"        #'mark-whole-buffer
  "s-;"        #'eval-expression
- "s-:"        #'query-replace
+ "s-r"        #'query-replace
  "s-p"        #'counsel-M-x
  "s-b"        #'persp-switch-to-buffer
  "s-@"        #'lsp-ui-imenu
+ "s-&"        #'+workspace:switch-next
 
  "s-)"        #'ace-swap-window
  "s-("        #'doom/window-layout-toggle
@@ -96,7 +97,7 @@
   :desc "Org PDF+Pandoc"      "p" #'org-pandoc-export-to-latex-pdf-and-open
   :desc "Org PDF+Latex"       "P" #'org-latex-export-to-pdf
   :desc "Org HTML publish"    "=" #'org-publish-all
-  :desc "Org dispatcher"      "d" #'org-export-dispatch)
+  :desc "Org dispatcher"      "e" #'org-export-dispatch)
  (:prefix "g"
   :desc "Popup hunk"          "-" #'git-gutter:popup-hunk)
  (:prefix "n"
@@ -113,8 +114,7 @@
   :desc "Geiser REPL"         "G" #'geiser
   :desc "Github"              "g" #'open-github
   :desc "IELM"                "i" #'ielm
-  :desc "IRC"                 "I" #'=irc
-  :desc "Jupyter"             "J" #'jupyter-run-repl)
+  :desc "IRC"                 "I" #'=irc)
  (:prefix "t"
   :desc "Tab line mode"       "a" #'global-tab-line-mode
   :desc "Unfill region"       "U" #'unfill-region
@@ -123,15 +123,13 @@
   :desc "Switch dictionary"   "z" #'ispell-cycle-dictionary
   :desc "Spellcheck"          "W" #'flyspell-buffer
   :desc "Rainbow colors"      "C" #'rainbow-mode
-  :desc "Keypression"         "k" #'keypression-mode
   :desc "Poly Markdown"       "P" #'poly-markdown-mode
   :desc "Toggle letter case"  "L" #'toggle-letter-case
   :desc "Show/Hide modeline"  "M" #'global-hide-mode-line-mode
   :desc "Beautify buffer"     "B" #'format-all-mode
   :desc "Auto fill"           "f" #'auto-fill-mode
-  :desc "Switch theme"        "T" #'cycle-theme
+  :desc "Cycle theme"         "T" #'cycle-theme
   :desc "Ruler"               "R" #'fci-mode
-  :desc "Mail checker"        "n" #'mu4e-alert-enable-mode-line-display
   :desc "Undo tree"           "u" #'undo-tree-visualize
   :desc "Flycheck"            "c" #'flycheck-buffer)
  (:prefix "w"
