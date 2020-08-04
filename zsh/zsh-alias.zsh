@@ -41,9 +41,8 @@ alias R="R -q --no-save --no-restore"
 alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
 alias ete3="~/Library/Python/3.7/bin/ete3"
 alias c="clear"
-# 'ew' is defined in zsh-func.zsh and is certainly better than 'ec'
 alias ec="emacsclient -n"
-alias eq="emacs -nw -q"
+alias ew="emacs -nw"
 alias edit="open -e"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 alias vim="nvim"
@@ -54,9 +53,8 @@ alias rmr='rsync -rtvu --delete'
 # Use rsync with ssh and show progress
 alias rsyncssh='rsync -Pr --rsh=ssh'
 
-# Edit/Source vim config
+# Source vim config
 alias sz='source $HOME/.config/zsh/.zshrc'
-alias ss="source $HOME/.config/zsh/.zshrc"
 
 # git
 alias gg="git show | tig"

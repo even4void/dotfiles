@@ -15,7 +15,7 @@ mkdircd() {
   mkdir -p $1 && cd $1
 }
 
-ew() {
+e() {
   emacsclient -a 'emacs' -n "$@" 2>/dev/null || command emacs;
 }
 

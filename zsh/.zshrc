@@ -8,7 +8,8 @@ setopt autocd
 source ~/.config/zsh/zsh-comp.zsh   # completions
 source ~/.config/zsh/zsh-alias.zsh  # alias
 source ~/.config/zsh/zsh-func.zsh   # functions
-source ~/.config/zsh/zsh-prompt.zsh # prompt
+# source ~/.config/zsh/zsh-prompt.zsh # default prompt
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/private.zsh    # private stuff
 
 ### HISTORY ###
@@ -118,3 +119,6 @@ if [[ -z $TMUX ]]; then
 	fi
 	unset sessions
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
