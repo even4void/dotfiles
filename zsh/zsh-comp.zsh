@@ -20,6 +20,10 @@ source ~/.zsh/zsh-autopair/autopair.zsh
 autopair-init
 source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
+# expand alias
+zle -N expand-alias
+bindkey -M main ' ' expand-alias
+
 unsetopt menu_complete
 unsetopt flowcontrol
 setopt prompt_subst
@@ -61,6 +65,5 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/completion.zsh
   export FZF_DEFAULT_COMMAND='rg --files --follow'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  # export FZF_DEFAULT_OPTS="--color light --border --preview='head -10 {+}'"
   export FZF_DEFAULT_OPTS="--no-mouse --height 20% --layout=reverse --preview-window right:50%:noborder:hidden"
 fi

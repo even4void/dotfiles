@@ -6,8 +6,8 @@ setopt autocd
 
 ### CUSTOM FILES ###
 source ~/.config/zsh/zsh-comp.zsh   # completions
-source ~/.config/zsh/zsh-alias.zsh  # alias
 source ~/.config/zsh/zsh-func.zsh   # functions
+source ~/.config/zsh/zsh-alias.zsh  # alias
 # source ~/.config/zsh/zsh-prompt.zsh # default prompt
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/private.zsh    # private stuff
@@ -83,6 +83,9 @@ export HOMEBREW_NO_EMOJI=1
 
 # node.js
 export NODE_PATH="/usr/local/lib/node_modules"
+
+# Haskell
+export PATH="$HOME/.local/bin:$PATH"
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"

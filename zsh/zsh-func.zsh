@@ -1,3 +1,8 @@
+function expand-alias() {
+    zle _expand_alias
+    zle self-insert
+}
+
 startpostgres() {
   local pidfile="/usr/local/var/postgres/postmaster.pid"
   if [ -s $pidfile ] && kill -0 $(cat $pidfile | head -n 1) > /dev/null 2>&1; then
