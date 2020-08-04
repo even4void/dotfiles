@@ -48,6 +48,8 @@ alias edit="open -e"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 alias vim="nvim"
 alias confd="nvim ~/.config"
+alias rcp='rsync -vaP --delete'
+alias rmr='rsync -rtvu --delete'
 
 # Use rsync with ssh and show progress
 alias rsyncssh='rsync -Pr --rsh=ssh'

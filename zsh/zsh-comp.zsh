@@ -4,9 +4,8 @@ if type brew &>/dev/null; then
   FPATH=/usr/local/share/zsh/site-functions:$FPATH
 fi
 
-### Correction ###
-setopt CORRECT
-setopt CORRECT_ALL
+# setopt CORRECT
+# setopt CORRECT_ALL
 
 # More completions and Fish-like autosuggestions
 FPATH=~/.zsh/zsh-completions/src:$FPATH
@@ -15,6 +14,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
 autoload -U compinit
 compinit -i
+
+# autopair and syntax highlighting
+source ~/.zsh/zsh-autopair/autopair.zsh
+autopair-init
+source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 unsetopt menu_complete
 unsetopt flowcontrol
@@ -58,5 +62,5 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   export FZF_DEFAULT_COMMAND='rg --files --follow'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   # export FZF_DEFAULT_OPTS="--color light --border --preview='head -10 {+}'"
-  export FZF_DEFAULT_OPTS="--height 20% --layout=reverse --preview-window right:50%:noborder:hidden"
+  export FZF_DEFAULT_OPTS="--no-mouse --height 20% --layout=reverse --preview-window right:50%:noborder:hidden"
 fi

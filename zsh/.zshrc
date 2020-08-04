@@ -36,6 +36,9 @@ setopt HIST_NO_FUNCTIONS      # Don't store function definitions
 ### KEY BINDINGS ###
 bindkey -e
 
+# non-alphanumeric chars treated as part of a word (exclude '/')
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 # CTRL-R to search through history
 bindkey '^R' history-incremental-search-backward
 # CTRL-S to search forward in history
