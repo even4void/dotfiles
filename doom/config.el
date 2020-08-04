@@ -221,7 +221,8 @@
 
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
-            lisp-mode))
+            lisp-mode
+            ess-r-mode))
 
 ;; (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
@@ -404,6 +405,7 @@
 
 (setq ccls-executable "~/local/ccls/Release/ccls")
 (setq lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd")
+(setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
 (after! lsp-clients
   (set-lsp-priority! 'clangd 1))
 

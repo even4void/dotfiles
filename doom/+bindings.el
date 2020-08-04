@@ -26,11 +26,6 @@
  "s-&"        #'+workspace:switch-next
  "s-@"        #'lsp-ui-imenu
 
- "C-f"        #'forward-word
- "C-b"        #'backward-word
- "C-a"        #'backward-sentence
- "C-e"        #'forward-sentence
-
  "s-)"        #'ace-swap-window
  "s-("        #'doom/window-layout-toggle
 
@@ -43,8 +38,8 @@
  :ni "s-<down>"   #'evil-window-down
  :ni "s-<left>"   #'evil-window-left
  :ni "s-<right>"  #'evil-window-right
- :ni "s-l"        #'+workspace/switch-left
- :ni "s-h"        #'+workspace/switch-right
+ ;; :ni "s-l"        #'+workspace/switch-left
+ ;; :ni "s-h"        #'+workspace/switch-right
 
  (:map markdown-mode-map
   :i "s-i" #'markdown-insert-italic
