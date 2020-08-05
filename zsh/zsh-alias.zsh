@@ -48,7 +48,7 @@ alias nonascii="LC_CTYPE=C grep --color='auto' -n -P '[\x80-\xFF]'"
 alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME|HACK"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
-alias inbox="mbsync -a && mu index --quiet; mu find flag:unread -u --fields 'd f s m' --sortfield=date --reverse -n 5 2>/dev/null || echo 'No new mail'"
+alias inbox="mbsync -a && mu index --quiet; mu find flag:unread -u --fields 'd f s m' --sortfield=date --reverse -n 5 || echo 'No new mail'"
 alias statadocs="open -a 'Adobe Acrobat Reader DC' /Applications/Stata/docs/i.pdf"
 alias rhelp="Rscript -e 'args <- commandArgs(TRUE); help(args[2], package=c(\"base\", \"stats\"), help_type=\"text\")' --args"
 

@@ -130,7 +130,7 @@
   # Or for a specific segment in specific state:
   #
   #   POWERLEVEL9K_DIR_NOT_WRITABLE_ICON_BEFORE_CONTENT=false
-  typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=true
+  typeset -g POWERLEVEL9K_ICON_BEFORE_CONTENT=false
 
   # Add an empty line before each prompt.
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
@@ -794,7 +794,7 @@
   ##############[ taskwarrior: taskwarrior task count (https://taskwarrior.org/) ]##############
   # Taskwarrior color.
   typeset -g POWERLEVEL9K_TASKWARRIOR_FOREGROUND=74
-  
+
   # Taskwarrior segment format. The following parameters are available within the expansion.
   #
   # - P9K_TASKWARRIOR_PENDING_COUNT   The number of pending tasks: `task +PENDING count`.

@@ -2,6 +2,8 @@ typeset -U PATH
 autoload colors
 colors
 
+export CLICOLOR=1
+
 setopt autocd
 
 ### CUSTOM FILES ###
@@ -113,6 +115,9 @@ export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
 # export JAVA_HOME=(/usr/libexec/java_home -v 1.8)'/jre'
 export ARTEMIS_JAVA_JRE="/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home"
 export PSQLRC="$HOME/.config/psql/psqlrc"
+
+# Misc (Homebrew)
+export PATH="/usr/local/sbin:$PATH"
 
 # show available tmux sessions
 if [[ -z $TMUX ]]; then
