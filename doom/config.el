@@ -51,19 +51,17 @@
       (load-theme 'doom-nord t)
       (load! "lisp/faces"))
   (load-theme 'nord t)
-  (load! "lisp/faces-additional")
   (set-face-italic 'font-lock-comment-face t))
 
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
+(load! "lisp/faces-additional")
 
 (setq which-key-idle-delay 0.2)
 (setq ns-use-proxy-icon nil)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 (setq display-line-numbers-type 'relative)
-
-(setq doom-localleader-alt-key "s-$")
 
 (unless (featurep! "+light")
   ;; (minions-mode 1)

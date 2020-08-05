@@ -10,7 +10,6 @@ alias lk="ls -lhSr"
 # More dir actions
 alias dud="du -sh ./* | sort -h"
 alias jl="jobs -l"
-alias mkdir="mkdir -p"
 alias tree="tree -NC"
 alias perms="stat -c '%A %a %n'"
 alias cx="chmod +x"
@@ -58,10 +57,11 @@ alias rcp='rsync -vaP --delete'
 alias rmr='rsync -rtvu --delete'
 
 # Git
-alias g.="git add -p"
+g.() { git add -p "${@}" }
 alias ga="git commit --amend --reuse-message=HEAD"
+alias gA="git add --all"
 alias gb="git checkout -b"
-alias gc="git commit -S -m"
+gc() { git commit -v "${@}" }
 alias gd='git diff'
 alias gg="git status -s -b"
 alias gm="git fetch upstream && git merge upstream/master"

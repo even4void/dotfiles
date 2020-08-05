@@ -62,6 +62,10 @@ bindkey '^N' history-search-forward
 bindkey '^?' backward-delete-char
 bindkey '^[[3~' delete-char
 
+# Editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # local binaries
 export PATH="$HOME/local/bin:$PATH"
 
@@ -70,9 +74,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 
 # bat
 export BAT_THEME=ansi-dark
-# if [ ! -n "$INSIDE_EMACS" ]; then
-# 	alias cat=bat
-# fi
 
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
@@ -118,6 +119,10 @@ export PSQLRC="$HOME/.config/psql/psqlrc"
 
 # Misc (Homebrew)
 export PATH="/usr/local/sbin:$PATH"
+
+# GPG stuff
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # show available tmux sessions
 if [[ -z $TMUX ]]; then

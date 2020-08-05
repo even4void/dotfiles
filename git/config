@@ -38,24 +38,21 @@
 	ff = merge --ff-only
 	pff = pull --ff-only
 	tree = log --graph --decorate --oneline --all
-	ci = commit -S
-	co = checkout
-	cob = checkout -b
 	details = log -n1 -p --format=fuller
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	inspect = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S
 	dms = diff master --summary
 	export = archive -o latest.tar.gz -9 --prefix=latest/<Paste>
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	nuke = "!git reset --hard; git clean -fd"
 	unstage = reset HEAD
+	unmerge = reset --hard HEAD
 	pr = pull-request
-	here = !git init && git add . && git commit -S -m \"Init repo\"
-	wip = commit -S -m '↻ wip'
-	cos = commit -S -m 'Cosmit changes'
-	fix = commit -S -m '✓ Minor fix'
-	doc = commit -S -m 'Add doc'
-	todo = commit -S -m 'Add todo'
-	discard-merge = reset --hard HEAD
-	ack = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S
+	here = !git init && git add . && git commit -m \"Init repo\"
+	wip = commit -m 'wip'
+	cos = commit -m 'Cosmit changes'
+	fix = commit -m 'Minor fix'
+	doc = commit -m 'Add doc'
+	todo = commit -m 'Add todo'
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -69,3 +66,7 @@
 	includeIssuesSection = false
 [url "https://github.com/"]
 	insteadOf = gh:
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgSign = true
