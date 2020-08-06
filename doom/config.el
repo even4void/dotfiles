@@ -10,7 +10,9 @@
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 (setq frame-resize-pixelwise t)
 
-(setq default-directory "~/")
+;; Make GUI and Terminal follow the same conventions
+(setq default-directory "~/"
+      system-time-locale "en")
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
@@ -34,7 +36,6 @@
 
 (load! "+bindings")
 (load! "lisp/+light-fix")
-;; (load! "lisp/tab-line-custom")
 
 ;; -- ui ---------------------------------------------------------------------
 (load-theme 'doom-nord t)
@@ -80,8 +81,8 @@
         bibtex-completion-library-path '("~/Documents/Papers")
         bibtex-completion-pdf-extension '(".pdf" ".epub")
         bibtex-completion-notes-path "/Users/chl/org/papers.org"
-        bibtex-completion-notes-symbol "≣"
-        bibtex-completion-pdf-symbol "◉"
+        bibtex-completion-notes-symbol "!"
+        bibtex-completion-pdf-symbol "*"
         bibtex-completion-additional-search-fields '(keywords)
         bibtex-completion-pdf-open-function (lambda (fpath) (call-process
                                                         "open" nil 0 nil
@@ -222,9 +223,9 @@
 (setq magit-repolist-columns
       '(("Repository" 25 magit-repolist-column-ident                  ())
         ("Version "   30 magit-repolist-column-version                ((:right-align t)))
-        (" ⚡"          2 magit-repolist-column-dirty                  ((:right-align t)))
+        ("*"           2 magit-repolist-column-dirty                  ((:right-align t)))
         (""           3 magit-repolist-column-branches               ((:right-align t)))
-        ("≣"           3 magit-repolist-column-stashes                ((:right-align t)))
+        ("!"           3 magit-repolist-column-stashes                ((:right-align t)))
         ("⤓"           3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
         ("⤒"           3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
         ("Path"       99 magit-repolist-column-path                   ())))
