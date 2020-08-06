@@ -61,13 +61,12 @@ g.() { git add -p "${@}" }
 alias ga="git commit --amend --reuse-message=HEAD"
 alias gA="git add --all"
 alias gb="git checkout -b"
-gc() { git commit -v "${@}" }
-alias gC="git commit -m"
+alias gc="git commit -m"
+gC() { git commit -v "${@}" }
 alias gd='git diff'
 alias gg="git status -s -b"
 alias gm="git fetch upstream && git merge upstream/master"
 alias gp="git pull --ff-only"
-gr() { git rebase "${@}" }
 alias gs="git details"
 alias gt="git show | tig"
 alias gu="git fetch && git diff master origin/master" # or gd @{upstream}

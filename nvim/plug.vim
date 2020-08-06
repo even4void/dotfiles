@@ -6,7 +6,7 @@ Plug 'liuchengxu/vista.vim'  " instead of tagbar
 Plug 'airblade/vim-rooter'
 
 "" code editing, text manipulation
-Plug 'neoclide/coc.nvim',                  {'branch': 'release'}
+" Plug 'neoclide/coc.nvim',                  {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
