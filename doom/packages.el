@@ -7,7 +7,6 @@
 (package! realgud-trepan-ni)
 (package! interleave)
 (package! vc-msg)
-(package! guess-language)
 (package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
 (package! nord-theme)
 (package! helm :disable t)

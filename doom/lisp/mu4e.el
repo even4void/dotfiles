@@ -17,10 +17,10 @@
         mu4e-confirm-quit nil
         mu4e-display-update-status-in-modeline nil
         mu4e-index-lazy-check t
-        mu4e-update-interval nil ;; 600
-        mu4e-use-fancy-chars nil  ;; too bad actually
+        mu4e-update-interval nil
+        mu4e-use-fancy-chars nil
         mail-host-address "aliquote.org"
-        mu4e-compose-signature "chl AT aliquote.org\n152E3E3F7C4CCE44\n(•̀ᴗ•́)و"
+        mu4e-compose-signature "chl AT aliquote.org\nPGP: 152E3E3F7C4CCE44"
         message-citation-line-format "On %a, %b %d %Y (%H:%M), %N (%n) wrote:\n"
         message-citation-line-function 'message-insert-formatted-citation-line
         mu4e-compose-signature-auto-include nil

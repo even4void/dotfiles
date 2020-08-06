@@ -17,7 +17,6 @@
        treemacs
        ophints
        (popup +all +defaults)
-       ;; pretty-code
        vc-gutter
        window-select
        workspaces
@@ -38,14 +37,11 @@
        (undo +tree)
 
        :term
-       ;; eshell
-       ;; term
        vterm
 
        :tools
        biblio
        (debugger +lsp)
-       ;; docker
        (eval +overlay)
        gist
        (lookup
@@ -56,8 +52,6 @@
        make
        pdf
        rgb
-       ;; taskrunner
-       ;; upload
 
        :lang
        (cc +lsp)
@@ -75,7 +69,6 @@
         +dragndrop
         +gnuplot
         +journal
-        +jupyter
         +pandoc
         +present)
        purescript
@@ -98,19 +91,5 @@
        :app
        irc
 
-       :collab
-
        :config
        (default +bindings +smartparens))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

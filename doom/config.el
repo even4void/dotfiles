@@ -22,35 +22,29 @@
         doom-big-font (font-spec :family "Victor Mono" :size 16)
         doom-variable-pitch-font (font-spec :family "Helvetica Neue" :size 12)))
 
-;; (setq flycheck-posframe-warning-prefix (all-the-icons-material "error_outline")
-;;       flycheck-posframe-info-prefix (all-the-icons-material "lightbulb_outline")
-;;       flycheck-posframe-error-prefix (all-the-icons-material "error"))
-
 (unless (display-graphic-p)
   (custom-set-variables
    '(git-gutter:modified-sign "│")
    '(git-gutter:added-sign "│")
    '(git-gutter:deleted-sign "│"))
-  ;; (add-to-list 'default-frame-alist '(background-color . "#2E3440"))
-  (setq org-hide-leading-stars t)
   (setq org-superstar-leading-fallback ?\s)
   (setf mac-command-modifier 'super)
-  (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (remove-hook 'org-mode-hook 'highlight-indent-guides-mode)
-  (setq highlight-indent-guides-auto-enabled nil))
+  (remove-hook 'text-mode-hook 'highlight-indent-guides-mode)
+  (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 (load! "+bindings")
 (load! "lisp/+light-fix")
-(load! "lisp/tab-line-custom")
+;; (load! "lisp/tab-line-custom")
 
-;; ---------------------------------------------------------------------------
-;; ui
-;; ---------------------------------------------------------------------------
+;; -- ui ---------------------------------------------------------------------
 (if (display-graphic-p)
     (progn
       (load-theme 'doom-nord t)
       (load! "lisp/faces"))
   (load-theme 'nord t)
+  (custom-set-faces!
+   '(mode-line :background "brightblack" :foreground "#bfbfbf")
+   '(mode-line-inactive :background "black" :foreground "#bfbfbf"))
   (set-face-italic 'font-lock-comment-face t))
 
 (setq doom-themes-enable-bold nil)
@@ -63,30 +57,19 @@
 (delete-selection-mode 1)
 (setq display-line-numbers-type 'relative)
 
-(unless (featurep! "+light")
-  ;; (minions-mode 1)
-  ;; (setq all-the-icons-scale-factor 1.1)
-  (setq doom-modeline-mu4e t
-        ;; doom-modeline-github t
-        doom-modeline-enable-word-count t
-        doom-modeline-height 22
-        doom-modeline-persp-name nil
-        doom-modeline-buffer-modification-icon nil
-        doom-modeline-indent-info nil
-        doom-modeline-unicode-fallback t
-        doom-modeline-minor-modes t
-        doom-modeline-lsp nil))
+;; (load! "lisp/fill-column-indicator")
 
-(load! "lisp/fill-column-indicator")
+(when (display-graphic-p)
+  (setq highlight-indent-guides-responsive 'top
+        highlight-indent-guides-delay 0))
 
-;; ---------------------------------------------------------------------------
-;; packages
-;; ---------------------------------------------------------------------------
+(font-lock-add-keywords 'org-mode
+                        '(("\\[@.+?\\]" . font-lock-keyword-face)))
 
 ;; -- web & doc --------------------------------------------------------------
 (setq browse-url-browser-function 'xwidget-webkit-browse-url)
 
-;; --tex ---------------------------------------------------------------------
+;; -- tex --------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
@@ -134,7 +117,6 @@
 (after! flycheck
  (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change)))
 
-;; https://emacs.stackexchange.com/a/36373
 (define-fringe-bitmap 'flycheck-fringe-bitmap-ball
   (vector #b00000000
           #b00000000
@@ -192,13 +174,6 @@
 
 ;; -- Spelling ---------------------------------------------------------------
 ;; (setq ispell-dictionary "en")
-;; guess-language is probably better than auto-dictionary (7 years old)
-;; (setq guess-language-langcodes
-;;       '((en . ("en_GB" "English"))
-;;         (fr . ("fr_FR" "French"))))
-;; (setq guess-language-languages '(en fr))
-;; (setq guess-language-min-paragraph-length 45)
-;; (add-hook 'text-mode-hook #'guess-language-mode)
 
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
@@ -215,10 +190,8 @@
 (setq show-trailing-whitespace t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; (setq flycheck-textlint-config "~/.textlintrc")
-
 (setq +format-on-save-enabled-modes
-      '(not emacs-lisp-mode  ; elisp's mechanisms are good enough
+      '(not emacs-lisp-mode
             lisp-mode
             ess-r-mode))
 
@@ -235,60 +208,8 @@
       markdown-gfm-uppercase-checkbox t
       markdown-header-scaling-values '(1.1 1.0 1.0 1.0 1.0 1.0))
 (after! markdown
-  (setq markdown-pre-face "Iosevka"
-        markdown-code-face "Iosevka"))
-
-;; -- pretty-code ------------------------------------------------------------
-;; Best with custom Iosevka font. See, e.g., https://is.gd/L67AoR
-;; (setq +pretty-code-enabled-modes
-;;       '(emacs-lisp-mode org-mode clojure-mode haskell-mode latex-mode
-;;                         scheme-mode racket-mode ess-r-mode))
-(when (display-graphic-p)
-  (setq highlight-indent-guides-responsive 'top
-        highlight-indent-guides-delay 0))
-
-;; Org and R additional symbols
-;; hex code ▷ (9655), ◇ (9671), ▶ (9654), ƒ (402), ⚐
-;; See also https://is.gd/RI0K2P
-;; (when (display-graphic-p)
-;;   (setq +pretty-code-iosevka-font-ligatures
-;;         (append +pretty-code-iosevka-font-ligatures
-;;                 '(("[ ]"  . "☐")
-;;                   ("[X]"  . "☒")
-;;                   ("[-]"  . "⧇")
-;;                   ("%>%"  . #Xe175)
-;;                   ("%$%"  . #Xe112)
-;;                   ("%<>%" . #Xe114)
-;;                   ("%T>%" . #Xe1b1)
-;;                   ;; ("function" . "ƒ")
-;;                   ("lambda"   . "λ")
-;;                   ;; ("*"  . "∗")
-;;                   ;; ("<=" . "⩽")
-;;                   ;; (">=" . "⩾")
-;;                   ("#+BEGIN_EXAMPLE" . "»")
-;;                   ("#+END_EXAMPLE"   . "«")
-;;                   ("#+BEGIN_COMMENT" . "#")
-;;                   ("#+END_COMMENT"   . "#")
-;;                   ("#+BEGIN_QUOTE"   . "“")
-;;                   ("#+END_QUOTE"     . "”")
-;;                   ("#+begin_src"     . "»")
-;;                   ("#+end_src"       . "«")
-;;                   ("#+begin_example" . "»")
-;;                   ("#+end_example"   . "«")
-;;                   ("#+RESULTS:"      . "■")
-;;                   ("#+CAPTION:"      . "»")
-;;                   ("#+ATTR_LaTeX:"   . "»")
-;;                   ("#+ATTR_LATEX:"   . "»")
-;;                   ("#+ATTR_HTML:"    . "»")
-;;                   ("#+ATTR_ORG:"     . "»")
-;;                   ("#+LABEL:"        . "»")
-;;                   ("#+PROPERTY:"     . "☸")
-;;                   (":PROPERTIES:"    . "☸")
-;;                   (":END:"           . "■")))))
-
-(font-lock-add-keywords 'org-mode
-                        '(("\\[@.+?\\]" . font-lock-keyword-face)))
-
+  (setq markdown-pre-face "JetBrains Mono"
+        markdown-code-face "JetBrains Mono"))
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
@@ -297,22 +218,9 @@
 (setq counsel-dash-min-length 3)
 
 ;; -- eshell/term -------------------------------------------------------------
-;; https://www.masteringemacs.org/article/complete-guide-mastering-eshell
-; (after! eshell
-;   (set-eshell-alias!
-;    "f"   "(other-window 1) && find-file $1"
-;    "l"   "ls -lh"
-;    ".."  "cd ../"
-;    "d"   "dired $1"
-;    "gl"  "(call-interactively 'magit-log-current)"
-;    "gs"  "magit-status"
-;    "gc"  "magit-commit"))
-
-;; (setq multi-term-program "/bin/zsh")
 (setq vterm-shell "/bin/zsh")
 
 ;; -- git/magit ---------------------------------------------------------------
-;; See https://github.com/magit/ghub/issues/81
 (after! magit
   (setq magit-revision-show-gravatars nil))
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
@@ -320,7 +228,7 @@
 (setq magit-repository-directories '(("~/git" . 1))
       magit-save-repository-buffers nil)
 (setq transient-values '((magit-commit "--gpg-sign=152E3E3F7C4CCE44")
-                         (magit-rebase "--autosquash" "--gpg-sign=152E3E3F7C4CCE44")
+                         (magit-rebase "--gpg-sign=152E3E3F7C4CCE44")
                          (magit-pull   "--rebase" "--gpg-sign=152E3E3F7C4CCE44")))
 (setq magit-repolist-columns
       '(("Repository" 25 magit-repolist-column-ident                  ())
@@ -348,7 +256,6 @@
 (setq deft-directory "~/org/z"
       deft-recursive nil
       deft-use-filename-as-title t)
-;; deft-strip-summary-regexp "\\(^---\\|^title:.*$\\|^date:.*$\\|^draft:.*$\\|^tags:.*$\\|^categories:.*$\\)")
 
 ;; -- company ----------------------------------------------------------------
 (after! company
@@ -364,20 +271,12 @@
 
 (setq lsp-julia-default-environment "~/.julia/environments/v1.5")
 
-;; (add-to-list 'load-path "~/local/ado-mode/lisp")
-;; (require 'ado-mode)
-;; (add-hook 'ess-stata-mode #'(lambda () 'ado-mode))
-;; (add-to-list 'auto-mode-alist '("\\.ado" . ado-mode))
-;; (add-to-list 'auto-mode-alist '("\\.do" . ado-mode))
-
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
 (setq python-shell-interpreter-args "-m IPython --simple-prompt -i")
 (setq flycheck-python-pycompile-executable "python3"
       flycheck-python-pylint-executable "python3"
       flycheck-python-flake8-executable "python3")
-
-(setq jupyter-repl-echo-eval-p t)
 
 ;; -- lsp --------------------------------------------------------------------
 (setq lsp-eldoc-enable-hover nil  ;; trigger manually using K
@@ -390,7 +289,7 @@
             (lambda (frame _w)
               (set-face-attribute 'default frame :font "Iosevka" :height 125)))
   (setq lsp-diagnostic-package :auto
-        lsp-ui-doc-enable nil    ;; finally, don't like it so much (too noisy)
+        lsp-ui-doc-enable nil
         lsp-ui-doc-delay 0.2
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-position 'top
@@ -407,11 +306,7 @@
   (set-lsp-priority! 'clangd 1))
 
 ;; -- lisp/haskell -----------------------------------------------------------
-(setq inferior-lisp-program "sbcl")  ;; ccl64
-
-;; (setq sly-lisp-implementations
-;;       '((ccl ("ccl64" "-quiet"))
-;;         (sbcl ("sbcl") :coding-system utf-8-unix)))
+(setq inferior-lisp-program "sbcl")
 
 (setq geiser-active-implementations '(chez chicken mit racket))
 
@@ -462,17 +357,12 @@
   :hook (org-mode . org-fancy-priorities-mode)
   :config (setq org-fancy-priorities-list '("■" "■" "■")))
 
-;; (use-package ox-gfm
-;;   :after org)
-
-;; (use-package ox-leanpub
-;;   :after org)
+;; (remove-hook 'org-mode-hook #'org-superstar-mode)
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
   (setq org-agenda-include-diary t
         org-journal-follow-mode t
-        ;; org-journal-date-format "%A, %d %B %Y"
         org-journal-enable-agenda-integration t
         org-journal-enable-cache t)
   (setq org-capture-templates
@@ -522,7 +412,7 @@
 
   (setq org-hide-emphasis-markers t
         org-tags-column 79
-        org-startup-indented 'noindent
+        org-startup-indented nil
         org-startup-folded 'fold
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil
@@ -543,7 +433,6 @@
         org-export-with-section-numbers nil
         org-html-postamble nil
         org-html-htmlize-output-type nil
-        ;; org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/drafts/_assets/github.css\" />"
         org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")
@@ -562,8 +451,4 @@
 (load! "lisp/irc")
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(safe-local-variable-values '((ispell-dictionary))))
