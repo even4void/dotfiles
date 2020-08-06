@@ -77,7 +77,11 @@
   '(flyspell-incorrect :underline (:color "#bf616a"))
   '(flyspell-duplicate :underline (:color "#d08770"))
 
-  '(lsp-ui-sideline-code-action :foreground "#a3be8c")
+  '(writegood-weasels-face :background nil :underline (:color "#d08770" :style wave))
+  '(writegood-passive-voice-face :background nil :underline (:color "#d08770" :style wave))
+  '(writegood-duplicates-face :background nil :underline (:color "#d08770" :style wave))
+
+'(lsp-ui-sideline-code-action :foreground "#a3be8c")
   '(lsp-face-highlight-textual :background "#c2c282")
   '(lsp-face-highlight-read :background "#c2c282" :foreground "#191c25" :distant-foreground "#f0f4fc")
   '(lsp-face-highlight-write :background "#c2c282" :foreground "#191c25" :distant-foreground "#f0f4fc")

@@ -37,27 +37,16 @@
 ;; (load! "lisp/tab-line-custom")
 
 ;; -- ui ---------------------------------------------------------------------
-(if (display-graphic-p)
-    (progn
-      (load-theme 'doom-nord t)
-      (load! "lisp/faces"))
-  (load-theme 'nord t)
-  (custom-set-faces!
-   '(mode-line :background "brightblack" :foreground "#bfbfbf")
-   '(mode-line-inactive :background "black" :foreground "#bfbfbf"))
-  (set-face-italic 'font-lock-comment-face t))
-
+(load-theme 'doom-nord t)
+(load! "lisp/faces")
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
-(load! "lisp/faces-additional")
 
 (setq which-key-idle-delay 0.2)
 (setq ns-use-proxy-icon nil)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 (setq display-line-numbers-type 'relative)
-
-;; (load! "lisp/fill-column-indicator")
 
 (when (display-graphic-p)
   (setq highlight-indent-guides-responsive 'top
