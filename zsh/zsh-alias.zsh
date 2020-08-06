@@ -27,7 +27,7 @@ alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | x
 
 # Editors
 alias ec="emacsclient -n"
-alias ew="emacs -nw"
+alias ew="env TERM=xterm-24bit emacs -nw"
 alias edit="open -e"
 alias vim="nvim"
 
@@ -66,6 +66,7 @@ alias gd='git diff'
 alias gg="git status -s -b"
 alias gm="git fetch upstream && git merge upstream/master"
 alias gp="git pull --ff-only"
+alias gs="git details"
 alias gt="git show | tig"
 alias gu="git fetch && git diff master origin/master" # or gd @{upstream}
 
