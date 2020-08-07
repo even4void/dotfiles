@@ -12,7 +12,6 @@
        hl-todo
        indent-guides
        (modeline +light)
-       minimap
        nav-flash
        treemacs
        ophints

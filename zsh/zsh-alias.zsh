@@ -43,7 +43,7 @@ alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
 # Misc
 alias -g G="| grep --color=auto"
-alias nonascii="LC_CTYPE=C grep --color='auto' -n -P '[\x80-\xFF]'"
+alias nonascii="LC_CTYPE=C ggrep --color='auto' -n -P '[\x80-\xFF]'"
 alias ccat="pygmentize -g"
 alias notes='rg "TODO|NOTE|FIXME|HACK"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
@@ -67,8 +67,8 @@ alias gd='git diff'
 alias gg="git status -s -b"
 alias gm="git fetch upstream && git merge upstream/master"
 alias gp="git pull --ff-only"
+gr() { git rebase -i HEAD~$1 }
 alias gs="git details"
-alias gt="git show | tig"
 alias gu="git fetch && git diff master origin/master" # or gd @{upstream}
 
 # tmux

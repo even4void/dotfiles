@@ -119,7 +119,7 @@
   :desc "IRC"                     "I" #'=irc)
  (:prefix "t"
   :desc "Tab line mode"           "a" #'global-tab-line-mode
-  :desc "Beautify buffer"         "B" #'format-all-mode
+  :desc "Code format mode"        "B" #'format-all-mode
   :desc "Flycheck"                "c" #'flycheck-buffer
   :desc "Rainbow colors"          "C" #'rainbow-mode
   :desc "Auto fill"               "f" #'auto-fill-mode

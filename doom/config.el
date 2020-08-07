@@ -1,6 +1,5 @@
 ;;; ~/.config/doom/config.el -*- lexical-binding: t; -*-
 
-;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (add-to-list 'default-frame-alist '(top . 12))
 (add-to-list 'default-frame-alist '(left . 12))
 (add-to-list 'default-frame-alist '(width . 148))
@@ -8,19 +7,24 @@
 (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(setq frame-resize-pixelwise t)
 
-;; Make GUI and Terminal follow the same conventions
-(setq default-directory "~/"
-      system-time-locale "en")
+(setq frame-resize-pixelwise t
+      ns-use-proxy-icon nil)
 
 (setq user-full-name "chl"
       user-mail-address "chl@aliquote.org"
       epa-file-encrypt-to user-mail-address
       auth-sources '("~/.authinfo.gpg"))
 
+;; Make GUI and Terminal follow the same conventions
+(setq default-directory "~/"
+      system-time-locale "en")
+
+;; -- ui ---------------------------------------------------------------------
 (when (display-graphic-p)
-  (setq doom-font (font-spec :family "JetBrains Mono" :size 13)
+  (setq highlight-indent-guides-responsive 'top
+        highlight-indent-guides-delay 0
+        doom-font (font-spec :family "JetBrains Mono" :size 13)
         doom-big-font (font-spec :family "Victor Mono" :size 16)
         doom-variable-pitch-font (font-spec :family "Helvetica Neue" :size 12)))
 
@@ -30,34 +34,28 @@
    '(git-gutter:added-sign "│")
    '(git-gutter:deleted-sign "│"))
   (setq org-superstar-leading-fallback ?\s)
-  (setf mac-command-modifier 'super)
   (remove-hook 'text-mode-hook 'highlight-indent-guides-mode)
   (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode))
 
 (load! "+bindings")
 (load! "lisp/+light-fix")
 
-;; -- ui ---------------------------------------------------------------------
 (load-theme 'doom-nord t)
+
 (load! "lisp/faces")
+
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
 
 (setq which-key-idle-delay 0.2)
-(setq ns-use-proxy-icon nil)
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
-(setq display-line-numbers-type 'relative)
-
-(when (display-graphic-p)
-  (setq highlight-indent-guides-responsive 'top
-        highlight-indent-guides-delay 0))
-
-(font-lock-add-keywords 'org-mode
-                        '(("\\[@.+?\\]" . font-lock-keyword-face)))
+(setq display-line-numbers-type t)
 
 ;; -- web & doc --------------------------------------------------------------
-(setq browse-url-browser-function 'xwidget-webkit-browse-url)
+(if (display-graphic-p)
+  (setq browse-url-browser-function 'xwidget-webkit-browse-url)
+  (setq browse-url-browser-function 'eww-browse-url))
 
 ;; -- tex --------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
@@ -78,7 +76,7 @@
 
 (after! ivy-bibtex
   (setq bibtex-completion-bibliography '("~/org/references.bib")
-        bibtex-completion-library-path '("~/Documents/Papers")
+        bibtex-completion-library-path '("~/Documents/papers")
         bibtex-completion-pdf-extension '(".pdf" ".epub")
         bibtex-completion-notes-path "/Users/chl/org/papers.org"
         bibtex-completion-notes-symbol "!"
@@ -97,7 +95,7 @@
           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
           (default       . bibtex-completion-format-citation-default))
         bibtex-completion-notes-template-one-file
-        (format "* [[/Users/chl/Documents/Papers/${=key=}.pdf][${=key=}]] - ${title}\n :PROPERTIES:\n :Custom_ID: ${=key=}\n :INTERLEAVE_PDF: /Users/chl/Documents/Papers/${=key=}.pdf\n :END:\n"))
+        (format "* [[/Users/chl/Documents/papers/${=key=}.pdf][${=key=}]] - ${title}\n :PROPERTIES:\n :Custom_ID: ${=key=}\n :INTERLEAVE_PDF: /Users/chl/Documents/papers/${=key=}.pdf\n :END:\n"))
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
 
@@ -185,7 +183,6 @@
             lisp-mode
             ess-r-mode))
 
-;; (remove-hook 'dired-mode-hook 'diredfl-mode)
 (remove-hook 'text-mode-hook #'auto-fill-mode)
 (remove-hook 'text-mode-hook #'turn-on-auto-fill)
 
@@ -203,8 +200,6 @@
 
 ;; -- dash-docs/lookup--------------------------------------------------------
 (setq dash-docs-enable-debugging nil)
-(setq +lookup-open-url-fn #'+lookup-xwidget-webkit-open-url-fn)
-(setq counsel-dash-browser-func #'+lookup-xwidget-webkit-open-url-fn)
 (setq counsel-dash-min-length 3)
 
 ;; -- eshell/term -------------------------------------------------------------
@@ -343,14 +338,15 @@
 (setq diary-file "~/.diary")
 (setq calendar-week-start-day 1)
 
+(font-lock-add-keywords 'org-mode
+                        '(("\\[@.+?\\]" . font-lock-keyword-face)))
+
 (use-package! org-fancy-priorities
   :hook (org-mode . org-fancy-priorities-mode)
   :config (setq org-fancy-priorities-list '("■" "■" "■")))
 
-;; (remove-hook 'org-mode-hook #'org-superstar-mode)
-
 (after! org
-  (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/Papers/"))
+  (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/papers/"))
   (setq org-agenda-include-diary t
         org-journal-follow-mode t
         org-journal-enable-agenda-integration t
