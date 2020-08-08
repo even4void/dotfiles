@@ -6,6 +6,7 @@
 
 (map!
  :nv "gh"         #'lsp-ui-doc-glance
+ :i "C-n"         #'dabbrev-expand
  :v "J"           (concat ":m '>+1" (kbd "RET") "gv=gv")
  :v "K"           (concat ":m '<-2" (kbd "RET") "gv=gv")
 
@@ -109,8 +110,8 @@
   :desc "Markdown hide/show"      "M" #'markdown-toggle-markup-hiding
   :desc "Org narrow"              "N" #'org-narrow-to-subtree
   :desc "Org clean results"       "r" #'org-remove-all-result-blocks
-  :desc "Org sort entries"        "R" #'org-sort-entries
   :desc "Insert URL"              "u" #'insert-url
+  :desc "Unfill region"           "U" #'unfill-region
   :desc "Select dictionary"       "Z" #'ispell-change-dictionary)
  (:prefix "o"
   :desc "Github"                  "g" #'open-github
@@ -130,7 +131,6 @@
   :desc "Ruler"                   "R" #'display-fill-column-indicator-mode
   :desc "Cycle theme"             "T" #'cycle-theme
   :desc "Undo tree"               "u" #'undo-tree-visualize
-  :desc "Unfill region"           "U" #'unfill-region
   :desc "Spellcheck"              "W" #'flyspell-buffer
   :desc "Switch dictionary"       "z" #'ispell-cycle-dictionary
   :desc "Select dictionary"       "Z" #'ispell-change-dictionary)

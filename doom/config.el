@@ -60,7 +60,7 @@
 ;; -- tex --------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
-(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+;; (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
@@ -324,6 +324,19 @@
       lsp-rust-full-docs t)
 
 ;; -- org --------------------------------------------------------------------
+;; TODO customize fonts, bibliography and check default packages
+(eval-after-load "ox-latex"
+  '(add-to-list 'org-latex-classes
+                '("tufte-handout"
+                  "\\documentclass{tufte-handout}
+                   \\usepackage{nicefrac}
+                   \\usepackage{units}"
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
 (setq org-directory "~/org"
       org-agenda-files '("~/org/refile.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
@@ -398,8 +411,6 @@
 
   (setq org-hide-emphasis-markers t
         org-tags-column 79
-        org-startup-indented nil
-        org-startup-folded 'fold
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
@@ -419,7 +430,8 @@
         org-export-with-section-numbers nil
         org-html-postamble nil
         org-html-htmlize-output-type nil
-        org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f")
+        org-latex-default-class "tufte-handout"
+        org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f") ;; -pdflatex=lualatex
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")
                                        ;; https://is.gd/lt21EQ
@@ -435,6 +447,3 @@
 (add-to-list 'org-modules 'org-mu4e)
 
 (load! "lisp/irc")
-
-(custom-set-variables
- '(safe-local-variable-values '((ispell-dictionary))))
