@@ -41,12 +41,6 @@
       (org-babel-remove-result))))
 
 ;;;###autoload
-(defun eshell/clear ()
-  "Clear Eshell screen (other than the default method)"
-  (interactive)
-   (let ((eshell-buffer-maximum-lines 0)) (eshell-truncate-buffer)))
-
-;;;###autoload
 (defun mu4e-choose-signature ()
   "Insert one of a number of sigs"
   (interactive)

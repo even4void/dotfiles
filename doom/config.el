@@ -55,7 +55,12 @@
 ;; -- web & doc --------------------------------------------------------------
 (if (display-graphic-p)
   (setq browse-url-browser-function 'xwidget-webkit-browse-url)
-  (setq browse-url-browser-function 'eww-browse-url))
+  (setq browse-url-browser-function 'eww-browse-url
+        shr-use-colors nil
+        shr-bullet "• "
+        shr-folding-mode t
+        eww-search-prefix "https://duckduckgo.com/html?q="
+        url-privacy-level '(email agent cookies lastloc)))
 
 ;; -- tex --------------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
