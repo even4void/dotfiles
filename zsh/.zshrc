@@ -84,6 +84,9 @@ export KEYTIMEOUT=1
 export PATH="/usr/local/bin:$PATH"
 export HOMEBREW_NO_EMOJI=1
 
+# Bibtex (for Org)
+export BIBINPUTS="$HOME/org/:$BIBINPUTS"
+
 # node.js
 export NODE_PATH="/usr/local/lib/node_modules"
 

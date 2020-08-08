@@ -69,6 +69,7 @@
  :desc "Swiper all"               "@"  #'doom/swiper-all-region-or-symbol
  :desc "Swap window"              ")"  #'ace-swap-window
  :desc "Switch layout"            "("  #'doom/window-layout-toggle
+ :desc "Next window"              "$"  #'evil-window-next
  :desc "Interactive regex"        "%"  #'isearch-forward-regexp
  :desc "Swiper"                   "/"  #'swiper
  :desc "Open vterm"               "!"  #'+vterm/here

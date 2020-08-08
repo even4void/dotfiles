@@ -62,14 +62,30 @@
         eww-search-prefix "https://duckduckgo.com/html?q="
         url-privacy-level '(email agent cookies lastloc)))
 
-;; -- tex --------------------------------------------------------------------
+;; -- tex/bibtex--------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
 ;; (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
-;; -- bibtex -----------------------------------------------------------------
+;; TODO customize fonts, bibliography and check default packages
+(eval-after-load "ox-latex"
+  '(add-to-list 'org-latex-classes
+                '("tufte-handout"
+                  "\\documentclass[nobib]{tufte-handout}
+                   \\usepackage[style=authoryear-comp,autocite=footnote]{biblatex}
+                   \\addbibresource{/Users/chl/org/references.bib}
+                   \\usepackage{nicefrac}
+                   \\usepackage{units}
+                   [NO-DEFAULT-PACKAGES]
+                   [EXTRA]"
+                  ("\\section{%s}" . "\\section*{%s}")
+                  ("\\subsection{%s}" . "\\subsection*{%s}")
+                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+
 (setq bibtex-field-delimiters 'double-quotes
       bibtex-autokey-year-length 4
       bibtex-autokey-name-year-separator "-"
@@ -329,25 +345,13 @@
       lsp-rust-full-docs t)
 
 ;; -- org --------------------------------------------------------------------
-;; TODO customize fonts, bibliography and check default packages
-(eval-after-load "ox-latex"
-  '(add-to-list 'org-latex-classes
-                '("tufte-handout"
-                  "\\documentclass{tufte-handout}
-                   \\usepackage{nicefrac}
-                   \\usepackage{units}"
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-
 (setq org-directory "~/org"
       org-agenda-files '("~/org/refile.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
       +org-capture-todo-file "~/org/todo.org"
       org-journal-dir "~/org/j/"
+      org-babel-mathematica-command "~/local/bin/mash"
       inferior-R-program-name "/usr/local/bin/R"
       inferior-R-args "-q --no-save --no-restore"
       inferior-STA-program-name "/usr/local/bin/stata-mp"
@@ -358,6 +362,9 @@
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
+
+(font-lock-add-keywords 'org-mode
+                        '(("\\\\autocite{.+?}" . font-lock-keyword-face)))
 
 (use-package! org-fancy-priorities
   :hook (org-mode . org-fancy-priorities-mode)
@@ -436,7 +443,7 @@
         org-html-postamble nil
         org-html-htmlize-output-type nil
         org-latex-default-class "tufte-handout"
-        org-latex-pdf-process '("latexmk -pdf -f -outdir=%o %f") ;; -pdflatex=lualatex
+        org-latex-pdf-process '("latexmk -pdf -bibtex-cond -f -outdir=%o %f") ;; -pdflatex=lualatex
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")
                                        ;; https://is.gd/lt21EQ

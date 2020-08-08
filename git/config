@@ -19,14 +19,22 @@
 	minus-style = "normal #a786af"
 	minus-emph-style="normal #91699b"
 	syntax-theme = Nord  # ansi-dark
+[color "branch"]
+	current = "#cb4b16"
+	local = magenta
+	remote = green
 [color "diff"]
 	meta = "#657b83"
 	frag = "#81a1c1"
-	old = "#a786af"
-	new = "#89b085"
+	old = magenta
+	new = green
 [color "interactive"]
 	help = "#cb4b16"
 	prompt = "#849598"
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
 [include]
 	path = ~/.gitconfig.local
 [push]
