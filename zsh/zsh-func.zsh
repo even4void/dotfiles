@@ -21,7 +21,7 @@ mkdircd() {
 }
 
 e() {
-  emacsclient -a 'emacs' -n "$@" 2>/dev/null || command emacs;
+  emacsclient -a '' -n "$@" 2>/dev/null || command emacs;
 }
 
 serve() {
