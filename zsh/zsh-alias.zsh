@@ -58,16 +58,10 @@ alias rmr='rsync -rtvu --delete'
 
 # Git
 g.() { git add -p "${@}" }
-alias ga="git commit --amend --reuse-message=HEAD"
-alias gA="git add --all"
-alias gb="git checkout -b"
 alias gc="git commit -m"
 gC() { git commit -v "${@}" }
-alias gd='git diff'
 alias gg="git status -s -b"
 alias gm="git fetch upstream && git merge upstream/master"
-alias gp="git pull --ff-only"
-gr() { git rebase -i HEAD~$1 }
 alias gs="git details"
 alias gu="git fetch && git diff master origin/master" # or gd @{upstream}
 

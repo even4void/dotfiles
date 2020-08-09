@@ -17,6 +17,8 @@
   '(shadow :foreground "#9099ab")
   '(warning :foreground "#bf616a")
 
+  ;; '(which-key-local-map-description-face :foreground "#81a1c1" :weight "bold")
+
   '(org-todo :foreground "#ebcb8b")
   '(org-document-title :foreground "#81a1c1")
   '(org-level-1 :foreground nil :weight bold :height 1.05)

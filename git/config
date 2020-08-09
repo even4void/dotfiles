@@ -9,6 +9,9 @@
 	smudge = git media smudge %f
 	required = true
 [core]
+	untrackedCache = true
+	# <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
 	excludesfile = /Users/chl/.config/git/ignore
 	# pager = delta --line-numbers --dark --24-bit-color
 [delta]
@@ -20,32 +23,67 @@
 	minus-emph-style="normal #91699b"
 	syntax-theme = Nord  # ansi-dark
 [color "branch"]
-	current = "#cb4b16"
+	current = yellow reverse
 	local = magenta
-	remote = green
+	remote = blue
 [color "diff"]
 	meta = "#657b83"
-	frag = "#81a1c1"
+	frag = blue
 	old = magenta
 	new = green
 [color "interactive"]
-	help = "#cb4b16"
-	prompt = "#849598"
+	help = red
+	prompt = "#657b83"
 [color "status"]
 	added = yellow
 	changed = green
-	untracked = cyan
+	untracked = blue
 [include]
 	path = ~/.gitconfig.local
 [push]
 	default = simple
 	followTags = true
 [alias]
-	br = branch -av
-	fp = fetch -p
-	ff = merge --ff-only
-	pff = pull --ff-only
-	tree = log --graph --decorate --oneline --all
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	s = status -s
+	# Show the diff between the latest commit and the current state.
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	# `git di $number` shows the diff between the state `$number` revisions ago and the current state.
+	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	# Pull in remote changes for the current repository and all its submodules.
+	p = pull --recurse-submodules
+	# Clone a repository including all submodules.
+	c = clone --recursive
+	# Commit all changes.
+	ca = !git add -A && git commit -av
+	# Switch to a branch, creating it if necessary.
+	bo = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch --all
+	remotes = remote --verbose
+	# List aliases.
+	aliases = config --get-regexp alias
+	# Amend the currently staged files to the latest commit.
+	amend = commit --amend --reuse-message=HEAD
+	# Interactive rebase with the given number of latest commits.
+	reb = "!r() { git rebase -i HEAD~$1; }; r"
+	# Remove the old tag with this name and tag the latest commit with it.
+	retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+	# Find branches containing commit
+	fb = "!f() { git branch -a --contains $1; }; f"
+	# Find tags containing commit
+	ft = "!f() { git describe --always --contains $1; }; f"
+	# Find commits by source code
+	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+	# Find commits by commit message
+	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+	# Remove branches that have already been merged with main.
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	# List contributors with number of commits.
+	contributors = shortlog --summary --numbered
+	# Show the user email for the current repository.
+	whoami = config user.email
 	details = log -n1 -p --format=fuller
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	inspect = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S
@@ -77,4 +115,12 @@
 [gpg]
 	program = /usr/local/bin/gpg
 [commit]
-	gpgSign = true
+	gpgsign = true
+[diff "bin"]
+	textconv = hexdump -v -C
+[help]
+	autocorrect = 1
+[merge]
+	log = true
+[branch]
+	sort = -committerdate

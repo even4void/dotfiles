@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: smile
+# key: snip
+# condition: t
+# --
+--%<--- snip --->%--
