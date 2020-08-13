@@ -478,6 +478,9 @@
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
 
+;; NOTE There's also a Tufte handout Pandoc template located in the '.pandoc'
+;; template directory.
+
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")
 (add-to-list 'org-modules 'org-mu4e)

@@ -46,7 +46,6 @@
 [alias]
 	# Most aliases taken from <https://github.com/mathiasbynens/dotfiles/>
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	s = status -s
 	# Show the diff between the latest commit and the current state.
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state.

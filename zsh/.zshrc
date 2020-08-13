@@ -76,6 +76,8 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 export BAT_THEME=ansi-dark
 
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LESS_TERMCAP_md=$(print -P "%F{blue}");
+export MANPAGER='less -X';
 
 # http://www.johnhawthorn.com/2012/09/vi-escape-delays/
 export KEYTIMEOUT=1
@@ -89,6 +91,8 @@ export BIBINPUTS="$HOME/org/:$BIBINPUTS"
 
 # node.js
 export NODE_PATH="/usr/local/lib/node_modules"
+export NODE_REPL_HISTORY=~/.node_history;
+export NODE_REPL_MODE='sloppy';
 
 # Haskell
 export PATH="$HOME/.local/bin:$PATH"
@@ -108,9 +112,7 @@ export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 export PYSPARK_PYTHON="python3"
 
 source $HOME/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
-
-# pandoc extra stuff
-# export PATH="$HOME/Library/Python/3.8/bin:$PATH"
+export AUTOSWITCH_MESSAGE_FORMAT="Switching to $(tput setaf 5)%venv_name [%py_version, %venv_type] $(tput sgr0)"
 
 # Doom and local repos
 export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"

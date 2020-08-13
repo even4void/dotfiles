@@ -63,13 +63,15 @@
  ;; which-key items
  :leader
  :desc "Next workspace"           "&"  #'+workspace:switch-next
+ :desc "Make"                     "$"  #'+make/run
+ :desc "Window below"        "<down>"  #'evil-window-down
+ :desc "Window above"          "<up>"  #'evil-window-up
  :desc "Split horizontally"       "-"  #'split-window-below
  :desc "Split vertically"         "|"  #'split-window-right
  :desc "Remove split"             "="  #'delete-other-windows
  :desc "Swiper all"               "@"  #'doom/swiper-all-region-or-symbol
  :desc "Swap window"              ")"  #'ace-swap-window
  :desc "Switch layout"            "("  #'doom/window-layout-toggle
- :desc "Next window"              "$"  #'evil-window-next
  :desc "Interactive regex"        "%"  #'isearch-forward-regexp
  :desc "Swiper"                   "/"  #'swiper
  :desc "Open vterm"               "!"  #'+vterm/here
@@ -108,7 +110,6 @@
   :desc "Add bookmark"            "B" #'bookmark-set
   :desc "Gist region/buffer"      "g" #'gist-region-or-buffer
   :desc "Interleave"              "I" #'interleave-mode
-  :desc "Markdown hide/show"      "M" #'markdown-toggle-markup-hiding
   :desc "Org narrow"              "N" #'org-narrow-to-subtree
   :desc "Org clean results"       "r" #'org-remove-all-result-blocks
   :desc "Insert URL"              "u" #'insert-url
@@ -124,9 +125,11 @@
   :desc "Code format mode"        "B" #'format-all-mode
   :desc "Flycheck"                "c" #'flycheck-buffer
   :desc "Rainbow colors"          "C" #'rainbow-mode
+  :desc "Org indent mode"         "d" #'org-indent-mode
   :desc "Auto fill"               "f" #'auto-fill-mode
   :desc "Select theme"            "t" #'counsel-load-theme
   :desc "Toggle letter case"      "L" #'toggle-letter-case
+  :desc "Markdown hide/show"      "m" #'markdown-toggle-markup-hiding
   :desc "Show/Hide modeline"      "M" #'global-hide-mode-line-mode
   :desc "Poly Markdown"           "P" #'poly-markdown-mode
   :desc "Ruler"                   "R" #'display-fill-column-indicator-mode

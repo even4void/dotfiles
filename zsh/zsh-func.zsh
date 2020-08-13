@@ -1,3 +1,6 @@
+# This is a mix of personal stuff, Torsten Ball's zsh functions and
+# Mathias Bynens's bash functions.
+
 function expand-alias() {
     zle _expand_alias
     zle self-insert
@@ -22,6 +25,30 @@ mkdircd() {
 
 e() {
   emacsclient -a '' -n "$@" 2>/dev/null || command emacs;
+}
+
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+function cdf() { # short for `cdfinder`
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+}
+
+function gz() {
+	local origsize=$(wc -c < "$1");
+	local gzipsize=$(gzip -c "$1" | wc -c);
+	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
+	printf "orig: %d bytes\n" "$origsize";
+	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
+}
+
+function digga() {
+	dig +nocmd "$1" any +multiline +noall +answer;
+}
+
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 serve() {
