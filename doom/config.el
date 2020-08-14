@@ -62,6 +62,8 @@
         eww-search-prefix "https://duckduckgo.com/html?q="
         url-privacy-level '(email agent cookies lastloc)))
 
+(setq browse-url-generic-program "open")
+
 ;; -- tex/bibtex--------------------------------------------------------------
 (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
       TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
@@ -486,3 +488,6 @@
 (add-to-list 'org-modules 'org-mu4e)
 
 (load! "lisp/irc")
+
+(after! elfeed
+  (setq elfeed-search-filter "@2-weeks-ago -mute +unread "))

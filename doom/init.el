@@ -89,6 +89,7 @@
 
        :app
        irc
+       (rss +org)
 
        :config
        (default +bindings +smartparens))
