@@ -10,8 +10,8 @@ setopt autocd
 source ~/.config/zsh/zsh-comp.zsh   # completions
 source ~/.config/zsh/zsh-func.zsh   # functions
 source ~/.config/zsh/zsh-alias.zsh  # alias
-# source ~/.config/zsh/zsh-prompt.zsh # default prompt
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/zsh-prompt.zsh # default prompt
+# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/private.zsh    # private stuff
 
 ### HISTORY ###
@@ -113,6 +113,7 @@ export PYSPARK_PYTHON="python3"
 
 source $HOME/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 export AUTOSWITCH_MESSAGE_FORMAT="Switching to $(tput setaf 5)%venv_name [%py_version, %venv_type] $(tput sgr0)"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Doom and local repos
 export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
@@ -139,4 +140,4 @@ if [[ -z $TMUX ]]; then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+# [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

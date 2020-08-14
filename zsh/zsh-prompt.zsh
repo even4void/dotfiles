@@ -1,16 +1,18 @@
+local grey='242'
+
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  local dirstatus=" %{$fg_bold[green]%}${ref#refs/heads/}%{$reset_color%}"
+  local dirstatus=" %{$fg_bold[grey]%}${ref#refs/heads/}%{$reset_color%}"
   if [[ ! -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
-    dirstatus=" %{$fg_bold[yellow]%}${ref#refs/heads/}%{$reset_color%}"
+    dirstatus=" %{$fg_bold[grey]%}${ref#refs/heads/}*%{$reset_color%}"
   fi
   echo $dirstatus
 }
 
 local dir_info="%{$fg_bold[blue]%}%(5~|%-1~/.../%2~|%4~)%{$reset_color%}"
-local promptnormal="%(?.%{$fg_bold[blue]%}.%{$fg_bold[red]%}) %{$reset_color%}"
-local promptjobs="%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%}) %{$reset_color%}"
+local promptnormal="%(?.%{$fg_bold[magenta]%}.%{$fg_bold[red]%})❯ %{$reset_color%}"
+local promptjobs="%(?.%{$fg_bold[yellow]%}.%{$fg_bold[red]%})❯ %{$reset_color%}"
 
 PROMPT='${dir_info}$(git_prompt_info) %(1j.$promptjobs.$promptnormal)'
 
@@ -31,9 +33,9 @@ precmd() {
   if [ $timer ]; then
     toc=$(($SECONDS - $timer))
     if [ ${toc} -ge 5 ]; then
-      export RPROMPT="%F{blue}${remote} %F{cyan}${toc}s %{$reset_color%}"
+        export RPROMPT="%{$fg_bold[yellow]%}${toc}s%{$reset_color%} %{$fg_bold[grey]%}`basename \"$VIRTUAL_ENV\"` ${remote} %{$reset_color%}"
     else
-      export RPROMPT="%F{blue}${remote} %{$reset_color%}"
+      export RPROMPT="%{$fg_bold[grey]%}`basename \"$VIRTUAL_ENV\"` ${remote} %{$reset_color%}"
     fi
     unset timer
   fi
