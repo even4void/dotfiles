@@ -126,8 +126,8 @@
         bibtex-completion-library-path '("~/Documents/papers")
         bibtex-completion-pdf-extension '(".pdf" ".epub")
         bibtex-completion-notes-path "/Users/chl/org/papers.org"
-        bibtex-completion-notes-symbol "!"
-        bibtex-completion-pdf-symbol "*"
+        bibtex-completion-notes-symbol "+"
+        bibtex-completion-pdf-symbol "#"
         bibtex-completion-additional-search-fields '(keywords)
         bibtex-completion-pdf-open-function (lambda (fpath) (call-process
                                                         "open" nil 0 nil
@@ -468,16 +468,16 @@
         org-export-with-section-numbers nil
         org-html-postamble nil
         org-html-htmlize-output-type nil
+        org-html-doctype "xhtml5"
         org-latex-default-class "tufte-handout"
         org-latex-pdf-process '("latexmk -pdf -bibtex-cond -f -outdir=%o %f") ;; -pdflatex=lualatex
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")
-                                       ;; https://is.gd/lt21EQ
                                        (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
         org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
-                                           (listings . t)
                                            ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
+                                           (listings . t)
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
 
 ;; NOTE There's also a Tufte handout Pandoc template located in the '.pandoc'
