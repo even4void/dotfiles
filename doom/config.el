@@ -25,8 +25,8 @@
   (setq highlight-indent-guides-responsive 'top
         highlight-indent-guides-delay 0
         doom-font (font-spec :family "JetBrains Mono" :size 13)
-        doom-big-font (font-spec :family "Victor Mono" :size 16)
-        doom-variable-pitch-font (font-spec :family "Helvetica Neue" :size 12)))
+        doom-big-font (font-spec :family "JetBrains Mono" :size 16)
+        doom-variable-pitch-font (font-spec :family "sans" :size 12)))
 
 (unless (display-graphic-p)
   (custom-set-variables
@@ -51,6 +51,9 @@
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 (setq display-line-numbers-type t)
+
+(setq evil-split-window-below t
+      evil-vsplit-window-right t)
 
 ;; -- web & doc --------------------------------------------------------------
 (if (display-graphic-p)
@@ -375,6 +378,7 @@
       org-agenda-files '("~/org/refile.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-babel-clojure-backend 'cider
+      org-superstar-headline-bullets-list '("#")
       +org-capture-todo-file "~/org/todo.org"
       org-journal-dir "~/org/j/"
       org-babel-mathematica-command "~/local/bin/mash"

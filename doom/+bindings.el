@@ -63,9 +63,8 @@
  ;; which-key items
  :leader
  :desc "Next workspace"           "&"  #'+workspace:switch-next
- :desc "Make"                     "$"  #'+make/run
- :desc "Window below"        "<down>"  #'evil-window-down
- :desc "Window above"          "<up>"  #'evil-window-up
+ :desc "Make"                     "§"  #'+make/run
+ :desc "Newt window"              "$"  #'evil-window-next
  :desc "Split horizontally"       "-"  #'split-window-below
  :desc "Split vertically"         "|"  #'split-window-right
  :desc "Remove split"             "="  #'delete-other-windows

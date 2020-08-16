@@ -3,8 +3,8 @@
 (setenv "INDOOM" "1")
 
 (doom! :completion
-       (company +childframe)
-       (ivy +prescient +childframe)
+       company ;; +childframe
+       (ivy +prescient) ;; +childframe
 
        :ui
        deft
@@ -85,7 +85,7 @@
        :checkers
        spell
        grammar
-       (syntax +childframe)
+       syntax ;; +childframe
 
        :app
        irc
