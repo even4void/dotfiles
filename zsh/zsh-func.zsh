@@ -27,11 +27,25 @@ e() {
   emacsclient -a '' -n "$@" 2>/dev/null || command emacs;
 }
 
+ediff() { emacsclient -n --eval "(ediff-files \"$1\" \"$2\")"; }
+
+# function iplot {
+#     cat <<EOF | gnuplot
+#     set terminal pngcairo enhanced font 'Fira Sans,10'
+#     set autoscale
+#     set samples 1000
+#     set output '|kitty +kitten icat --stdin yes'
+#     set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb"#fdf6e3" behind
+#     plot $@
+#     set output '/dev/null'
+#     EOF
+# }
+
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-function cdf() { # short for `cdfinder`
+function cdf() {
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 

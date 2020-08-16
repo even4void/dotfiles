@@ -15,6 +15,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 autoload -U compinit
 compinit -i
 
+# kitty
+kitty + complete setup zsh | source /dev/stdin
+
 # autopair and syntax highlighting
 source ~/.zsh/zsh-autopair/autopair.zsh
 autopair-init

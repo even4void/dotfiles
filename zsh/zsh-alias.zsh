@@ -4,7 +4,7 @@ alias llt='ls -l -snew'
 alias ll="ls -l"
 alias lh="ls -lh"
 alias la="ls -a"
-alias l="exa --long --header --git"
+alias l="exa --long --git"
 alias lk="ls -lhSr"
 
 # More dir actions
@@ -63,6 +63,10 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias path='echo -e ${PATH//:/\\n}'
+
+# Kitty
+alias icat="kitty +kitten icat"
+alias kdiff="kitty +kitten diff"
 
 # Use rsync with ssh and show progress
 alias rsh='rsync -Pr --rsh=ssh'
