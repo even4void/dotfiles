@@ -50,7 +50,8 @@
   '(mu4e-highlight-face :foreground "#81a1c1" :weight bold)
 
   '(markdown-metadata-key-face :foreground "#9099ab")
-  '(markdown-header-delimiter-face :foreground unspecified :weight bold)
+  '(markdown-header-face :foreground nil :weight bold)
+  '(markdown-header-delimiter-face :foreground nil :weight bold)
   '(markdown-list-face :foreground unspecified :weight regular)
   '(markdown-math-face :foreground unspecified :weight bold)
   '(markdown-header-face-1 :foreground nil :weight bold :height 1.05)

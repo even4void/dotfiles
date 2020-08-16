@@ -1,11 +1,10 @@
-local grey='242'
-
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(git rev-parse --short HEAD 2> /dev/null) || return
-  local dirstatus=" %{$fg_bold[grey]%}${ref#refs/heads/}%{$reset_color%}"
+  local dirstatus=" %F{242}${ref#refs/heads/}%f"
   if [[ ! -z $(git status --porcelain 2> /dev/null | tail -n1) ]]; then
-    dirstatus=" %{$fg_bold[grey]%}${ref#refs/heads/}*%{$reset_color%}"
+    # dirstatus=" %{$fg_bold[grey]%}${ref#refs/heads/}*%{$reset_color%}"
+    dirstatus=" %F{242}${ref#refs/heads/}*%f"
   fi
   echo $dirstatus
 }
@@ -33,9 +32,9 @@ precmd() {
   if [ $timer ]; then
     toc=$(($SECONDS - $timer))
     if [ ${toc} -ge 5 ]; then
-        export RPROMPT="%{$fg_bold[yellow]%}${toc}s%{$reset_color%} %{$fg_bold[grey]%}`basename \"$VIRTUAL_ENV\"` ${remote} %{$reset_color%}"
+        export RPROMPT="%{$fg_bold[yellow]%}${toc}s%{$reset_color%} %F{242}`basename \"$VIRTUAL_ENV\"` ${remote} %f"
     else
-      export RPROMPT="%{$fg_bold[grey]%}`basename \"$VIRTUAL_ENV\"` ${remote} %{$reset_color%}"
+      export RPROMPT="%F{242}`basename \"$VIRTUAL_ENV\"` ${remote} %f"
     fi
     unset timer
   fi

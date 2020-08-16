@@ -64,7 +64,7 @@
  :leader
  :desc "Next workspace"           "&"  #'+workspace:switch-next
  :desc "Make"                     "§"  #'+make/run
- :desc "Newt window"              "$"  #'evil-window-next
+ :desc "Next window"              "$"  #'evil-window-next
  :desc "Split horizontally"       "-"  #'split-window-below
  :desc "Split vertically"         "|"  #'split-window-right
  :desc "Remove split"             "="  #'delete-other-windows
