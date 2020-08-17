@@ -452,7 +452,7 @@
            :prepend t)))
 
   (setq org-hide-emphasis-markers t
-        org-tags-column 79
+        org-tags-column 80
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
