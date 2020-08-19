@@ -25,7 +25,7 @@ alias venv="python3 -m venv"
 alias pip-upgrade-all="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip3 install -U"
 
 # Editors
-alias ec="emacsclient -n"
+alias ec="emacsclient -n -t -a ''"
 alias ew="env TERM=xterm-24bit emacs -nw"
 alias edit="open -e"
 alias vim="nvim"
