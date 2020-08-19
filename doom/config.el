@@ -344,6 +344,7 @@
 (setq inferior-lisp-program "sbcl")
 
 (setq geiser-active-implementations '(chez chicken mit racket))
+(setq geiser-default-implementation 'chez)
 
 (after! racket-mode
   (add-hook! racket-mode

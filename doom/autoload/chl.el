@@ -190,17 +190,14 @@ around point as the initial input."
     (expand-file-name (format "%s-%s.org"
                               (format-time-string "%Y-%m-%d-%H-%M-%S") name) "~/org/z/")))
 
-(let ((langs '("en" "fr")))
-  (setq lang-ring (make-ring (length langs)))
-  (dolist (elem langs) (ring-insert lang-ring elem)))
-
 ;;;###autoload
 (defun ispell-cycle-dictionary ()
   "Cycle between fr <-> en dictionaries"
   (interactive)
-  (let ((lang (ring-ref lang-ring -1)))
-    (ring-insert lang-ring lang)
-    (ispell-change-dictionary lang)))
+  (let* ((curr ispell-current-dictionary)
+         (next (if (string= curr "fr") "en" "fr")))
+        (ispell-change-dictionary next)
+        (message "Dictionary switched from %s to %s" curr next)))
 
 (setq color-themes (list
                     'doom-opera-light
