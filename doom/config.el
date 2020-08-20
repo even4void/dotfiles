@@ -243,6 +243,7 @@
       markdown-fontify-code-blocks-natively t
       markdown-hide-markup t
       markdown-gfm-uppercase-checkbox t
+      markdown-list-item-bullets '("◎" "◎" "○" "◆" "◇" "►" "•")
       markdown-header-scaling-values '(1.1 1.0 1.0 1.0 1.0 1.0))
 (after! markdown
   (setq markdown-pre-face "JetBrains Mono"
@@ -453,6 +454,7 @@
            :prepend t)))
 
   (setq org-hide-emphasis-markers t
+        org-startup-indented nil
         org-tags-column 80
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil

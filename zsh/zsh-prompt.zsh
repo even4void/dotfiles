@@ -25,16 +25,21 @@ _is_ssh() {
 
 precmd() {
   if _is_ssh || (( EUID == 0 )); then
-    remote="@${(%):-%m}"
+      remote="@${(%):-%m}"
   else
-    remote=""
+      remote=""
+  fi
+  if [[ $VIRTUAL_ENV ]]; then
+      venv=`basename $VIRTUAL_ENV`
+  else
+      venv=""
   fi
   if [ $timer ]; then
     toc=$(($SECONDS - $timer))
     if [ ${toc} -ge 5 ]; then
-        export RPROMPT="%{$fg_bold[yellow]%}${toc}s%{$reset_color%} %F{242}`basename \"$VIRTUAL_ENV\"` ${remote} %f"
+        export RPROMPT="%{$fg_bold[yellow]%}${toc}s%{$reset_color%} %F{242}${venv}%f"
     else
-      export RPROMPT="%F{242}`basename \"$VIRTUAL_ENV\"` ${remote} %f"
+        export RPROMPT="%F{242}${venv}%f"
     fi
     unset timer
   fi
