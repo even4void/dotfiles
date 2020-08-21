@@ -396,7 +396,7 @@
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
 
 (font-lock-add-keywords 'org-mode
-                        '(("\\\\autocite{.+?}" . font-lock-keyword-face)))
+                        '(("\\\\autocite\\(\\[.+?\\]\\)*{.+?}" . font-lock-keyword-face)))
 
 (use-package! org-fancy-priorities
   :hook (org-mode . org-fancy-priorities-mode)
