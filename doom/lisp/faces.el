@@ -17,15 +17,13 @@
   '(shadow :foreground "#9099ab")
   '(warning :foreground "#bf616a")
 
-  ;; '(which-key-local-map-description-face :foreground "#81a1c1" :weight "bold")
-
   '(org-todo :foreground "#ebcb8b")
   '(org-document-title :foreground "#81a1c1")
   '(org-level-1 :foreground nil :weight bold :height 1.05)
   '(org-level-2 :foreground nil :weight bold)
   '(org-link :foreground "#81a1c1" :underline (:color "#81a1c1"))
   '(org-footnote :foreground "#9099ab")
-  '(org-verbatim :foreground "#a3be8c") ;; org-code #D08770
+  '(org-verbatim :foreground "#D08770") ;; I don't need \verb (org-code); originally #a3be8c
   '(org-drawer :foreground "#9099ab")
   '(org-journal-calendar-entry-face :foreground "#ebcb8b" :slant normal)
   '(org-journal-calendar-scheduled-face :foreground "#bf616a" :slant normal)
