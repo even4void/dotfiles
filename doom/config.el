@@ -55,6 +55,10 @@
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
+;; (add-hook! 'prog-mode-hook (modify-syntax-entry ?_ "w"))  ;; Vim way
+;; (add-hook! 'prog-mode-hook (modify-syntax-entry ?- "w"))  ;; because Lisp
+(defalias 'forward-evil-word 'forward-evil-symbol)
+
 ;; -- web & doc --------------------------------------------------------------
 (if (display-graphic-p)
   (setq browse-url-browser-function 'xwidget-webkit-browse-url)
@@ -68,13 +72,19 @@
 (setq browse-url-generic-program "open")
 
 ;; -- tex/bibtex--------------------------------------------------------------
-(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
-      TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
-;; (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+(setq +latex-viewers '(skim pdf-tools))
+(setq TeX-engine 'luatex)
+
+;; 'latex-preview-pane' is nice but itries to automagically compile the current
+;; file, using 'pdf-latex-command'. This won't work most of the time for me since
+;; it means using 'pdflatex' and I would prefer 'latexmk' or 'luatex'. I can 'setq'
+;; as desired, but it is not very convenient. Anyway, as there's no way to display
+;; a PDF file right into a terminal instance of Emacs, let's fall back to external
+;; viewer.
+
 (add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
-;; TODO customize fonts, bibliography and check default packages
 (eval-after-load "ox-latex"
   '(add-to-list 'org-latex-classes
                 '("tufte-handout"

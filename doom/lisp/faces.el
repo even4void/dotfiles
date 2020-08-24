@@ -23,7 +23,7 @@
   '(org-level-2 :foreground nil :weight bold)
   '(org-link :foreground "#81a1c1" :underline (:color "#81a1c1"))
   '(org-footnote :foreground "#9099ab")
-  '(org-verbatim :foreground "#D08770") ;; I don't need \verb (org-code); originally #a3be8c
+  '(org-verbatim :foreground "#ebcb8b")
   '(org-drawer :foreground "#9099ab")
   '(org-journal-calendar-entry-face :foreground "#ebcb8b" :slant normal)
   '(org-journal-calendar-scheduled-face :foreground "#bf616a" :slant normal)
@@ -50,6 +50,7 @@
   '(markdown-metadata-key-face :foreground "#9099ab")
   '(markdown-header-face :foreground nil :weight bold)
   '(markdown-header-delimiter-face :foreground nil :weight bold)
+  '(markdown-bold-face :foreground nil :weight bold)
   '(markdown-list-face :foreground unspecified :weight regular)
   '(markdown-math-face :foreground unspecified :weight bold)
   '(markdown-header-face-1 :foreground nil :weight bold :height 1.05)

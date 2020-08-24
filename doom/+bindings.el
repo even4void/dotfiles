@@ -64,16 +64,16 @@
  :leader
  :desc "Next workspace"           "&"  #'+workspace:switch-next
  :desc "Make"                     "§"  #'+make/run
- :desc "Next window"              "$"  #'evil-window-next
  :desc "Split horizontally"       "-"  #'split-window-below
  :desc "Split vertically"         "|"  #'split-window-right
  :desc "Remove split"             "="  #'delete-other-windows
  :desc "Swiper all"               "@"  #'doom/swiper-all-region-or-symbol
- :desc "Swap window"              ")"  #'ace-swap-window
- :desc "Switch layout"            "("  #'doom/window-layout-toggle
  :desc "Interactive regex"        "%"  #'isearch-forward-regexp
  :desc "Swiper"                   "/"  #'swiper
  :desc "Open vterm"               "!"  #'+vterm/here
+ :desc "Shell cmd"                "$"  #'shell-command
+ :desc "Next window"              ")"  #'evil-window-next
+ :desc "Switch layout"            "("  #'doom/window-layout-toggle
  :desc "Dired"                    "d"  #'dired-jump
  :desc "Query replace"            "r"  #'query-replace-regexp
  :desc "Delete workspace"         "W"  #'+workspace/delete
