@@ -93,3 +93,4 @@ alias cd..='cd ../'
 
 # launch app
 alias -s log=vim
+alias -s pdf="open -a skim"
