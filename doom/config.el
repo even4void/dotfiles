@@ -155,7 +155,7 @@
           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
           (default       . bibtex-completion-format-citation-default))
         bibtex-completion-notes-template-one-file
-        (format "* [[/Users/chl/Documents/papers/${=key=}.pdf][${=key=}]] - ${title}\n :PROPERTIES:\n :Custom_ID: ${=key=}\n :INTERLEAVE_PDF: /Users/chl/Documents/papers/${=key=}.pdf\n :END:\n"))
+        (format "** ${title} ([[/Users/chl/Documents/papers/${=key=}.pdf][${=key=}]])\n"))
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
 

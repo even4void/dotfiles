@@ -29,6 +29,9 @@ e() {
 
 ediff() { emacsclient -n --eval "(ediff-files \"$1\" \"$2\")"; }
 
+# https://scriptingosx.com/2017/04/on-viewing-man-pages/
+function preman() { man -t "$@" | open -f -a "Preview" ;}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 # https://github.com/mathiasbynens/dotfiles
 function targz() {
