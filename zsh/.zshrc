@@ -42,10 +42,9 @@ bindkey -e
 # non-alphanumeric chars treated as part of a word (exclude '/')
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-# CTRL-R to search through history
-bindkey '^R' history-incremental-search-backward
-# CTRL-S to search forward in history
-bindkey '^S' history-incremental-search-forward
+# CTRL-R to search through history via FZF
+# CTRL-S to search backward in history via ZSH
+bindkey '^H' history-incremental-search-backward
 # Accept the presented search result
 bindkey '^Y' accept-search
 
