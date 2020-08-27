@@ -144,7 +144,7 @@
         bibtex-completion-additional-search-fields '(keywords)
         bibtex-completion-pdf-open-function (lambda (fpath) (call-process
                                                         "open" nil 0 nil
-                                                        "-a" "/Applications/Preview.app"
+                                                        "-a" "skim"
                                                         fpath))
         bibtex-completion-display-formats
         '((t . "${author:30} ${title:60} ${year:4} ${=has-pdf=:1} ${=has-note=:1} ${=type=:7}"))
