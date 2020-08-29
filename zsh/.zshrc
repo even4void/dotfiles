@@ -109,6 +109,7 @@ eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 export PYSPARK_PYTHON="python3"
+export PYTHONPATH="${PYTHONPATH}:/Users/chl/Documents/cache/python"
 
 source $HOME/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
 export AUTOSWITCH_MESSAGE_FORMAT="Switching to $(tput setaf 5)%venv_name [%py_version, %venv_type] $(tput sgr0)"

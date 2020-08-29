@@ -37,7 +37,8 @@
 [color "status"]
 	added = yellow
 	changed = green
-	untracked = blue
+    untracked = blue
+    remoteBranch = magenta
 [include]
 	path = ~/.gitconfig.local
 [push]
@@ -77,7 +78,9 @@
 	# Find commits by source code
 	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
 	# Find commits by commit message
-	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    # Merge fast-forward
+    ff = "merge --ff-only"
 	# Remove branches that have already been merged with main.
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 	# List contributors with number of commits.
@@ -88,13 +91,13 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	inspect = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S
 	dms = diff master --summary
-	export = archive -o latest.tar.gz -9 --prefix=latest/<Paste>
+	export = archive -o latest.tar.gz -9 --prefix=latest/
 	nuke = "!git reset --hard; git clean -fd"
 	unstage = reset HEAD
 	unmerge = reset --hard HEAD
 	pr = pull-request
 	here = !git init && git add . && git commit -m \"Init repo\"
-	wip = commit -m 'wip'
+	wip = commit -m wip
 	cos = commit -m 'Cosmit changes'
 	fix = commit -m 'Minor fix'
 	doc = commit -m 'Add doc'

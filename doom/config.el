@@ -429,8 +429,11 @@
           ("n" "Personal notes" entry
            (file+headline +org-capture-notes-file "Inbox")
            "* %u %?\n%i\n%a" :prepend t :kill-buffer t)
+          ;; HACK There's currently no way to use AppleScript with Firefox.
+          ;; ("w" "Web link" entry (file+headline "urls.org" "Inbox")
+          ;;  "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
           ("w" "Web link" entry (file+headline "urls.org" "Inbox")
-           "* %? \n%U\n%(retrieve-url)\n" :prepend t :kill-buffer t)
+           "* %? \n%U\nURL\n" :prepend t :kill-buffer t)
           ("j" "Journal" entry
            (file+olp+datetree +org-capture-journal-file)
            "* %U %?\n%i\n%a" :prepend t)
