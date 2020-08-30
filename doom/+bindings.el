@@ -91,8 +91,10 @@
   :desc "Help (LSP)"              "h" #'lsp-describe-thing-at-point
   :desc "Help (Dash)"             "H" #'counsel-dash
   :desc "Changelog"               "l" #'change-log-find-file
+  :desc "Insert License"          "L" #'+file-templates/insert-license
   :desc "Code outline"            "o" #'lsp-ui-imenu
   :desc "Prettify"                "P" #'prettify-symbols-mode
+  :desc "Sort lines"              "S" #'sort-lines
   :desc "Select checker"          "y" #'flycheck-select-checker
   :desc "Available checkers"      "z" #'flycheck-verify-setup)
  (:prefix-map ("e" . "export")
