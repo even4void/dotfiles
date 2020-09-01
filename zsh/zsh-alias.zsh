@@ -78,7 +78,6 @@ g.() { git add -p "${@}" }
 alias gc="git commit -m"
 alias gd="git d"
 alias gg="git status -s -b"
-alias gs="git details"
 alias gu="git diff @{upstream}"
 
 # tmux

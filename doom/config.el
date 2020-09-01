@@ -18,7 +18,7 @@
 
 ;; Make GUI and Terminal follow the same conventions
 (setq default-directory "~/"
-      system-time-locale "en")
+      system-time-locale "C")
 
 ;; -- ui ---------------------------------------------------------------------
 (when (display-graphic-p)
