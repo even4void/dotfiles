@@ -72,9 +72,9 @@
  :desc "Swiper"                   "/"  #'swiper
  :desc "Open vterm"               "!"  #'+vterm/here
  :desc "Shell cmd"                "$"  #'shell-command
- :desc "Next window"              ")"  #'evil-window-next
- :desc "Switch layout"            "("  #'doom/window-layout-toggle
  :desc "Dired"                    "d"  #'dired-jump
+ :desc "Next window"              "j"  #'evil-window-next
+ :desc "Switch layout"            "k"  #'doom/window-layout-toggle
  :desc "Query replace"            "r"  #'query-replace-regexp
  :desc "Delete workspace"         "W"  #'+workspace/delete
  :desc "Org Capture"              "x"  #'org-capture

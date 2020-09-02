@@ -44,9 +44,7 @@
 (load-theme 'doom-opera-light t)
 (custom-theme-set-faces! 'doom-opera-light
   '(default :background nil)) ;; #f0eee4 from kitty 'light.conf' theme
-(load! "lisp/faces")
-(custom-set-faces!
-  '(font-lock-string-face :foreground "#ac4426"))
+(load! "lisp/faces-light")
 
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
