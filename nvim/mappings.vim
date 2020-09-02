@@ -13,12 +13,6 @@ nnoremap <leader>a :tabnew<CR>
 nnoremap <leader>h :tabprevious<CR>
 nnoremap <leader>l :tabnext<CR>
 
-"" Switching windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
 "" Nerdtree and Tagbar
 nnoremap <leader>z :NERDTreeFind<CR>
 nnoremap <silent> <C-P> :NERDTreeToggle<CR>

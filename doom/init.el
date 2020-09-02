@@ -25,13 +25,12 @@
        file-templates
        fold
        (format +onsave)
-       rotate-text
        snippets
 
        :emacs
        dired
        electric
-       (ibuffer +icons)
+       ibuffer ;; +icons
        vc
        (undo +tree)
 
@@ -56,7 +55,6 @@
        (cc +lsp)
        (clojure +lsp)
        common-lisp
-       data
        elm
        emacs-lisp
        (ess +lsp)
@@ -84,7 +82,7 @@
 
        :checkers
        spell
-       grammar
+       ;; grammar
        syntax ;; +childframe
 
        :app
