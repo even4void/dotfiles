@@ -141,13 +141,15 @@ colorscheme nord
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_comment_brightness = 20
+hi Visual ctermbg=Gray
+hi CursorLine ctermbg=none
 
 " vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-let g:airline_theme = 'base16'
+" let g:airline_theme = 'base16'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1

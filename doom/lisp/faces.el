@@ -5,6 +5,7 @@
   '(region :background "#c2c282" :foreground "#191c25" :distant-foreground "#f0f4fc")
   ;; '(region :background "#272c36") ;; like hl-line
   '(highlight :background "#c2c282" :foreground "#191c25" :distant-foreground "#f0f4fc")
+  '(hl-line :background nil)
   '(bold :weight regular)
   '(cursor :weight regular)
   '(minibuffer-prompt :weight regular)

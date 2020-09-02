@@ -40,9 +40,13 @@
 (load! "+bindings")
 (load! "lisp/+light-fix")
 
-(load-theme 'doom-nord t)
-
+;; (load-theme 'doom-nord t)
+(load-theme 'doom-opera-light t)
+(custom-theme-set-faces! 'doom-opera-light
+  '(default :background nil)) ;; #f0eee4 from kitty 'light.conf' theme
 (load! "lisp/faces")
+(custom-set-faces!
+  '(font-lock-string-face :foreground "#ac4426"))
 
 (setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
@@ -85,11 +89,14 @@
 (add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
+
 (eval-after-load "ox-latex"
   '(add-to-list 'org-latex-classes
                 '("tufte-handout"
                   "\\documentclass[nobib]{tufte-handout}
                    \\usepackage[style=authoryear-comp,autocite=footnote]{biblatex}
+                   % TODO Check whether authortitle-icomp is a better fit
+                   % and update '~/org/drafts/setup.el' if this is the case
                    \\addbibresource{/Users/chl/org/references.bib}
                    \\usepackage{booktabs}
                    % little HACK for tabular only environment
@@ -124,6 +131,14 @@
                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+(eval-after-load "ox-latex"
+  '(add-to-list 'org-latex-packages-alist
+                '("AUTO" "babel" t ("pdflatex"))))
+(eval-after-load "ox-latex"
+  '(add-to-list 'org-latex-packages-alist
+                '("AUTO" "polyglossia" t ("xelatex" "lualatex"))))
+(eval-after-load "ox-latex"
+  '(add-to-list 'org-latex-packages-alist '("autostyle=true" "csquotes")))
 
 (setq bibtex-field-delimiters 'double-quotes
       bibtex-autokey-year-length 4
