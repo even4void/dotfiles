@@ -80,3 +80,5 @@ nmap <leader>r :Rg<SPACE>
 
 "" Ale
 nmap <leader>= <Plug>(ale_fix)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)

@@ -6,12 +6,11 @@ Plug 'liuchengxu/vista.vim'  " instead of tagbar
 Plug 'airblade/vim-rooter'
 
 "" code editing, text manipulation
-" Plug 'neoclide/coc.nvim',                  {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/CSApprox'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'mbbill/undotree',                    { 'on': 'UndotreeToggle' }
 Plug 'Yggdroot/indentLine'
 Plug 'rust-lang/rust.vim'
@@ -31,7 +30,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tveskag/nvim-blame-line'
 
 "" theming
-Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -40,9 +38,6 @@ Plug 'junegunn/fzf',                       { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 "" lsp stuff
-" Plug 'neovim/nvim-lsp'
-" Plug 'haorenW1025/diagnostic-nvim'
-" Plug 'haorenW1025/completion-nvim'
-" Plug 'ncm2/float-preview.nvim'
+" Plug 'neoclide/coc.nvim',                  {'branch': 'release'}
 
 call plug#end()

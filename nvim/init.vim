@@ -92,7 +92,7 @@ let g:ale_sign_error = '▮'
 let g:ale_sign_warning = '▯'
 let g:ale_r_lintr_options = get(g:, 'ale_r_lintr_options', 'with_defaults(assignment_linter=NULL,commented_code_linter=NULL,line_length_linter(120))')
 let g:ale_linters = {'python': ['flake8', 'mypy'], 'markdown': ['mdl']}
-let g:ale_fixers = {'python': ['autopep8', 'yapf'], 'javascript': ['eslint']}
+let g:ale_fixers = {'python': ['autopep8', 'yapf'], 'javascript': ['prettier', 'eslint']}
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 " let g:ale_fix_on_save = 1
 
@@ -102,7 +102,6 @@ if has('unnamedplus')
 endif
 
 " fzf
-" let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.3 } }
 let g:fzf_layout = { 'down': '20%' }
 let g:fzf_preview_window = ''
 let g:fzf_buffers_jump = 1
@@ -116,6 +115,10 @@ let g:rustfmt_autosave = 1
 " C
 autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
+
+" CSS/JS
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType js setlocal tabstop=2 shiftwidth=2 expandtab
 
 " markdown
 let g:vim_markdown_math = 1
