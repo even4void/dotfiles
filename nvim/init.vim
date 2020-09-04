@@ -39,7 +39,7 @@ set foldtext=foldtext#foldtext()
 syntax on
 
 " Leader
-let mapleader=','
+let mapleader=' '
 
 " Other global options
 let g:CSApprox_loaded = 1
@@ -82,7 +82,7 @@ let g:NERDTreeWinSize = 40
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 " Prettier
-let g:prettier#autoformat = 1
+" let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0

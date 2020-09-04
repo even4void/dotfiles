@@ -44,7 +44,7 @@ hi Todo			cterm=bold,standout	ctermfg=185	    ctermbg=0
 hi Type			cterm=bold		    ctermfg=NONE
 hi Underlined	cterm=underline		ctermfg=NONE
 hi VertSplit	cterm=reverse		ctermfg=NONE
-hi Visual		cterm=NONE		    ctermbg=142
+hi Visual		cterm=NONE		    ctermbg=188
 hi VisualNOS	cterm=bold,underline	ctermfg=NONE
 hi WarningMsg	cterm=standout		ctermfg=NONE
 hi WildMenu		cterm=standout		ctermfg=NONE
