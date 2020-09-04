@@ -40,13 +40,32 @@
 (load! "+bindings")
 (load! "lisp/+light-fix")
 
-;; (load-theme 'doom-nord t)
-(load-theme 'doom-opera-light t)
-(custom-theme-set-faces! 'doom-opera-light
-  '(default :background nil)) ;; #f0eee4 from kitty 'light.conf' theme
-(load! "lisp/faces-light")
+;; NOTE tints for #bf616a
+;; #bf616a #c57078 #cb8087 #d29096 #d8a0a5 #dfb0b4 #e5bfc3 #ebcfd2 #f2dfe1 #f8eff0 #ffffff
+;; Also, check if IndianRed (#af5f5f) isn't better for constant-like object and/or 'outstand'
+(load-theme 'doom-plain t)
+(custom-theme-set-faces! 'doom-plain
+  '(default :background nil)
+  '(hl-line :background "#f0eee4")
+  '(nav-flash-face :foreground nil :background "#e7e7e7" :extend t)
+  '(header-line :background "#e7e7e7")
+  '(font-lock-comment-face :foreground "#9099ab")
+  '(font-lock-function-name-face :foreground "#282a2e" :weight bold)
+  '(font-lock-builtin-face :foreground "#282a2e" :weight bold)
+  '(font-lock-type-face :foreground "#282a2e" :weight bold)
+  '(font-lock-keyword-face :foreground "#282a2e" :weight bold)
+  '(org-footnote :foreground "#9099ab")
+  '(org-verbatim :foreground "#444")
+  '(markdown-pre-face :foreground "#444")
+  '(markdown-inline-code-face :background nil :inherit 'markdown-pre-face)
+  '(markdown-link-face :foreground "#444" :underline (:color "#444"))
+  '(mu4e-highlight-face :foreground "#444" :weight bold)
+  '(flycheck-error :foreground "#f0eee4" :background "#bf616a" :underline nil)
+  '(flycheck-error-overlay :background "#f2dfe1" :underline nil)
+  '(flycheck-warning :background "#f2dfe1" :underline nil)
+  '(flyspell-duplicate :background nil :underline nil)
+  '(flyspell-incorrect :background "#f2dfe1" :underline nil))
 
-(setq doom-themes-enable-bold nil)
 (set-face-italic 'font-lock-comment-face t)
 
 (setq which-key-idle-delay 0.2)

@@ -204,21 +204,6 @@ around point as the initial input."
                     'doom-nord))
 
 ;;;###autoload
-(defun theme-set-default ()
-  (interactive)
-  (setq theme-current color-themes)
-  (load-theme (car theme-current) t))
-
-;;;###autoload
-(defun theme-cycle ()
-  (interactive)
-  (disable-theme (car theme-current))
-  (setq theme-current (cdr theme-current))
-  (if (null theme-current)
-      (setq theme-current color-themes))
-  (load-theme (car theme-current) t))
-
-;;;###autoload
 (defun open-github ()
   (interactive)
   (browse-url "https://github.com/even4void"))

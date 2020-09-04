@@ -135,7 +135,6 @@
   :desc "Show/Hide modeline"      "M" #'global-hide-mode-line-mode
   :desc "Poly Markdown"           "P" #'poly-markdown-mode
   :desc "Ruler"                   "R" #'display-fill-column-indicator-mode
-  :desc "Cycle theme"             "T" #'cycle-theme
   :desc "Undo tree"               "u" #'undo-tree-visualize
   :desc "Spellcheck"              "W" #'flyspell-buffer
   :desc "Switch dictionary"       "z" #'ispell-cycle-dictionary
