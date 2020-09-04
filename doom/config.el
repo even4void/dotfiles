@@ -56,6 +56,7 @@
   '(font-lock-keyword-face :foreground "#282a2e" :weight bold)
   '(org-footnote :foreground "#9099ab")
   '(org-verbatim :foreground "#444")
+  '(org-journal-calendar-entry-face :background "#9099ab" :foreground "#f0eee4")
   '(markdown-pre-face :foreground "#444")
   '(markdown-inline-code-face :background nil :inherit 'markdown-pre-face)
   '(markdown-link-face :foreground "#444" :underline (:color "#444"))

@@ -117,6 +117,7 @@
   :desc "Unfill region"           "U" #'unfill-region
   :desc "Select dictionary"       "Z" #'ispell-change-dictionary)
  (:prefix "o"
+  :desc "Calendar"                "c" #'calendar
   :desc "Elfeed"                  "E" #'elfeed
   :desc "Github"                  "g" #'open-github
   :desc "Geiser REPL"             "G" #'geiser
