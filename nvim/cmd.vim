@@ -10,7 +10,7 @@ augroup vimrc-remember-cursor-position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
-" Highlight yanked text (neovim 0.5-nightly
+" Highlight yanked text (neovim 0.5-nightly)
 augroup LuaHighlight
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
@@ -22,6 +22,12 @@ autocmd BufWritePre * %s/\s\+$//e
 "" Spelling
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
+
+"" Indentation for specific file type (no editorconfig, no ftplugin)
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType c,cpp setlocal tabstop=4 shiftwidth=4 expandtab
 
 "" make/cmake
 augroup vimrc-make-cmake

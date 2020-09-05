@@ -1,9 +1,9 @@
 " Basic setup
-set encoding=utf-8                     " encoding
+set encoding=utf-8                     " encoding ...
 set fileencoding=utf-8
 set fileformats=unix,dos,mac
 set backspace=indent,eol,start         " fix backspace indent
-set tabstop=4                          " indentation rules
+set tabstop=4                          " indentation rules ...
 set softtabstop=0                      " (may be overridden by autocmd rules)
 set shiftwidth=4
 set expandtab
@@ -13,24 +13,24 @@ set smartindent
 set cindent
 set breakindent
 set hidden                             " hidden buffers
-set hlsearch                           " searching
+set hlsearch                           " searching ...
 set incsearch
 set ignorecase
 set smartcase
 set inccommand=split                   " live substitution (nvim only)
 set shell=/bin/zsh                     " default $SHELL
-set ruler                              " visual settings
+set ruler                              " visual settings ...
 set relativenumber
 set listchars=tab:▸\ ,trail:∙,conceal:┊,nbsp:·
 set nolist                             " (hidden by default)
 set mouse=a                            " mouse support
 set mousemodel=popup
 set nojoinspaces                       " one space, not two, after punctuation
-set splitbelow splitright
-set grepprg=rg\ --vimgrep
+set splitbelow splitright              " switch to new opened window
+set grepprg=rg\ --vimgrep              " FIXME do I really need this?
 set t_Co=256                           " termical color model
 set conceallevel=2                     " concealing
-set foldenable                         " folding
+set foldenable                         " folding ...
 set foldmethod=syntax
 set foldlevelstart=99
 set foldcolumn=0
@@ -38,17 +38,14 @@ set foldtext=foldtext#foldtext()
 
 syntax on
 
-" Leader
+" Leader (<Space>)
 let mapleader=' '
 
 " Other global options
 let g:CSApprox_loaded = 1
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
 
 " Disable the blinking cursor
+" (this is handled by Kitty anyway)
 set gcr=a:blinkon0
 set scrolloff=3
 
@@ -82,12 +79,13 @@ let g:NERDTreeWinSize = 40
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 " Prettier
-" let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
+" let g:prettier#autoformat = 1
 
 " ale
+" TODO Should update linter/fixer defs some day
 let g:ale_sign_error = '▮'
 let g:ale_sign_warning = '▯'
 let g:ale_r_lintr_options = get(g:, 'ale_r_lintr_options', 'with_defaults(assignment_linter=NULL,commented_code_linter=NULL,line_length_linter(120))')
@@ -105,20 +103,12 @@ endif
 let g:fzf_layout = { 'down': '20%' }
 let g:fzf_preview_window = ''
 let g:fzf_buffers_jump = 1
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
+autocmd FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " Rust
 let g:rust_recommended_style = 0
 let g:rustfmt_autosave = 1
-
-" C
-autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
-
-" CSS/JS
-autocmd FileType css setlocal tabstop=2 shiftwidth=2 expandtab
-autocmd FileType js setlocal tabstop=2 shiftwidth=2 expandtab
 
 " markdown
 let g:vim_markdown_math = 1
@@ -129,15 +119,12 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_fenced_languages = ['julia=jl', 'python=py']
 
-
 " Other config files
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/mappings.vim
-" source ~/.config/nvim/lsp.vim
-" source ~/.config/nvim/mappings-lsp.vim
+source ~/.config/nvim/cmd.vim
 " source ~/.config/nvim/coc.vim
 " source ~/.config/nvim/mappings-coc.vim
-source ~/.config/nvim/cmd.vim
 
 " Theme
 colorscheme light
@@ -147,7 +134,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'sol'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1
@@ -157,11 +144,7 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline_skip_empty_sections = 1
-" let g:airline#extensions#virtualenv#enabled = 1
-" let g:airline#extensions#fzf#enabled = 1
-" let g:airline#extensions#fugitiveline#enabled = 1
-" let g:airline#extensions#grepper#enabled = 1
-
+let g:airline#extensions#virtualenv#enabled = 1
 let g:airline#extensions#tabline#left_sep     = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_left_alt_sep                    = '»'
@@ -180,9 +163,9 @@ let g:airline_symbols.whitespace              = 'Ξ'
 
 au User AirlineAfterInit  :let g:airline_section_z = airline#section#create(['%3p%% %l:%3v'])
 
-highlight Comment cterm=italic  " vim
-highlight Comment gui=italic    " nvim
-
+" kthxbye
+hi Comment cterm=italic  " vim
+hi Comment gui=italic    " nvim
 hi GitGutterAdd guibg=none
 hi GitGutterChange guibg=none
 hi GitGutterChangeDelete guibg=none

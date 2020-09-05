@@ -18,7 +18,7 @@ nnoremap <leader>z :NERDTreeFind<CR>
 nnoremap <silent> <C-P> :NERDTreeToggle<CR>
 
 " terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>
+nnoremap <silent> <leader>$ :terminal<CR>
 
 "" Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
