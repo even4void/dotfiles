@@ -8,7 +8,7 @@
    CLOSED: [2019-12-04 Wed 20:21]
 ** DONE Revise personal keybindings (GUI/CLI)
 CLOSED: [2019-09-12 Thu 07:47]
-** TODO Add some [[https://is.gd/JE4405][aliases]]
+** CANC Add some [[https://is.gd/JE4405][aliases]]
 ** CANC Replace org/md snippets with file-template
    CLOSED: [2020-05-12 Tue 18:53]
 ** DONE Minimize and remove defunct code

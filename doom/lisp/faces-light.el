@@ -1,6 +1,4 @@
-;;; ~/.config/doom/lisp/faces.el -*- lexical-binding: t; -*-
-
-;; NOTE Check 'doom-plain' theme (64b033208d3c2eac33d2b284c4a66eb7bee94c37)
+;;; ~/.config/doom/lisp/faces-light.el -*- lexical-binding: t; -*-
 
 ;; standout   #ebcb8b
 ;; highlight  #c2c282
