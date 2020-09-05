@@ -33,9 +33,7 @@
    '(git-gutter:modified-sign "│")
    '(git-gutter:added-sign "│")
    '(git-gutter:deleted-sign "│"))
-  (setq org-superstar-leading-fallback ?\s)
-  (remove-hook 'text-mode-hook 'highlight-indent-guides-mode)
-  (remove-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  (setq org-superstar-leading-fallback ?\s))
 
 (load! "+bindings")
 (load! "lisp/+light-fix")
@@ -54,6 +52,7 @@
   '(font-lock-builtin-face :foreground "#282a2e" :weight bold)
   '(font-lock-type-face :foreground "#282a2e" :weight bold)
   '(font-lock-keyword-face :foreground "#282a2e" :weight bold)
+  '(git-gutter:deleted :foreground "#bf616a")
   '(org-footnote :foreground "#9099ab")
   '(org-verbatim :foreground "#444")
   '(org-journal-calendar-entry-face :background "#9099ab" :foreground "#f0eee4")
@@ -269,7 +268,6 @@
 (eval-after-load 'recentf
   '(add-to-list 'recentf-exclude "^~/.emacs.d/.local/etc"))
 (setq show-trailing-whitespace t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode
@@ -366,7 +364,7 @@
 (after! lsp-ui
   (add-hook 'lsp-ui-doc-frame-hook
             (lambda (frame _w)
-              (set-face-attribute 'default frame :font "Iosevka" :height 125)))
+              (set-face-attribute 'default frame :font "JetBrains Mono" :height 125)))
   (setq lsp-diagnostic-package :auto
         lsp-ui-doc-enable nil
         lsp-ui-doc-delay 0.2

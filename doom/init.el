@@ -10,7 +10,7 @@
        deft
        doom
        hl-todo
-       indent-guides
+       ;; indent-guides
        (modeline +light)
        nav-flash
        treemacs
@@ -48,7 +48,7 @@
        (lsp +peek)
        (magit +forge)
        make
-       pdf
+       ;; pdf
        rgb
 
        :lang

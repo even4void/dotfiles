@@ -70,11 +70,12 @@
  :desc "Swiper all"               "@"  #'doom/swiper-all-region-or-symbol
  :desc "Interactive regex"        "%"  #'isearch-forward-regexp
  :desc "Swiper"                   "/"  #'swiper
- :desc "Open vterm"               "!"  #'+vterm/here
- :desc "Shell cmd"                "$"  #'shell-command
+ :desc "Open vterm"               "$"  #'+vterm/here
+ :desc "Shell cmd"                "!"  #'shell-command
  :desc "Dired"                    "d"  #'dired-jump
- :desc "Next window"              "j"  #'evil-window-next
- :desc "Switch layout"            "k"  #'doom/window-layout-toggle
+ :desc "Prev buffer"              "j"  #'evil-prev-buffer
+ :desc "Next buffer"              "k"  #'evil-next-buffer
+ :desc "Next window"              ")"  #'evil-window-next
  :desc "Query replace"            "r"  #'query-replace-regexp
  :desc "Delete workspace"         "W"  #'+workspace/delete
  :desc "Org Capture"              "x"  #'org-capture
@@ -107,6 +108,7 @@
   :desc "Org PDF+Latex"           "P" #'org-latex-export-to-pdf)
  (:prefix "g"
   :desc "Popup hunk"              "-" #'git-gutter:popup-hunk)
+  :desc "VC msg"                  "m" #'vc-msg-show
  (:prefix "n"
   :desc "Add bookmark"            "B" #'bookmark-set
   :desc "Gist region/buffer"      "g" #'gist-region-or-buffer
@@ -136,6 +138,7 @@
   :desc "Show/Hide modeline"      "M" #'global-hide-mode-line-mode
   :desc "Poly Markdown"           "P" #'poly-markdown-mode
   :desc "Ruler"                   "R" #'display-fill-column-indicator-mode
+  :desc "Server"                  "S" #'server-start
   :desc "Undo tree"               "u" #'undo-tree-visualize
   :desc "Spellcheck"              "W" #'flyspell-buffer
   :desc "Switch dictionary"       "z" #'ispell-cycle-dictionary

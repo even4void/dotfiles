@@ -23,7 +23,7 @@
                                                     error
                                                     warning
                                                     info))))
-               (+modeline-format-icon "check" "#" 'font-lock-keywords)))
+               (+modeline-format-icon "check" "#" 'font-lock-keyword-face)))
             (`running     (+modeline-format-icon "code" "*" 'font-lock-doc-face "Running..."))
             (`errored     (+modeline-format-icon "info_outline" "#" 'error "Errored!"))
             (`interrupted (+modeline-format-icon "pause_circle_outline" "!" 'font-lock-comment-face "Interrupted"))
