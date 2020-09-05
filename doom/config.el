@@ -285,7 +285,7 @@
       ess-execute-in-process-buffer t)
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
 
-(setq lsp-julia-default-environment "~/.julia/environments/v1.5")
+; (setq lsp-julia-default-environment "~/.julia/environments/v1.5")
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")

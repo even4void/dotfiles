@@ -13,11 +13,11 @@
        ;; indent-guides
        (modeline +light)
        nav-flash
-       treemacs
+       ;; treemacs
        ophints
        (popup +all +defaults)
        vc-gutter
-       window-select
+       ;; window-select
        workspaces
 
        :editor
@@ -61,16 +61,11 @@
        (haskell +dante)
        (javascript +lsp)
        (latex +latexmk)
-       (markdown +grip)
-       (org
-        +dragndrop
-        +gnuplot
-        +journal
-        +pandoc
-        +present)
+       markdown
+       (org +gnuplot +journal +pandoc)
        purescript
        (python +lsp +cython +poetry +pyenv)
-       (julia +lsp)
+       ;; (julia +lsp)
        (racket +xp)
        (rust +lsp)
        scheme

@@ -62,26 +62,25 @@
 
  ;; which-key items
  :leader
- :desc "Next workspace"           "&"  #'+workspace:switch-next
- :desc "Make"                     "§"  #'+make/run
- :desc "Split horizontally"       "-"  #'split-window-below
- :desc "Split vertically"         "|"  #'split-window-right
- :desc "Remove split"             "="  #'delete-other-windows
- :desc "Swiper all"               "@"  #'doom/swiper-all-region-or-symbol
- :desc "Interactive regex"        "%"  #'isearch-forward-regexp
- :desc "Swiper"                   "/"  #'swiper
- :desc "Open vterm"               "$"  #'+vterm/here
- :desc "Shell cmd"                "!"  #'shell-command
- :desc "Dired"                    "d"  #'dired-jump
- :desc "Prev buffer"              "j"  #'evil-prev-buffer
- :desc "Next buffer"              "k"  #'evil-next-buffer
- :desc "Next window"              ")"  #'evil-window-next
- :desc "Query replace"            "r"  #'query-replace-regexp
- :desc "Delete workspace"         "W"  #'+workspace/delete
- :desc "Org Capture"              "x"  #'org-capture
- :desc "Pop up scratch buffer"    "X"  #'doom/open-scratch-buffer
- :desc "Project drawer"           "z"  #'+treemacs/toggle
- :desc "Project error list"       "Z"  #'lsp-treemacs-errors-list
+ :desc "Next workspace"           "&" #'+workspace:switch-next
+ :desc "Make"                     "§" #'+make/run
+ :desc "Split horizontally"       "-" #'split-window-below
+ :desc "Split vertically"         "|" #'split-window-right
+ :desc "Remove split"             "=" #'delete-other-windows
+ :desc "Swiper all"               "@" #'doom/swiper-all-region-or-symbol
+ :desc "Interactive regex"        "%" #'isearch-forward-regexp
+ :desc "Swiper"                   "/" #'swiper
+ :desc "Open vterm"               "$" #'+vterm/here
+ :desc "Shell cmd"                "!" #'shell-command
+ :desc "Dired"                    "d" #'dired-jump
+ :desc "Prev buffer"              "j" #'evil-prev-buffer
+ :desc "Next buffer"              "k" #'evil-next-buffer
+ :desc "Next window"              ")" #'evil-window-next
+ :desc "Query replace"            "r" #'query-replace-regexp
+ :desc "Org Capture"              "x" #'org-capture
+ :desc "Pop up scratch buffer"    "X" #'doom/open-scratch-buffer
+ :desc "Spellcheck"               "W" #'flyspell-buffer
+ :desc "Delete workspace"         "z" #'+workspace/delete
 
  (:prefix "s"
   :desc "Counsel ag"              "c" #'doom/counsel-region-or-symbol
@@ -116,8 +115,7 @@
   :desc "Org narrow"              "N" #'org-narrow-to-subtree
   :desc "Org clean results"       "r" #'org-remove-all-result-blocks
   :desc "Insert URL"              "u" #'insert-url
-  :desc "Unfill region"           "U" #'unfill-region
-  :desc "Select dictionary"       "Z" #'ispell-change-dictionary)
+  :desc "Unfill region"           "U" #'unfill-region)
  (:prefix "o"
   :desc "Calendar"                "c" #'calendar
   :desc "Elfeed"                  "E" #'elfeed

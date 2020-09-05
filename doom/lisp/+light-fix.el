@@ -1,7 +1,6 @@
 ;;; ~/.config/doom/+light-fix.el -*- lexical-binding: t; -*-
 
 ;; Just overriding the default icons for Flycheck.
-
 (add-hook! '(flycheck-status-changed-functions
              flycheck-mode-hook)
   (defun +modeline-checker-update (&optional status)
@@ -23,7 +22,7 @@
                                                     error
                                                     warning
                                                     info))))
-               (+modeline-format-icon "check" "#" 'font-lock-keyword-face)))
+               (+modeline-format-icon "check" "#" 'font-lock-variable-face)))
             (`running     (+modeline-format-icon "code" "*" 'font-lock-doc-face "Running..."))
             (`errored     (+modeline-format-icon "info_outline" "#" 'error "Errored!"))
             (`interrupted (+modeline-format-icon "pause_circle_outline" "!" 'font-lock-comment-face "Interrupted"))

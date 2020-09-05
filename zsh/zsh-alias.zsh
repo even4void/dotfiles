@@ -45,7 +45,7 @@ alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 alias -g G="| grep --color=auto"
 alias nonascii="LC_CTYPE=C ggrep --color='auto' -n -P '[\x80-\xFF]'"
 alias ccat="pygmentize -g"
-alias notes='rg "TODO|NOTE|FIXME|HACK"'
+alias notes='rg "TODO|NOTE|FIXME"'
 alias p2x1="pdfnup --nup 2x1 --landscape --suffix '2x1' --batch "
 alias mergepdf='gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_merged.pdf'
 alias inbox="mbsync -a && mu index --quiet; mu find flag:unread -u --fields 'd f s m' --sortfield=date --reverse -n 5 2>/dev/null || echo 'No new mail'"

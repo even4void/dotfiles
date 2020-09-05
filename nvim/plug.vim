@@ -2,7 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 "" project/buffers management
 Plug 'scrooloose/nerdtree'   " TODO try defx as a replacement or remove altogether
-" Plug 'liuchengxu/vista.vim'  " instead of tagbar
 Plug 'airblade/vim-rooter'
 
 "" code editing, text manipulation
@@ -12,14 +11,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/CSApprox'
 Plug 'dense-analysis/ale'
 Plug 'mbbill/undotree',                    { 'on': 'UndotreeToggle' }
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
-Plug 'JuliaEditorSupport/julia-vim'
-Plug 'wlangstroth/vim-racket'
 Plug 'prettier/vim-prettier',              { 'do': 'yarn install' }
 Plug 'plasticboy/vim-markdown',            { 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc',           { 'for': 'markdown' }
-Plug 'jceb/vim-orgmode'
 
 "" Git
 Plug 'tpope/vim-fugitive'
@@ -37,5 +31,6 @@ Plug 'junegunn/fzf.vim'
 
 "" lsp stuff
 " Plug 'neoclide/coc.nvim',                  {'branch': 'release'}
+" Plug 'liuchengxu/vista.vim'  " instead of tagbar
 
 call plug#end()
