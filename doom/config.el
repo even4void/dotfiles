@@ -21,12 +21,9 @@
       system-time-locale "C")
 
 ;; -- ui ---------------------------------------------------------------------
-(when (display-graphic-p)
-  (setq highlight-indent-guides-responsive 'top
-        highlight-indent-guides-delay 0
-        doom-font (font-spec :family "JetBrains Mono" :size 13)
-        doom-big-font (font-spec :family "JetBrains Mono" :size 16)
-        doom-variable-pitch-font (font-spec :family "sans" :size 12)))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 13)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 16)
+      doom-variable-pitch-font (font-spec :family "sans" :size 12))
 
 (unless (display-graphic-p)
   (custom-set-variables
@@ -76,8 +73,6 @@
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 
-;; (add-hook! 'prog-mode-hook (modify-syntax-entry ?_ "w"))  ;; Vim way
-;; (add-hook! 'prog-mode-hook (modify-syntax-entry ?- "w"))  ;; because Lisp
 (defalias 'forward-evil-word 'forward-evil-symbol)
 
 ;; -- web & doc --------------------------------------------------------------
@@ -96,66 +91,10 @@
 (setq +latex-viewers '(skim pdf-tools))
 (setq TeX-engine 'luatex)
 
-;; 'latex-preview-pane' is nice but itries to automagically compile the current
-;; file, using 'pdf-latex-command'. This won't work most of the time for me since
-;; it means using 'pdflatex' and I would prefer 'latexmk' or 'luatex'. I can 'setq'
-;; as desired, but it is not very convenient. Anyway, as there's no way to display
-;; a PDF file right into a terminal instance of Emacs, let's fall back to external
-;; viewer.
-
 (add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
-
-(eval-after-load "ox-latex"
-  '(add-to-list 'org-latex-classes
-                '("tufte-handout"
-                  "\\documentclass[nobib]{tufte-handout}
-                   \\usepackage[style=authoryear-comp,autocite=footnote]{biblatex}
-                   % TODO Check whether authortitle-icomp is a better fit
-                   % and update '~/org/drafts/setup.el' if this is the case
-                   \\addbibresource{/Users/chl/org/references.bib}
-                   \\usepackage{booktabs}
-                   % little HACK for tabular only environment
-                   \\setlength{\\doublerulesep}{\\arrayrulewidth}
-                   \\let\\tbl\\tabular
-                   \\def\\tabular{\\sffamily\\small\\tbl}
-                   \\usepackage{graphicx}
-                   \\usepackage{microtype}
-                   \\usepackage{hyphenat}
-                   \\usepackage{marginfix}
-                   \\usepackage{amsmath}
-                   \\usepackage{morefloats}
-                   \\usepackage{fancyvrb}
-                   \\fvset{fontsize=\\normalsize}
-                   \\usepackage{xspace}
-                   \\usepackage{nicefrac}
-                   \\usepackage{units}
-                   \\usepackage{soul}
-                   \\usepackage{xcolor}
-                   \\usepackage{hyperref}
-                   \\hypersetup{colorlinks,allcolors=darkgray}
-                   \\makeatletter
-                   \\patchcmd{\\hyper@link@}
-                     {{\\Hy@tempb}{#4}}
-                     {{\\Hy@tempb}{\\ul{#4}}}
-                     {}{}
-                   \\makeatother
-                   [NO-DEFAULT-PACKAGES]
-                   [EXTRA]"
-                  ("\\section{%s}" . "\\section*{%s}")
-                  ("\\subsection{%s}" . "\\subsection*{%s}")
-                  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
-(eval-after-load "ox-latex"
-  '(add-to-list 'org-latex-packages-alist
-                '("AUTO" "babel" t ("pdflatex"))))
-(eval-after-load "ox-latex"
-  '(add-to-list 'org-latex-packages-alist
-                '("AUTO" "polyglossia" t ("xelatex" "lualatex"))))
-(eval-after-load "ox-latex"
-  '(add-to-list 'org-latex-packages-alist '("autostyle=true" "csquotes")))
+(load! "lisp/tex")
 
 (setq bibtex-field-delimiters 'double-quotes
       bibtex-autokey-year-length 4
@@ -294,10 +233,10 @@
 (setq dash-docs-enable-debugging nil)
 (setq counsel-dash-min-length 3)
 
-;; -- eshell/term -------------------------------------------------------------
+;; -- term -------------------------------------------------------------------
 (setq vterm-shell "/bin/zsh")
 
-;; -- git/magit ---------------------------------------------------------------
+;; -- git/magit --------------------------------------------------------------
 (after! magit
   (setq magit-revision-show-gravatars nil))
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
@@ -372,7 +311,7 @@
         lsp-ui-doc-position 'top
         lsp-ui-doc-include-signature t
         lsp-ui-doc-max-width 60
-        lsp-ui-imenu-colors '("#798cad" "#88b582")
+        ;; lsp-ui-imenu-colors '("#798cad" "#88b582")
         lsp-ui-peek-list-width 60
         lsp-ui-peek-peek-height 20))
 
