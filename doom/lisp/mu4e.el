@@ -40,8 +40,8 @@
   (setq mu4e-contexts
         `( ,(make-mu4e-context
              :name "i icloud"
-             :enter-func (lambda () (mu4e-message "Enter ch.lalanne@mac.com context"))
-             :leave-func (lambda () (mu4e-message "Leave ch.lalanne@mac.com context"))
+             :enter-func (lambda () (mu4e-message "Enter mac.com context"))
+             :leave-func (lambda () (mu4e-message "Leave mac.com context"))
              :match-func (lambda (msg)
                            (when msg
                              (mu4e-message-contact-field-matches msg :to "ch.lalanne@mac.com")))
@@ -56,11 +56,11 @@
 
            ,(make-mu4e-context
              :name "a aliquote"
-             :enter-func (lambda () (mu4e-message "Enter chl@aliquote.org context"))
+             :enter-func (lambda () (mu4e-message "Enter aliquote.org context"))
              :match-func (lambda (msg)
                            (when msg
                              (mu4e-message-contact-field-matches msg :to "chl@aliquote.org")))
-             :vars '((user-mail-address       . "ch.lalanne@aliquote.org")
+             :vars '((user-mail-address       . "chl@aliquote.org")
                      (user-full-name          . "Christophe Lalanne")
                      (mu4e-sent-folder        . "/aliquote/Sent")
                      (mu4e-drafts-folder      . "/aliquote/Drafts")
