@@ -20,7 +20,7 @@ augroup END
 " autocmd FileType c,cpp,python,markdown,scheme,haskell autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd BufWritePre * %s/\s\+$//e
 "" Spelling
-autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.md,*.org setlocal spell
 autocmd FileType gitcommit setlocal spell
 
 "" Indentation for specific file type (no editorconfig, no ftplugin)
