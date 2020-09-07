@@ -384,6 +384,7 @@
 
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/papers/"))
+  (pushnew! org-link-abbrev-alist '("git" . "/Users/chl/git/"))
   (setq org-agenda-include-diary t
         org-journal-follow-mode t
         org-journal-enable-agenda-integration t
