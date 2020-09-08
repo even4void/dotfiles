@@ -58,7 +58,7 @@
        elm
        emacs-lisp
        (ess +lsp)
-       (haskell +dante)
+       haskell
        (javascript +lsp)
        (latex +latexmk)
        markdown

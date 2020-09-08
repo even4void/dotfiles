@@ -52,6 +52,7 @@
   '(git-gutter:deleted :foreground "#bf616a")
   '(org-footnote :foreground "#9099ab")
   '(org-verbatim :foreground "#444")
+  '(org-latex-and-related :foreground "#444")
   '(org-journal-calendar-entry-face :background "#9099ab" :foreground "#f0eee4")
   '(markdown-pre-face :foreground "#444")
   '(markdown-inline-code-face :background nil :inherit 'markdown-pre-face)
@@ -344,7 +345,8 @@
   (setq cider-eldoc-display-context-dependent-info t))
 
 (after! haskell
-  (add-hook 'haskell-mode-hook #'hindent-mode))
+  (add-hook 'haskell-mode-hook #'hindent-mode)
+  (add-hook 'haskell-mode-hook 'intero-mode))
 
 ;; -- rust -------------------------------------------------------------------
 (setq lsp-rust-server 'rust-analyzer)
