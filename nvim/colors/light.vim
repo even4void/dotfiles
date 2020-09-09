@@ -1,5 +1,3 @@
-" vim:sw=8:ts=8
-
 set background=light
 
 hi clear

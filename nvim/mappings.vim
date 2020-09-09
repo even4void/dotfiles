@@ -1,5 +1,6 @@
 "" Split
 noremap <leader>- :<C-u>split<CR>
+noremap <leader>) <C-W><C-W>
 
 "" Buffer nav
 noremap <leader>j :bp<CR>
@@ -9,13 +10,11 @@ noremap <leader>c :bd<CR>
 nnoremap <silent> <C-d><C-d> :confirm bdelete<CR>
 
 "" Tabs
-nnoremap <leader>a :tabnew<CR>
-nnoremap <leader>h :tabprevious<CR>
-nnoremap <leader>l :tabnext<CR>
+nnoremap <leader><tab> :tabnew<CR>
+nnoremap <leader>& :tabnext<CR>
 
-"" Nerdtree and Tagbar
-nnoremap <leader>z :NERDTreeFind<CR>
-nnoremap <silent> <C-P> :NERDTreeToggle<CR>
+"" Nerdtree
+nnoremap <leader>d :NERDTreeFind<CR>
 
 " terminal emulation
 nnoremap <silent> <leader>$ :terminal<CR>

@@ -20,7 +20,7 @@ set smartcase
 set inccommand=split                   " live substitution (nvim only)
 set shell=/bin/zsh                     " default $SHELL
 set ruler                              " visual settings ...
-set relativenumber
+set number
 set listchars=tab:▸\ ,trail:∙,conceal:┊,nbsp:·
 set nolist                             " (hidden by default)
 set mouse=a                            " mouse support
@@ -115,6 +115,7 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_conceal = 0
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_emphasis_multiline = 0
 let g:vim_markdown_fenced_languages = ['julia=jl', 'python=py']
@@ -134,7 +135,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-let g:airline_theme = 'sol'
+let g:airline_theme = 'minimalist'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#ale#enabled = 1

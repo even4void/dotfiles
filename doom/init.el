@@ -57,7 +57,7 @@
        common-lisp
        elm
        emacs-lisp
-       (ess +lsp)
+       ess
        haskell
        (javascript +lsp)
        (latex +latexmk)
