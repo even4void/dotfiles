@@ -134,7 +134,6 @@
   :desc "Toggle letter case"      "L" #'toggle-letter-case
   :desc "Markdown hide/show"      "m" #'markdown-toggle-markup-hiding
   :desc "Show/Hide modeline"      "M" #'global-hide-mode-line-mode
-  :desc "Poly Markdown"           "P" #'poly-markdown-mode
   :desc "Ruler"                   "R" #'display-fill-column-indicator-mode
   :desc "Server"                  "S" #'server-start
   :desc "Undo tree"               "u" #'undo-tree-visualize

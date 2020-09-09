@@ -62,7 +62,7 @@
   '(flycheck-error :foreground "#f0eee4" :background "#bf616a" :underline nil)
   '(flycheck-error-overlay :background "#f2dfe1" :underline nil)
   '(flycheck-warning :background "#f2dfe1" :underline nil)
-  '(flyspell-duplicate :background nil :underline nil)
+  '(flyspell-duplicate :background nil)
   '(flyspell-incorrect :background "#f2dfe1" :underline nil)
   ;; same settings as Kitty light color scheme
   `(vterm-color-black   :background ,(doom-lighten "#20111a" 0.25)   :foreground "#20111a")
@@ -237,6 +237,7 @@
 (setq +format-on-save-enabled-modes
       '(not emacs-lisp-mode
             lisp-mode
+            latex-mode
             ess-r-mode))
 
 (remove-hook 'text-mode-hook #'auto-fill-mode)
