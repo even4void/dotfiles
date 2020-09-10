@@ -71,11 +71,11 @@ noremap <leader>gu :Gpull<CR>
 
 "" fzf
 nmap <leader>, :Buffers<CR>
-nmap <leader>f :Files<CR>
+nmap <leader><leader> :Files<CR>
 nmap <leader>/ :BLines<CR>
 nmap <leader>t :Tags<CR>
 nmap <leader>y :History:<CR>
-nmap <leader>r :Rg<SPACE>
+nmap <leader>* :Rg<SPACE>
 
 "" Ale
 nmap <leader>= <Plug>(ale_fix)
