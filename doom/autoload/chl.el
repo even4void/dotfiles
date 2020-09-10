@@ -155,14 +155,14 @@ around point as the initial input."
 
 ;;;###autoload
 (defun doom/counsel-region-or-symbol ()
-  "Run `counsel-ag' with the selected region or the symbol
+  "Run `counsel-rg' with the selected region or the symbol
 around point as the initial input."
   (interactive)
   (let ((input (if (region-active-p)
                    (buffer-substring-no-properties
                     (region-beginning) (region-end))
                  (thing-at-point 'symbol t))))
-    (counsel-ag input)))
+    (counsel-rg input)))
 
 ;;;###autoload
 (defun python-shell-send-region-or-line nil

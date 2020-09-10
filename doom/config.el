@@ -16,7 +16,8 @@
       epa-file-encrypt-to user-mail-address
       auth-sources '("~/.authinfo.gpg"))
 
-;; Make GUI and Terminal follow the same conventions
+(setq vterm-shell "/bin/zsh")
+
 (setq default-directory "~/"
       system-time-locale "C")
 
@@ -35,46 +36,8 @@
 (load! "+bindings")
 (load! "lisp/+light-fix")
 
-;; NOTE tints for #bf616a
-;; #bf616a #c57078 #cb8087 #d29096 #d8a0a5 #dfb0b4 #e5bfc3 #ebcfd2 #f2dfe1 #f8eff0 #ffffff
-;; Also, check if IndianRed (#af5f5f) isn't better for constant-like object and/or 'outstand'
 (load-theme 'doom-plain t)
-(custom-theme-set-faces! 'doom-plain
-  '(default :background nil)
-  '(hl-line :background "#f0eee4")
-  '(nav-flash-face :foreground nil :background "#e7e7e7" :extend t)
-  '(header-line :background "#e7e7e7")
-  '(font-lock-comment-face :foreground "#9099ab")
-  '(font-lock-function-name-face :foreground "#282a2e" :weight bold)
-  '(font-lock-builtin-face :foreground "#282a2e" :weight bold)
-  '(font-lock-type-face :foreground "#282a2e" :weight bold)
-  '(font-lock-keyword-face :foreground "#282a2e" :weight bold)
-  '(diredfl-date-time :foreground "#9099ab")
-  '(git-gutter:deleted :foreground "#bf616a")
-  '(org-footnote :foreground "#9099ab")
-  '(org-verbatim :foreground "#444")
-  '(org-latex-and-related :foreground "#444")
-  '(org-journal-calendar-entry-face :background "#9099ab" :foreground "#f0eee4")
-  '(markdown-pre-face :foreground "#444")
-  '(markdown-inline-code-face :background nil :inherit 'markdown-pre-face)
-  '(markdown-link-face :foreground "#444" :underline (:color "#444"))
-  '(mu4e-highlight-face :foreground "#444" :weight bold)
-  '(flycheck-error :foreground "#f0eee4" :background "#bf616a" :underline nil)
-  '(flycheck-error-overlay :background "#f2dfe1" :underline nil)
-  '(flycheck-warning :background "#f2dfe1" :underline nil)
-  '(flyspell-duplicate :background nil)
-  '(flyspell-incorrect :background "#f2dfe1" :underline nil)
-  ;; same settings as Kitty light color scheme
-  `(vterm-color-black   :background ,(doom-lighten "#20111a" 0.25)   :foreground "#20111a")
-  `(vterm-color-red     :background ,(doom-lighten "#bd100d" 0.25)     :foreground "#bd100d")
-  `(vterm-color-green   :background ,(doom-lighten "#858062" 0.25)   :foreground "#858062")
-  `(vterm-color-yellow  :background ,(doom-lighten "#e9a448" 0.25)  :foreground "#e9a448")
-  `(vterm-color-blue    :background ,(doom-lighten "#416978" 0.25)    :foreground "#416978")
-  `(vterm-color-magenta :background ,(doom-lighten "#96522b" 0.25) :foreground "#96522b")
-  `(vterm-color-cyan    :background ,(doom-lighten "#98999c" 0.25)    :foreground "#98999c")
-  `(vterm-color-white   :background ,(doom-lighten "#958b83" 0.25)   :foreground "#958b83"))
-
-(set-face-italic 'font-lock-comment-face t)
+(load! "lisp/faces")
 
 ;; HACK to use a plain vertical divider like in Vim
 ;; (let ((display-table (or standard-display-table (make-display-table))))
@@ -86,10 +49,10 @@
   (setq hl-todo-keyword-faces
         `(("TODO" warning bold)
           ("FIXME" .  "#bf616a")
-          ("HACK" font-lock-constant-face bold)
+          ("HACK" font-lock-comment-face bold)
           ("NOTE" success bold)
           ("DEPRECATED" font-lock-doc-face bold)
-          ("XXX" font-lock-comment-face bold))))
+          ("@@@" font-lock-comment-face bold))))
 
 (setq which-key-idle-delay 0.2)
 (setq mac-option-modifier 'none)
@@ -117,6 +80,8 @@
 (setq +latex-viewers '(skim pdf-tools))
 (setq TeX-engine 'luatex)
 
+(setq reftex-default-bibliography '("~/org/references.bib"))
+
 (add-to-list 'auto-mode-alist '("\\.rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 
@@ -134,11 +99,9 @@
 (after! ivy-bibtex
   (setq bibtex-completion-bibliography '("~/org/references.bib")
         bibtex-completion-library-path '("~/Documents/papers")
-        bibtex-completion-pdf-extension '(".pdf" ".epub")
         bibtex-completion-notes-path "/Users/chl/org/papers.org"
         bibtex-completion-notes-symbol "+"
         bibtex-completion-pdf-symbol "#"
-        bibtex-completion-additional-search-fields '(keywords)
         bibtex-completion-pdf-open-function (lambda (fpath) (call-process
                                                         "open" nil 0 nil
                                                         "-a" "skim"
@@ -152,11 +115,9 @@
           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
           (default       . bibtex-completion-format-citation-default))
         bibtex-completion-notes-template-one-file
-        (format "** ${title} ([[/Users/chl/Documents/papers/${=key=}.pdf][${=key=}]])\n"))
+        (format "** ${title} ([[papers:${=key=}.pdf][${=key=}]])\n"))
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
-
-(setq reftex-default-bibliography '("~/org/references.bib"))
 
 ;; -- flycheck ---------------------------------------------------------------
 (after! flycheck
@@ -246,22 +207,12 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
       markdown-command "/usr/local/bin/multimarkdown"
-      markdown-enable-math t
-      markdown-fontify-code-blocks-natively t
       markdown-hide-markup t
-      markdown-gfm-uppercase-checkbox t
-      markdown-list-item-bullets '("◎" "◎" "○" "◆" "◇" "►" "•")
+      markdown-list-item-bullets '("-") ;; NOTE or • like in Elfeed?
       markdown-header-scaling nil)
 (after! markdown
   (setq markdown-pre-face "JetBrains Mono"
         markdown-code-face "JetBrains Mono"))
-
-;; -- dash-docs/lookup--------------------------------------------------------
-(setq dash-docs-enable-debugging nil)
-(setq counsel-dash-min-length 3)
-
-;; -- term -------------------------------------------------------------------
-(setq vterm-shell "/bin/zsh")
 
 ;; -- git/magit --------------------------------------------------------------
 (after! magit
@@ -312,7 +263,6 @@
       ess-execute-in-process-buffer t)
 (add-hook 'inferior-ess-mode-hook 'my/comint-mode-hook)
 
-; (setq lsp-julia-default-environment "~/.julia/environments/v1.5")
 
 ;; -- python -----------------------------------------------------------------
 (setq python-shell-interpreter "python3")
@@ -322,8 +272,8 @@
       flycheck-python-flake8-executable "python3")
 
 ;; -- lsp --------------------------------------------------------------------
+; (setq lsp-julia-default-environment "~/.julia/environments/v1.5")
 (setq lsp-eldoc-enable-hover nil  ;; trigger manually using K
-      lsp-ui-doc-border "white"
       lsp-enable-links t
       lsp-symbol-highlighting-skip-current t)
 
@@ -463,7 +413,7 @@
 
   (setq org-hide-emphasis-markers t
         org-startup-indented nil
-        org-tags-column 80
+        ;; org-tags-column 80
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
@@ -494,9 +444,6 @@
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (listings . t)
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
-
-;; NOTE There's also a Tufte handout Pandoc template located in the '.pandoc'
-;; template directory.
 
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")

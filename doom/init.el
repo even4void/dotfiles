@@ -13,7 +13,7 @@
        ;; indent-guides
        (modeline +light)
        nav-flash
-       ;; treemacs
+       treemacs
        ophints
        (popup +all +defaults)
        vc-gutter

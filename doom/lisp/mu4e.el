@@ -4,20 +4,16 @@
 ;; customizations.
 
 (add-to-list 'load-path "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
-(require 'org-mu4e)
 
 (after! mu4e
-  (setq mu4e-get-mail-command "mbsync -a"
-        mu4e-change-filenames-when-moving t
-        mu4e-compose-format-flowed t
-        mu4e-view-use-gnus nil    ;; not that tasty
+  (require 'org-mu4e)
+  (setq
+        ;; mu4e-view-use-gnus nil
         mu4e-headers-show-threads nil
         mu4e-headers-include-related nil
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
-        mu4e-confirm-quit nil
         mu4e-display-update-status-in-modeline nil
         mu4e-index-lazy-check t
-        mu4e-update-interval nil
         mu4e-use-fancy-chars nil
         mail-host-address "aliquote.org"
         mu4e-compose-signature "chl AT aliquote.org\nPGP: 152E3E3F7C4CCE44"
@@ -34,8 +30,8 @@
           (:mailing-list  .  10)
           (:from          .  22)
           (:subject)))
-  (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
-  (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
+  ; (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
+  ; (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
   (setq mu4e-contexts
         `( ,(make-mu4e-context

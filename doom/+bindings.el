@@ -83,10 +83,13 @@
  :desc "Delete workspace"         "z" #'+workspace/delete
 
  (:prefix "s"
-  :desc "Counsel ag"              "c" #'doom/counsel-region-or-symbol
+  :desc "Counsel rg (selection)"  "c" #'doom/counsel-region-or-symbol
   :desc "Counsel Dash"            "C" #'counsel-dash-at-point
+  :desc "Counsel rg"              "g" #'counsel-rg
+  :desc "Counsel fzf"             "F" #'counsel-fzf
   :desc "Replace (regex)"         "R" #'replace-regexp
-  :desc "Dictionary (input)"      "W" #'osx-dictionary-search-input)
+  :desc "Dictionary (input)"      "W" #'osx-dictionary-search-input
+  :desc "Counsel fzf occur"       "z" #'counsel-fzf-occur)
  (:prefix "c"
   :desc "Help (LSP)"              "h" #'lsp-describe-thing-at-point
   :desc "Help (Dash)"             "H" #'counsel-dash
