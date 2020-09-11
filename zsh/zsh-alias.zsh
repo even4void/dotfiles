@@ -1,8 +1,6 @@
 # Listing dir
 alias lls='ls -lh --sort=size --reverse'
-alias llt='ls -l -snew'
-alias ll="ls -l"
-alias lh="ls -lh"
+alias ll="ls -lh"
 alias la="ls -a"
 alias l="exa --long --git"
 alias lk="ls -lhSr"

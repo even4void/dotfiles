@@ -64,10 +64,8 @@
  :leader
  :desc "Next workspace"           "&" #'+workspace:switch-next
  :desc "Make"                     "§" #'+make/run
- :desc "Split horizontally"       "-" #'split-window-below
- :desc "Split vertically"         "|" #'split-window-right
- :desc "Remove split"             "=" #'delete-other-windows
- :desc "Swiper all"               "@" #'doom/swiper-all-region-or-symbol
+ :desc "Remove split"             "-" #'delete-other-windows
+ :desc "Counsel Rg"               "@" #'counsel-rg
  :desc "Interactive regex"        "%" #'isearch-forward-regexp
  :desc "Swiper"                   "/" #'swiper
  :desc "Open vterm"               "$" #'+vterm/here
@@ -85,7 +83,6 @@
  (:prefix "s"
   :desc "Counsel rg (selection)"  "c" #'doom/counsel-region-or-symbol
   :desc "Counsel Dash"            "C" #'counsel-dash-at-point
-  :desc "Counsel rg"              "g" #'counsel-rg
   :desc "Counsel fzf"             "F" #'counsel-fzf
   :desc "Replace (regex)"         "R" #'replace-regexp
   :desc "Dictionary (input)"      "W" #'osx-dictionary-search-input
@@ -109,8 +106,8 @@
   :desc "Org PDF+Pandoc"          "p" #'org-pandoc-export-to-latex-pdf-and-open
   :desc "Org PDF+Latex"           "P" #'org-latex-export-to-pdf)
  (:prefix "g"
-  :desc "Popup hunk"              "-" #'git-gutter:popup-hunk)
-  :desc "VC msg"                  "M" #'vc-msg-show
+  :desc "Popup hunk"              "-" #'git-gutter:popup-hunk
+  :desc "VC msg"                  "M" #'vc-msg-show)
  (:prefix "n"
   :desc "Add bookmark"            "B" #'bookmark-set
   :desc "Gist region/buffer"      "g" #'gist-region-or-buffer

@@ -1,5 +1,5 @@
 "" Split
-noremap <leader>- :<C-u>split<CR>
+noremap <leader>- :only<CR>
 noremap <leader>) <C-W><C-W>
 
 "" Buffer nav
@@ -75,7 +75,7 @@ nmap <leader><leader> :Files<CR>
 nmap <leader>/ :BLines<CR>
 nmap <leader>t :Tags<CR>
 nmap <leader>y :History:<CR>
-nmap <leader>* :Rg<SPACE>
+nmap <leader>@ :Rg<SPACE>
 
 "" Ale
 nmap <leader>= <Plug>(ale_fix)
