@@ -15,7 +15,7 @@ hi DiffChange	cterm=bold		    ctermfg=NONE
 hi DiffDelete	cterm=bold		    ctermfg=NONE
 hi DiffText		cterm=reverse	    ctermfg=NONE
 hi Directory	cterm=bold		    ctermfg=NONE
-hi Error		cterm=reverse	    ctermfg=9	    ctermbg=15
+hi Error		cterm=reverse	    ctermfg=188	    ctermbg=131
 hi ErrorMsg		cterm=reverse	    ctermfg=9	    ctermbg=15
 hi FoldColumn	cterm=standout	    ctermfg=NONE
 hi Folded		cterm=standout	    ctermfg=NONE
@@ -54,3 +54,9 @@ hi ExtraWhitespace	cterm=reverse	ctermfg=185	    ctermbg=NONE
 
 " mostly for nerdtree
 hi VertSplit	cterm=bold		    ctermfg=240	    ctermbg=NONE
+
+" Ale
+hi ALEError         ctermbg=131 ctermfg=188
+hi ALEErrorSign     ctermbg=NONE ctermfg=131
+hi ALEWarning       ctermbg=224
+hi ALEWarningSign   ctermbg=NONE ctermfg=166

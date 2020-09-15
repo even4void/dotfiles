@@ -52,7 +52,7 @@
           ("HACK" font-lock-comment-face bold)
           ("NOTE" success bold)
           ("DEPRECATED" font-lock-doc-face bold)
-          ("@@@" font-lock-comment-face bold))))
+          ("@@@" font-lock-comment-face))))
 
 (setq which-key-idle-delay 0.2)
 (setq mac-option-modifier 'none)
@@ -331,12 +331,12 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/refile.org" "~/org/j/")
+      org-agenda-files '("~/org/journal.org" "~/org/todo.org" "~/org/j/")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
-      org-babel-clojure-backend 'cider
       org-superstar-headline-bullets-list '("#")
       +org-capture-todo-file "~/org/todo.org"
       org-journal-dir "~/org/j/"
+      org-babel-clojure-backend 'cider
       org-babel-mathematica-command "~/local/bin/mash"
       inferior-R-program-name "/usr/local/bin/R"
       inferior-R-args "-q --no-save --no-restore"
@@ -348,7 +348,6 @@
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))
-
 (font-lock-add-keywords 'org-mode
                         '(("\\\\autocite\\(\\[.+?\\]\\)*{.+?}" . font-lock-keyword-face)))
 
@@ -359,8 +358,7 @@
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/papers/"))
   (pushnew! org-link-abbrev-alist '("git" . "/Users/chl/git/"))
-  (setq org-agenda-include-diary t
-        org-journal-follow-mode t
+  (setq org-journal-follow-mode t
         org-journal-enable-agenda-integration t
         org-journal-enable-cache t)
   (setq org-capture-templates
@@ -420,7 +418,7 @@
         org-src-fontify-natively t
         org-highlight-latex-and-related '(latex)
         org-support-shift-select t
-        org-ellipsis " ▼ "
+        org-ellipsis " …"
         org-todo-keywords '((sequence "TODO" "STAR" "|" "DONE" "CANC"))
         org-log-done 'time
         org-id-locations-file "~/org/.orgids"

@@ -87,6 +87,9 @@
 	contributors = shortlog --summary --numbered
 	# Show the user email for the current repository.
 	whoami = config user.email
+	# list files which have changed since 'master'
+	stat = !git diff --stat $(git merge-base HEAD master)
+	review = !vim -p +\"tabdo Gdiff master\" +\"let g:gitgutter_diff_base = master\"
 	details = log -n1 -p --format=fuller
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	inspect = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset' --full-history -S

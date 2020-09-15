@@ -85,14 +85,34 @@ let g:prettier#quickfix_enabled = 0
 " let g:prettier#autoformat = 1
 
 " ale
-" TODO Should update linter/fixer defs some day
 let g:ale_sign_error = '▮'
 let g:ale_sign_warning = '▯'
-let g:ale_r_lintr_options = get(g:, 'ale_r_lintr_options', 'with_defaults(assignment_linter=NULL,commented_code_linter=NULL,line_length_linter(120))')
-let g:ale_linters = {'python': ['flake8', 'mypy'], 'markdown': ['mdl']}
-let g:ale_fixers = {'python': ['autopep8', 'yapf'], 'javascript': ['prettier', 'eslint']}
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+let g:ale_linters = {'python': ['pyls', 'mypy'],
+            \ 'cpp': ['clangd'],
+            \ 'rust': ['rls'],
+            \ 'racket': ['raco']}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'python': ['black'],
+            \ 'cpp': ['clangformat'],
+            \ 'rust': ['rustfmt'],
+            \ 'html': ['prettier'],
+            \ 'javascript': ['prettier', 'eslint'],
+            \ 'json': ['prettier']}
+let g:ale_cpp_clang_executable = '/usr/local/opt/llvm/bin/clang'
+let g:ale_cpp_clangd_executable = '/usr/local/opt/llvm/bin/clangd'
+let g:ale_cpp_clangd_options = '--background-index -j=4 -log=error'
+" let g:ale_rust_rls_executable = '/Users/chl/.local/bin/rust-analyzer'
+" let g:ale_rust_rls_toolchain = ''
+" let g:ale_rust_rls_config = { 'rust': {
+" 		\ 'all_targets': 1,
+" 		\ 'build_on_save': 1,
+" 		\ 'clippy_preference': 'on' }}
 let g:ale_python_mypy_options = '--ignore-missing-imports'
-" let g:ale_fix_on_save = 1
+let b:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
 
 " Copy/Paste/Cut
 if has('unnamedplus')
@@ -106,11 +126,17 @@ let g:fzf_buffers_jump = 1
 autocmd FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
+" Haskell
+let g:hindent_on_save = 1
+let g:hindent_command = '/Users/chl/.local/bin/hindent'
+let g:intero_start_immediately = 0
+let g:intero_use_neomake = 0
+
 " Rust
 let g:rust_recommended_style = 0
 let g:rustfmt_autosave = 1
 
-" markdown
+" Markdown
 let g:vim_markdown_math = 1
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_frontmatter = 1

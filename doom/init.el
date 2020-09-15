@@ -3,21 +3,19 @@
 (setenv "INDOOM" "1")
 
 (doom! :completion
-       company ;; +childframe
-       (ivy +prescient) ;; +childframe
+       company
+       (ivy +prescient)
 
        :ui
        deft
        doom
        hl-todo
-       ;; indent-guides
        (modeline +light)
        nav-flash
        treemacs
        ophints
        (popup +all +defaults)
        vc-gutter
-       ;; window-select
        workspaces
 
        :editor
@@ -30,7 +28,7 @@
        :emacs
        dired
        electric
-       ibuffer ;; +icons
+       ibuffer
        vc
        (undo +tree)
 
@@ -48,12 +46,11 @@
        (lsp +peek)
        (magit +forge)
        make
-       ;; pdf
        rgb
 
        :lang
        (cc +lsp)
-       (clojure +lsp)
+       clojure
        common-lisp
        elm
        emacs-lisp
@@ -65,7 +62,6 @@
        (org +gnuplot +journal +pandoc)
        purescript
        (python +lsp +cython +poetry +pyenv)
-       ;; (julia +lsp)
        (racket +xp)
        (rust +lsp)
        scheme
@@ -77,8 +73,7 @@
 
        :checkers
        spell
-       ;; grammar
-       syntax ;; +childframe
+       syntax
 
        :app
        irc

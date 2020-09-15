@@ -67,6 +67,7 @@ if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
   source /usr/local/opt/fzf/shell/key-bindings.zsh
   source /usr/local/opt/fzf/shell/completion.zsh
   export FZF_DEFAULT_COMMAND='rg --files --follow'
+  export FZF_CTRL_R_OPTS="--layout=reverse-list --height 100%"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS="--no-mouse --height 20% --layout=reverse --preview-window right:50%:noborder:hidden --color=light"
                          #  --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
