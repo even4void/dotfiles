@@ -1,7 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/Users/chl/git/gec-projects/2020-gun2-rnaseq/scripts'
-let g:netrw_dirhist_4='/Users/chl/.config'
-let g:netrw_dirhist_3='/Users/chl'
-let g:netrw_dirhist_2='/Users/chl/.config/nvim'
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/chl/local/bioinfo/FROGS/tools/preprocess'
+let g:netrw_dirhist_5='/Users/chl/local/bioinfo/FROGS/tools'
+let g:netrw_dirhist_4='/Users/chl/local/bioinfo/FROGS/tools/preprocess'
+let g:netrw_dirhist_3='/Users/chl/local/bioinfo/FROGS/tools'
+let g:netrw_dirhist_2='/Users/chl/.config/doom'
 let g:netrw_dirhist_1='/Users/chl/.config'
+let g:netrw_dirhist_0='/Users/chl/.config/doom'
+let g:netrw_dirhist_9='/Users/chl/.config'
+let g:netrw_dirhist_8='/Users/chl/org/j'
+let g:netrw_dirhist_7='/Users/chl/.config/doom'

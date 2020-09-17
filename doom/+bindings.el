@@ -6,6 +6,8 @@
 
 (map!
  :nv "gh"         #'lsp-ui-doc-glance
+ :n "-"           #'dired-jump
+ :n "§"           #'evil-avy-goto-char-timer
  :i "C-n"         #'dabbrev-expand
  :v "J"           (concat ":m '>+1" (kbd "RET") "gv=gv")
  :v "K"           (concat ":m '<-2" (kbd "RET") "gv=gv")
@@ -70,7 +72,6 @@
  :desc "Swiper"                   "/" #'swiper
  :desc "Open vterm"               "$" #'+vterm/here
  :desc "Shell cmd"                "!" #'shell-command
- :desc "Dired"                    "d" #'dired-jump
  :desc "Prev buffer"              "j" #'evil-prev-buffer
  :desc "Next buffer"              "k" #'evil-next-buffer
  :desc "Next window"              ")" #'evil-window-next

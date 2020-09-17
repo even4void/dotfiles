@@ -272,8 +272,7 @@
       flycheck-python-flake8-executable "python3")
 
 ;; -- lsp --------------------------------------------------------------------
-; (setq lsp-julia-default-environment "~/.julia/environments/v1.5")
-(setq lsp-eldoc-enable-hover nil  ;; trigger manually using K
+(setq lsp-eldoc-enable-hover nil
       lsp-enable-links t
       lsp-symbol-highlighting-skip-current t)
 
@@ -331,11 +330,10 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/journal.org" "~/org/todo.org" "~/org/j/")
+      org-agenda-files '("~/org/journal.org" "~/org/todo.org" "~/org/meetings.org")
       ;; org-agenda-text-search-extra-files '("~/org/drafts/")
       org-superstar-headline-bullets-list '("#")
       +org-capture-todo-file "~/org/todo.org"
-      org-journal-dir "~/org/j/"
       org-babel-clojure-backend 'cider
       org-babel-mathematica-command "~/local/bin/mash"
       inferior-R-program-name "/usr/local/bin/R"
@@ -351,16 +349,9 @@
 (font-lock-add-keywords 'org-mode
                         '(("\\\\autocite\\(\\[.+?\\]\\)*{.+?}" . font-lock-keyword-face)))
 
-(use-package! org-fancy-priorities
-  :hook (org-mode . org-fancy-priorities-mode)
-  :config (setq org-fancy-priorities-list '("■" "■" "■")))
-
 (after! org
   (pushnew! org-link-abbrev-alist '("papers" . "/Users/chl/Documents/papers/"))
   (pushnew! org-link-abbrev-alist '("git" . "/Users/chl/git/"))
-  (setq org-journal-follow-mode t
-        org-journal-enable-agenda-integration t
-        org-journal-enable-cache t)
   (setq org-capture-templates
         '(("t" "Personal todo" entry
            (file+headline +org-capture-todo-file "Inbox")
@@ -409,9 +400,19 @@
            :heading "Changelog"
            :prepend t)))
 
+  (setq org-agenda-block-separator ""
+        org-agenda-current-time-string ""
+        org-agenda-hide-tags-regexp (concat "readings\\|home\\|work\\|blog\\|misc\\|writing\\|"
+                                            "mu4e\\|review\\|scheme\\|bioinfo\\|rstats\\|stats\\|"
+                                            "cryptography\\|python\\|code\\|rust\\|racket\\|lisp\\|emacs")
+        org-agenda-prefix-format
+        '((agenda . " %i %-12c%?-12t% s")
+          (todo   . " ")
+          (tags   . " %i %-12c")
+          (search . " %i %-12c")))
+
   (setq org-hide-emphasis-markers t
         org-startup-indented nil
-        ;; org-tags-column 80
         org-catch-invisible-edits 'error
         org-startup-with-inline-images nil
         org-confirm-babel-evaluate nil
@@ -425,15 +426,19 @@
         org-default-notes-file "~/org/notes.org"
         org-default-todo-file "~/org/todos.org"
         org-bibtex-file "~/org/references.bib"
+        org-export-backends '(html latex)
         org-export-with-author nil
         org-export-with-creator nil
         org-export-with-toc nil
-        org-export-with-section-numbers nil
         org-html-postamble nil
+        org-html-doctype "html5"
+        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/drafts/_assets/org.css\" />"
+        org-html-head-include-default-style nil
+        org-html-head-include-scripts nil
+        org-export-with-section-numbers nil
         org-html-htmlize-output-type nil
-        org-html-doctype "xhtml5"
         org-latex-default-class "tufte-handout"
-        org-latex-pdf-process '("latexmk -pdf -bibtex-cond -f -outdir=%o %f") ;; -pdflatex=lualatex
+        org-latex-pdf-process '("latexmk -pdf -bibtex-cond -f -outdir=%o %f")
         org-pandoc-options-for-html5 '((section-divs . t)
                                        (bibliography . "/Users/chl/org/references.bib")
                                        (template . "/Users/chl/.pandoc/templates/GitHub.html5"))

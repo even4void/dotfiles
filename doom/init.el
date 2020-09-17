@@ -12,7 +12,6 @@
        hl-todo
        (modeline +light)
        nav-flash
-       treemacs
        ophints
        (popup +all +defaults)
        vc-gutter
@@ -37,7 +36,7 @@
 
        :tools
        biblio
-       (debugger +lsp)
+       debugger
        (eval +overlay)
        gist
        (lookup
@@ -52,15 +51,13 @@
        (cc +lsp)
        clojure
        common-lisp
-       elm
        emacs-lisp
        ess
        haskell
        (javascript +lsp)
        (latex +latexmk)
        markdown
-       (org +gnuplot +journal +pandoc)
-       purescript
+       (org +gnuplot)
        (python +lsp +cython +poetry +pyenv)
        (racket +xp)
        (rust +lsp)
