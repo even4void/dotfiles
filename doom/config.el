@@ -330,10 +330,10 @@
 
 ;; -- org --------------------------------------------------------------------
 (setq org-directory "~/org"
-      org-agenda-files '("~/org/journal.org" "~/org/todo.org" "~/org/meetings.org")
-      ;; org-agenda-text-search-extra-files '("~/org/drafts/")
+      org-agenda-files '("~/org/diary.org" "~/org/todo.org" "~/org/meetings.org")
       org-superstar-headline-bullets-list '("#")
       +org-capture-todo-file "~/org/todo.org"
+      +org-capture-journal-file "~/org/diary.org"
       org-babel-clojure-backend 'cider
       org-babel-mathematica-command "~/local/bin/mash"
       inferior-R-program-name "/usr/local/bin/R"
@@ -401,7 +401,7 @@
            :prepend t)))
 
   (setq org-agenda-block-separator ""
-        org-agenda-current-time-string ""
+        org-agenda-current-time-string "<~"
         org-agenda-hide-tags-regexp (concat "readings\\|home\\|work\\|blog\\|misc\\|writing\\|"
                                             "mu4e\\|review\\|scheme\\|bioinfo\\|rstats\\|stats\\|"
                                             "cryptography\\|python\\|code\\|rust\\|racket\\|lisp\\|emacs")
