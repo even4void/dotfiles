@@ -432,7 +432,7 @@
         org-export-with-toc nil
         org-html-postamble nil
         org-html-doctype "html5"
-        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/drafts/_assets/org.css\" />"
+        org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/Users/chl/org/drafts/_assets/worg.css\" />"
         org-html-head-include-default-style nil
         org-html-head-include-scripts nil
         org-export-with-section-numbers nil

@@ -33,7 +33,7 @@
   '(org-verbatim :foreground "#444" :weight bold)
   '(org-ellipsis :foreground "#c5c8c6")
   '(org-latex-and-related :foreground "#444")
-  '(org-formula :foreground "#c5c8c6" :weight bold)
+  '(org-formula :foreground "#9099ab" :weight bold)
   '(org-journal-calendar-entry-face :background "#9099ab" :foreground "#f0eee4")
   '(org-scheduled-previously :foreground "#c5c8c6")
   '(org-scheduled-today :foreground "#7e7f81")
