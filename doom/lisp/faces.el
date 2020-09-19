@@ -29,6 +29,7 @@
   '(info-title-1 :foreground "#282a2e" :weight bold)
   '(info-title-2 :foreground "#444" :weight bold)
   '(git-gutter:deleted :foreground "#bf616a")
+  '(org-drawer :inherit 'org-special-keyword)
   '(org-footnote :foreground "#9099ab")
   '(org-verbatim :foreground "#444" :weight bold)
   '(org-ellipsis :foreground "#c5c8c6")

@@ -101,11 +101,9 @@
  (:prefix-map ("e" . "export")
   :desc "Org HTML publish"        "=" #'org-publish-all
   :desc "Org dispatcher"          "e" #'org-export-dispatch
-  :desc "Org HTML+Pandoc"         "h" #'org-pandoc-export-to-html5-and-open
-  :desc "Org HTML"                "H" #'org-html-export-to-html
+  :desc "Org HTML"                "h" #'org-html-export-to-html
   :desc "Markdown open"           "m" #'markdown-open
-  :desc "Org PDF+Pandoc"          "p" #'org-pandoc-export-to-latex-pdf-and-open
-  :desc "Org PDF+Latex"           "P" #'org-latex-export-to-pdf)
+  :desc "Org PDF+Latex"           "l" #'org-latex-export-to-pdf)
  (:prefix "g"
   :desc "Popup hunk"              "-" #'git-gutter:popup-hunk
   :desc "VC msg"                  "M" #'vc-msg-show)
