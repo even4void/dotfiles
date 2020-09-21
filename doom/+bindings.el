@@ -12,24 +12,6 @@
  :v "J"           (concat ":m '>+1" (kbd "RET") "gv=gv")
  :v "K"           (concat ":m '<-2" (kbd "RET") "gv=gv")
 
- ;; OSX shortcuts without cua-mode (GUI only)
- :n "s-<return>"  #'toggle-frame-maximized
- "s-z"            #'undo
- "s-c"            (if (featurep 'evil) #'evil-yank #'copy-region-as-kill)
- "s-v"            #'yank
- "s-x"            #'kill-region
- "s-s"            #'save-buffer
- "s-a"            #'mark-whole-buffer
- "s-;"            #'eval-expression
- "s-r"            #'query-replace
- "s-p"            #'counsel-M-x
- "s-b"            #'persp-switch-to-buffer
- "s-@"            #'lsp-ui-imenu
- "s-&"            #'+workspace:switch-next
- "s-!"            #'swiper-isearch
- "s-)"            #'ace-swap-window
- "s-("            #'doom/window-layout-toggle
-
  ;; window/workspace (GUI only)
  :ni "s-<up>"     #'evil-window-up
  :ni "s-<down>"   #'evil-window-down
@@ -103,6 +85,7 @@
   :desc "Org dispatcher"          "e" #'org-export-dispatch
   :desc "Org HTML"                "h" #'org-html-export-to-html
   :desc "Markdown open"           "m" #'markdown-open
+  :desc "Org PDF+Beamer"          "b" #'org-beamer-export-to-pdf
   :desc "Org PDF+Latex"           "l" #'org-latex-export-to-pdf)
  (:prefix "g"
   :desc "Popup hunk"              "-" #'git-gutter:popup-hunk

@@ -39,6 +39,8 @@
   '(org-scheduled-previously :foreground "#c5c8c6")
   '(org-scheduled-today :foreground "#7e7f81")
   '(markdown-pre-face :foreground "#444")
+  '(markdown-link-face :foreground "#444" :weight bold :underline t)
+  '(markdown-url-face :foreground "#444")
   '(markdown-inline-code-face :foreground "#444" :weight bold)
   '(markdown-math-face :foreground "#444")
   '(markdown-blockquote-face :foreground "#9099ab")

@@ -23,8 +23,7 @@
 
 ;; -- ui ---------------------------------------------------------------------
 (setq doom-font (font-spec :family "JetBrains Mono" :size 13)
-      doom-big-font (font-spec :family "JetBrains Mono" :size 16)
-      doom-variable-pitch-font (font-spec :family "sans" :size 12))
+      doom-big-font (font-spec :family "JetBrains Mono" :size 16))
 
 (unless (display-graphic-p)
   (custom-set-variables
@@ -34,7 +33,7 @@
   (setq org-superstar-leading-fallback ?\s))
 
 (load! "+bindings")
-(load! "lisp/+light-fix")
+; (load! "lisp/+light-fix")
 
 (load-theme 'doom-plain t)
 (load! "lisp/faces")
@@ -206,9 +205,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
-      markdown-command "/usr/local/bin/multimarkdown"
+      markdown-command "pandoc"
+      markdown-gfm-use-electric-backquote nil
       markdown-hide-markup t
-      markdown-list-item-bullets '("-") ;; NOTE or • like in Elfeed?
+      markdown-list-item-bullets '("-")
       markdown-header-scaling nil)
 (after! markdown
   (setq markdown-pre-face "JetBrains Mono"

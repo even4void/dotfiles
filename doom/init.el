@@ -27,7 +27,6 @@
        :emacs
        dired
        electric
-       ibuffer
        vc
        (undo +tree)
 
