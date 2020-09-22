@@ -37,7 +37,6 @@
        biblio
        debugger
        (eval +overlay)
-       gist
        (lookup
         +docsets
         +dictionary)

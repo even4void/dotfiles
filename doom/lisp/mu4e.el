@@ -16,12 +16,12 @@
         mu4e-index-lazy-check t
         mu4e-use-fancy-chars nil
         mail-host-address "aliquote.org"
-        mu4e-compose-signature "chl AT aliquote.org\nPGP: 152E3E3F7C4CCE44"
+        mu4e-compose-signature "Christophe Lalanne\n@even4void"
         message-citation-line-format "On %a, %b %d %Y (%H:%M), %N (%n) wrote:\n"
         message-citation-line-function 'message-insert-formatted-citation-line
         mu4e-compose-signature-auto-include nil
         smtpmail-queue-dir "~/.mail/queue/cur"
-        smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
+        ;; smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
         mu4e-attachment-dir "~/Downloads")
   (setq mu4e-headers-fields
         '((:account       .  10)

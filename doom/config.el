@@ -114,7 +114,7 @@
           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
           (default       . bibtex-completion-format-citation-default))
         bibtex-completion-notes-template-one-file
-        (format "** ${title} ([[papers:${=key=}.pdf][${=key=}]])\n"))
+        (format "\n** ${title} ([[papers:${=key=}.pdf][${=key=}]])\n :PROPERTIES:\n :Custom_ID: ${=key=}\n :END:\n\n\n"))
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
 
