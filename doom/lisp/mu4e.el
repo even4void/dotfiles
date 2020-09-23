@@ -31,7 +31,7 @@
           (:from          .  22)
           (:subject)))
   ; (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
-  ; (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
+  (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
   (setq mu4e-contexts
         `( ,(make-mu4e-context
