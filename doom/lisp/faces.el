@@ -45,6 +45,7 @@
   '(markdown-math-face :foreground "#444")
   '(markdown-blockquote-face :foreground "#9099ab")
   '(mu4e-highlight-face :foreground "#444" :weight bold)
+  '(message-cited-text-1 :foreground "#416978")
   '(magit-header-line :background nil)
   '(flycheck-error :foreground "#f0eee4" :background "#bf616a" :underline nil)
   '(flycheck-error-overlay :background "#f2dfe1" :underline nil)
