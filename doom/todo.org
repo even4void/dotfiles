@@ -15,3 +15,11 @@ CLOSED: [2019-09-12 Thu 07:47]
    CLOSED: [2019-12-05 Thu 10:02]
 ** DONE Byte-compile private directory
    CLOSED: [2019-12-05 Thu 10:03]
+
+* Notes
+
+;; HACK to use a plain vertical divider like in Vim
+;; (let ((display-table (or standard-display-table (make-display-table))))
+;;   (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
+;;   (setq standard-display-table display-table))
+;; (custom-set-faces! '(vertical-border :background nil))

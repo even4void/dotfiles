@@ -88,8 +88,7 @@
   :desc "Org PDF+Beamer"          "b" #'org-beamer-export-to-pdf
   :desc "Org PDF+Latex"           "l" #'org-latex-export-to-pdf)
  (:prefix "g"
-  :desc "Popup hunk"              "-" #'git-gutter:popup-hunk
-  :desc "VC msg"                  "M" #'vc-msg-show)
+  :desc "Popup hunk"              "-" #'git-gutter:popup-hunk)
  (:prefix "n"
   :desc "Add bookmark"            "B" #'bookmark-set
   :desc "Gist region/buffer"      "g" #'gist-region-or-buffer

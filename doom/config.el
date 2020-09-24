@@ -33,16 +33,9 @@
   (setq org-superstar-leading-fallback ?\s))
 
 (load! "+bindings")
-; (load! "lisp/+light-fix")
 
 (load-theme 'doom-plain t)
 (load! "lisp/faces")
-
-;; HACK to use a plain vertical divider like in Vim
-;; (let ((display-table (or standard-display-table (make-display-table))))
-;;   (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
-;;   (setq standard-display-table display-table))
-;; (custom-set-faces! '(vertical-border :background nil))
 
 (after! hl-todo
   (setq hl-todo-keyword-faces
@@ -177,9 +170,6 @@
     (define-fringe-bitmap 'git-gutter-fr:deleted [224]
       nil nil '(center repeated))))
 
-;; -- Spelling ---------------------------------------------------------------
-;; (setq ispell-dictionary "en")
-
 ;; -- text/markdown editing --------------------------------------------------
 (setq time-stamp-active t
       time-stamp-line-limit 10)
@@ -217,8 +207,8 @@
 ;; -- git/magit --------------------------------------------------------------
 (after! magit
   (setq magit-revision-show-gravatars nil))
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
-      ghub-use-workaround-for-emacs-bug nil)
+;; (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"
+;;       ghub-use-workaround-for-emacs-bug nil)
 (setq magit-repository-directories '(("~/git" . 1))
       magit-save-repository-buffers nil)
 (setq transient-values '((magit-commit "--gpg-sign=152E3E3F7C4CCE44")
@@ -233,18 +223,6 @@
         ("⤓"           3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
         ("⤒"           3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
         ("Path"       99 magit-repolist-column-path                   ())))
-
-(eval-after-load 'vc-msg-git
-  '(progn
-     (setq vc-msg-git-show-commit-function 'magit-show-commit)
-     (push '("m"
-             "[m]agit-find-file"
-             (lambda ()
-               (let* ((info vc-msg-previous-commit-info)
-                      (git-dir (locate-dominating-file default-directory ".git")))
-                 (magit-find-file (plist-get info :id )
-                                  (concat git-dir (plist-get info :filename))))))
-           vc-msg-git-extra)))
 
 ;; -- deft -------------------------------------------------------------------
 (setq deft-directory "~/org/z"
@@ -443,7 +421,6 @@
                                        (bibliography . "/Users/chl/org/references.bib")
                                        (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
         org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
-                                           ;; (biblatex . t)
                                            (bibliography . "/Users/chl/org/references.bib")
                                            (listings . t)
                                            (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))

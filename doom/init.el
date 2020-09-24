@@ -41,7 +41,7 @@
         +docsets
         +dictionary)
        (lsp +peek)
-       (magit +forge)
+       magit
        make
        rgb
 
