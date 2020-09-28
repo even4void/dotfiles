@@ -10,8 +10,7 @@
        deft
        doom
        hl-todo
-       (modeline +light)
-       nav-flash
+       modeline
        ophints
        (popup +all +defaults)
        vc-gutter

@@ -23,6 +23,7 @@
 
 ;; -- ui ---------------------------------------------------------------------
 (setq doom-font (font-spec :family "JetBrains Mono" :size 13)
+      doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 13)
       doom-big-font (font-spec :family "JetBrains Mono" :size 16))
 
 (unless (display-graphic-p)
@@ -33,6 +34,7 @@
   (setq org-superstar-leading-fallback ?\s))
 
 (load! "+bindings")
+(load! "lisp/modeline")
 
 (load-theme 'doom-plain t)
 (load! "lisp/faces")
@@ -50,6 +52,7 @@
 (setq mac-option-modifier 'none)
 (delete-selection-mode 1)
 (setq display-line-numbers-type t)
+(setq anzu-replace-to-string-separator " -> ")
 
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
