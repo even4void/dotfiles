@@ -17,6 +17,7 @@
            (face (if active 'match 'mode-line-inactive)))
       (propertize (concat " " (doom-modeline--buffer-name) " ") 'face face)
             ))
+
   (doom-modeline-def-segment my/buffer-position
     "The buffer position."
     (let* ((active (doom-modeline--active))
@@ -25,6 +26,7 @@
                           (format-mode-line "%l:%c")
                           (doom-modeline-spc))
                   'face face)))
+
   (doom-modeline-def-segment my/buffer-simple
     "The buffer name but simpler."
     (let* ((active (doom-modeline--active))
@@ -34,6 +36,7 @@
       (concat (doom-modeline-spc)
               (propertize "%b" 'face face)
               (doom-modeline-spc))))
+
   (doom-modeline-def-segment my/default-directory
     "The buffer directory."
     (let* ((active (doom-modeline--active))
@@ -41,6 +44,7 @@
       (concat (doom-modeline-spc)
               (propertize (abbreviate-file-name default-directory) 'face face)
               (doom-modeline-spc))))
+
   (doom-modeline-def-segment my/flycheck
     "The error status with color codes and icons."
     (when (bound-and-true-p flycheck-mode)
@@ -54,6 +58,7 @@
            (if active (propertize (concat " " text " ") 'face 'flycheck-info) (propertize text 'face 'mode-line-inactive)))
          (when (or icon text)
            (doom-modeline-spc))))))
+
   (doom-modeline-def-segment my/info
     "The topic and nodes in Info buffers."
     (let ((active (doom-modeline--active)))
@@ -70,6 +75,7 @@
          (propertize (concat (replace-regexp-in-string "%" "%%" Info-current-node)
                              (doom-modeline-spc))
                      'face (if active 'doom-modeline-buffer-path 'mode-line-inactive))))))
+
   (doom-modeline-def-segment my/major-mode
     "The current major mode, including environment information."
     (let* ((active (doom-modeline--active))
@@ -84,13 +90,16 @@
                   (concat " " result)
                 (propertize (concat " " result) 'face 'mode-line-inactive))
               (doom-modeline-spc))))
+
   (doom-modeline-def-segment my/modals
     "Display modal editing states."
     (when (doom-modeline--active)
       (doom-modeline-segment--modals)))
+
   (doom-modeline-def-segment my/space
     "A simple space."
     (doom-modeline-spc))
+
   (doom-modeline-def-segment my/vcs
     "The version control system information."
     (when-let ((branch doom-modeline--vcs-text))
@@ -101,8 +110,6 @@
                   (propertize text 'face 'mode-line-inactive))))))
 
   (doom-modeline-mode 1)
-
-  (setq size-indication-mode nil)
 
   (doom-modeline-def-modeline 'info
     '(bar my/modals my/buffer my/info selection-info)

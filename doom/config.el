@@ -436,3 +436,5 @@
 
 (after! elfeed
   (setq elfeed-search-filter "@2-weeks-ago -mute +unread "))
+
+(setq size-indication-mode nil)
