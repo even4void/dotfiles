@@ -1,7 +1,5 @@
 ;;; ~/.config/doom/lisp/modeline.el -*- lexical-binding: t; -*-
 
-(setq size-indication-mode nil)
-
 (setq doom-modeline-bar-width 1
       doom-modeline-buffer-file-name-style 'relative-to-project
       doom-modeline-enable-word-count t
@@ -50,8 +48,8 @@
             (icon doom-modeline--flycheck-icon)
             (text doom-modeline--flycheck-text))
         (concat
-         (when icon
-           (if active (propertize (concat " " icon " ") 'face 'mode-line) (doom-modeline-propertize-icon icon 'mode-line-inactive)))
+         ;; (when icon
+         ;;   (if active (propertize (concat " " icon " ") 'face 'mode-line) (doom-modeline-propertize-icon icon 'mode-line-inactive)))
          (when text
            (if active (propertize (concat " " text " ") 'face 'flycheck-info) (propertize text 'face 'mode-line-inactive)))
          (when (or icon text)
@@ -103,6 +101,9 @@
                   (propertize text 'face 'mode-line-inactive))))))
 
   (doom-modeline-mode 1)
+
+  (setq size-indication-mode nil)
+
   (doom-modeline-def-modeline 'info
     '(bar my/modals my/buffer my/info selection-info)
     '(irc-buffers matches my/process debug my/buffer-position my/major-mode))
