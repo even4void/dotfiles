@@ -36,6 +36,8 @@
 (load! "+bindings")
 (load! "lisp/modeline")
 
+(remove-hook 'doom-modeline-mode-hook #'size-indication-mode)
+
 (load-theme 'doom-plain t)
 (load! "lisp/faces")
 
@@ -436,5 +438,3 @@
 
 (after! elfeed
   (setq elfeed-search-filter "@2-weeks-ago -mute +unread "))
-
-(setq size-indication-mode nil)

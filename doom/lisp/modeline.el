@@ -4,12 +4,15 @@
       doom-modeline-buffer-file-name-style 'relative-to-project
       doom-modeline-enable-word-count t
       doom-modeline-icon nil
-      doom-modeline-buffer-encoding nil
+      doom-modeline-buffer-encoding t
       doom-modeline-major-mode-icon nil
       doom-modeline-percent-position nil
+      doom-modeline-workspace-name nil
+      doom-modeline-persp-name nil
+      doom-modeline-lsp nil
+      doom-modeline-gnus nil
       doom-modeline-vcs-max-length 28)
 
-;; Code adapted from https://github.com/angrybacon/dotemacs
 (after! doom-modeline
   (doom-modeline-def-segment my/buffer
     "The buffer description and major mode icon."
@@ -96,36 +99,27 @@
     (when (doom-modeline--active)
       (doom-modeline-segment--modals)))
 
-  (doom-modeline-def-segment my/space
-    "A simple space."
-    (doom-modeline-spc))
-
   (doom-modeline-def-segment my/vcs
     "The version control system information."
     (when-let ((branch doom-modeline--vcs-text))
       (let ((active (doom-modeline--active))
-            (text (concat "  " branch " ")))
+            (text (concat " " branch " ")))
         (concat (if active
-                    (propertize text 'face 'match)
+                    (propertize text 'face 'mode-line)
                   (propertize text 'face 'mode-line-inactive))))))
-
-  (doom-modeline-mode 1)
 
   (doom-modeline-def-modeline 'info
     '(bar my/modals my/buffer my/info selection-info)
     '(irc-buffers matches my/process debug my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'main
-    '(bar my/modals my/buffer my/flycheck remote-host selection-info)
-    '(irc-buffers matches my/vcs my/process debug my/buffer-position my/major-mode))
+    '(bar my/modals my/vcs my/buffer my/flycheck remote-host selection-info)
+    '(irc-buffers matches my/process debug buffer-encoding my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'message
     '(bar my/modals my/buffer-simple selection-info)
     '(irc-buffers matches my/process my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'org-src
     '(bar my/modals my/buffer-simple my/flycheck selection-info)
-    '(irc-buffers matches my/process debug my/buffer-position my/major-mode))
-  (doom-modeline-def-modeline 'package
-    '(bar my/modals my/space package)
-    '(irc-buffers matches my/process debug my/major-mode))
+    '(irc-buffers matches my/process debug buffer-encoding my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'project
     '(bar my/modals my/default-directory)
     '(irc-buffers matches my/process debug my/major-mode))
