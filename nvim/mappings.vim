@@ -1,6 +1,6 @@
 "" Split
 noremap <leader>- :only<CR>
-noremap <leader>) <C-W><C-W>
+" noremap <leader>) <C-W><C-W>
 
 "" Buffer nav
 noremap <leader>j :bp<CR>
