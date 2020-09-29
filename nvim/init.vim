@@ -69,15 +69,6 @@ let g:gitgutter_sign_modified_removed = '│'
 let g:git_messenger_no_default_mappings = v:true
 let g:blameLineGitFormat = '   %an | %ar | %s'
 
-" NERDTree
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeWinSize = 40
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-
 " Prettier
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
@@ -150,8 +141,6 @@ let g:vim_markdown_fenced_languages = ['julia=jl', 'python=py']
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/mappings.vim
 source ~/.config/nvim/cmd.vim
-" source ~/.config/nvim/coc.vim
-" source ~/.config/nvim/mappings-coc.vim
 
 " Theme
 colorscheme light
