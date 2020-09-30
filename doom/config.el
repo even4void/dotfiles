@@ -326,6 +326,10 @@
 
 (setq diary-file "~/.diary")
 (setq calendar-week-start-day 1)
+(add-hook 'diary-list-entries-hook 'diary-include-other-diary-files)
+(add-hook 'diary-mark-entries-hook 'diary-mark-included-diary-files)
+(add-hook 'diary-list-entries-hook 'diary-sort-entries t)
+
 
 (font-lock-add-keywords 'org-mode
                         '(("\\[@.+?\\]" . font-lock-keyword-face)))

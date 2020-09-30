@@ -6,7 +6,6 @@
 
 (map!
  :nv "gh"         #'lsp-ui-doc-glance
- :nv "jj"         #'evil-window-next
  :n "-"           #'dired-jump
  :n "§"           #'evil-avy-goto-char-timer
  :i "C-n"         #'dabbrev-expand
@@ -18,10 +17,6 @@
  :ni "s-<down>"   #'evil-window-down
  :ni "s-<left>"   #'evil-window-left
  :ni "s-<right>"  #'evil-window-right
-
- (:map markdown-mode-map ;; (GUI only)
-  :i "s-i" #'markdown-insert-italic
-  :i "s-b" #'markdown-insert-bold)
 
  (:after helpful
   (:map helpful-mode-map

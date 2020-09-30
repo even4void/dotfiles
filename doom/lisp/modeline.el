@@ -91,12 +91,12 @@
   (doom-modeline-def-segment my/process
     "The ongoing process details."
     (let ((result (format-mode-line mode-line-process)))
-      (concat (if (and (doom-modeline--active) (bound-and-true-p mode-line-process))
+      (concat (if (and (doom-modeline--active) (and (bound-and-true-p mode-line-process) (not (string= "python-mode" major-mode)))
                   (propertize (concat (if (or (string= "ess-stata-mode" major-mode)
                                               (string= "ess-r-mode" major-mode)) "" " ")
                                           result " ") 'face 'match)
                 (propertize (concat "" result) 'face 'mode-line-inactive))
-              (doom-modeline-spc))))
+              (doom-modeline-spc)))))
 
   (doom-modeline-def-segment my/modals
     "Display modal editing states."
