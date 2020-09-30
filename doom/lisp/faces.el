@@ -22,6 +22,7 @@
   '(highlight-quoted-symbol :foreground "#000")
   '(highlight-numbers-number :foreground "#af5f5f" :weight normal)
   '(ess-modifiers-face :foreground "#282a2e")
+  '(diary :foreground "#9099ab" :weight bold :underline t)
   '(diredfl-date-time :foreground "#7e7f81")
   '(diredfl-dir-name :weight bold)
   '(eww-valid-certificate :foreground "#9099ab" :weight bold)

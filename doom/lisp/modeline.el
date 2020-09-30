@@ -13,12 +13,15 @@
       doom-modeline-gnus nil
       doom-modeline-vcs-max-length 28)
 
+;; TODO Use doom-modeline--shorten-irc to abbreviate IRC channels
+
 (after! doom-modeline
   (doom-modeline-def-segment my/buffer
     "The buffer description and major mode icon."
     (let* ((active (doom-modeline--active))
            (face (if active 'match 'mode-line-inactive)))
-      (propertize (concat " " (doom-modeline--buffer-name) " ") 'face face)
+      (concat (propertize (concat " " (doom-modeline--buffer-name) " ") 'face face)
+              (if (buffer-modified-p) "[+]"))
             ))
 
   (doom-modeline-def-segment my/buffer-position
@@ -50,13 +53,12 @@
 
   (doom-modeline-def-segment my/flycheck
     "The error status with color codes and icons."
+    ;; TODO customize color using result from flycheck-current-errors
     (when (bound-and-true-p flycheck-mode)
       (let ((active (doom-modeline--active))
             (icon doom-modeline--flycheck-icon)
             (text doom-modeline--flycheck-text))
         (concat
-         ;; (when icon
-         ;;   (if active (propertize (concat " " icon " ") 'face 'mode-line) (doom-modeline-propertize-icon icon 'mode-line-inactive)))
          (when text
            (if active (propertize (concat " " text " ") 'face 'flycheck-info) (propertize text 'face 'mode-line-inactive)))
          (when (or icon text)
@@ -85,13 +87,15 @@
            (face (if active 'mode-line 'mode-line-inactive)))
       (concat (propertize (format-mode-line
                            (concat " " (when (and doom-modeline-env-version doom-modeline-env--version)
-                                         (format "[%s] " doom-modeline-env--version)) mode-name " ")) 'face face))))
+                                         (format "[%s] " doom-modeline-env--version)) mode-name "  ")) 'face face))))
   (doom-modeline-def-segment my/process
     "The ongoing process details."
     (let ((result (format-mode-line mode-line-process)))
-      (concat (if (doom-modeline--active)
-                  (concat " " result)
-                (propertize (concat " " result) 'face 'mode-line-inactive))
+      (concat (if (and (doom-modeline--active) (bound-and-true-p mode-line-process))
+                  (propertize (concat (if (or (string= "ess-stata-mode" major-mode)
+                                              (string= "ess-r-mode" major-mode)) "" " ")
+                                          result " ") 'face 'match)
+                (propertize (concat "" result) 'face 'mode-line-inactive))
               (doom-modeline-spc))))
 
   (doom-modeline-def-segment my/modals
@@ -109,23 +113,23 @@
                   (propertize text 'face 'mode-line-inactive))))))
 
   (doom-modeline-def-modeline 'info
-    '(bar my/modals my/buffer my/info selection-info)
+    '(my/modals my/buffer my/info selection-info)
     '(irc-buffers matches my/process debug my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'main
-    '(bar my/modals my/vcs my/buffer my/flycheck remote-host selection-info)
+    '(my/modals my/vcs my/buffer my/flycheck remote-host selection-info)
     '(irc-buffers matches my/process debug buffer-encoding my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'message
-    '(bar my/modals my/buffer-simple selection-info)
+    '(my/modals my/buffer-simple selection-info)
     '(irc-buffers matches my/process my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'org-src
-    '(bar my/modals my/buffer-simple my/flycheck selection-info)
+    '(my/modals my/buffer-simple my/flycheck selection-info)
     '(irc-buffers matches my/process debug buffer-encoding my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'project
-    '(bar my/modals my/default-directory)
+    '(my/modals my/default-directory)
     '(irc-buffers matches my/process debug my/major-mode))
   (doom-modeline-def-modeline 'special
-    '(bar my/modals my/buffer selection-info)
+    '(my/modals my/buffer selection-info)
     '(irc-buffers matches my/process debug my/buffer-position my/major-mode))
   (doom-modeline-def-modeline 'vcs
-    '(bar my/modals my/buffer remote-host selection-info)
+    '(my/modals my/buffer remote-host selection-info)
     '(irc-buffers matches my/process debug my/buffer-position my/major-mode)))

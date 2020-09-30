@@ -6,6 +6,7 @@
 
 (map!
  :nv "gh"         #'lsp-ui-doc-glance
+ :nv "jj"         #'evil-window-next
  :n "-"           #'dired-jump
  :n "§"           #'evil-avy-goto-char-timer
  :i "C-n"         #'dabbrev-expand

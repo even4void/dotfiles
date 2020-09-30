@@ -76,7 +76,7 @@ export BAT_THEME=ansi-dark
 
 # export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export LESS_TERMCAP_md=$(print -P "%F{blue}");
-export MANPAGER='less -X';
+# export MANPAGER='less -X';
 
 # http://www.johnhawthorn.com/2012/09/vi-escape-delays/
 export KEYTIMEOUT=1
