@@ -106,8 +106,10 @@
   (doom-modeline-def-segment my/vcs
     "The version control system information."
     (when-let ((branch doom-modeline--vcs-text))
-      (let ((active (doom-modeline--active))
-            (text (concat " " branch " ")))
+      (let* ((active (doom-modeline--active))
+            (backend (vc-backend buffer-file-name))
+            (state   (vc-state buffer-file-name backend))
+            (text (concat " " branch (if (memq state '(edited added removed unregistered)) "*" "") " ")))
         (concat (if active
                     (propertize text 'face 'mode-line)
                   (propertize text 'face 'mode-line-inactive))))))
