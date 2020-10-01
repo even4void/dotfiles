@@ -364,7 +364,7 @@
            "* TODO %?\n%i\n" :prepend t :kill-buffer t)
           ("m" "Mail" entry
            (file+headline +org-capture-todo-file "Inbox")
-           "* TODO [#A] [[%:path][%:subject]] :mu4e:\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
+           "* TODO [[%:path][%:subject]] :mu4e:\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
            :immediate-finish t :prepend t)
           ("n" "Personal notes" entry
            (file+headline +org-capture-notes-file "Inbox")
@@ -444,14 +444,7 @@
         org-export-with-section-numbers nil
         org-html-htmlize-output-type nil
         org-latex-default-class "tufte-handout"
-        org-latex-pdf-process '("latexmk -pdf -bibtex-cond -f -outdir=%o %f")
-        org-pandoc-options-for-html5 '((section-divs . t)
-                                       (bibliography . "/Users/chl/org/references.bib")
-                                       (template . "/Users/chl/.pandoc/templates/GitHub.html5"))
-        org-pandoc-options-for-latex-pdf '((pdf-engine . "lualatex")
-                                           (bibliography . "/Users/chl/org/references.bib")
-                                           (listings . t)
-                                           (template . "/Users/chl/.pandoc/templates/eisvogel.latex"))))
+        org-latex-pdf-process '("latexmk -pdf -bibtex-cond -f -outdir=%o %f")))
 
 ;; -- mu/irc -----------------------------------------------------------------
 (load! "lisp/mu4e")
