@@ -229,6 +229,26 @@
         ("⤒"           3 magit-repolist-column-unpushed-to-upstream   ((:right-align t)))
         ("Path"       99 magit-repolist-column-path                   ())))
 
+;; -- ibuffer ----------------------------------------------------------------
+(setq ibuffer-expert t)
+
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("dired" (mode . dired-mode))
+               ("org" (mode . org-mode))
+               ("magit" (name . "^magit"))
+               ("agenda" (or (name . "^\\*Calendar\\*$")
+                             (name . "^\\*Org Agenda\\*")))
+               ("log" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Pp Eval Output\\*$")
+                         (name . "^\\*format-all-errors\\*$")
+                         (name . "^\\*Messages\\*$")))))))
+
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")))
+
 ;; -- deft -------------------------------------------------------------------
 (setq deft-directory "~/org/z"
       deft-recursive nil

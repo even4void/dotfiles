@@ -82,21 +82,22 @@
                      'face (if active 'doom-modeline-buffer-path 'mode-line-inactive))))))
 
   (doom-modeline-def-segment my/major-mode
-    "The current major mode, including environment information."
+    "The current major mode, including environment information and ispell dictionary."
     (let* ((active (doom-modeline--active))
            (face (if active 'mode-line 'mode-line-inactive)))
       (concat (propertize (format-mode-line
-                           (concat " " (when (and doom-modeline-env-version doom-modeline-env--version)
-                                         (format "[%s] " doom-modeline-env--version)) mode-name "  ")) 'face face))))
+                           (concat " " (when (derived-mode-p 'text-mode) (format "[%s] " ispell-current-dictionary))
+                                   (when (and doom-modeline-env-version doom-modeline-env--version)
+                                     (format "[%s] " doom-modeline-env--version)) mode-name "  ")) 'face face))))
   (doom-modeline-def-segment my/process
     "The ongoing process details."
     (let ((result (format-mode-line mode-line-process)))
-      (concat (if (and (doom-modeline--active) (and (bound-and-true-p mode-line-process) (not (string= "python-mode" major-mode)))
+      (concat (if (and (doom-modeline--active) (and (bound-and-true-p mode-line-process)))
                   (propertize (concat (if (or (string= "ess-stata-mode" major-mode)
                                               (string= "ess-r-mode" major-mode)) "" " ")
                                           result " ") 'face 'match)
                 (propertize (concat "" result) 'face 'mode-line-inactive))
-              (doom-modeline-spc)))))
+              (doom-modeline-spc))))
 
   (doom-modeline-def-segment my/modals
     "Display modal editing states."
