@@ -50,6 +50,7 @@
   '(markdown-url-face :foreground "#444")
   '(markdown-inline-code-face :foreground "#444" :weight bold)
   '(markdown-math-face :foreground "#444")
+  '(markdown-code-face :background "#e7e7e7")
   '(markdown-blockquote-face :foreground "#9099ab")
   '(mu4e-highlight-face :foreground "#444" :weight bold)
   '(message-cited-text-1 :foreground "#416978")
