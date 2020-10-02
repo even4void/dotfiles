@@ -201,7 +201,6 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (setq markdown-open-command "/usr/local/bin/mark"
       markdown-command "pandoc"
-      markdown-gfm-use-electric-backquote nil
       markdown-hide-markup t
       markdown-list-item-bullets '("-")
       markdown-header-scaling nil)
