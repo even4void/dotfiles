@@ -7,9 +7,7 @@
 
 (after! mu4e
   (require 'org-mu4e)
-  (setq
-        ;; mu4e-view-use-gnus nil
-        mu4e-headers-show-threads nil
+  (setq mu4e-headers-show-threads nil
         mu4e-headers-include-related nil
         mu4e-headers-date-format "%Y-%m-%d %H:%M"
         mu4e-display-update-status-in-modeline nil
@@ -21,16 +19,14 @@
         message-citation-line-function 'message-insert-formatted-citation-line
         mu4e-compose-signature-auto-include nil
         smtpmail-queue-dir "~/.mail/queue/cur"
-        ;; smtpmail-auth-credentials (expand-file-name "~/.authinfo.gpg")
         mu4e-attachment-dir "~/Downloads")
+
   (setq mu4e-headers-fields
-        '((:account       .  10)
-          (:date          .  18)
+        '((:date          .  18)
           (:flags         .   6)
-          (:mailing-list  .  10)
           (:from          .  22)
           (:subject)))
-  ; (remove-hook 'mu4e-compose-mode-hook #'flyspell-mode)
+
   (remove-hook 'mu4e-compose-mode-hook #'org-mu4e-compose-org-mode)
 
   (setq mu4e-contexts

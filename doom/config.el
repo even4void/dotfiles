@@ -56,6 +56,8 @@
 (setq display-line-numbers-type t)
 (setq anzu-replace-to-string-separator " -> ")
 
+;; -- evil -------------------------------------------------------------------
+(setq evil-move-cursor-back nil)
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
 

@@ -86,7 +86,7 @@
     (let* ((active (doom-modeline--active))
            (face (if active 'mode-line 'mode-line-inactive)))
       (concat (propertize (format-mode-line
-                           (concat " " (when (derived-mode-p 'text-mode) (format "[%s] " ispell-current-dictionary))
+                           (concat "" (when (derived-mode-p 'text-mode) (format "[%s] " ispell-current-dictionary))
                                    (when (and doom-modeline-env-version doom-modeline-env--version)
                                      (format "[%s] " doom-modeline-env--version)) mode-name "  ")) 'face face))))
   (doom-modeline-def-segment my/process
