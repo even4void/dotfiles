@@ -52,7 +52,6 @@
  :desc "Shell cmd"                "!" #'shell-command
  :desc "Prev buffer"              "j" #'evil-prev-buffer
  :desc "Next buffer"              "k" #'evil-next-buffer
- :desc "Next window"              ")" #'flycheck-next-error
  :desc "Query regex"              "r" #'anzu-query-replace-regexp
  :desc "Org Capture"              "x" #'org-capture
  :desc "Pop up scratch buffer"    "X" #'doom/open-scratch-buffer

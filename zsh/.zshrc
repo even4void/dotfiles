@@ -120,7 +120,7 @@ export PATH="$HOME/.emacs.d/bin:$HOME/local/bioinfo/bin:$PATH"
 
 # Java stuff
 # export JAVA_HOME=(/usr/libexec/java_home -v 1.8)'/jre'
-export ARTEMIS_JAVA_JRE="/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home"
+export ARTEMIS_JAVA_JRE="/Library/Java/JavaVirtualMachines/openjdk-14.0.2.jdk/Contents/Home"
 export PSQLRC="$HOME/.config/psql/psqlrc"
 
 # Misc (Homebrew)
