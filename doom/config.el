@@ -48,7 +48,7 @@
           ("HACK" font-lock-comment-face bold)
           ("NOTE" success bold)
           ("DEPRECATED" font-lock-doc-face bold)
-          ("@@@" font-lock-comment-face))))
+          ("XXX" tooltip bold))))
 
 (setq which-key-idle-delay 0.2)
 (setq mac-option-modifier 'none)
@@ -114,7 +114,7 @@
           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
           (default       . bibtex-completion-format-citation-default))
         bibtex-completion-notes-template-one-file
-        (format "\n** ${title} ([[papers:${=key=}.pdf][${=key=}]])\n :PROPERTIES:\n :Custom_ID: ${=key=}\n :END:\n"))
+        (format "\n** ${title} ([[papers:${=key=}.pdf][${=key=}]])\n:PROPERTIES:\n:Custom_ID: ${=key=}\n:END:\n#+LATEX: \\marginnnote{\\fullcite{${=key=}}}\n"))
   (advice-add 'bibtex-completion-candidates
               :filter-return 'reverse))
 
