@@ -19,6 +19,7 @@
   '(company-tooltip-selection :background "#fffff8")
   '(tooltip :background "#d5cfb3")
   '(font-lock-comment-face :foreground "#9099ab")
+  '(font-lock-doc-face :foreground "#9099ab")
   '(font-lock-variable-name-face :foreground "#282a2e")
   '(font-lock-string-face :foreground "#af5f5f")
   ;; '(font-lock-constant-face :foreground "#282a2e")

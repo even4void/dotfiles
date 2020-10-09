@@ -297,6 +297,8 @@
 (after! lsp-clients
   (set-lsp-priority! 'clangd 1))
 
+(remove-hook 'python-mode-local-vars-hook #'lsp!)
+
 ;; -- lisp/haskell -----------------------------------------------------------
 (setq inferior-lisp-program "sbcl")
 
