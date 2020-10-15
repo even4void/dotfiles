@@ -36,6 +36,7 @@ alias sed=gsed
 alias ccl=ccl64
 alias R="R -q --no-save --no-restore"
 alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
+alias stata="jupyter console --simple-prompt --kernel stata"
 
 # Misc
 alias -g G="| grep --color=auto"
