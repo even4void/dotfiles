@@ -6,7 +6,8 @@
   '(add-to-list 'org-latex-classes
                 '("tufte-handout"
                   "\\documentclass[nobib]{tufte-handout}
-                   \\usepackage[style=authoryear-comp,autocite=footnote]{biblatex}
+                   \\usepackage[style=numeric-comp,autocite=plain]{biblatex}
+                   % \\usepackage[style=authoryear-comp,citestyle=numeric-comp,autocite=plain]{biblatex}
                    % TODO Check whether authortitle-icomp is a better fit
                    % and update '~/org/drafts/setup.el' if this is the case
                    \\addbibresource{/Users/chl/org/references.bib}

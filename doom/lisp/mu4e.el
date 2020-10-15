@@ -18,6 +18,7 @@
         message-citation-line-format "On %a, %b %d %Y (%H:%M), %N (%n) wrote:\n"
         message-citation-line-function 'message-insert-formatted-citation-line
         mu4e-compose-signature-auto-include nil
+        mu4e-compose-dont-reply-to-self t
         smtpmail-queue-dir "~/.mail/queue/cur"
         mu4e-attachment-dir "~/Downloads")
 
@@ -82,6 +83,9 @@
         (:name "Last 7 days"
          :query "date:7d..now"
          :key ?w)
+        (:name "All drafts"
+         :query "maildir:/aliquote/Drafts OR maildir:/icloud/Drafts"
+         :key ?d)
         (:name  "Messages ≥ 1 Mo"
          :query "size:1m..100m"
          :hide-unread t

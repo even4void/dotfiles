@@ -54,7 +54,7 @@
        (javascript +lsp)
        (latex +latexmk)
        markdown
-       (org +gnuplot)
+       (org +jupyter +gnuplot)
        (python +lsp +cython +poetry +pyenv)
        (racket +xp)
        (rust +lsp)

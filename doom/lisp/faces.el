@@ -18,6 +18,7 @@
   '(company-tooltip :background "#f0eee4")
   '(company-tooltip-selection :background "#fffff8")
   '(tooltip :background "#d5cfb3")
+  '(error :foreground "#bf616a" :underline nil :weight bold)
   '(font-lock-comment-face :foreground "#9099ab")
   '(font-lock-doc-face :foreground "#9099ab")
   '(font-lock-variable-name-face :foreground "#282a2e")
