@@ -21,9 +21,9 @@
     (let* ((active (doom-modeline--active))
            (face (if active 'match 'mode-line-inactive)))
       (concat (propertize (concat " " (doom-modeline--buffer-name) " ") 'face face)
-              (cond ((buffer-modified-p) "[+]")
-                    (buffer-read-only "[RO]")
-                    (t "")))))
+              (cond (buffer-read-only "[RO]")
+                     ((buffer-modified-p) "[+]")
+                     (t "")))))
 
   (doom-modeline-def-segment my/buffer-position
     "The buffer position."
